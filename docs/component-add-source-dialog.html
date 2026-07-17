@@ -1,25 +1,25 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>NekoBot Add Source Dialog Reference</title>
+    <title>NyankoBot Add Source Dialog Reference</title>
     <link rel="icon" type="image/png" href="../assets/ArnieTW_Mischevous.png" />
 <!-- SEO -->
-    <meta name="description" content="Reference for the NekoBot Add Source dialog, including text, media, URL, TTS, defined sources, trigger options, typography, animation, media, chroma, and preview controls." />
-    <meta name="keywords" content="NekoBot, OBS overlay, Streamer.bot, streaming overlay, browser source, Twitch bot, stream effects, TTS, CosyVoice, media commands" />
+    <meta name="description" content="Reference for the NyankoBot Add Source dialog, including text, media, URL, TTS, defined sources, trigger options, typography, animation, media, chroma, and preview controls." />
+    <meta name="keywords" content="NyankoBot, OBS overlay, Streamer.bot, streaming overlay, browser source, Twitch bot, stream effects, TTS, CosyVoice, media commands" />
     <meta name="author" content="ArnieTW" />
-    <link rel="canonical" href="https://arnietw.github.io/NekoBot/docs/component-add-source-dialog.html" />
-    <meta property="og:site_name" content="NekoBot" />
-    <meta property="og:title" content="NekoBot Add Source Dialog Reference" />
-    <meta property="og:description" content="Reference for the NekoBot Add Source dialog, including text, media, URL, TTS, defined sources, trigger options, typography, animation, media, chroma, and preview controls." />
+    <link rel="canonical" href="https://arnietw.github.io/NyankoBot/docs/component-add-source-dialog.html" />
+    <meta property="og:site_name" content="NyankoBot" />
+    <meta property="og:title" content="NyankoBot Add Source Dialog Reference" />
+    <meta property="og:description" content="Reference for the NyankoBot Add Source dialog, including text, media, URL, TTS, defined sources, trigger options, typography, animation, media, chroma, and preview controls." />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://arnietw.github.io/NekoBot/docs/component-add-source-dialog.html" />
-    <meta property="og:image" content="https://arnietw.github.io/NekoBot/assets/ArnieTW_Mischevous.png" />
+    <meta property="og:url" content="https://arnietw.github.io/NyankoBot/docs/component-add-source-dialog.html" />
+    <meta property="og:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="NekoBot Add Source Dialog Reference" />
-    <meta name="twitter:description" content="Reference for the NekoBot Add Source dialog, including text, media, URL, TTS, defined sources, trigger options, typography, animation, media, chroma, and preview controls." />
-    <meta name="twitter:image" content="https://arnietw.github.io/NekoBot/assets/ArnieTW_Mischevous.png" />
+    <meta name="twitter:title" content="NyankoBot Add Source Dialog Reference" />
+    <meta name="twitter:description" content="Reference for the NyankoBot Add Source dialog, including text, media, URL, TTS, defined sources, trigger options, typography, animation, media, chroma, and preview controls." />
+    <meta name="twitter:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
     <link rel="sitemap" type="application/xml" href="../sitemap.xml" />
 <!-- /SEO -->
     <link rel="stylesheet" href="../styles.css" />
@@ -27,11 +27,11 @@
 <body>
     <div class="page">
         <nav class="nav" aria-label="Main navigation">
-            <a class="brand" href="../index.html"><img class="brand-logo" src="../assets/ArnieTW_Mischevous.png" alt="" /><span>NekoBot</span></a>
+            <a class="brand" href="../index.html"><img class="brand-logo" src="../assets/ArnieTW_Mischevous.png" alt="" /><span>NyankoBot</span></a>
             <div class="nav-links">
                 <a href="index.html">Documentation</a>
                 <a href="../roadmap.html">Roadmap</a>
-                <a href="https://github.com/ArnieTW/NekoBot/issues">Issues</a>
+                <a href="https://github.com/ArnieTW/NyankoBot/issues">Issues</a>
                 <a href="../releases/">Downloads</a>
             </div>
         </nav>
@@ -130,7 +130,7 @@
                         <div><strong>UI option</strong></div>
                         <div><strong>What it means</strong></div>
                         <div><code>Source Name</code></div>
-                        <div>The label shown in the box source list. If left blank, NekoBot infers a name from the text.</div>
+                        <div>The label shown in the box source list. If left blank, NyankoBot infers a name from the text.</div>
                         <div><code>Text</code></div>
                         <div>The text rendered inside the box. <a href="component-argument-control.html#argument-control-open">Argument Control</a> can be used when the displayed text should include chat, event, or trigger data.</div>
                         <div><code>Argument Control</code></div>
@@ -153,13 +153,13 @@
                         <div><strong>UI option</strong></div>
                         <div><strong>What it means</strong></div>
                         <div><code>Source Name</code></div>
-                        <div>The label shown in the box source list. If left blank, NekoBot infers a name from the file, URL, or trigger-mapped value.</div>
+                        <div>The label shown in the box source list. If left blank, NyankoBot infers a name from the file, URL, or trigger-mapped value.</div>
                         <div><code>Media URL, trigger argument, or upload</code></div>
                         <div>Accepts an HTTP media URL, one <a href="component-argument-control.html#argument-control-arguments">Argument Control</a> mapping, or a local upload selected with the folder button.</div>
                         <div><code>Trigger argument mapping</code></div>
-                        <div>Type <code>{{</code> to insert a trigger token through the <a href="component-argument-control.html#argument-control-open">Argument Control</a>. A trigger-mapped media source must be one token by itself, for example <code>{{message.imageUrl}}</code>, so NekoBot can treat the trigger value as the media URL.</div>
+                        <div>Type <code>{{</code> to insert a trigger token through the <a href="component-argument-control.html#argument-control-open">Argument Control</a>. A trigger-mapped media source must be one token by itself, for example <code>{{message.imageUrl}}</code>, so NyankoBot can treat the trigger value as the media URL.</div>
                         <div><code>Media type</code></div>
-                        <div>Forces the source to <code>Image</code>, <code>Video</code>, or <code>Audio</code> when NekoBot cannot infer the type reliably from the file, URL, or trigger argument.</div>
+                        <div>Forces the source to <code>Image</code>, <code>Video</code>, or <code>Audio</code> when NyankoBot cannot infer the type reliably from the file, URL, or trigger argument.</div>
                         <div><code>Folder button</code></div>
                         <div>Opens the local file picker for uploading media.</div>
                         <div><code>Clear button</code></div>
@@ -185,7 +185,7 @@
                         <div><strong>UI option</strong></div>
                         <div><strong>What it means</strong></div>
                         <div><code>Source Name</code></div>
-                        <div>The label shown in the box source list. If left blank, NekoBot infers a name from the URL.</div>
+                        <div>The label shown in the box source list. If left blank, NyankoBot infers a name from the URL.</div>
                         <div><code>URL</code></div>
                         <div>The external page to render inside the box.</div>
                         <div><code>Trigger Option</code></div>
@@ -201,7 +201,7 @@
                         <div><strong>UI option</strong></div>
                         <div><strong>What it means</strong></div>
                         <div><code>Source Name</code></div>
-                        <div>The label shown in the box source list. If left blank, NekoBot infers a name from the TTS message.</div>
+                        <div>The label shown in the box source list. If left blank, NyankoBot infers a name from the TTS message.</div>
                         <div><code>Model</code></div>
                         <div>The TTS model that should generate the voice line.</div>
                         <div><code>Voice</code></div>
@@ -238,7 +238,7 @@
                         <div><code>Timer (ms)</code></div>
                         <div>How long the source remains active before hiding. The value is milliseconds, so <code>5000</code> means five seconds.</div>
                         <div><code>Auto duration</code></div>
-                        <div>For media sources, NekoBot can use detected audio or video duration when the file exposes it.</div>
+                        <div>For media sources, NyankoBot can use detected audio or video duration when the file exposes it.</div>
                     </div>
                 </section>
 
@@ -312,7 +312,7 @@
                         <div><code>Color Picker (in "Key color")</code></div>
                         <div>Click the Key color swatch, then sample the background directly from the preview pane when the color picker or eyedropper is open. This is the easiest way to match the real chroma color instead of guessing.</div>
                         <div><code>Similarity</code></div>
-                        <div>How broadly NekoBot matches colors near the key color. Higher values remove more related shades.</div>
+                        <div>How broadly NyankoBot matches colors near the key color. Higher values remove more related shades.</div>
                         <div><code>Smoothness</code></div>
                         <div>Softens the keyed edge. Increase it when the cutout edge looks harsh.</div>
                     </div>

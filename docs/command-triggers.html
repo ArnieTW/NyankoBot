@@ -3,33 +3,33 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>NekoBot Command Triggers - Connector Events, Actions, and Cooldowns</title>
+    <title>NyankoBot Command Triggers - Connector Events, Actions, and Cooldowns</title>
     <link rel="icon" type="image/png" href="../assets/ArnieTW_Mischevous.png" />
-    <meta name="description" content="Create NekoBot command triggers, connect them to platform events, configure cooldowns, and bind actions or overlay boxes." />
-    <meta name="keywords" content="NekoBot command triggers, Twitch commands, Kick commands, channel rewards, stream automation, overlay triggers" />
+    <meta name="description" content="Create NyankoBot command triggers, connect them to platform events, configure cooldowns, and bind actions or overlay boxes." />
+    <meta name="keywords" content="NyankoBot command triggers, Twitch commands, Kick commands, channel rewards, stream automation, overlay triggers" />
     <meta name="author" content="ArnieTW" />
-    <link rel="canonical" href="https://arnietw.github.io/NekoBot/docs/command-triggers.html" />
-    <meta property="og:site_name" content="NekoBot" />
-    <meta property="og:title" content="NekoBot Command Triggers - Connector Events, Actions, and Cooldowns" />
-    <meta property="og:description" content="Create NekoBot command triggers, connect them to platform events, configure cooldowns, and bind actions or overlay boxes." />
+    <link rel="canonical" href="https://arnietw.github.io/NyankoBot/docs/command-triggers.html" />
+    <meta property="og:site_name" content="NyankoBot" />
+    <meta property="og:title" content="NyankoBot Command Triggers - Connector Events, Actions, and Cooldowns" />
+    <meta property="og:description" content="Create NyankoBot command triggers, connect them to platform events, configure cooldowns, and bind actions or overlay boxes." />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://arnietw.github.io/NekoBot/docs/command-triggers.html" />
-    <meta property="og:image" content="https://arnietw.github.io/NekoBot/assets/ArnieTW_Mischevous.png" />
+    <meta property="og:url" content="https://arnietw.github.io/NyankoBot/docs/command-triggers.html" />
+    <meta property="og:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="NekoBot Command Triggers - Connector Events, Actions, and Cooldowns" />
-    <meta name="twitter:description" content="Create NekoBot command triggers, connect them to platform events, configure cooldowns, and bind actions or overlay boxes." />
-    <meta name="twitter:image" content="https://arnietw.github.io/NekoBot/assets/ArnieTW_Mischevous.png" />
+    <meta name="twitter:title" content="NyankoBot Command Triggers - Connector Events, Actions, and Cooldowns" />
+    <meta name="twitter:description" content="Create NyankoBot command triggers, connect them to platform events, configure cooldowns, and bind actions or overlay boxes." />
+    <meta name="twitter:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
     <link rel="sitemap" type="application/xml" href="../sitemap.xml" />
     <link rel="stylesheet" href="../styles.css" />
 </head>
 <body>
     <div class="page">
         <nav class="nav" aria-label="Main navigation">
-            <a class="brand" href="../index.html"><img class="brand-logo" src="../assets/ArnieTW_Mischevous.png" alt="" /><span>NekoBot</span></a>
+            <a class="brand" href="../index.html"><img class="brand-logo" src="../assets/ArnieTW_Mischevous.png" alt="" /><span>NyankoBot</span></a>
             <div class="nav-links">
                 <a href="index.html">Documentation</a>
                 <a href="../roadmap.html">Roadmap</a>
-                <a href="https://github.com/ArnieTW/NekoBot/issues">Issues</a>
+                <a href="https://github.com/ArnieTW/NyankoBot/issues">Issues</a>
                 <a href="../releases/">Downloads</a>
             </div>
         </nav>
@@ -57,18 +57,18 @@
                 <section>
                     <p class="kicker">Setup Page</p>
                     <h1>Command Triggers</h1>
-                    <p class="lead">Command Triggers are NekoBot-owned trigger definitions that can be fired by connector events and then used by overlay boxes or action flows.</p>
+                    <p class="lead">Command Triggers are NyankoBot-owned trigger definitions that can be fired by connector events and then used by overlay boxes or action flows.</p>
                 </section>
 
                 <section class="panel" id="trigger-list">
                     <h2>Trigger List</h2>
-                    <img class="screenshot" src="../assets/screenshots/command-triggers.png" alt="NekoBot Command Triggers setup page" />
+                    <img class="screenshot" src="../assets/screenshots/command-triggers.png" alt="NyankoBot Command Triggers setup page" />
                     <p>The list groups saved triggers, shows whether they are enabled, and gives quick access to history and creation.</p>
                     <div class="token-table" role="table" aria-label="Command trigger list controls">
                         <div role="row"><strong role="cell">Control</strong><strong role="cell">What it does</strong></div>
                         <div role="row"><code role="cell">Search triggers</code><span role="cell">Filters the trigger list by name, group, or details.</span></div>
                         <div role="row"><code role="cell">History</code><span role="cell">Opens recent trigger activity so you can debug why something did or did not fire.</span></div>
-                        <div role="row"><code role="cell">Add Trigger</code><span role="cell">Creates a new NekoBot trigger definition.</span></div>
+                        <div role="row"><code role="cell">Add Trigger</code><span role="cell">Creates a new NyankoBot trigger definition.</span></div>
                         <div role="row"><code role="cell">Enabled</code><span role="cell">Shows whether the saved trigger can currently run.</span></div>
                     </div>
                 </section>
@@ -80,8 +80,8 @@
                         <div role="row"><strong role="cell">Area</strong><strong role="cell">Use it for</strong></div>
                         <div role="row"><code role="cell">Trigger Info</code><span role="cell">Name, group, enabled state, and basic trigger identity.</span></div>
                         <div role="row"><code role="cell">Cooldowns</code><span role="cell">Global, per-user, and role-based timing limits.</span></div>
-                        <div role="row"><code role="cell">Triggers</code><span role="cell">Connector events or local events that should fire this NekoBot trigger.</span></div>
-                        <div role="row"><code role="cell">Actions</code><span role="cell">Work NekoBot should run when this trigger fires.</span></div>
+                        <div role="row"><code role="cell">Triggers</code><span role="cell">Connector events or local events that should fire this NyankoBot trigger.</span></div>
+                        <div role="row"><code role="cell">Actions</code><span role="cell">Work NyankoBot should run when this trigger fires.</span></div>
                     </div>
                 </section>
 

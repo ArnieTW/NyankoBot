@@ -1,20 +1,21 @@
-NekoBot End User License Agreement
+NyankoBot End User License Agreement
 
 Copyright (c) 2026 ArnieTW. All rights reserved.
 
-NekoBot application binaries are proprietary software.
+NyankoBot application binaries are proprietary software.
 
-You may install and run NekoBot for personal use.
+You may install and run NyankoBot for personal use.
 
 You may not:
 
-- redistribute NekoBot release packages or binaries without written permission;
-- modify, reverse engineer, decompile, or disassemble NekoBot;
-- resell, sublicense, rent, lease, or commercially host NekoBot;
+- redistribute NyankoBot release packages or binaries without written permission;
+- modify, reverse engineer, decompile, or disassemble NyankoBot;
+- resell, sublicense, rent, lease, or commercially host NyankoBot;
 - remove copyright, attribution, license, or third-party notice files;
-- use NekoBot names, logos, icons, or assets in a way that implies endorsement.
+- use NyankoBot names, logos, icons, or assets in a way that implies endorsement.
 
 Third-party components remain under their own licenses. Required notices and
 acknowledgements should be preserved with every release package.
 
-NekoBot is provided as-is, without warranty of any kind.
+NyankoBot is provided as-is, without warranty of any kind.
+

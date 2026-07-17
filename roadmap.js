@@ -1,6 +1,6 @@
 (function () {
-    const roadmapMarkdownUrl = "https://raw.githubusercontent.com/wiki/ArnieTW/NekoBot/Roadmap.md";
-    const wikiRoadmapUrl = "https://github.com/ArnieTW/NekoBot/wiki/Roadmap";
+    const roadmapMarkdownUrl = "https://raw.githubusercontent.com/wiki/ArnieTW/NyankoBot/Roadmap.md";
+    const wikiRoadmapUrl = "https://github.com/ArnieTW/NyankoBot/wiki/Roadmap";
     const contentSelector = "[data-roadmap-content]";
     const statusSelector = "[data-roadmap-status]";
 

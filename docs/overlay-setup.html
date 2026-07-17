@@ -1,25 +1,25 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>NekoBot Overlay Setup - OBS Browser Source Overlays</title>
+    <title>NyankoBot Overlay Setup - OBS Browser Source Overlays</title>
     <link rel="icon" type="image/png" href="../assets/ArnieTW_Mischevous.png" />
 <!-- SEO -->
-    <meta name="description" content="Learn how NekoBot overlays work, how to create one full-scene OBS browser source, position boxes, add sources, bind triggers, and copy the OBS URL." />
-    <meta name="keywords" content="NekoBot, OBS overlay, Streamer.bot, streaming overlay, browser source, Twitch bot, stream effects, TTS, CosyVoice, media commands" />
+    <meta name="description" content="Learn how NyankoBot overlays work, how to create one full-scene OBS browser source, position boxes, add sources, bind triggers, and copy the OBS URL." />
+    <meta name="keywords" content="NyankoBot, OBS overlay, Streamer.bot, streaming overlay, browser source, Twitch bot, stream effects, TTS, CosyVoice, media commands" />
     <meta name="author" content="ArnieTW" />
-    <link rel="canonical" href="https://arnietw.github.io/NekoBot/docs/overlay-setup.html" />
-    <meta property="og:site_name" content="NekoBot" />
-    <meta property="og:title" content="NekoBot Overlay Setup - OBS Browser Source Overlays" />
-    <meta property="og:description" content="Learn how NekoBot overlays work, how to create one full-scene OBS browser source, position boxes, add sources, bind triggers, and copy the OBS URL." />
+    <link rel="canonical" href="https://arnietw.github.io/NyankoBot/docs/overlay-setup.html" />
+    <meta property="og:site_name" content="NyankoBot" />
+    <meta property="og:title" content="NyankoBot Overlay Setup - OBS Browser Source Overlays" />
+    <meta property="og:description" content="Learn how NyankoBot overlays work, how to create one full-scene OBS browser source, position boxes, add sources, bind triggers, and copy the OBS URL." />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://arnietw.github.io/NekoBot/docs/overlay-setup.html" />
-    <meta property="og:image" content="https://arnietw.github.io/NekoBot/assets/ArnieTW_Mischevous.png" />
+    <meta property="og:url" content="https://arnietw.github.io/NyankoBot/docs/overlay-setup.html" />
+    <meta property="og:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="NekoBot Overlay Setup - OBS Browser Source Overlays" />
-    <meta name="twitter:description" content="Learn how NekoBot overlays work, how to create one full-scene OBS browser source, position boxes, add sources, bind triggers, and copy the OBS URL." />
-    <meta name="twitter:image" content="https://arnietw.github.io/NekoBot/assets/ArnieTW_Mischevous.png" />
+    <meta name="twitter:title" content="NyankoBot Overlay Setup - OBS Browser Source Overlays" />
+    <meta name="twitter:description" content="Learn how NyankoBot overlays work, how to create one full-scene OBS browser source, position boxes, add sources, bind triggers, and copy the OBS URL." />
+    <meta name="twitter:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
     <link rel="sitemap" type="application/xml" href="../sitemap.xml" />
 <!-- /SEO -->
     <link rel="stylesheet" href="../styles.css" />
@@ -27,11 +27,11 @@
 <body>
     <div class="page">
         <nav class="nav" aria-label="Main navigation">
-            <a class="brand" href="../index.html"><img class="brand-logo" src="../assets/ArnieTW_Mischevous.png" alt="" /><span>NekoBot</span></a>
+            <a class="brand" href="../index.html"><img class="brand-logo" src="../assets/ArnieTW_Mischevous.png" alt="" /><span>NyankoBot</span></a>
             <div class="nav-links">
                 <a href="index.html">Documentation</a>
                 <a href="../roadmap.html">Roadmap</a>
-                <a href="https://github.com/ArnieTW/NekoBot/issues">Issues</a>
+                <a href="https://github.com/ArnieTW/NyankoBot/issues">Issues</a>
                 <a href="../releases/">Downloads</a>
             </div>
         </nav>
@@ -94,7 +94,7 @@
                     <h2>How Overlays Work</h2>
                     <p>Create one overlay for the stream scene, then add that overlay to OBS as a browser source that covers the whole scene. The overlay itself acts like a transparent stage on top of your stream.</p>
                     <p>Inside that overlay, create multiple boxes. Each box reserves a position on the stream and can react to its own triggers. This is the pattern you want for different memes, audio and video cues, chat callouts, alerts, TTS responses, and other stream effects.</p>
-                    <p>Instead of adding a separate browser source for every meme or cue, keep one full-scene NekoBot overlay in OBS and let NekoBot decide which box appears when a trigger fires.</p>
+                    <p>Instead of adding a separate browser source for every meme or cue, keep one full-scene NyankoBot overlay in OBS and let NyankoBot decide which box appears when a trigger fires.</p>
                 </section>
 
                 <section class="panel" id="page-controls">
@@ -145,11 +145,11 @@
 
                 <section class="panel" id="triggers">
                     <h2>Triggers</h2>
-                    <p>Triggers decide when a box runs. After connecting Streamer.bot, NekoBot can bind chat messages, commands, actions, or raw subscribed events to a box.</p>
+                    <p>Triggers decide when a box runs. After connecting Streamer.bot, NyankoBot can bind chat messages, commands, actions, or raw subscribed events to a box.</p>
                     <ul>
                         <li><strong>Chat message</strong> triggers are good for chat overlays and token-driven text.</li>
                         <li><strong>Command</strong> triggers are good for intentional effects like <code>!hype</code>, <code>!tts</code>, or <code>!meme</code>.</li>
-                        <li><strong>Action</strong> triggers let Streamer.bot actions drive a NekoBot box.</li>
+                        <li><strong>Action</strong> triggers let Streamer.bot actions drive a NyankoBot box.</li>
                         <li><strong>Raw triggers</strong> can be narrowed with hit rules when only specific trigger data should run the box.</li>
                     </ul>
                     <p>New trigger bindings are created through the <a href="component-add-trigger.html">Add Trigger</a> control. Use command triggers for viewer commands, action triggers for Streamer.bot action flows, and raw triggers when you need to match a subscribed event directly.</p>
@@ -175,7 +175,7 @@
                         <li>Click <code>Copy OBS URL</code>, or use Open Overlay and copy the browser URL.</li>
                         <li>Add a Browser Source in OBS.</li>
                         <li>Set the browser source to the full scene size, usually <code>1920x1080</code> or your canvas size.</li>
-                        <li>Keep this one NekoBot source above the scene content that the effects should cover.</li>
+                        <li>Keep this one NyankoBot source above the scene content that the effects should cover.</li>
                     </ol>
                 </section>
 

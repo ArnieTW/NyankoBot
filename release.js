@@ -1,6 +1,6 @@
 (function () {
     const owner = "ArnieTW";
-    const repo = "NekoBot";
+    const repo = "NyankoBot";
     const allReleasesUrl = `https://github.com/${owner}/${repo}/releases`;
     const releasesApiUrl = `https://api.github.com/repos/${owner}/${repo}/releases?per_page=20`;
     const fallbackUrl = allReleasesUrl;
@@ -23,21 +23,21 @@
             title: "Windows x64",
             kicker: "Recommended",
             description: "Tray-enabled Windows build. Use this for normal desktop streaming setups.",
-            pattern: /^NekoBot-win-x64-.+\.(zip|msi|exe)$/i
+            pattern: /^NyankoBot-win-x64-.+\.(zip|msi|exe)$/i
         },
         {
             key: "linux",
             title: "Linux x64",
             kicker: "Testing",
             description: "Linux desktop build with the local setup UI. This build is prepared for testing.",
-            pattern: /^NekoBot-linux-(?!headless).+\.(tar\.gz|zip)$/i
+            pattern: /^NyankoBot-linux-(?!headless).+\.(tar\.gz|zip)$/i
         },
         {
             key: "linux-headless",
             title: "Linux x64 Headless",
             kicker: "Server",
             description: "Linux build without a local tray UI. Manage it from the web setup page.",
-            pattern: /^NekoBot-linux-headless-.+\.(tar\.gz|zip)$/i
+            pattern: /^NyankoBot-linux-headless-.+\.(tar\.gz|zip)$/i
         }
     ];
 

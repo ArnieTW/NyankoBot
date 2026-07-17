@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>NekoBot OAuth Handoff</title>
+    <title>NyankoBot OAuth Handoff</title>
     <link rel="icon" type="image/png" href="../assets/ArnieTW_Mischevous.png">
     <style>
         :root {
@@ -83,7 +83,7 @@
 </head>
 <body>
 <main>
-    <h1 id="title">NekoBot OAuth</h1>
+    <h1 id="title">NyankoBot OAuth</h1>
     <p id="message">Preparing login handoff...</p>
     <div id="action"></div>
 </main>
@@ -100,7 +100,7 @@
     }
 
     function storageKey(state) {
-        return `nekobot-oauth-return:${state || 'default'}`;
+        return `nyankobot-oauth-return:${state || 'default'}`;
     }
 
     function rememberReturnTarget() {
@@ -147,7 +147,7 @@
 
         const returnTo = readReturnTarget(state);
         if (!returnTo) {
-            setStatus('Return target missing', 'This browser tab no longer knows which local NekoBot instance started the login.');
+            setStatus('Return target missing', 'This browser tab no longer knows which local NyankoBot instance started the login.');
             const code = document.createElement('code');
             code.textContent = window.location.href;
             action.appendChild(code);
@@ -160,13 +160,13 @@
             target.searchParams.set(key, value);
         }
 
-        setStatus('Returning to NekoBot', 'Sending the login result back to your local NekoBot instance.');
+        setStatus('Returning to NyankoBot', 'Sending the login result back to your local NyankoBot instance.');
         window.location.replace(target.toString());
         return true;
     }
 
     if (!rememberReturnTarget() && !forwardCallback()) {
-        setStatus('NekoBot OAuth handoff', 'Open this page through NekoBot when connecting a Twitch or Kick account.');
+        setStatus('NyankoBot OAuth handoff', 'Open this page through NyankoBot when connecting a Twitch or Kick account.');
     }
 </script>
 </body>

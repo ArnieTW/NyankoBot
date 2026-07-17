@@ -3,33 +3,33 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>NekoBot Connectors - Streamer.bot, Twitch, and Kick Setup</title>
+    <title>NyankoBot Connectors - Streamer.bot, Twitch, and Kick Setup</title>
     <link rel="icon" type="image/png" href="../assets/ArnieTW_Mischevous.png" />
-    <meta name="description" content="Configure NekoBot connectors for Streamer.bot, Twitch, and Kick so chat, rewards, commands, and platform events can drive overlays and actions." />
-    <meta name="keywords" content="NekoBot connectors, Twitch connector, Kick connector, Streamer.bot connector, OBS overlay, stream automation" />
+    <meta name="description" content="Configure NyankoBot connectors for Streamer.bot, Twitch, and Kick so chat, rewards, commands, and platform events can drive overlays and actions." />
+    <meta name="keywords" content="NyankoBot connectors, Twitch connector, Kick connector, Streamer.bot connector, OBS overlay, stream automation" />
     <meta name="author" content="ArnieTW" />
-    <link rel="canonical" href="https://arnietw.github.io/NekoBot/docs/connectors.html" />
-    <meta property="og:site_name" content="NekoBot" />
-    <meta property="og:title" content="NekoBot Connectors - Streamer.bot, Twitch, and Kick Setup" />
-    <meta property="og:description" content="Configure NekoBot connectors for Streamer.bot, Twitch, and Kick so chat, rewards, commands, and platform events can drive overlays and actions." />
+    <link rel="canonical" href="https://arnietw.github.io/NyankoBot/docs/connectors.html" />
+    <meta property="og:site_name" content="NyankoBot" />
+    <meta property="og:title" content="NyankoBot Connectors - Streamer.bot, Twitch, and Kick Setup" />
+    <meta property="og:description" content="Configure NyankoBot connectors for Streamer.bot, Twitch, and Kick so chat, rewards, commands, and platform events can drive overlays and actions." />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://arnietw.github.io/NekoBot/docs/connectors.html" />
-    <meta property="og:image" content="https://arnietw.github.io/NekoBot/assets/ArnieTW_Mischevous.png" />
+    <meta property="og:url" content="https://arnietw.github.io/NyankoBot/docs/connectors.html" />
+    <meta property="og:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="NekoBot Connectors - Streamer.bot, Twitch, and Kick Setup" />
-    <meta name="twitter:description" content="Configure NekoBot connectors for Streamer.bot, Twitch, and Kick so chat, rewards, commands, and platform events can drive overlays and actions." />
-    <meta name="twitter:image" content="https://arnietw.github.io/NekoBot/assets/ArnieTW_Mischevous.png" />
+    <meta name="twitter:title" content="NyankoBot Connectors - Streamer.bot, Twitch, and Kick Setup" />
+    <meta name="twitter:description" content="Configure NyankoBot connectors for Streamer.bot, Twitch, and Kick so chat, rewards, commands, and platform events can drive overlays and actions." />
+    <meta name="twitter:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
     <link rel="sitemap" type="application/xml" href="../sitemap.xml" />
     <link rel="stylesheet" href="../styles.css" />
 </head>
 <body>
     <div class="page">
         <nav class="nav" aria-label="Main navigation">
-            <a class="brand" href="../index.html"><img class="brand-logo" src="../assets/ArnieTW_Mischevous.png" alt="" /><span>NekoBot</span></a>
+            <a class="brand" href="../index.html"><img class="brand-logo" src="../assets/ArnieTW_Mischevous.png" alt="" /><span>NyankoBot</span></a>
             <div class="nav-links">
                 <a href="index.html">Documentation</a>
                 <a href="../roadmap.html">Roadmap</a>
-                <a href="https://github.com/ArnieTW/NekoBot/issues">Issues</a>
+                <a href="https://github.com/ArnieTW/NyankoBot/issues">Issues</a>
                 <a href="../releases/">Downloads</a>
             </div>
         </nav>
@@ -62,17 +62,17 @@
                 <section>
                     <p class="kicker">Setup Page</p>
                     <h1>Connectors</h1>
-                    <p class="lead">Connectors are the bridge between external platforms and NekoBot. They feed chat, reward, command, and platform events into overlays and command triggers.</p>
+                    <p class="lead">Connectors are the bridge between external platforms and NyankoBot. They feed chat, reward, command, and platform events into overlays and command triggers.</p>
                 </section>
 
                 <section class="panel" id="connector-list">
                     <h2>Connector List</h2>
-                    <img class="screenshot" src="../assets/screenshots/connectors.png" alt="NekoBot Connectors setup page" />
+                    <img class="screenshot" src="../assets/screenshots/connectors.png" alt="NyankoBot Connectors setup page" />
                     <p>The Connectors page shows every configured connector, its current state, and whether it is enabled. Use <code>Add Connector</code> when you need another platform account or another integration instance.</p>
                     <div class="token-table" role="table" aria-label="Connector list controls">
                         <div role="row"><strong role="cell">UI area</strong><strong role="cell">What it means</strong></div>
                         <div role="row"><code role="cell">Connector card</code><span role="cell">Shows the connector icon, display name, internal type, connection state, and enabled toggle.</span></div>
-                        <div role="row"><code role="cell">Connected / Disabled</code><span role="cell">Shows whether the connector runtime is currently active and usable by NekoBot.</span></div>
+                        <div role="row"><code role="cell">Connected / Disabled</code><span role="cell">Shows whether the connector runtime is currently active and usable by NyankoBot.</span></div>
                         <div role="row"><code role="cell">Toggle</code><span role="cell">Enables or disables that connector without deleting its saved settings.</span></div>
                         <div role="row"><code role="cell">Add Connector</code><span role="cell">Creates a new connector instance for a supported integration.</span></div>
                     </div>
@@ -82,8 +82,8 @@
                     <h2>Connector Types</h2>
                     <div class="token-table" role="table" aria-label="Connector types">
                         <div role="row"><strong role="cell">Connector</strong><strong role="cell">Use it for</strong></div>
-                        <div role="row"><code role="cell">Streamer.bot</code><span role="cell">Bridge existing Streamer.bot events and workflows into NekoBot.</span></div>
-                        <div role="row"><code role="cell">Twitch</code><span role="cell">Read Twitch chat, channel reward redemptions, and supported Twitch events through NekoBot's connector layer.</span></div>
+                        <div role="row"><code role="cell">Streamer.bot</code><span role="cell">Bridge existing Streamer.bot events and workflows into NyankoBot.</span></div>
+                        <div role="row"><code role="cell">Twitch</code><span role="cell">Read Twitch chat, channel reward redemptions, and supported Twitch events through NyankoBot's connector layer.</span></div>
                         <div role="row"><code role="cell">Kick</code><span role="cell">Read Kick chat and supported Kick platform events through the same connector model.</span></div>
                     </div>
                     <p>Connector events can be used by <a href="command-triggers.html">Command Triggers</a>, overlay box triggers, chat monitoring, and reward workflows.</p>
@@ -91,7 +91,7 @@
 
                 <section class="panel" id="status-bar">
                     <h2>Status Bar</h2>
-                    <p>The Setup Home header now shows connector health, connected overlay viewers, Chat, and Settings. Use it as the quick read on whether NekoBot is connected before testing overlays.</p>
+                    <p>The Setup Home header now shows connector health, connected overlay viewers, Chat, and Settings. Use it as the quick read on whether NyankoBot is connected before testing overlays.</p>
                     <ul>
                         <li><code>Connectors</code> shows how many configured connectors are currently connected.</li>
                         <li><code>Viewers</code> shows connected overlay viewers, including OBS browser sources and open overlay preview pages.</li>

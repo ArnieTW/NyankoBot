@@ -1,25 +1,25 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>NekoBot Overlay Component Reference</title>
+    <title>NyankoBot Overlay Component Reference</title>
     <link rel="icon" type="image/png" href="../assets/ArnieTW_Mischevous.png" />
 <!-- SEO -->
-    <meta name="description" content="Reference for the NekoBot Overlay component, including saved overlays, editor toolbar, stage, stream preview inspector, and OBS URL behavior." />
-    <meta name="keywords" content="NekoBot, OBS overlay, Streamer.bot, streaming overlay, browser source, Twitch bot, stream effects, TTS, CosyVoice, media commands" />
+    <meta name="description" content="Reference for the NyankoBot Overlay component, including saved overlays, editor toolbar, stage, stream preview inspector, and OBS URL behavior." />
+    <meta name="keywords" content="NyankoBot, OBS overlay, Streamer.bot, streaming overlay, browser source, Twitch bot, stream effects, TTS, CosyVoice, media commands" />
     <meta name="author" content="ArnieTW" />
-    <link rel="canonical" href="https://arnietw.github.io/NekoBot/docs/component-overlay.html" />
-    <meta property="og:site_name" content="NekoBot" />
-    <meta property="og:title" content="NekoBot Overlay Component Reference" />
-    <meta property="og:description" content="Reference for the NekoBot Overlay component, including saved overlays, editor toolbar, stage, stream preview inspector, and OBS URL behavior." />
+    <link rel="canonical" href="https://arnietw.github.io/NyankoBot/docs/component-overlay.html" />
+    <meta property="og:site_name" content="NyankoBot" />
+    <meta property="og:title" content="NyankoBot Overlay Component Reference" />
+    <meta property="og:description" content="Reference for the NyankoBot Overlay component, including saved overlays, editor toolbar, stage, stream preview inspector, and OBS URL behavior." />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://arnietw.github.io/NekoBot/docs/component-overlay.html" />
-    <meta property="og:image" content="https://arnietw.github.io/NekoBot/assets/ArnieTW_Mischevous.png" />
+    <meta property="og:url" content="https://arnietw.github.io/NyankoBot/docs/component-overlay.html" />
+    <meta property="og:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="NekoBot Overlay Component Reference" />
-    <meta name="twitter:description" content="Reference for the NekoBot Overlay component, including saved overlays, editor toolbar, stage, stream preview inspector, and OBS URL behavior." />
-    <meta name="twitter:image" content="https://arnietw.github.io/NekoBot/assets/ArnieTW_Mischevous.png" />
+    <meta name="twitter:title" content="NyankoBot Overlay Component Reference" />
+    <meta name="twitter:description" content="Reference for the NyankoBot Overlay component, including saved overlays, editor toolbar, stage, stream preview inspector, and OBS URL behavior." />
+    <meta name="twitter:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
     <link rel="sitemap" type="application/xml" href="../sitemap.xml" />
 <!-- /SEO -->
     <link rel="stylesheet" href="../styles.css" />
@@ -27,11 +27,11 @@
 <body>
     <div class="page">
         <nav class="nav" aria-label="Main navigation">
-            <a class="brand" href="../index.html"><img class="brand-logo" src="../assets/ArnieTW_Mischevous.png" alt="" /><span>NekoBot</span></a>
+            <a class="brand" href="../index.html"><img class="brand-logo" src="../assets/ArnieTW_Mischevous.png" alt="" /><span>NyankoBot</span></a>
             <div class="nav-links">
                 <a href="index.html">Documentation</a>
                 <a href="../roadmap.html">Roadmap</a>
-                <a href="https://github.com/ArnieTW/NekoBot/issues">Issues</a>
+                <a href="https://github.com/ArnieTW/NyankoBot/issues">Issues</a>
                 <a href="../releases/">Downloads</a>
             </div>
         </nav>
@@ -91,7 +91,7 @@
 
                 <section class="panel" id="overlay-purpose">
                     <h2>What It Controls</h2>
-                    <p>An overlay should be added to OBS as one full-scene browser source. NekoBot then uses boxes inside that overlay to show different memes, videos, sounds, text, TTS, and other cues.</p>
+                    <p>An overlay should be added to OBS as one full-scene browser source. NyankoBot then uses boxes inside that overlay to show different memes, videos, sounds, text, TTS, and other cues.</p>
                     <p>Use one overlay for one stream layout. If your OBS scene has a different layout for gameplay, chatting, or BRB, create separate overlays for those scene layouts.</p>
                 </section>
 
@@ -114,7 +114,7 @@
 
                 <section class="panel" id="overlay-empty-state">
                     <h2>Empty State</h2>
-                    <p>When no overlays exist, NekoBot shows a message instead of the editor. Create a new overlay first; the name field, stage, and box controls appear after there is an overlay to edit.</p>
+                    <p>When no overlays exist, NyankoBot shows a message instead of the editor. Create a new overlay first; the name field, stage, and box controls appear after there is an overlay to edit.</p>
                 </section>
 
                 <section class="panel" id="overlay-toolbar">
@@ -151,7 +151,7 @@
                 <section class="panel" id="overlay-inspector">
                     <h2>Overlay Inspector</h2>
                     <img class="screenshot" src="../assets/screenshots/overlay-inspector.png" alt="Overlay setup with the Stream Preview Inspector open" />
-                    <p>Click the empty Stream Preview area on the stage to open the <code>Stream Preview Inspector</code>. This selects the overlay preview itself instead of a box. If you click a box, NekoBot opens the box inspector instead.</p>
+                    <p>Click the empty Stream Preview area on the stage to open the <code>Stream Preview Inspector</code>. This selects the overlay preview itself instead of a box. If you click a box, NyankoBot opens the box inspector instead.</p>
                     <div class="token-table">
                         <div><strong>UI option</strong></div>
                         <div><strong>What it means</strong></div>

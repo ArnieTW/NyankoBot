@@ -1,145 +1,145 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://arnietw.github.io/NekoBot/</loc>
+    <loc>https://arnietw.github.io/NyankoBot/</loc>
     <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://arnietw.github.io/NekoBot/releases/index.html</loc>
+    <loc>https://arnietw.github.io/NyankoBot/releases/index.html</loc>
     <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://arnietw.github.io/NekoBot/roadmap.html</loc>
+    <loc>https://arnietw.github.io/NyankoBot/roadmap.html</loc>
     <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://arnietw.github.io/NekoBot/business-information.html</loc>
+    <loc>https://arnietw.github.io/NyankoBot/business-information.html</loc>
     <lastmod>2026-06-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://arnietw.github.io/NekoBot/docs/index.html</loc>
+    <loc>https://arnietw.github.io/NyankoBot/docs/index.html</loc>
     <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://arnietw.github.io/NekoBot/docs/download-install.html</loc>
+    <loc>https://arnietw.github.io/NyankoBot/docs/download-install.html</loc>
     <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://arnietw.github.io/NekoBot/docs/quick-setup.html</loc>
+    <loc>https://arnietw.github.io/NyankoBot/docs/quick-setup.html</loc>
     <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://arnietw.github.io/NekoBot/docs/overlay-setup.html</loc>
+    <loc>https://arnietw.github.io/NyankoBot/docs/overlay-setup.html</loc>
     <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://arnietw.github.io/NekoBot/docs/connectors.html</loc>
+    <loc>https://arnietw.github.io/NyankoBot/docs/connectors.html</loc>
     <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://arnietw.github.io/NekoBot/docs/command-triggers.html</loc>
+    <loc>https://arnietw.github.io/NyankoBot/docs/command-triggers.html</loc>
     <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://arnietw.github.io/NekoBot/docs/channel-rewards.html</loc>
+    <loc>https://arnietw.github.io/NyankoBot/docs/channel-rewards.html</loc>
     <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://arnietw.github.io/NekoBot/docs/chat.html</loc>
+    <loc>https://arnietw.github.io/NyankoBot/docs/chat.html</loc>
     <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://arnietw.github.io/NekoBot/docs/streamerbot.html</loc>
+    <loc>https://arnietw.github.io/NyankoBot/docs/streamerbot.html</loc>
     <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://arnietw.github.io/NekoBot/docs/tts.html</loc>
+    <loc>https://arnietw.github.io/NyankoBot/docs/tts.html</loc>
     <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://arnietw.github.io/NekoBot/docs/manage-sources.html</loc>
+    <loc>https://arnietw.github.io/NyankoBot/docs/manage-sources.html</loc>
     <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://arnietw.github.io/NekoBot/docs/settings.html</loc>
+    <loc>https://arnietw.github.io/NyankoBot/docs/settings.html</loc>
     <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://arnietw.github.io/NekoBot/docs/troubleshooting.html</loc>
+    <loc>https://arnietw.github.io/NyankoBot/docs/troubleshooting.html</loc>
     <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://arnietw.github.io/NekoBot/docs/examples.html</loc>
+    <loc>https://arnietw.github.io/NyankoBot/docs/examples.html</loc>
     <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://arnietw.github.io/NekoBot/docs/component-overlay.html</loc>
+    <loc>https://arnietw.github.io/NyankoBot/docs/component-overlay.html</loc>
     <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://arnietw.github.io/NekoBot/docs/component-box.html</loc>
+    <loc>https://arnietw.github.io/NyankoBot/docs/component-box.html</loc>
     <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://arnietw.github.io/NekoBot/docs/component-add-source-dialog.html</loc>
+    <loc>https://arnietw.github.io/NyankoBot/docs/component-add-source-dialog.html</loc>
     <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://arnietw.github.io/NekoBot/docs/component-add-trigger.html</loc>
+    <loc>https://arnietw.github.io/NyankoBot/docs/component-add-trigger.html</loc>
     <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://arnietw.github.io/NekoBot/docs/component-if-else-control.html</loc>
+    <loc>https://arnietw.github.io/NyankoBot/docs/component-if-else-control.html</loc>
     <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://arnietw.github.io/NekoBot/docs/component-argument-control.html</loc>
+    <loc>https://arnietw.github.io/NyankoBot/docs/component-argument-control.html</loc>
     <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>

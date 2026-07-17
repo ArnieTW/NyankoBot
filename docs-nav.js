@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
     const activeOffset = 96;
     const sectionLinks = Array.from(document.querySelectorAll(".tree-nav a[href^='#']"))
         .map((link) => {
@@ -53,3 +53,4 @@
     window.addEventListener("hashchange", requestUpdate);
     updateActiveSection();
 })();
+

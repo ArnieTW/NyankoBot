@@ -1,25 +1,25 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>NekoBot Streamer.bot Connector - Commands, Actions, and Raw Event Triggers</title>
+    <title>NyankoBot Streamer.bot Connector - Commands, Actions, and Raw Event Triggers</title>
     <link rel="icon" type="image/png" href="../assets/ArnieTW_Mischevous.png" />
 <!-- SEO -->
-    <meta name="description" content="Connect NekoBot to Streamer.bot through WebSocket, subscribe to events, inspect bound triggers, and use commands, actions, and raw events." />
-    <meta name="keywords" content="NekoBot, OBS overlay, Streamer.bot, streaming overlay, browser source, Twitch bot, stream effects, TTS, CosyVoice, media commands" />
+    <meta name="description" content="Connect NyankoBot to Streamer.bot through WebSocket, subscribe to events, inspect bound triggers, and use commands, actions, and raw events." />
+    <meta name="keywords" content="NyankoBot, OBS overlay, Streamer.bot, streaming overlay, browser source, Twitch bot, stream effects, TTS, CosyVoice, media commands" />
     <meta name="author" content="ArnieTW" />
-    <link rel="canonical" href="https://arnietw.github.io/NekoBot/docs/streamerbot.html" />
-    <meta property="og:site_name" content="NekoBot" />
-    <meta property="og:title" content="NekoBot Streamer.bot Connector - Commands, Actions, and Raw Event Triggers" />
-    <meta property="og:description" content="Connect NekoBot to Streamer.bot through WebSocket, subscribe to events, inspect bound triggers, and use commands, actions, and raw events." />
+    <link rel="canonical" href="https://arnietw.github.io/NyankoBot/docs/streamerbot.html" />
+    <meta property="og:site_name" content="NyankoBot" />
+    <meta property="og:title" content="NyankoBot Streamer.bot Connector - Commands, Actions, and Raw Event Triggers" />
+    <meta property="og:description" content="Connect NyankoBot to Streamer.bot through WebSocket, subscribe to events, inspect bound triggers, and use commands, actions, and raw events." />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://arnietw.github.io/NekoBot/docs/streamerbot.html" />
-    <meta property="og:image" content="https://arnietw.github.io/NekoBot/assets/ArnieTW_Mischevous.png" />
+    <meta property="og:url" content="https://arnietw.github.io/NyankoBot/docs/streamerbot.html" />
+    <meta property="og:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="NekoBot Streamer.bot Connector - Commands, Actions, and Raw Event Triggers" />
-    <meta name="twitter:description" content="Connect NekoBot to Streamer.bot through WebSocket, subscribe to events, inspect bound triggers, and use commands, actions, and raw events." />
-    <meta name="twitter:image" content="https://arnietw.github.io/NekoBot/assets/ArnieTW_Mischevous.png" />
+    <meta name="twitter:title" content="NyankoBot Streamer.bot Connector - Commands, Actions, and Raw Event Triggers" />
+    <meta name="twitter:description" content="Connect NyankoBot to Streamer.bot through WebSocket, subscribe to events, inspect bound triggers, and use commands, actions, and raw events." />
+    <meta name="twitter:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
     <link rel="sitemap" type="application/xml" href="../sitemap.xml" />
 <!-- /SEO -->
     <link rel="stylesheet" href="../styles.css" />
@@ -27,11 +27,11 @@
 <body>
     <div class="page">
         <nav class="nav" aria-label="Main navigation">
-            <a class="brand" href="../index.html"><img class="brand-logo" src="../assets/ArnieTW_Mischevous.png" alt="" /><span>NekoBot</span></a>
+            <a class="brand" href="../index.html"><img class="brand-logo" src="../assets/ArnieTW_Mischevous.png" alt="" /><span>NyankoBot</span></a>
             <div class="nav-links">
                 <a href="index.html">Documentation</a>
                 <a href="../roadmap.html">Roadmap</a>
-                <a href="https://github.com/ArnieTW/NekoBot/issues">Issues</a>
+                <a href="https://github.com/ArnieTW/NyankoBot/issues">Issues</a>
                 <a href="../releases/">Downloads</a>
             </div>
         </nav>
@@ -86,16 +86,16 @@
                 <section>
                     <p class="kicker">Integration</p>
                     <h1>Streamer.bot Connector</h1>
-                    <p class="lead">Streamer.bot provides the events, commands, and actions that NekoBot can bind to overlay boxes and command trigger flows.</p>
+                    <p class="lead">Streamer.bot provides the events, commands, and actions that NyankoBot can bind to overlay boxes and command trigger flows.</p>
                 </section>
 
                 <section class="panel" id="connection">
                     <h2>Connection</h2>
                     <img class="screenshot" src="../assets/screenshots/streamerbot-setup.png" alt="Streamer.bot setup page" />
-                    <p>The Streamer.bot connector keeps NekoBot connected to Streamer.bot's WebSocket server. Once connected, NekoBot can subscribe to event groups and expose those events as overlay triggers.</p>
+                    <p>The Streamer.bot connector keeps NyankoBot connected to Streamer.bot's WebSocket server. Once connected, NyankoBot can subscribe to event groups and expose those events as overlay triggers.</p>
                     <ol class="step-list">
                         <li>In Streamer.bot, enable the WebSocket server.</li>
-                        <li>Open NekoBot Setup Home and choose <a href="connectors.html">Connectors</a>, then select the Streamer.bot connector.</li>
+                        <li>Open NyankoBot Setup Home and choose <a href="connectors.html">Connectors</a>, then select the Streamer.bot connector.</li>
                         <li>Turn on <code>Enable Streamer.bot bridge</code>.</li>
                         <li>Enter the WebSocket URL, usually <code>ws://127.0.0.1:8080/</code> when Streamer.bot runs on the same machine.</li>
                         <li>Enter the WebSocket password if your Streamer.bot server requires one.</li>
@@ -106,13 +106,13 @@
 
                 <section class="panel" id="connection-controls">
                     <h2>Connection Controls</h2>
-                    <p>This page is the landing page for everything NekoBot receives from Streamer.bot. If this page is disconnected, command triggers, action triggers, and raw event triggers cannot update overlay boxes.</p>
+                    <p>This page is the landing page for everything NyankoBot receives from Streamer.bot. If this page is disconnected, command triggers, action triggers, and raw event triggers cannot update overlay boxes.</p>
                     <div class="token-table" role="table" aria-label="Streamer.bot connection controls">
                         <div role="row"><strong role="cell">Control</strong><strong role="cell">What it means</strong></div>
-                        <div role="row"><code role="cell">Enable Streamer.bot bridge</code><span role="cell">Turns the background WebSocket bridge on or off. Disable it only when you do not want NekoBot to listen to Streamer.bot at all.</span></div>
+                        <div role="row"><code role="cell">Enable Streamer.bot bridge</code><span role="cell">Turns the background WebSocket bridge on or off. Disable it only when you do not want NyankoBot to listen to Streamer.bot at all.</span></div>
                         <div role="row"><code role="cell">WebSocket URL</code><span role="cell">The Streamer.bot WebSocket endpoint. For Streamer.bot on the same PC, start with <code>ws://127.0.0.1:8080/</code>.</span></div>
                         <div role="row"><code role="cell">Password</code><span role="cell">Used when Streamer.bot's WebSocket server requires authentication. Saved passwords are encrypted at rest.</span></div>
-                        <div role="row"><code role="cell">Reconnect delay</code><span role="cell">How long NekoBot waits before retrying after a disconnect. <code>10</code> seconds is a good default for most setups.</span></div>
+                        <div role="row"><code role="cell">Reconnect delay</code><span role="cell">How long NyankoBot waits before retrying after a disconnect. <code>10</code> seconds is a good default for most setups.</span></div>
                         <div role="row"><code role="cell">Save settings</code><span role="cell">Stores the URL, password, reconnect delay, enabled state, and selected event groups.</span></div>
                         <div role="row"><code role="cell">Reconnect</code><span role="cell">Forces the bridge to close and reopen the WebSocket connection using the saved settings.</span></div>
                         <div role="row"><code role="cell">Refresh</code><span role="cell">Updates the visible status and known data from the current bridge state.</span></div>
@@ -121,15 +121,15 @@
 
                 <section class="panel" id="events">
                     <h2>Events</h2>
-                    <p>Events to subscribe controls which Streamer.bot event groups NekoBot listens to. Keep this list focused on the platforms and trigger types you actually use.</p>
+                    <p>Events to subscribe controls which Streamer.bot event groups NyankoBot listens to. Keep this list focused on the platforms and trigger types you actually use.</p>
                     <div class="token-table" role="table" aria-label="Streamer.bot event controls">
                         <div role="row"><strong role="cell">Control</strong><strong role="cell">Usage</strong></div>
                         <div role="row"><code role="cell">Load events</code><span role="cell">Asks Streamer.bot for the available event catalog. Use this after the bridge connects or after changing Streamer.bot integrations.</span></div>
                         <div role="row"><code role="cell">Search events</code><span role="cell">Filters the event catalog when the list is large. Search by platform, event family, or event name.</span></div>
-                        <div role="row"><code role="cell">Event checkbox</code><span role="cell">Subscribes or unsubscribes NekoBot from that event group. Subscribe only to the events you need for overlays.</span></div>
+                        <div role="row"><code role="cell">Event checkbox</code><span role="cell">Subscribes or unsubscribes NyankoBot from that event group. Subscribe only to the events you need for overlays.</span></div>
                         <div role="row"><code role="cell">Selected events</code><span role="cell">Saved with bridge settings and reused after reconnecting. These selected groups decide what raw triggers can appear later.</span></div>
                     </div>
-                    <p>If an event never reaches NekoBot, first check that the bridge is connected, then check that the matching event group is subscribed.</p>
+                    <p>If an event never reaches NyankoBot, first check that the bridge is connected, then check that the matching event group is subscribed.</p>
                 </section>
 
                 <section class="panel" id="bound-triggers">
@@ -142,7 +142,7 @@
                         <div role="row"><code role="cell">Overlay</code><span role="cell">Shows which saved overlay contains the trigger. This helps when OBS is showing a different overlay than the one you edited.</span></div>
                         <div role="row"><code role="cell">Box</code><span role="cell">Shows the box that will react when the trigger fires.</span></div>
                         <div role="row"><code role="cell">Trigger</code><span role="cell">Shows the command, action, or raw event bound to the box.</span></div>
-                        <div role="row"><code role="cell">Source mode</code><span role="cell">Shows how NekoBot chooses sources when the box has more than one source.</span></div>
+                        <div role="row"><code role="cell">Source mode</code><span role="cell">Shows how NyankoBot chooses sources when the box has more than one source.</span></div>
                         <div role="row"><code role="cell">Sources</code><span role="cell">Shows how many sources are available for that trigger path.</span></div>
                     </div>
                 </section>

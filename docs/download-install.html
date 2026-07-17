@@ -1,25 +1,25 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Download and Install NekoBot</title>
+    <title>Download and Install NyankoBot</title>
     <link rel="icon" type="image/png" href="../assets/ArnieTW_Mischevous.png" />
 <!-- SEO -->
-    <meta name="description" content="Install NekoBot from GitHub Releases, launch the local setup UI, and find Setup Home for overlays, connectors, command triggers, chat, rewards, CosyVoice, and settings." />
-    <meta name="keywords" content="NekoBot, OBS overlay, Streamer.bot, streaming overlay, browser source, Twitch bot, stream effects, TTS, CosyVoice, media commands" />
+    <meta name="description" content="Install NyankoBot from GitHub Releases, launch the local setup UI, and find Setup Home for overlays, connectors, command triggers, chat, rewards, CosyVoice, and settings." />
+    <meta name="keywords" content="NyankoBot, OBS overlay, Streamer.bot, streaming overlay, browser source, Twitch bot, stream effects, TTS, CosyVoice, media commands" />
     <meta name="author" content="ArnieTW" />
-    <link rel="canonical" href="https://arnietw.github.io/NekoBot/docs/download-install.html" />
-    <meta property="og:site_name" content="NekoBot" />
-    <meta property="og:title" content="Download and Install NekoBot" />
-    <meta property="og:description" content="Install NekoBot from GitHub Releases, launch the local setup UI, and find Setup Home for overlays, connectors, command triggers, chat, rewards, CosyVoice, and settings." />
+    <link rel="canonical" href="https://arnietw.github.io/NyankoBot/docs/download-install.html" />
+    <meta property="og:site_name" content="NyankoBot" />
+    <meta property="og:title" content="Download and Install NyankoBot" />
+    <meta property="og:description" content="Install NyankoBot from GitHub Releases, launch the local setup UI, and find Setup Home for overlays, connectors, command triggers, chat, rewards, CosyVoice, and settings." />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://arnietw.github.io/NekoBot/docs/download-install.html" />
-    <meta property="og:image" content="https://arnietw.github.io/NekoBot/assets/ArnieTW_Mischevous.png" />
+    <meta property="og:url" content="https://arnietw.github.io/NyankoBot/docs/download-install.html" />
+    <meta property="og:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Download and Install NekoBot" />
-    <meta name="twitter:description" content="Install NekoBot from GitHub Releases, launch the local setup UI, and find Setup Home for overlays, connectors, command triggers, chat, rewards, CosyVoice, and settings." />
-    <meta name="twitter:image" content="https://arnietw.github.io/NekoBot/assets/ArnieTW_Mischevous.png" />
+    <meta name="twitter:title" content="Download and Install NyankoBot" />
+    <meta name="twitter:description" content="Install NyankoBot from GitHub Releases, launch the local setup UI, and find Setup Home for overlays, connectors, command triggers, chat, rewards, CosyVoice, and settings." />
+    <meta name="twitter:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
     <link rel="sitemap" type="application/xml" href="../sitemap.xml" />
 <!-- /SEO -->
     <link rel="stylesheet" href="../styles.css" />
@@ -27,11 +27,11 @@
 <body>
     <div class="page">
         <nav class="nav" aria-label="Main navigation">
-            <a class="brand" href="../index.html"><img class="brand-logo" src="../assets/ArnieTW_Mischevous.png" alt="" /><span>NekoBot</span></a>
+            <a class="brand" href="../index.html"><img class="brand-logo" src="../assets/ArnieTW_Mischevous.png" alt="" /><span>NyankoBot</span></a>
             <div class="nav-links">
                 <a href="index.html">Documentation</a>
                 <a href="../roadmap.html">Roadmap</a>
-                <a href="https://github.com/ArnieTW/NekoBot/issues">Issues</a>
+                <a href="https://github.com/ArnieTW/NyankoBot/issues">Issues</a>
                 <a href="../releases/">Downloads</a>
             </div>
         </nav>
@@ -90,36 +90,36 @@
                     <ol class="step-list">
                         <li>Download the latest release from <a href="../releases/">Downloads</a>.</li>
                         <li>Extract the package into a folder you control.</li>
-                        <li>Run <code>NekoBot_LLM.exe</code>.</li>
+                        <li>Run <code>NyankoBot.exe</code>.</li>
                         <li>Use the tray icon to open Setup Home.</li>
                     </ol>
                     <div class="token-table" role="table" aria-label="Install step meanings">
                         <div role="row"><strong role="cell">Step</strong><strong role="cell">What to check</strong></div>
                         <div role="row"><code role="cell">GitHub Releases</code><span role="cell">Use the newest GitHub release package. The public site intentionally points users to GitHub releases instead of hosting separate release builds.</span></div>
-                        <div role="row"><code role="cell">Extract package</code><span role="cell">Use a normal folder you control, not a temporary zip preview. This lets NekoBot create local settings, model cache, overlay data, and logs beside its runtime data path.</span></div>
-                        <div role="row"><code role="cell">NekoBot_LLM.exe</code><span role="cell">Starts the desktop/tray process and local setup server. If Windows blocks first launch, allow the app only when the package came from the expected release.</span></div>
+                        <div role="row"><code role="cell">Extract package</code><span role="cell">Use a normal folder you control, not a temporary zip preview. This lets NyankoBot create local settings, model cache, overlay data, and logs beside its runtime data path.</span></div>
+                        <div role="row"><code role="cell">NyankoBot.exe</code><span role="cell">Starts the desktop/tray process and local setup server. If Windows blocks first launch, allow the app only when the package came from the expected release.</span></div>
                         <div role="row"><code role="cell">Tray icon</code><span role="cell">Opens the local Setup Home after launch. If the browser does not open automatically, use the tray menu to open setup manually.</span></div>
                     </div>
                 </section>
 
                 <section class="panel notice" id="first-run">
                     <h3>First Run</h3>
-                    <p>NekoBot creates its local data and settings files when it starts. A fresh install should not require pre-existing overlay or TTS configuration files.</p>
+                    <p>NyankoBot creates its local data and settings files when it starts. A fresh install should not require pre-existing overlay or TTS configuration files.</p>
                     <p>After first launch, continue to <a href="quick-setup.html">Quick Setup</a>. That path connects a platform, creates one OBS overlay, and adds the first boxes inside it.</p>
                 </section>
 
                 <section class="panel" id="setup-home">
                     <h2>Setup Home</h2>
                     <p>After launch, open Setup Home from the tray. This page is the public entry point for every setup area.</p>
-                    <img class="screenshot" src="../assets/screenshots/setup-home.png" alt="NekoBot setup home screen" />
+                    <img class="screenshot" src="../assets/screenshots/setup-home.png" alt="NyankoBot setup home screen" />
                     <div class="token-table" role="table" aria-label="Setup Home controls">
                         <div role="row"><strong role="cell">Entry</strong><strong role="cell">Use it for</strong></div>
                         <div role="row"><code role="cell">Overlay Setup</code><span role="cell">Create and edit the full-scene OBS overlay, boxes, sources, and trigger bindings.</span></div>
                         <div role="row"><code role="cell">Connectors</code><span role="cell">Create and monitor Streamer.bot, Twitch, and Kick connector instances. See <a href="connectors.html">Connectors</a>.</span></div>
-                        <div role="row"><code role="cell">Command Triggers</code><span role="cell">Build NekoBot-owned triggers, action flows, cooldowns, and channel reward handling. See <a href="command-triggers.html">Command Triggers</a>.</span></div>
+                        <div role="row"><code role="cell">Command Triggers</code><span role="cell">Build NyankoBot-owned triggers, action flows, cooldowns, and channel reward handling. See <a href="command-triggers.html">Command Triggers</a>.</span></div>
                         <div role="row"><code role="cell">Channel Rewards</code><span role="cell">Create shared rewards and map them to Twitch or Kick connector instances. See <a href="channel-rewards.html">Channel Rewards</a>.</span></div>
                         <div role="row"><code role="cell">Chat</code><span role="cell">Watch connector chat events while testing commands and overlay reactions. See <a href="chat.html">Chat</a>.</span></div>
-                        <div role="row"><code role="cell">Streamer.bot Connector</code><span role="cell">Connect NekoBot to Streamer.bot, subscribe to event groups, and inspect bound triggers.</span></div>
+                        <div role="row"><code role="cell">Streamer.bot Connector</code><span role="cell">Connect NyankoBot to Streamer.bot, subscribe to event groups, and inspect bound triggers.</span></div>
                         <div role="row"><code role="cell">CosyVoice TTS</code><span role="cell">Download, enable, test, and configure local voice models for TTS sources.</span></div>
                         <div role="row"><code role="cell">Manage Sources</code><span role="cell">Review reusable source assets and cached source data when media or source references need checking. See <a href="manage-sources.html">Manage Sources</a>.</span></div>
                         <div role="row"><code role="cell">Settings</code><span role="cell">Inspect app settings, update checks, and logs. See <a href="settings.html">Settings</a>.</span></div>

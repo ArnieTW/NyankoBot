@@ -1,25 +1,25 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>NekoBot Quick Setup - Connectors, OBS Overlay, Text and Media Boxes</title>
+    <title>NyankoBot Quick Setup - Connectors, OBS Overlay, Text and Media Boxes</title>
     <link rel="icon" type="image/png" href="../assets/ArnieTW_Mischevous.png" />
 <!-- SEO -->
-    <meta name="description" content="Fast setup guide for connecting a streaming platform, creating one OBS browser overlay, adding text boxes, and adding media source boxes in NekoBot." />
-    <meta name="keywords" content="NekoBot, OBS overlay, Streamer.bot, streaming overlay, browser source, Twitch bot, stream effects, TTS, CosyVoice, media commands" />
+    <meta name="description" content="Fast setup guide for connecting a streaming platform, creating one OBS browser overlay, adding text boxes, and adding media source boxes in NyankoBot." />
+    <meta name="keywords" content="NyankoBot, OBS overlay, Streamer.bot, streaming overlay, browser source, Twitch bot, stream effects, TTS, CosyVoice, media commands" />
     <meta name="author" content="ArnieTW" />
-    <link rel="canonical" href="https://arnietw.github.io/NekoBot/docs/quick-setup.html" />
-    <meta property="og:site_name" content="NekoBot" />
-    <meta property="og:title" content="NekoBot Quick Setup - Connectors, OBS Overlay, Text and Media Boxes" />
-    <meta property="og:description" content="Fast setup guide for connecting a streaming platform, creating one OBS browser overlay, adding text boxes, and adding media source boxes in NekoBot." />
+    <link rel="canonical" href="https://arnietw.github.io/NyankoBot/docs/quick-setup.html" />
+    <meta property="og:site_name" content="NyankoBot" />
+    <meta property="og:title" content="NyankoBot Quick Setup - Connectors, OBS Overlay, Text and Media Boxes" />
+    <meta property="og:description" content="Fast setup guide for connecting a streaming platform, creating one OBS browser overlay, adding text boxes, and adding media source boxes in NyankoBot." />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://arnietw.github.io/NekoBot/docs/quick-setup.html" />
-    <meta property="og:image" content="https://arnietw.github.io/NekoBot/assets/ArnieTW_Mischevous.png" />
+    <meta property="og:url" content="https://arnietw.github.io/NyankoBot/docs/quick-setup.html" />
+    <meta property="og:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="NekoBot Quick Setup - Connectors, OBS Overlay, Text and Media Boxes" />
-    <meta name="twitter:description" content="Fast setup guide for connecting a streaming platform, creating one OBS browser overlay, adding text boxes, and adding media source boxes in NekoBot." />
-    <meta name="twitter:image" content="https://arnietw.github.io/NekoBot/assets/ArnieTW_Mischevous.png" />
+    <meta name="twitter:title" content="NyankoBot Quick Setup - Connectors, OBS Overlay, Text and Media Boxes" />
+    <meta name="twitter:description" content="Fast setup guide for connecting a streaming platform, creating one OBS browser overlay, adding text boxes, and adding media source boxes in NyankoBot." />
+    <meta name="twitter:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
     <link rel="sitemap" type="application/xml" href="../sitemap.xml" />
 <!-- /SEO -->
     <link rel="stylesheet" href="../styles.css" />
@@ -27,11 +27,11 @@
 <body>
     <div class="page">
         <nav class="nav" aria-label="Main navigation">
-            <a class="brand" href="../index.html"><img class="brand-logo" src="../assets/ArnieTW_Mischevous.png" alt="" /><span>NekoBot</span></a>
+            <a class="brand" href="../index.html"><img class="brand-logo" src="../assets/ArnieTW_Mischevous.png" alt="" /><span>NyankoBot</span></a>
             <div class="nav-links">
                 <a href="index.html">Documentation</a>
                 <a href="../roadmap.html">Roadmap</a>
-                <a href="https://github.com/ArnieTW/NekoBot/issues">Issues</a>
+                <a href="https://github.com/ArnieTW/NyankoBot/issues">Issues</a>
                 <a href="../releases/">Downloads</a>
             </div>
         </nav>
@@ -84,20 +84,20 @@
                 <section>
                     <p class="kicker">Fast Path</p>
                     <h1>Quick Setup</h1>
-                    <p class="lead">Use this page when NekoBot is installed and you want the shortest path to a working OBS overlay with multiple trigger-driven boxes.</p>
+                    <p class="lead">Use this page when NyankoBot is installed and you want the shortest path to a working OBS overlay with multiple trigger-driven boxes.</p>
                 </section>
 
                 <section class="panel" id="streamerbot-connection">
                     <h2>1. Connect A Platform</h2>
-                    <img class="screenshot" src="../assets/screenshots/connectors.png" alt="NekoBot Connectors setup page" />
-                    <p>Connect at least one platform first so NekoBot can receive chat, reward, command, or raw connector events before you bind triggers to boxes.</p>
+                    <img class="screenshot" src="../assets/screenshots/connectors.png" alt="NyankoBot Connectors setup page" />
+                    <p>Connect at least one platform first so NyankoBot can receive chat, reward, command, or raw connector events before you bind triggers to boxes.</p>
                     <ol class="step-list">
-                        <li>Open NekoBot Setup Home and choose <code>Connectors</code>.</li>
+                        <li>Open NyankoBot Setup Home and choose <code>Connectors</code>.</li>
                         <li>Add or select the connector you want to use: Streamer.bot, Twitch, or Kick.</li>
                         <li>Enable the connector and complete any required WebSocket or account settings.</li>
                         <li>For Streamer.bot, enable the Streamer.bot WebSocket server and use a URL such as <code>ws://127.0.0.1:8080/</code>.</li>
                         <li>Use the setup header connector status to confirm the connector is online.</li>
-                        <li>Open <a href="command-triggers.html">Command Triggers</a> when you need NekoBot-owned triggers, cooldowns, channel reward handling, or action flows.</li>
+                        <li>Open <a href="command-triggers.html">Command Triggers</a> when you need NyankoBot-owned triggers, cooldowns, channel reward handling, or action flows.</li>
                     </ol>
                     <p>For the current connector overview, see <a href="connectors.html">Connectors</a>. For Streamer.bot-specific notes, see <a href="streamerbot.html">Streamer.bot Connector</a>.</p>
                 </section>
@@ -105,14 +105,14 @@
                 <section class="panel" id="create-overlay">
                     <h2>2. Create Overlay</h2>
                     <img class="screenshot" src="../assets/screenshots/overlay-setup.png" alt="Overlay setup page" />
-                    <p>Create one overlay for the OBS scene. OBS should load that one overlay as a full-scene browser source, then NekoBot boxes decide what appears inside it.</p>
+                    <p>Create one overlay for the OBS scene. OBS should load that one overlay as a full-scene browser source, then NyankoBot boxes decide what appears inside it.</p>
                     <ol class="step-list">
                         <li>Select an existing overlay or click <code>New overlay</code>.</li>
                         <li>Name the overlay after the stream scene or layout it belongs to.</li>
-                        <li>Click <code>Save</code> so NekoBot can create the overlay viewer URL.</li>
+                        <li>Click <code>Save</code> so NyankoBot can create the overlay viewer URL.</li>
                         <li>Use <code>Set Default</code> when this overlay should be the default viewer selection.</li>
                         <li>Use <code>Copy OBS URL</code> after saving to copy the browser-source URL.</li>
-                        <li>In OBS, add a <code>Browser Source</code> to the scene that should show NekoBot effects.</li>
+                        <li>In OBS, add a <code>Browser Source</code> to the scene that should show NyankoBot effects.</li>
                         <li>Paste the copied URL into the OBS browser source URL field.</li>
                         <li>Set the browser source size to your canvas size, usually <code>1920x1080</code> or whatever your stream canvas uses.</li>
                         <li>Place the browser source above the scene content that the overlay should appear over.</li>
@@ -156,7 +156,7 @@
                         <div role="row"><code role="cell">Connector</code><span role="cell">The connection created in step 1 is managed on <a href="connectors.html">Connectors</a>, with Streamer.bot-specific details on <a href="streamerbot.html">Streamer.bot Connector</a>.</span></div>
                         <div role="row"><code role="cell">One OBS overlay</code><span role="cell">The overlay created in step 2 is explained on <a href="overlay-setup.html">Overlay Setup</a> and the <a href="component-overlay.html">Overlay</a> component page.</span></div>
                         <div role="row"><code role="cell">Text box</code><span role="cell">The text example uses the <a href="component-add-source-dialog.html">Add Source Dialog</a>, <a href="component-box.html">Box</a>, and <a href="component-add-trigger.html">Add Trigger</a> controls.</span></div>
-                        <div role="row"><code role="cell">Media box</code><span role="cell">The media example uses the same overlay, proving that OBS only needs one NekoBot browser source for multiple effects.</span></div>
+                        <div role="row"><code role="cell">Media box</code><span role="cell">The media example uses the same overlay, proving that OBS only needs one NyankoBot browser source for multiple effects.</span></div>
                     </div>
                 </section>
             </article>

@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://arnietw.github.io/NekoBot/sitemap.xml
+Sitemap: https://arnietw.github.io/NyankoBot/sitemap.xml
+
