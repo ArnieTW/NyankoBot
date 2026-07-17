@@ -1,8 +1,8 @@
-# NyankoBot Public Site
+﻿# NyankoBot Public Site
 
-Public GitHub Pages site for **NyankoBot**, a Windows streaming overlay companion for OBS, Streamer.bot, reusable media sources, and optional local CosyVoice TTS.
+Public GitHub Pages site for **NyankoBot**, a Windows streaming overlay companion for OBS, Streamer.bot, reusable media sources, TTS providers, and translator providers.
 
-NyankoBot helps streamers create one full-scene OBS browser-source overlay, place multiple trigger-driven boxes inside it, bind those boxes to Streamer.bot commands/actions/events, and show text, media, URL, or TTS sources on stream.
+NyankoBot helps streamers create one full-scene OBS browser-source overlay, place multiple trigger-driven boxes inside it, bind those boxes to Streamer.bot, Twitch, Kick, OBS, Stream Deck, and NyankoBot actions, then show text, media, URL, TTS, or translated output on stream.
 
 This repository contains the public website, documentation, screenshots, release links, SEO metadata, sitemap, and GitHub Pages assets. It intentionally does not include private/internal application source code.
 
@@ -17,7 +17,7 @@ This repository contains the public website, documentation, screenshots, release
 
 ## Keywords
 
-NyankoBot, OBS overlay, OBS browser source, Streamer.bot, Streamerbot, Twitch overlay, stream effects, media commands, TTS overlay, CosyVoice TTS, local TTS, streaming tools, trigger bindings, browser-source overlay, stream alerts, meme overlay.
+NyankoBot, OBS overlay, OBS browser source, Streamer.bot, Streamerbot, Twitch overlay, Kick overlay, stream effects, media commands, TTS overlay, Google TTS, local TTS, translator actions, streaming tools, trigger bindings, browser-source overlay, stream alerts, meme overlay.
 
 ## Release Files
 
@@ -34,3 +34,5 @@ The public pages link to `https://github.com/ArnieTW/NyankoBot/releases` and `ht
 ## Search Metadata
 
 The site includes page-specific titles/descriptions, Open Graph metadata, Twitter card metadata, canonical links, `robots.txt`, `sitemap.xml`, and homepage JSON-LD structured data.
+
+

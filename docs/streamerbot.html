@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -57,8 +57,9 @@
                         <a class="tree-item nested" href="#trigger-types">Trigger types</a>
                         <a class="tree-item nested" href="#example">Example</a>
                         <a class="tree-item nested" href="#troubleshooting">Troubleshooting</a>
-                        <a class="tree-item" href="tts.html">CosyVoice TTS</a>
-                        <a class="tree-item" href="manage-sources.html">Manage Sources</a>
+                        <a class="tree-item" href="tts.html">TTS Setup</a>
+                        <a class="tree-item" href="translators.html">Translators</a>
+                        <a class="tree-item" href="manage-sources.html">Storage</a>
                         <a class="tree-item" href="settings.html">Settings</a>
                     </div>
                     <div class="tree-group">
@@ -152,7 +153,7 @@
                     <p>Triggers can represent raw subscribed events, commands, or actions. Use Overlay Setup and the <a href="component-add-trigger.html">Add Trigger</a> control to bind a trigger to a box.</p>
                     <div class="token-table" role="table" aria-label="Streamer.bot trigger types">
                         <div role="row"><strong role="cell">Trigger type</strong><strong role="cell">Use it for</strong></div>
-                        <div role="row"><code role="cell">Chat message</code><span role="cell">Regular chat overlays, moderation callouts, captions, or text boxes using <code>{{message.text}}</code>.</span></div>
+                        <div role="row"><code role="cell">Chat message</code><span role="cell">Regular chat overlays, moderation callouts, captions, or text boxes using <code>{{text}}</code>.</span></div>
                         <div role="row"><code role="cell">Command</code><span role="cell">Intentional viewer commands such as <code>!tts</code>, <code>!clip</code>, <code>!hype</code>, or <code>!meme</code>.</span></div>
                         <div role="row"><code role="cell">Action</code><span role="cell">Streamer.bot actions that should drive an overlay box after a more complex Streamer.bot workflow.</span></div>
                         <div role="row"><code role="cell">Raw event</code><span role="cell">Subscribed platform events when you need direct matching against event data or raw hit rules.</span></div>
@@ -188,3 +189,7 @@
     <script src="../docs-nav.js"></script>
 </body>
 </html>
+
+
+
+

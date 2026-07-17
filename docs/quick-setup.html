@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -42,7 +42,7 @@
                     <a class="tree-item root" href="index.html">Overview</a>
                     <a class="tree-item root" href="download-install.html">Download & Install</a>
                     <a class="tree-item root active" href="quick-setup.html">Quick Setup</a>
-                    <a class="tree-item nested active" href="#streamerbot-connection">1. Connect A Platform</a>
+                    <a class="tree-item nested active" href="#connector-connection">1. Connect A Platform</a>
                     <a class="tree-item nested" href="#create-overlay">2. Create Overlay</a>
                     <a class="tree-item nested" href="#text-source-box">3. Add Text Box</a>
                     <a class="tree-item nested" href="#media-source-box">4. Add Media Source Box</a>
@@ -55,8 +55,9 @@
                         <a class="tree-item" href="channel-rewards.html">Channel Rewards</a>
                         <a class="tree-item" href="chat.html">Chat</a>
                         <a class="tree-item" href="streamerbot.html">Streamer.bot Connector</a>
-                        <a class="tree-item" href="tts.html">CosyVoice TTS</a>
-                        <a class="tree-item" href="manage-sources.html">Manage Sources</a>
+                        <a class="tree-item" href="tts.html">TTS Setup</a>
+                        <a class="tree-item" href="translators.html">Translators</a>
+                        <a class="tree-item" href="manage-sources.html">Storage</a>
                         <a class="tree-item" href="settings.html">Settings</a>
                     </div>
                     <div class="tree-group">
@@ -87,13 +88,13 @@
                     <p class="lead">Use this page when NyankoBot is installed and you want the shortest path to a working OBS overlay with multiple trigger-driven boxes.</p>
                 </section>
 
-                <section class="panel" id="streamerbot-connection">
+                <section class="panel" id="connector-connection">
                     <h2>1. Connect A Platform</h2>
                     <img class="screenshot" src="../assets/screenshots/connectors.png" alt="NyankoBot Connectors setup page" />
                     <p>Connect at least one platform first so NyankoBot can receive chat, reward, command, or raw connector events before you bind triggers to boxes.</p>
                     <ol class="step-list">
                         <li>Open NyankoBot Setup Home and choose <code>Connectors</code>.</li>
-                        <li>Add or select the connector you want to use: Streamer.bot, Twitch, or Kick.</li>
+                        <li>Add or select the connector you want to use: Twitch, Kick, Streamer.bot, or OBS.</li>
                         <li>Enable the connector and complete any required WebSocket or account settings.</li>
                         <li>For Streamer.bot, enable the Streamer.bot WebSocket server and use a URL such as <code>ws://127.0.0.1:8080/</code>.</li>
                         <li>Use the setup header connector status to confirm the connector is online.</li>
@@ -127,7 +128,7 @@
                     <ol class="step-list">
                         <li>Click <code>Add box</code> and position the box where the text should appear on stream.</li>
                         <li>Add a <code>Text Source</code>.</li>
-                        <li>Use text such as <code>{{message.text}}</code> when the box should show trigger-provided message text.</li>
+                        <li>Use text such as <code>{{text}}</code> when the box should show trigger-provided message text.</li>
                         <li>Open the <a href="component-add-trigger.html">box trigger controls</a> and add a chat-message or command trigger.</li>
                         <li>Save the overlay and fire the trigger from chat or Streamer.bot.</li>
                     </ol>
@@ -165,3 +166,7 @@
     <script src="../docs-nav.js"></script>
 </body>
 </html>
+
+
+
+

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -46,7 +46,7 @@
                         <a class="tree-item active" href="channel-rewards.html">Channel Rewards</a>
                         <a class="tree-item nested active" href="#reward-list">Reward list</a>
                         <a class="tree-item nested" href="#connector-rewards">Connector rewards</a>
-                        <a class="tree-item nested" href="#sync">Sync</a>
+                        <a class="tree-item nested" href="#save-sync">Save and platform sync</a>
                         <a class="tree-item" href="chat.html">Chat</a>
                     </div>
                     <a class="tree-item root" href="troubleshooting.html">Troubleshooting</a>
@@ -57,7 +57,7 @@
                 <section>
                     <p class="kicker">Setup Page</p>
                     <h1>Channel Rewards</h1>
-                    <p class="lead">Channel Rewards lets you define shared reward ideas once, then connect them to Twitch or Kick connector reward settings.</p>
+                    <p class="lead">Channel Rewards lets you define shared reward ideas once, then enable them on supported Twitch or Kick connectors.</p>
                 </section>
 
                 <section class="panel" id="reward-list">
@@ -68,25 +68,32 @@
                         <div role="row"><strong role="cell">Control</strong><strong role="cell">What it does</strong></div>
                         <div role="row"><code role="cell">New Reward</code><span role="cell">Creates a shared reward definition.</span></div>
                         <div role="row"><code role="cell">Reward name</code><span role="cell">The viewer-facing reward title.</span></div>
-                        <div role="row"><code role="cell">Reward enabled</code><span role="cell">Controls whether this reward should be active.</span></div>
-                        <div role="row"><code role="cell">Save</code><span role="cell">Stores the NyankoBot reward definition and connector-specific reward settings.</span></div>
+                        <div role="row"><code role="cell">List toggle</code><span role="cell">Controls whether this shared reward is active in NyankoBot.</span></div>
+                        <div role="row"><code role="cell">Background</code><span role="cell">Shared reward color used by platforms that support reward colors.</span></div>
+                        <div role="row"><code role="cell">Require viewer input</code><span role="cell">Requires redemption text from the viewer when supported by the platform.</span></div>
+                        <div role="row"><code role="cell">Skip queue</code><span role="cell">Marks redemptions fulfilled immediately when supported by the platform.</span></div>
+                        <div role="row"><code role="cell">Max / stream</code><span role="cell">Limits total redemptions per live stream. Twitch can enforce this directly; Kick uses NyankoBot-side handling when needed.</span></div>
+                        <div role="row"><code role="cell">Max / user</code><span role="cell">Limits redemptions per viewer per stream. Twitch can enforce this directly; Kick uses NyankoBot-side handling when needed.</span></div>
+                        <div role="row"><code role="cell">Cooldown</code><span role="cell">Adds a global cooldown between redemptions. Twitch can enforce this directly; Kick uses NyankoBot-side handling when needed.</span></div>
+                        <div role="row"><code role="cell">Save reward</code><span role="cell">Stores the shared definition, creates missing platform rewards, updates manageable platform rewards, and subscribes enabled connector reward mappings.</span></div>
                     </div>
                 </section>
 
                 <section class="panel" id="connector-rewards">
                     <h2>Connector Rewards</h2>
-                    <p>Connector Rewards is where a shared reward is mapped to Twitch or Kick connector instances, including the connector-specific price or sync behavior.</p>
+                    <p>Connector Rewards is where a shared reward is mapped to Twitch or Kick connector instances, including connector-specific price, platform id, and whether that connector should use the reward.</p>
                     <ul>
                         <li>Configure <a href="connectors.html">Connectors</a> before expecting connector reward rows to appear.</li>
                         <li>Use one shared reward when the same idea should exist on multiple platforms.</li>
                         <li>Use connector-specific values when Twitch and Kick need different pricing or availability.</li>
+                        <li>If a Twitch reward is managed by another application, NyankoBot can subscribe or unsubscribe it, but cannot edit or delete the Twitch-side reward. Recreate the reward in NyankoBot when full management is needed.</li>
                     </ul>
                 </section>
 
-                <section class="panel" id="sync">
-                    <h2>Sync</h2>
-                    <p>Sync pushes or refreshes the reward state for a supported connector. Use it after saving a reward when the platform-side copy needs to be created or updated.</p>
-                    <p>Reward-triggered behavior is handled through <a href="command-triggers.html">Command Triggers</a>, which can bind the reward event to overlay boxes or actions.</p>
+                <section class="panel" id="save-sync">
+                    <h2>Save And Platform Sync</h2>
+                    <p><code>Save reward</code> is the action that does the platform work. It saves NyankoBot's reward definition, creates missing rewards for enabled connector rows, updates rewards NyankoBot manages, and keeps subscriptions aligned.</p>
+                    <p>Reward-triggered behavior is handled through <a href="command-triggers.html">Command Triggers</a>. Reward triggers bind to the shared NyankoBot reward definition, so enabling the same reward on another platform does not require a separate trigger rule.</p>
                 </section>
             </article>
         </main>
@@ -94,3 +101,5 @@
     <script src="../docs-nav.js"></script>
 </body>
 </html>
+
+

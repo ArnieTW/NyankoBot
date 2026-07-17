@@ -1,24 +1,24 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>NyankoBot Manage Sources - Reusable Sources, Previews, Usage, and Cache Cleanup</title>
+    <title>NyankoBot Storage - Reusable Sources, Previews, Usage, and Cache Cleanup</title>
     <link rel="icon" type="image/png" href="../assets/ArnieTW_Mischevous.png" />
 <!-- SEO -->
-    <meta name="description" content="Audit reusable NyankoBot source definitions, inspect which overlay boxes use them, preview media, compare cached files, and clean up unused sources." />
+    <meta name="description" content="Audit NyankoBot source definitions and source variations, inspect assigned boxes, preview media, and clean up unused cached files." />
     <meta name="keywords" content="NyankoBot, OBS overlay, Streamer.bot, streaming overlay, browser source, Twitch bot, stream effects, TTS, CosyVoice, media commands" />
     <meta name="author" content="ArnieTW" />
     <link rel="canonical" href="https://arnietw.github.io/NyankoBot/docs/manage-sources.html" />
     <meta property="og:site_name" content="NyankoBot" />
-    <meta property="og:title" content="NyankoBot Manage Sources - Reusable Sources, Previews, Usage, and Cache Cleanup" />
-    <meta property="og:description" content="Audit reusable NyankoBot source definitions, inspect which overlay boxes use them, preview media, compare cached files, and clean up unused sources." />
+    <meta property="og:title" content="NyankoBot Storage - Reusable Sources, Previews, Usage, and Cache Cleanup" />
+    <meta property="og:description" content="Audit NyankoBot source definitions and source variations, inspect assigned boxes, preview media, and clean up unused cached files." />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://arnietw.github.io/NyankoBot/docs/manage-sources.html" />
     <meta property="og:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="NyankoBot Manage Sources - Reusable Sources, Previews, Usage, and Cache Cleanup" />
-    <meta name="twitter:description" content="Audit reusable NyankoBot source definitions, inspect which overlay boxes use them, preview media, compare cached files, and clean up unused sources." />
+    <meta name="twitter:title" content="NyankoBot Storage - Reusable Sources, Previews, Usage, and Cache Cleanup" />
+    <meta name="twitter:description" content="Audit NyankoBot source definitions and source variations, inspect assigned boxes, preview media, and clean up unused cached files." />
     <meta name="twitter:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
     <link rel="sitemap" type="application/xml" href="../sitemap.xml" />
 <!-- /SEO -->
@@ -50,8 +50,9 @@
                         <a class="tree-item" href="channel-rewards.html">Channel Rewards</a>
                         <a class="tree-item" href="chat.html">Chat</a>
                         <a class="tree-item" href="streamerbot.html">Streamer.bot Connector</a>
-                        <a class="tree-item" href="tts.html">CosyVoice TTS</a>
-                        <a class="tree-item active" href="manage-sources.html">Manage Sources</a>
+                        <a class="tree-item" href="tts.html">TTS Setup</a>
+                        <a class="tree-item" href="translators.html">Translators</a>
+                        <a class="tree-item active" href="manage-sources.html">Storage</a>
                         <a class="tree-item nested active" href="#defined-sources">Defined sources</a>
                         <a class="tree-item nested" href="#usage">Usage</a>
                         <a class="tree-item nested" href="#preview">Preview</a>
@@ -82,22 +83,22 @@
             <article class="doc-content">
                 <section>
                     <p class="kicker">Sources</p>
-                    <h1>Manage Sources</h1>
-                    <p class="lead">Manage Sources is the audit page for reusable source definitions, media previews, source usage, and cached files.</p>
+                    <h1>Storage</h1>
+                    <p class="lead">Storage is the audit page for reusable source definitions, their saved variations, media previews, source usage, and cached files.</p>
                 </section>
 
                 <section class="panel" id="defined-sources">
                     <h2>Defined Sources</h2>
-                    <img class="screenshot" src="../assets/screenshots/manage-sources.png" alt="Manage Sources page" />
-                    <p>Use this page when a reusable source needs to be checked outside the overlay editor. Sources are usually created from the <a href="component-add-source-dialog.html">Add Source Dialog</a>, then reused by boxes inside overlays.</p>
-                    <div class="token-table" role="table" aria-label="Manage Sources table controls">
+                    <img class="screenshot" src="../assets/screenshots/manage-sources.png" alt="Storage page" />
+                    <p>Use this page when a reusable source needs to be checked outside the overlay editor. The top card is the source definition; expand it to inspect the actual variations that can be assigned to boxes.</p>
+                    <div class="token-table" role="table" aria-label="Storage table controls">
                         <div role="row"><strong role="cell">Column or control</strong><strong role="cell">What it means</strong></div>
                         <div role="row"><code role="cell">Refresh</code><span role="cell">Reloads defined sources, overlay usage, and cache state from disk.</span></div>
-                        <div role="row"><code role="cell">Name</code><span role="cell">The reusable source label shown in source pickers and source lists.</span></div>
-                        <div role="row"><code role="cell">Type</code><span role="cell">The source family, such as text, media, URL, or TTS.</span></div>
-                        <div role="row"><code role="cell">Boxes</code><span role="cell">Shows how many overlay boxes reference the source. Click the count to inspect where it is used.</span></div>
-                        <div role="row"><code role="cell">Preview</code><span role="cell">Available for media-like sources. Opens a floating preview so you can test the source without editing an overlay.</span></div>
-                        <div role="row"><code role="cell">Actions</code><span role="cell">Shows cleanup actions such as deleting cached media or removing a reusable source definition.</span></div>
+                        <div role="row"><code role="cell">Source card</code><span role="cell">Shows the reusable source name, content path/token, type, variation count, and assignment count.</span></div>
+                        <div role="row"><code role="cell">Variation cards</code><span role="cell">Appear below an expanded source. Variations are the concrete source entries that boxes can use.</span></div>
+                        <div role="row"><code role="cell">Assigned boxes</code><span role="cell">Shows which overlay boxes reference the source or variation. Unassigned means it is not currently used by a box.</span></div>
+                        <div role="row"><code role="cell">Preview</code><span role="cell">Available for previewable variations. Opens a floating preview so you can test the source without editing an overlay.</span></div>
+                        <div role="row"><code role="cell">Delete icon</code><span role="cell">Deletes the selected source or variation after confirmation.</span></div>
                     </div>
                 </section>
 
@@ -110,7 +111,7 @@
                         <div role="row"><code role="cell">Source usage</code><span role="cell">Lists the overlays and boxes that reference the selected source.</span></div>
                         <div role="row"><code role="cell">Close</code><span role="cell">Closes the floating usage panel and returns to the source table.</span></div>
                     </div>
-                    <p>Check usage before deleting a source. Deleting a reusable source can leave existing boxes with local source data, but it removes the shared definition from future reuse.</p>
+                    <p>Check usage before deleting a source or variation. A source may have multiple variations, and boxes bind to the concrete variation they need.</p>
                 </section>
 
                 <section class="panel" id="preview">
@@ -139,3 +140,7 @@
     <script src="../docs-nav.js"></script>
 </body>
 </html>
+
+
+
+

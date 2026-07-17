@@ -1,24 +1,24 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>NyankoBot CosyVoice TTS - Local Models and Voice Cloning</title>
+    <title>NyankoBot TTS Setup - Local Models and Voice Cloning</title>
     <link rel="icon" type="image/png" href="../assets/ArnieTW_Mischevous.png" />
 <!-- SEO -->
-    <meta name="description" content="Configure local CosyVoice TTS models in NyankoBot, enable runtimes, clone voices, test speech, and create TTS overlay sources." />
+    <meta name="description" content="Configure NyankoBot TTS providers, including CosyVoice local models and Google TTS, then test voices and create TTS overlay sources." />
     <meta name="keywords" content="NyankoBot, OBS overlay, Streamer.bot, streaming overlay, browser source, Twitch bot, stream effects, TTS, CosyVoice, media commands" />
     <meta name="author" content="ArnieTW" />
     <link rel="canonical" href="https://arnietw.github.io/NyankoBot/docs/tts.html" />
     <meta property="og:site_name" content="NyankoBot" />
-    <meta property="og:title" content="NyankoBot CosyVoice TTS - Local Models and Voice Cloning" />
-    <meta property="og:description" content="Configure local CosyVoice TTS models in NyankoBot, enable runtimes, clone voices, test speech, and create TTS overlay sources." />
+    <meta property="og:title" content="NyankoBot TTS Setup - Local Models and Voice Cloning" />
+    <meta property="og:description" content="Configure NyankoBot TTS providers, including CosyVoice local models and Google TTS, then test voices and create TTS overlay sources." />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://arnietw.github.io/NyankoBot/docs/tts.html" />
     <meta property="og:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="NyankoBot CosyVoice TTS - Local Models and Voice Cloning" />
-    <meta name="twitter:description" content="Configure local CosyVoice TTS models in NyankoBot, enable runtimes, clone voices, test speech, and create TTS overlay sources." />
+    <meta name="twitter:title" content="NyankoBot TTS Setup - Local Models and Voice Cloning" />
+    <meta name="twitter:description" content="Configure NyankoBot TTS providers, including CosyVoice local models and Google TTS, then test voices and create TTS overlay sources." />
     <meta name="twitter:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
     <link rel="sitemap" type="application/xml" href="../sitemap.xml" />
 <!-- /SEO -->
@@ -50,7 +50,8 @@
                         <a class="tree-item" href="channel-rewards.html">Channel Rewards</a>
                         <a class="tree-item" href="chat.html">Chat</a>
                         <a class="tree-item" href="streamerbot.html">Streamer.bot Connector</a>
-                        <a class="tree-item active" href="tts.html">CosyVoice TTS</a>
+                        <a class="tree-item active" href="tts.html">TTS Setup</a>
+                        <a class="tree-item" href="translators.html">Translators</a>
                         <a class="tree-item nested active" href="#model-setup">Model setup</a>
                         <a class="tree-item nested" href="#model-controls">Model controls</a>
                         <a class="tree-item nested" href="#voice-cloning">Voice cloning</a>
@@ -58,7 +59,7 @@
                         <a class="tree-item nested" href="#settings">Settings</a>
                         <a class="tree-item nested" href="#example">Example</a>
                         <a class="tree-item nested" href="#warnings">Warnings</a>
-                        <a class="tree-item" href="manage-sources.html">Manage Sources</a>
+                        <a class="tree-item" href="manage-sources.html">Storage</a>
                         <a class="tree-item" href="settings.html">Settings</a>
                     </div>
                     <div class="tree-group">
@@ -85,34 +86,36 @@
             <article class="doc-content">
                 <section>
                     <p class="kicker">Voice</p>
-                    <h1>CosyVoice TTS</h1>
-                    <p class="lead">NyankoBot can run local CosyVoice TTS models for generated voice sources, test audio, and saved cloned voices.</p>
+                    <h1>TTS Setup</h1>
+                    <p class="lead">NyankoBot can use CosyVoice local models and Google TTS providers for generated voice sources, test audio, and saved cloned voices.</p>
                 </section>
 
                 <section class="panel" id="model-setup">
                     <h2>Model Setup</h2>
-                    <img class="screenshot" src="../assets/screenshots/tts-setup.png" alt="CosyVoice TTS setup page" />
-                    <p>The CosyVoice TTS page lists every local voice model NyankoBot can use. Each model card shows whether it is downloaded, whether it is running, what features it supports, and which runtime settings will be used when the model is enabled.</p>
+                    <img class="screenshot" src="../assets/screenshots/tts-setup.png" alt="TTS Setup setup page" />
+                    <p>The TTS Setup page lists configured TTS providers and enabled models. CosyVoice cards expose local model runtime controls, while Google TTS uses an uploaded service-account JSON file and pulls language/voice choices from Google.</p>
                     <ol class="step-list">
-                        <li>Open CosyVoice TTS from Setup Home.</li>
-                        <li>Choose the Default Model used when a TTS source has no model override.</li>
-                        <li>Pick runtime settings for the model you want to use.</li>
-                        <li>Click Enable. Downloaded models can start immediately; missing models need to download first.</li>
-                        <li>Use Test or Clone/Test to verify that the model can generate audio.</li>
+                        <li>Open TTS Setup from Setup Home.</li>
+                        <li>Use <code>Add TTS</code> to add CosyVoice or Google TTS providers.</li>
+                        <li>Choose a Default Model from models that are added, enabled, and healthy.</li>
+                        <li>For Google TTS, upload a service-account JSON file and use Test to confirm generation.</li>
+                        <li>For CosyVoice, pick runtime settings, enable the model, then use Test or Clone/Test.</li>
                     </ol>
                 </section>
 
                 <section class="panel" id="model-controls">
                     <h2>Model Controls</h2>
-                    <p>Use model controls to decide which local voice model is available to overlay TTS sources. Keep the running model list small; each enabled model consumes memory.</p>
+                    <p>Use model controls to decide which provider or local voice model is available to overlay TTS sources. Keep the running CosyVoice model list small; each enabled local model consumes memory.</p>
                     <div class="token-table" role="table" aria-label="TTS model controls">
                         <div role="row"><strong role="cell">Control</strong><strong role="cell">What it does</strong></div>
-                        <div role="row"><code role="cell">Default Model</code><span role="cell">Chooses the model used when a TTS source does not explicitly override the model.</span></div>
+                        <div role="row"><code role="cell">Default Model</code><span role="cell">Chooses the model/provider used when a TTS source does not explicitly override it.</span></div>
+                        <div role="row"><code role="cell">Add TTS</code><span role="cell">Adds a provider such as Google TTS or a CosyVoice model card.</span></div>
+                        <div role="row"><code role="cell">Choose JSON</code><span role="cell">Stores the Google service-account JSON file name and encrypted credential content without showing the JSON body.</span></div>
                         <div role="row"><code role="cell">Enable</code><span role="cell">Starts the selected model with the current runtime settings. If the model is missing, NyankoBot must download it before it can run.</span></div>
                         <div role="row"><code role="cell">Disable</code><span role="cell">Stops the model and frees the runtime resources it was using.</span></div>
                         <div role="row"><code role="cell">Test</code><span role="cell">Opens voice testing for models that can synthesize immediately without saved voice cloning.</span></div>
                         <div role="row"><code role="cell">Clone/Test</code><span role="cell">Opens the voice tools dialog for models that support saved voice cloning or prompt-based testing.</span></div>
-                        <div role="row"><code role="cell">Save settings</code><span role="cell">Stores default model and runtime choices. Save before enabling if you changed backend, profile, or thread settings.</span></div>
+                        <div role="row"><code role="cell">Save settings</code><span role="cell">Stores provider setup, default model, cache settings, and runtime choices.</span></div>
                         <div role="row"><code role="cell">Delete Cache</code><span role="cell">Removes downloaded model files from the local cache. Use it to reclaim disk space or force a clean download.</span></div>
                     </div>
                 </section>
@@ -175,7 +178,7 @@
                         <li>Enable a TTS model and verify that it is running.</li>
                         <li>Open Voice Tools and generate a short test sentence.</li>
                         <li>In Overlay Setup, add a TTS source to a box.</li>
-                        <li>Select a model and voice, then set Message to <code>{{message.text}}</code>.</li>
+                        <li>Select a model and voice, then set Message to <code>{{text}}</code>.</li>
                         <li>Use Instruction only when the selected model supports instructed speech.</li>
                         <li>Adjust Speed and Volume on the source if the generated audio is too slow, too fast, quiet, or loud.</li>
                         <li>Bind the box to a command trigger such as <code>!tts</code>.</li>
@@ -200,3 +203,8 @@
     <script src="../docs-nav.js"></script>
 </body>
 </html>
+
+
+
+
+

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -58,8 +58,9 @@
                         <a class="tree-item nested" href="#obs-viewer">OBS viewer</a>
                         <a class="tree-item nested" href="#troubleshooting">Troubleshooting</a>
                         <a class="tree-item" href="streamerbot.html">Streamer.bot Connector</a>
-                        <a class="tree-item" href="tts.html">CosyVoice TTS</a>
-                        <a class="tree-item" href="manage-sources.html">Manage Sources</a>
+                        <a class="tree-item" href="tts.html">TTS Setup</a>
+                        <a class="tree-item" href="translators.html">Translators</a>
+                        <a class="tree-item" href="manage-sources.html">Storage</a>
                         <a class="tree-item" href="settings.html">Settings</a>
                     </div>
                     <div class="tree-group">
@@ -135,7 +136,7 @@
                     <div class="token-table" role="table" aria-label="Overlay source types">
                         <div role="row"><strong role="cell">Source type</strong><strong role="cell">Use</strong></div>
                         <div role="row"><code role="cell">Defined Source</code><span role="cell">Reuse an existing source from the source library.</span></div>
-                        <div role="row"><code role="cell">Text Source</code><span role="cell">Show static text or trigger-token text such as <code>{{message.text}}</code>.</span></div>
+                        <div role="row"><code role="cell">Text Source</code><span role="cell">Show static text or trigger-token text such as <code>{{text}}</code>.</span></div>
                         <div role="row"><code role="cell">Media Source</code><span role="cell">Show or play uploaded files and URLs such as images, GIFs, videos, and audio.</span></div>
                         <div role="row"><code role="cell">URL Source</code><span role="cell">Embed a webpage or browser-rendered URL in the box.</span></div>
                         <div role="row"><code role="cell">TTS Source</code><span role="cell">Generate speech from text using an enabled TTS model and selected voice.</span></div>
@@ -145,14 +146,15 @@
 
                 <section class="panel" id="triggers">
                     <h2>Triggers</h2>
-                    <p>Triggers decide when a box runs. After connecting Streamer.bot, NyankoBot can bind chat messages, commands, actions, or raw subscribed events to a box.</p>
+                    <p>Triggers decide when a box runs. After connecting Twitch, Kick, Streamer.bot, OBS, Stream Deck, or NyankoBot internal sources, NyankoBot can bind chat messages, commands, first words, channel rewards, timers, actions, or normalized connector events to a box.</p>
                     <ul>
                         <li><strong>Chat message</strong> triggers are good for chat overlays and token-driven text.</li>
                         <li><strong>Command</strong> triggers are good for intentional effects like <code>!hype</code>, <code>!tts</code>, or <code>!meme</code>.</li>
-                        <li><strong>Action</strong> triggers let Streamer.bot actions drive a NyankoBot box.</li>
-                        <li><strong>Raw triggers</strong> can be narrowed with hit rules when only specific trigger data should run the box.</li>
+                        <li><strong>First Words</strong> triggers are good for welcoming viewers when their first chat message is detected.</li>
+                        <li><strong>Channel Reward</strong> triggers bind to NyankoBot reward definitions, even when the reward is enabled on multiple platforms.</li>
+                        <li><strong>Connector events</strong> let Streamer.bot, OBS, Stream Deck, Twitch, Kick, and NyankoBot actions drive a box.</li>
                     </ul>
-                    <p>New trigger bindings are created through the <a href="component-add-trigger.html">Add Trigger</a> control. Use command triggers for viewer commands, action triggers for Streamer.bot action flows, and raw triggers when you need to match a subscribed event directly.</p>
+                    <p>New trigger bindings are created through the <a href="component-add-trigger.html">Add Trigger</a> control. Use command triggers for viewer commands, channel rewards for reward redemptions, and connector events when an external system should run overlay content.</p>
                 </section>
 
                 <section class="panel" id="source-rotation">
@@ -196,3 +198,7 @@
     <script src="../docs-nav.js"></script>
 </body>
 </html>
+
+
+
+

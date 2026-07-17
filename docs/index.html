@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -6,19 +6,19 @@
     <title>NyankoBot Documentation - Overlay Studio, Connectors, Chat, Rewards, and Triggers</title>
     <link rel="icon" type="image/png" href="../assets/ArnieTW_Mischevous.png" />
 <!-- SEO -->
-    <meta name="description" content="NyankoBot documentation for installing the app, creating OBS overlays, configuring Twitch, Kick, and Streamer.bot connectors, chat, channel rewards, command triggers, sources, CosyVoice TTS, and settings." />
+    <meta name="description" content="NyankoBot documentation for installing the app, creating OBS overlays, configuring Twitch, Kick, and Streamer.bot connectors, chat, channel rewards, command triggers, sources, TTS Setup, and settings." />
     <meta name="keywords" content="NyankoBot, OBS overlay, Twitch connector, Kick connector, Streamer.bot, channel rewards, chat monitor, command triggers, TTS, CosyVoice" />
     <meta name="author" content="ArnieTW" />
     <link rel="canonical" href="https://arnietw.github.io/NyankoBot/docs/index.html" />
     <meta property="og:site_name" content="NyankoBot" />
     <meta property="og:title" content="NyankoBot Documentation - Overlay Studio, Connectors, Chat, Rewards, and Triggers" />
-    <meta property="og:description" content="NyankoBot documentation for installing the app, creating OBS overlays, configuring Twitch, Kick, and Streamer.bot connectors, chat, channel rewards, command triggers, sources, CosyVoice TTS, and settings." />
+    <meta property="og:description" content="NyankoBot documentation for installing the app, creating OBS overlays, configuring Twitch, Kick, and Streamer.bot connectors, chat, channel rewards, command triggers, sources, TTS Setup, and settings." />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://arnietw.github.io/NyankoBot/docs/index.html" />
     <meta property="og:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="NyankoBot Documentation - Overlay Studio, Connectors, Chat, Rewards, and Triggers" />
-    <meta name="twitter:description" content="NyankoBot documentation for installing the app, creating OBS overlays, configuring Twitch, Kick, and Streamer.bot connectors, chat, channel rewards, command triggers, sources, CosyVoice TTS, and settings." />
+    <meta name="twitter:description" content="NyankoBot documentation for installing the app, creating OBS overlays, configuring Twitch, Kick, and Streamer.bot connectors, chat, channel rewards, command triggers, sources, TTS Setup, and settings." />
     <meta name="twitter:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
     <link rel="sitemap" type="application/xml" href="../sitemap.xml" />
 <!-- /SEO -->
@@ -52,8 +52,9 @@
                         <a class="tree-item" href="channel-rewards.html">Channel Rewards</a>
                         <a class="tree-item" href="chat.html">Chat</a>
                         <a class="tree-item" href="streamerbot.html">Streamer.bot Connector</a>
-                        <a class="tree-item" href="tts.html">CosyVoice TTS</a>
-                        <a class="tree-item" href="manage-sources.html">Manage Sources</a>
+                        <a class="tree-item" href="tts.html">TTS Setup</a>
+                        <a class="tree-item" href="translators.html">Translators</a>
+                        <a class="tree-item" href="manage-sources.html">Storage</a>
                         <a class="tree-item" href="settings.html">Settings</a>
                     </div>
                     <div class="tree-group">
@@ -81,7 +82,7 @@
                 <section>
                     <p class="kicker">Documentation</p>
                     <h1>NyankoBot User Guide</h1>
-                    <p class="lead">This documentation covers the public release workflow and user-facing setup: overlays, connectors, chat, rewards, command triggers, reusable sources, CosyVoice TTS, and settings.</p>
+                    <p class="lead">This documentation covers the public release workflow and user-facing setup: overlays, connectors, chat, rewards, command triggers, reusable sources, TTS Setup, and settings.</p>
                 </section>
 
                 <section class="grid" id="guide-map">
@@ -117,9 +118,17 @@
                         <h3>Chat</h3>
                         <p>Monitor messages coming from connected chat-capable connectors.</p>
                     </a>
+                    <a class="card" href="tts.html">
+                        <h3>TTS Setup</h3>
+                        <p>Add CosyVoice or Google TTS providers, choose enabled models, test voices, and manage TTS cache.</p>
+                    </a>
+                    <a class="card" href="translators.html">
+                        <h3>Translators</h3>
+                        <p>Configure Google or local translation providers for trigger actions that translate and store text.</p>
+                    </a>
                     <a class="card" href="manage-sources.html">
-                        <h3>Manage Sources</h3>
-                        <p>Audit reusable sources, preview media, inspect usage, and clean cached files.</p>
+                        <h3>Storage</h3>
+                        <p>Audit reusable sources, expand source variations, preview media, inspect usage, and clean cached files.</p>
                     </a>
                     <a class="card" href="settings.html">
                         <h3>Settings</h3>
@@ -137,13 +146,13 @@
 
                 <section class="panel" id="setup-home">
                     <h2>Setup Home</h2>
-                    <p>The setup home is the starting point for overlay editing, connector status, command triggers, chat, rewards, CosyVoice TTS, source management, and app settings.</p>
+                    <p>The setup home is the starting point for overlay editing, connector status, command triggers, chat, TTS providers, translators, storage, and app settings.</p>
                     <img class="screenshot" src="../assets/screenshots/setup-home.png" alt="NyankoBot setup home screen" />
                     <div class="token-table" role="table" aria-label="Documentation guide map">
                         <div role="row"><strong role="cell">Page</strong><strong role="cell">When to use it</strong></div>
                         <div role="row"><code role="cell">Download & Install</code><span role="cell">Use first. It explains where the release comes from, how to launch the app, and how to reach Setup Home.</span></div>
                         <div role="row"><code role="cell">Quick Setup</code><span role="cell">Use after install. It walks through the first Streamer.bot bridge, OBS overlay, text box, and media box.</span></div>
-                        <div role="row"><code role="cell">Setup Pages</code><span role="cell">Use when you need page-level explanations for Overlay Setup, Connectors, Command Triggers, Channel Rewards, Chat, CosyVoice TTS, Manage Sources, or Settings.</span></div>
+                        <div role="row"><code role="cell">Setup Pages</code><span role="cell">Use when you need page-level explanations for Overlay Setup, Connectors, Command Triggers, Channel Rewards, Chat, TTS Setup, Translators, Storage, or Settings.</span></div>
                         <div role="row"><code role="cell">Components</code><span role="cell">Use when you need detailed explanations of a specific UI component or dialog.</span></div>
                         <div role="row"><code role="cell">Examples</code><span role="cell">Use when you want a recipe for a specific overlay behavior.</span></div>
                         <div role="row"><code role="cell">Troubleshooting</code><span role="cell">Use when something fails to connect, render, trigger, play, or synthesize.</span></div>
@@ -155,3 +164,7 @@
     <script src="../docs-nav.js"></script>
 </body>
 </html>
+
+
+
+

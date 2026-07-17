@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -50,8 +50,9 @@
                         <a class="tree-item" href="channel-rewards.html">Channel Rewards</a>
                         <a class="tree-item" href="chat.html">Chat</a>
                         <a class="tree-item" href="streamerbot.html">Streamer.bot Connector</a>
-                        <a class="tree-item" href="tts.html">CosyVoice TTS</a>
-                        <a class="tree-item" href="manage-sources.html">Manage Sources</a>
+                        <a class="tree-item" href="tts.html">TTS Setup</a>
+                        <a class="tree-item" href="translators.html">Translators</a>
+                        <a class="tree-item" href="manage-sources.html">Storage</a>
                         <a class="tree-item" href="settings.html">Settings</a>
                     </div>
                     <div class="tree-group">
@@ -75,6 +76,7 @@
                         <a class="tree-item nested" href="#source-dialog-animation-option">Animation</a>
                         <a class="tree-item nested" href="#source-dialog-media-option">Media</a>
                         <a class="tree-item nested" href="#source-dialog-chroma-option">Chroma</a>
+                        <a class="tree-item nested" href="#source-dialog-transform-option">Transform</a>
                         <a class="tree-item nested" href="#source-dialog-preview-option">Preview</a>
                         <a class="tree-item nested" href="#source-dialog-actions">Actions</a>
                     </div>
@@ -172,6 +174,8 @@
                         <div><a href="#source-dialog-media-option">Move to definition</a></div>
                         <div><code>Chroma</code></div>
                         <div><a href="#source-dialog-chroma-option">Move to definition</a></div>
+                        <div><code>Transform</code></div>
+                        <div><a href="#source-dialog-transform-option">Move to definition</a></div>
                         <div><code>Preview</code></div>
                         <div><a href="#source-dialog-preview-option">Move to definition</a></div>
                     </div>
@@ -318,6 +322,22 @@
                     </div>
                 </section>
 
+                <section class="panel" id="source-dialog-transform-option">
+                    <h2>Transform</h2>
+                    <p>Used by visual sources. Transform settings rotate or flip the rendered media itself while leaving the preview controls alone.</p>
+                    <div class="token-table">
+                        <div><strong>UI option</strong></div>
+                        <div><strong>Choices</strong></div>
+                        <div><code>Rotate</code></div>
+                        <div>Rotates the visual source by the entered number of degrees. Use <code>0</code> for no rotation.</div>
+                        <div><code>Flip horizontally</code></div>
+                        <div>Mirrors the visual source left-to-right.</div>
+                        <div><code>Flip vertically</code></div>
+                        <div>Mirrors the visual source top-to-bottom.</div>
+                    </div>
+                    <p>Changing transform options updates the preview immediately, so source orientation can be checked before saving.</p>
+                </section>
+
                 <section class="panel" id="source-dialog-preview-option">
                     <h2>Preview</h2>
                     <img class="screenshot" src="../assets/screenshots/common-preview.png" alt="Add Source dialog showing the preview pane" />
@@ -351,3 +371,7 @@
     <script src="../docs-nav.js"></script>
 </body>
 </html>
+
+
+
+

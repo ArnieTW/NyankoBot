@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NyankoBot Translators - Google Translate and Local Translation Providers</title>
+    <link rel="icon" type="image/png" href="../assets/ArnieTW_Mischevous.png" />
+    <meta name="description" content="Configure NyankoBot translator providers for trigger actions, including Google Translate API key, Google Cloud Translation service account, and local translator services." />
+    <meta name="keywords" content="NyankoBot translators, Google Translate, local translator, stream translation, trigger actions" />
+    <meta name="author" content="ArnieTW" />
+    <link rel="canonical" href="https://arnietw.github.io/NyankoBot/docs/translators.html" />
+    <meta property="og:site_name" content="NyankoBot" />
+    <meta property="og:title" content="NyankoBot Translators - Google Translate and Local Translation Providers" />
+    <meta property="og:description" content="Configure NyankoBot translator providers for trigger actions, including Google Translate API key, Google Cloud Translation service account, and local translator services." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://arnietw.github.io/NyankoBot/docs/translators.html" />
+    <meta property="og:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="NyankoBot Translators - Google Translate and Local Translation Providers" />
+    <meta name="twitter:description" content="Configure translator providers for NyankoBot trigger actions." />
+    <meta name="twitter:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
+    <link rel="sitemap" type="application/xml" href="../sitemap.xml" />
+    <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+    <div class="page">
+        <nav class="nav" aria-label="Main navigation">
+            <a class="brand" href="../index.html"><img class="brand-logo" src="../assets/ArnieTW_Mischevous.png" alt="" /><span>NyankoBot</span></a>
+            <div class="nav-links">
+                <a href="index.html">Documentation</a>
+                <a href="../roadmap.html">Roadmap</a>
+                <a href="https://github.com/ArnieTW/NyankoBot/issues">Issues</a>
+                <a href="../releases/">Downloads</a>
+            </div>
+        </nav>
+
+        <main class="docs-layout">
+            <aside class="tree-nav" aria-label="Documentation navigation">
+                <nav class="tree-control" aria-label="Documentation tree">
+                    <a class="tree-item root" href="index.html">Overview</a>
+                    <a class="tree-item root" href="download-install.html">Download & Install</a>
+                    <a class="tree-item root" href="quick-setup.html">Quick Setup</a>
+                    <div class="tree-group">
+                        <div class="tree-heading">Setup Pages</div>
+                        <a class="tree-item" href="overlay-setup.html">Overlay Setup</a>
+                        <a class="tree-item" href="connectors.html">Connectors</a>
+                        <a class="tree-item" href="command-triggers.html">Command Triggers</a>
+                        <a class="tree-item" href="channel-rewards.html">Channel Rewards</a>
+                        <a class="tree-item" href="chat.html">Chat</a>
+                        <a class="tree-item" href="streamerbot.html">Streamer.bot Connector</a>
+                        <a class="tree-item" href="tts.html">TTS Setup</a>
+                        <a class="tree-item active" href="translators.html">Translators</a>
+                        <a class="tree-item nested active" href="#providers">Providers</a>
+                        <a class="tree-item nested" href="#actions">Trigger actions</a>
+                        <a class="tree-item" href="manage-sources.html">Storage</a>
+                        <a class="tree-item" href="settings.html">Settings</a>
+                    </div>
+                    <a class="tree-item root" href="troubleshooting.html">Troubleshooting</a>
+                </nav>
+            </aside>
+
+            <article class="doc-content">
+                <section>
+                    <p class="kicker">Setup Page</p>
+                    <h1>Translators</h1>
+                    <p class="lead">Translators configure the backends used by trigger actions that translate incoming text before storing or sending the result.</p>
+                </section>
+
+                <section class="panel" id="providers">
+                    <h2>Providers</h2>
+                    <img class="screenshot" src="../assets/screenshots/translators.png" alt="NyankoBot Translators setup page" />
+                    <p>Add one or more translation backends, then use the Translator action inside Command Triggers. NyankoBot currently separates Google Translate API key setup, Google Cloud Translation service-account setup, and local translator endpoints.</p>
+                    <div class="token-table" role="table" aria-label="Translator provider controls">
+                        <div role="row"><strong role="cell">Provider</strong><strong role="cell">Use it for</strong></div>
+                        <div role="row"><code role="cell">Google Translate API Key</code><span role="cell">Simple Google v2 translation using an API key.</span></div>
+                        <div role="row"><code role="cell">Google Cloud Translation</code><span role="cell">Google v3 translation using service-account JSON and project information.</span></div>
+                        <div role="row"><code role="cell">Local Translator</code><span role="cell">A local or self-hosted translation service that exposes compatible translate/language endpoints.</span></div>
+                    </div>
+                </section>
+
+                <section class="panel" id="actions">
+                    <h2>Trigger Actions</h2>
+                    <p>The Translator action can read text from a trigger token, choose a source-language mode, translate to a target language, and store the result as a trigger argument or persistent variable.</p>
+                    <div class="token-table" role="table" aria-label="Translator action behavior">
+                        <div role="row"><strong role="cell">Option</strong><strong role="cell">What it controls</strong></div>
+                        <div role="row"><code role="cell">Default</code><span role="cell">Uses the provider's configured source language.</span></div>
+                        <div role="row"><code role="cell">Auto Google</code><span role="cell">Lets Google detect the source language when the selected Google provider supports it.</span></div>
+                        <div role="row"><code role="cell">Auto NyankoBot</code><span role="cell">Uses NyankoBot's local language detector before translating.</span></div>
+                        <div role="row"><code role="cell">Specific</code><span role="cell">Requires a selected source language and can skip or fail when the detected language is not compatible.</span></div>
+                        <div role="row"><code role="cell">Store result</code><span role="cell">Writes translated text and metadata into the configured argument name, optionally as a persistent value.</span></div>
+                    </div>
+                </section>
+            </article>
+        </main>
+    </div>
+    <script src="../docs-nav.js"></script>
+</body>
+</html>
+

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -6,19 +6,19 @@
     <title>NyankoBot Add Trigger Reference</title>
     <link rel="icon" type="image/png" href="../assets/ArnieTW_Mischevous.png" />
 <!-- SEO -->
-    <meta name="description" content="Reference for binding Streamer.bot commands, actions, and raw events to NyankoBot overlay boxes with trigger search, options, sequencing, and custom IF/Else cases." />
+    <meta name="description" content="Reference for binding NyankoBot, Twitch, Kick, Streamer.bot, OBS, and channel reward triggers to overlay boxes with trigger search, options, sequencing, and custom IF/Else cases." />
     <meta name="keywords" content="NyankoBot, OBS overlay, Streamer.bot, streaming overlay, browser source, Twitch bot, stream effects, TTS, CosyVoice, media commands" />
     <meta name="author" content="ArnieTW" />
     <link rel="canonical" href="https://arnietw.github.io/NyankoBot/docs/component-add-trigger.html" />
     <meta property="og:site_name" content="NyankoBot" />
     <meta property="og:title" content="NyankoBot Add Trigger Reference" />
-    <meta property="og:description" content="Reference for binding Streamer.bot commands, actions, and raw events to NyankoBot overlay boxes with trigger search, options, sequencing, and custom IF/Else cases." />
+    <meta property="og:description" content="Reference for binding NyankoBot, Twitch, Kick, Streamer.bot, OBS, and channel reward triggers to overlay boxes with trigger search, options, sequencing, and custom IF/Else cases." />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://arnietw.github.io/NyankoBot/docs/component-add-trigger.html" />
     <meta property="og:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="NyankoBot Add Trigger Reference" />
-    <meta name="twitter:description" content="Reference for binding Streamer.bot commands, actions, and raw events to NyankoBot overlay boxes with trigger search, options, sequencing, and custom IF/Else cases." />
+    <meta name="twitter:description" content="Reference for binding NyankoBot, Twitch, Kick, Streamer.bot, OBS, and channel reward triggers to overlay boxes with trigger search, options, sequencing, and custom IF/Else cases." />
     <meta name="twitter:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
     <link rel="sitemap" type="application/xml" href="../sitemap.xml" />
 <!-- /SEO -->
@@ -50,8 +50,9 @@
                         <a class="tree-item" href="channel-rewards.html">Channel Rewards</a>
                         <a class="tree-item" href="chat.html">Chat</a>
                         <a class="tree-item" href="streamerbot.html">Streamer.bot Connector</a>
-                        <a class="tree-item" href="tts.html">CosyVoice TTS</a>
-                        <a class="tree-item" href="manage-sources.html">Manage Sources</a>
+                        <a class="tree-item" href="tts.html">TTS Setup</a>
+                        <a class="tree-item" href="translators.html">Translators</a>
+                        <a class="tree-item" href="manage-sources.html">Storage</a>
                         <a class="tree-item" href="settings.html">Settings</a>
                     </div>
                     <div class="tree-group">
@@ -86,7 +87,7 @@
                 <section id="add-trigger-component">
                     <p class="kicker">Inside Component</p>
                     <h1>Add Trigger</h1>
-                    <p class="lead">The Add Trigger dialog binds a Streamer.bot event, command, or action to the selected overlay box. When the trigger fires, NyankoBot decides which source or sources in that box should run.</p>
+                    <p class="lead">The Add Trigger dialog binds connector events, commands, channel rewards, timers, Stream Deck calls, or NyankoBot synthetic triggers to the selected overlay box. When the trigger fires, NyankoBot decides which source or sources in that box should run.</p>
                 </section>
 
                 <section class="panel" id="add-trigger-open">
@@ -111,7 +112,7 @@
                     <h2>Trigger Search</h2>
                     <img class="screenshot" src="../assets/screenshots/add-trigger-dialog.png" alt="Add Trigger dialog before a trigger is selected" />
                     <img class="screenshot" src="../assets/screenshots/add-trigger-search.png" alt="Add Trigger dialog with the trigger search results open" />
-                    <p>The dialog loads available triggers from the Streamer.bot catalog, then displays them under the <code>Search Triggers</code> input. It also loads <a href="component-argument-control.html">Argument Control</a> mappings so hit rules and custom cases can use <code>{{</code> tokens.</p>
+                    <p>The dialog loads available trigger sources from enabled connectors and NyankoBot itself, then displays them under the <code>Search Triggers</code> input. Sources are grouped by connector and category, and groups are collapsed until opened. It also loads <a href="component-argument-control.html">Argument Control</a> mappings so hit rules and custom cases can use <code>{{</code> tokens.</p>
                     <div class="token-table">
                         <div><strong>UI option</strong></div>
                         <div><strong>What it does</strong></div>
@@ -120,7 +121,7 @@
                         <div><code>Trigger row title</code></div>
                         <div>The visible trigger name. For commands this is the command name or alias; for actions this is the action name; for raw events this is the event label or key.</div>
                         <div><code>Category</code></div>
-                        <div>Shows <code>Raw Trigger</code>, <code>Command Trigger</code>, or <code>Action Trigger</code>.</div>
+                        <div>Shows the connector family and low-level group, such as Twitch Chat, Channel Reward, OBS, Streamer.bot Actions, or NyankoBot internal triggers.</div>
                         <div><code>Description</code></div>
                         <div>Shows aliases and modes for commands, group and trigger events for actions, or <code>Subscribed raw Streamer.bot event.</code> for raw triggers.</div>
                         <div>Duplicate filtering</div>
@@ -131,16 +132,20 @@
                 <section class="panel" id="add-trigger-types">
                     <h2>Trigger Types</h2>
                     <img class="screenshot" src="../assets/screenshots/add-trigger-search.png" alt="Add Trigger search results showing command, raw, and action trigger rows" />
-                    <p>The same Add Trigger control handles three Streamer.bot trigger families.</p>
+                    <p>The same Add Trigger control handles normalized trigger sources from every connector. Bindings store the connector, event type, optional event id, and optional event name so matching does not depend on connector-specific payload shapes.</p>
                     <div class="token-table">
                         <div><strong>Type</strong></div>
                         <div><strong>Stored target</strong></div>
-                        <div><code>Raw Trigger</code></div>
-                        <div>Stores the raw event key, category, event name, and optional hit rules. Use this when a subscribed event should run a box directly.</div>
-                        <div><code>Command Trigger</code></div>
-                        <div>Stores the command id, command name, primary command, aliases, and trigger modes. Use this for chat commands such as <code>!tts</code>, <code>!meme</code>, or <code>!hype</code>.</div>
-                        <div><code>Action Trigger</code></div>
-                        <div>Stores the action id, action name, and action trigger events. Use this when a Streamer.bot action should drive a NyankoBot box.</div>
+                        <div><code>Chat Message</code></div>
+                        <div>Runs from normal platform chat. Ignore Commands can be used so command messages do not also trigger generic chat bindings.</div>
+                        <div><code>Command</code></div>
+                        <div>Synthetic chat-based trigger for direct Twitch/Kick command handling. Command bindings include an unremovable raw-text starts-with rule and expose command arguments through <code>{{text}}</code>.</div>
+                        <div><code>First Words</code></div>
+                        <div>Synthetic chat-based trigger that runs when the chat payload marks a viewer's first message for the current cached session.</div>
+                        <div><code>Channel Reward</code></div>
+                        <div>Binds to NyankoBot's internal reward definition, so the same reward can be enabled on more than one platform without adding separate platform rules.</div>
+                        <div><code>Connector Event</code></div>
+                        <div>Runs from platform, Streamer.bot, OBS, Stream Deck, timer, or raw connector events after NyankoBot normalizes the incoming event identity.</div>
                     </div>
                 </section>
 
@@ -151,7 +156,9 @@
                         <div><strong>UI option</strong></div>
                         <div><strong>When it appears</strong></div>
                         <div><code>Ignore commands</code></div>
-                        <div>Appears for chat-message style triggers. When enabled, normal chat-message triggers ignore messages that are commands.</div>
+                        <div>Appears for chat-message style triggers that contain user text. It is hidden for Command triggers because the command rule is the trigger itself.</div>
+                        <div><code>Ignore internal</code></div>
+                        <div>Stops the binding from firing when the incoming chat payload was sent by NyankoBot itself.</div>
                         <div><code>Hit rules</code></div>
                         <div>Appears for raw triggers. Use the <a href="component-if-else-control.html">IF/Else Control</a> when a raw event should only run when specific trigger data matches.</div>
                         <div><code>Add hit rule</code></div>
@@ -221,3 +228,7 @@
     <script src="../docs-nav.js"></script>
 </body>
 </html>
+
+
+
+

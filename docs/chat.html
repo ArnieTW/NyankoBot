@@ -1,23 +1,23 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>NyankoBot Chat - Twitch and Kick Chat Monitor</title>
     <link rel="icon" type="image/png" href="../assets/ArnieTW_Mischevous.png" />
-    <meta name="description" content="Use the NyankoBot Chat page to monitor connected Twitch and Kick chat messages from the local setup interface." />
+    <meta name="description" content="Use the NyankoBot Chat page to monitor and send messages through enabled chat connectors, with avatars, connector tabs, first-words highlighting, and external access links." />
     <meta name="keywords" content="NyankoBot chat, Twitch chat, Kick chat, stream chat monitor, OBS overlay" />
     <meta name="author" content="ArnieTW" />
     <link rel="canonical" href="https://arnietw.github.io/NyankoBot/docs/chat.html" />
     <meta property="og:site_name" content="NyankoBot" />
     <meta property="og:title" content="NyankoBot Chat - Twitch and Kick Chat Monitor" />
-    <meta property="og:description" content="Use the NyankoBot Chat page to monitor connected Twitch and Kick chat messages from the local setup interface." />
+    <meta property="og:description" content="Use the NyankoBot Chat page to monitor and send messages through enabled chat connectors, with avatars, connector tabs, first-words highlighting, and external access links." />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://arnietw.github.io/NyankoBot/docs/chat.html" />
     <meta property="og:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="NyankoBot Chat - Twitch and Kick Chat Monitor" />
-    <meta name="twitter:description" content="Use the NyankoBot Chat page to monitor connected Twitch and Kick chat messages from the local setup interface." />
+    <meta name="twitter:description" content="Use the NyankoBot Chat page to monitor and send messages through enabled chat connectors, with avatars, connector tabs, first-words highlighting, and external access links." />
     <meta name="twitter:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
     <link rel="sitemap" type="application/xml" href="../sitemap.xml" />
     <link rel="stylesheet" href="../styles.css" />
@@ -49,7 +49,7 @@
                         <a class="tree-item nested active" href="#chat-feed">Chat feed</a>
                         <a class="tree-item nested" href="#platform-tabs">Platform tabs</a>
                         <a class="tree-item" href="overlay-setup.html">Overlay Setup</a>
-                        <a class="tree-item" href="manage-sources.html">Manage Sources</a>
+                        <a class="tree-item" href="manage-sources.html">Storage</a>
                     </div>
                     <a class="tree-item root" href="troubleshooting.html">Troubleshooting</a>
                 </nav>
@@ -59,24 +59,28 @@
                 <section>
                     <p class="kicker">Setup Page</p>
                     <h1>Chat</h1>
-                    <p class="lead">Chat is a local monitor for messages arriving through connected chat-capable connectors.</p>
+                    <p class="lead">Chat is the live message surface for enabled chat-capable connectors. It can be opened from Setup Home or through the external gateway URL.</p>
                 </section>
 
                 <section class="panel" id="chat-feed">
                     <h2>Chat Feed</h2>
                     <img class="screenshot" src="../assets/screenshots/chat.png" alt="NyankoBot Chat setup page" />
-                    <p>The Chat page is useful for confirming that Twitch or Kick connectors are actually receiving messages before you bind those messages to command triggers or overlay boxes.</p>
+                    <p>The Chat page is useful for confirming that Twitch, Kick, or Streamer.bot chat events are arriving before you bind those messages to command triggers or overlay boxes. Messages use the user avatar as the primary image, with small connector/platform icons layered onto it.</p>
                     <div class="token-table" role="table" aria-label="Chat feed controls">
                         <div role="row"><strong role="cell">UI area</strong><strong role="cell">What it means</strong></div>
-                        <div role="row"><code role="cell">Chat tabs</code><span role="cell">Switch between connected chat sources when more than one platform is available.</span></div>
-                        <div role="row"><code role="cell">Message list</code><span role="cell">Shows recent messages received by NyankoBot.</span></div>
-                        <div role="row"><code role="cell">Refresh</code><span role="cell">Reloads recent messages and connector state.</span></div>
+                        <div role="row"><code role="cell">All</code><span role="cell">Shows messages from connectors that are visible in All. Hidden connectors are excluded from the All count and All send target list.</span></div>
+                        <div role="row"><code role="cell">Connector tabs</code><span role="cell">Switches the visible filter locally without reloading the full message list.</span></div>
+                        <div role="row"><code role="cell">Eye icon</code><span role="cell">Toggles whether that connector contributes messages to All.</span></div>
+                        <div role="row"><code role="cell">Message list</code><span role="cell">Shows recent messages received by NyankoBot, oldest at the top and newest at the bottom.</span></div>
+                        <div role="row"><code role="cell">Input</code><span role="cell">Sends a message through the selected connector. When All is selected, NyankoBot sends only through connectors currently visible in All.</span></div>
+                        <div role="row"><code role="cell">Send as bot if available</code><span role="cell">Uses the bot account when the connector has one, falling back according to connector capabilities.</span></div>
+                        <div role="row"><code role="cell">Copy URL</code><span role="cell">Copies the external gateway URL for opening Chat in a separate browser window.</span></div>
                     </div>
                 </section>
 
                 <section class="panel" id="platform-tabs">
                     <h2>Platform Tabs</h2>
-                    <p>Chat is driven by connectors. If no messages appear, check the matching <a href="connectors.html">Connector</a> first, then confirm that the account is connected and enabled.</p>
+                    <p>Chat is driven by enabled and connected connectors. If no messages appear, check the matching <a href="connectors.html">Connector</a> first, then confirm that the account is connected and the connector is not hidden from All.</p>
                     <ul>
                         <li>Use Chat to verify incoming messages.</li>
                         <li>Use <a href="command-triggers.html">Command Triggers</a> to decide what NyankoBot does when chat commands or connector events arrive.</li>
@@ -89,3 +93,6 @@
     <script src="../docs-nav.js"></script>
 </body>
 </html>
+
+
+

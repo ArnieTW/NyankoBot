@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -50,8 +50,9 @@
                         <a class="tree-item" href="channel-rewards.html">Channel Rewards</a>
                         <a class="tree-item" href="chat.html">Chat</a>
                         <a class="tree-item" href="streamerbot.html">Streamer.bot Connector</a>
-                        <a class="tree-item" href="tts.html">CosyVoice TTS</a>
-                        <a class="tree-item" href="manage-sources.html">Manage Sources</a>
+                        <a class="tree-item" href="tts.html">TTS Setup</a>
+                        <a class="tree-item" href="translators.html">Translators</a>
+                        <a class="tree-item" href="manage-sources.html">Storage</a>
                         <a class="tree-item" href="settings.html">Settings</a>
                     </div>
                     <div class="tree-group">
@@ -129,13 +130,13 @@
                         <div><code>User</code></div>
                         <div><code>{{user.id}}</code>, <code>{{user.name}}</code>, <code>{{user.display}}</code>, <code>{{user.login}}</code>, <code>{{user.role}}</code>, <code>{{user.roleName}}</code>, <code>{{user.avatar}}</code>, <code>{{user.color}}</code>, <code>{{user.badges}}</code>, <code>{{user.subscribed}}</code>, <code>{{user.subscriptionTier}}</code>, <code>{{user.monthsSubscribed}}</code>, <code>{{user.verified}}</code>, plus aliases <code>{{user.username}}</code>, <code>{{user.isSubscribed}}</code>, <code>{{user.isVerified}}</code>, <code>{{user.profilePicture}}</code>, <code>{{user.displayName}}</code>, and <code>{{userName}}</code>.</div>
                         <div><code>Message</code></div>
-                        <div><code>{{message.id}}</code>, <code>{{message.text}}</code>, <code>{{message.emotes}}</code>, <code>{{message.parts}}</code>, <code>{{message.meta}}</code>, plus alias <code>{{text}}</code>.</div>
+                        <div><code>{{message.id}}</code>, <code>{{message.text}}</code>, <code>{{message.emotes}}</code>, <code>{{message.parts}}</code>, <code>{{message.meta}}</code>, plus aliases <code>{{rawText}}</code>, <code>{{text}}</code>, and <code>{{sanitizedText}}</code>.</div>
                         <div><code>Channel</code></div>
                         <div><code>{{channel.id}}</code>, <code>{{channel.name}}</code>, <code>{{channel.channelName}}</code>, <code>{{channel.platform}}</code>, <code>{{channel.isLive}}</code>.</div>
                         <div><code>Trigger</code></div>
                         <div><code>{{trigger.id}}</code>, <code>{{trigger.type}}</code>, <code>{{trigger.eventType}}</code>, <code>{{trigger.source}}</code>, <code>{{trigger.timestamp}}</code>, <code>{{trigger.name}}</code>, <code>{{trigger.isFirstWords}}</code>, plus alias <code>{{isFirstWords}}</code>.</div>
                         <div><code>Context</code></div>
-                        <div><code>{{context.sessionId}}</code>, <code>{{context.requestId}}</code>, <code>{{context.correlationId}}</code>, <code>{{context.tags}}</code>, <code>{{context.metadata}}</code>.</div>
+                        <div><code>{{context.sessionId}}</code>, <code>{{context.requestId}}</code>, <code>{{context.correlationId}}</code>, and <code>{{context.tags}}</code>.</div>
                         <div><code>Platform</code></div>
                         <div><code>{{platforms.streamerbot}}</code>, <code>{{platforms.twitch}}</code>, <code>{{platforms.kick}}</code>, <code>{{platforms.youtube}}</code>, <code>{{platforms.custom}}</code>.</div>
                     </div>
@@ -150,7 +151,7 @@
                         <div><code>Command arguments</code></div>
                         <div><code>{{command.name}}</code>, <code>{{command.prefix}}</code>, <code>{{command.fullCommand}}</code>, <code>{{command.arguments}}</code>, <code>{{command.arguments[0]}}</code>, <code>{{command.argumentCount}}</code>, <code>{{command.argsText}}</code>, <code>{{command.counter}}</code>, <code>{{command.userCounter}}</code>, plus alias <code>{{firstArg}}</code>.</div>
                         <div><code>Message text</code></div>
-                        <div><code>{{message.text}}</code> and alias <code>{{text}}</code>. Use these for chat-driven text, TTS content, captions, and callouts.</div>
+                        <div><code>{{rawText}}</code>, <code>{{text}}</code>, and <code>{{sanitizedText}}</code>. Prefer <code>{{text}}</code> for chat-driven text, TTS content, captions, and callouts.</div>
                         <div><code>Custom payload</code></div>
                         <div><code>{{custom}}</code> and <code>{{custom["key"]}}</code>. Replace <code>key</code> with the custom variable name supplied by the trigger payload.</div>
                         <div>Autocomplete display</div>
@@ -184,7 +185,7 @@
                         <div><strong>Use case</strong></div>
                         <div><strong>Template</strong></div>
                         <div>Chat callout</div>
-                        <div><code>{{user.display}}: {{message.text}}</code></div>
+                        <div><code>{{user.display}}: {{text}}</code></div>
                         <div>TTS command</div>
                         <div><code>{{command.argsText}}</code></div>
                         <div>Custom payload value</div>
@@ -199,3 +200,7 @@
     <script src="../docs-nav.js"></script>
 </body>
 </html>
+
+
+
+

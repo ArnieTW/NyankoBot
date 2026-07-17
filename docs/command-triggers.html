@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -57,7 +57,7 @@
                 <section>
                     <p class="kicker">Setup Page</p>
                     <h1>Command Triggers</h1>
-                    <p class="lead">Command Triggers are NyankoBot-owned trigger definitions that can be fired by connector events and then used by overlay boxes or action flows.</p>
+                    <p class="lead">Command Triggers are NyankoBot-owned trigger definitions that can be fired by connector events, synthetic events, Stream Deck calls, or manual actions, then used by action flows and overlay bindings.</p>
                 </section>
 
                 <section class="panel" id="trigger-list">
@@ -80,19 +80,23 @@
                         <div role="row"><strong role="cell">Area</strong><strong role="cell">Use it for</strong></div>
                         <div role="row"><code role="cell">Trigger Info</code><span role="cell">Name, group, enabled state, and basic trigger identity.</span></div>
                         <div role="row"><code role="cell">Cooldowns</code><span role="cell">Global, per-user, and role-based timing limits.</span></div>
-                        <div role="row"><code role="cell">Triggers</code><span role="cell">Connector events or local events that should fire this NyankoBot trigger.</span></div>
-                        <div role="row"><code role="cell">Actions</code><span role="cell">Work NyankoBot should run when this trigger fires.</span></div>
+                        <div role="row"><code role="cell">Triggers</code><span role="cell">Connector events, synthetic chat events such as Command or First Words, timers, Stream Deck calls, or manual trigger sources.</span></div>
+                        <div role="row"><code role="cell">Actions</code><span role="cell">Work NyankoBot should run when this trigger fires. The Add Action dialog is grouped by provider and action category.</span></div>
+                        <div role="row"><code role="cell">History</code><span role="cell">Shows the matched command trigger, payload, resolved text values, and action arguments after execution.</span></div>
                     </div>
                 </section>
 
                 <section class="panel" id="actions">
                     <h2>Actions And Overlay Binding</h2>
-                    <p>Command Triggers can be used directly by action flows, or selected from overlay box trigger controls when a visual result should appear on stream.</p>
+                    <p>Command Triggers can run actions directly, trigger overlay bindings, or trigger a specific box source. Action forms are schema-driven, so normal actions expose named fields instead of asking for a raw request payload.</p>
                     <ul>
-                        <li>Use connector events to decide when a trigger fires.</li>
-                        <li>Use cooldowns to protect chat commands and reward flows from spam.</li>
-                        <li>Use overlay boxes to show text, media, TTS, wheel pickers, or layered sources when the trigger fires.</li>
-                        <li>Use Channel Rewards when the trigger should be tied to Twitch or Kick reward setup.</li>
+                        <li>Use connector events to decide when a trigger fires. Twitch and Kick chat events are normalized before matching, so synthetic Command and First Words triggers behave like chat-based triggers.</li>
+                        <li>Use cooldowns and permissions for user-triggered chat flows. Broadcaster runs bypass cooldowns.</li>
+                        <li>Use Send Message for chat output. It supports bot/broadcaster account choices and can send back to the triggering platform before trying selected fallback platforms.</li>
+                        <li>Use connector actions, such as Twitch, Kick, OBS, or Streamer.bot actions, when the connector can perform platform work. Connection selectors are filtered to compatible enabled connector types.</li>
+                        <li>Use Translator to translate a token such as <code>{{text}}</code>, then store the result as a session argument or persistent variable.</li>
+                        <li>Use Trigger Binding to fire an overlay-level or box-level binding from an action.</li>
+                        <li>Use Trigger Box Source to manually fire a source variation on a selected overlay/box while respecting source timing and tiering rules.</li>
                     </ul>
                 </section>
             </article>
@@ -101,3 +105,5 @@
     <script src="../docs-nav.js"></script>
 </body>
 </html>
+
+

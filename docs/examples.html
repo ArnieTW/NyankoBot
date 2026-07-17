@@ -1,24 +1,24 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>NyankoBot Examples - Chat Text, Media Commands, TTS, and Random Sources</title>
+    <title>NyankoBot Examples - Chat Text, Media Commands, TTS, Translators, and Manual Sources</title>
     <link rel="icon" type="image/png" href="../assets/ArnieTW_Mischevous.png" />
 <!-- SEO -->
-    <meta name="description" content="Example NyankoBot overlay recipes for showing chat text, playing media from commands, reading TTS messages, selecting random sources, and using trigger tokens." />
+    <meta name="description" content="Example NyankoBot overlay recipes for showing chat text, playing media from commands, reading TTS messages, translating trigger text, selecting random sources, and using trigger tokens." />
     <meta name="keywords" content="NyankoBot, OBS overlay, Streamer.bot, streaming overlay, browser source, Twitch bot, stream effects, TTS, CosyVoice, media commands" />
     <meta name="author" content="ArnieTW" />
     <link rel="canonical" href="https://arnietw.github.io/NyankoBot/docs/examples.html" />
     <meta property="og:site_name" content="NyankoBot" />
-    <meta property="og:title" content="NyankoBot Examples - Chat Text, Media Commands, TTS, and Random Sources" />
-    <meta property="og:description" content="Example NyankoBot overlay recipes for showing chat text, playing media from commands, reading TTS messages, selecting random sources, and using trigger tokens." />
+    <meta property="og:title" content="NyankoBot Examples - Chat Text, Media Commands, TTS, Translators, and Manual Sources" />
+    <meta property="og:description" content="Example NyankoBot overlay recipes for showing chat text, playing media from commands, reading TTS messages, translating trigger text, selecting random sources, and using trigger tokens." />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://arnietw.github.io/NyankoBot/docs/examples.html" />
     <meta property="og:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="NyankoBot Examples - Chat Text, Media Commands, TTS, and Random Sources" />
-    <meta name="twitter:description" content="Example NyankoBot overlay recipes for showing chat text, playing media from commands, reading TTS messages, selecting random sources, and using trigger tokens." />
+    <meta name="twitter:title" content="NyankoBot Examples - Chat Text, Media Commands, TTS, Translators, and Manual Sources" />
+    <meta name="twitter:description" content="Example NyankoBot overlay recipes for showing chat text, playing media from commands, reading TTS messages, translating trigger text, selecting random sources, and using trigger tokens." />
     <meta name="twitter:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
     <link rel="sitemap" type="application/xml" href="../sitemap.xml" />
 <!-- /SEO -->
@@ -50,8 +50,9 @@
                         <a class="tree-item" href="channel-rewards.html">Channel Rewards</a>
                         <a class="tree-item" href="chat.html">Chat</a>
                         <a class="tree-item" href="streamerbot.html">Streamer.bot Connector</a>
-                        <a class="tree-item" href="tts.html">CosyVoice TTS</a>
-                        <a class="tree-item" href="manage-sources.html">Manage Sources</a>
+                        <a class="tree-item" href="tts.html">TTS Setup</a>
+                        <a class="tree-item" href="translators.html">Translators</a>
+                        <a class="tree-item" href="manage-sources.html">Storage</a>
                         <a class="tree-item" href="settings.html">Settings</a>
                     </div>
                     <div class="tree-group">
@@ -68,6 +69,8 @@
                         <a class="tree-item active" href="#chat-text">Chat text</a>
                         <a class="tree-item" href="#media-command">Media command</a>
                         <a class="tree-item" href="#tts-message">TTS message</a>
+                        <a class="tree-item" href="#translate-message">Translate message</a>
+                        <a class="tree-item" href="#manual-source">Manual source action</a>
                         <a class="tree-item" href="#random-source">Random source</a>
                         <a class="tree-item" href="#trigger-tokens">Trigger tokens</a>
                     </div>
@@ -79,7 +82,7 @@
                 <section>
                     <p class="kicker">Recipes</p>
                     <h1>Setup Examples</h1>
-                    <p class="lead">These examples describe common first overlays without exposing internal implementation details.</p>
+                    <p class="lead">These examples describe common first automations using the current connector, trigger, action, and source workflow.</p>
                 </section>
 
                 <section class="panel example" id="chat-text">
@@ -88,7 +91,7 @@
                         <li>Open Overlay Setup and create an overlay.</li>
                         <li>Add a box and position it where chat text should appear.</li>
                         <li>Add a Text source.</li>
-                        <li>Set the text to <code>{{user.display}}: {{message.text}}</code>.</li>
+                        <li>Set the text to <code>{{user.display}}: {{text}}</code>.</li>
                         <li>Add a chat-message trigger and leave Ignore commands enabled if commands should not appear.</li>
                         <li>Save the overlay and open it in OBS as a browser source.</li>
                     </ol>
@@ -109,11 +112,33 @@
                 <section class="panel example" id="tts-message">
                     <h2>Read A Message With TTS</h2>
                     <ol class="step-list">
-                        <li>Enable a TTS model from CosyVoice TTS.</li>
+                        <li>Enable a TTS model from TTS Setup.</li>
                         <li>In Overlay Setup, add a TTS source.</li>
                         <li>Select the first available voice or a cloned voice.</li>
-                        <li>Set Message to <code>{{message.text}}</code>. For Streamer.bot command triggers, this is the text supplied with the command.</li>
+                        <li>Set Message to <code>{{text}}</code>. For command triggers, <code>{{text}}</code> is the command argument text after the command prefix is removed.</li>
                         <li>Bind the box to a command trigger such as <code>!tts</code>.</li>
+                    </ol>
+                </section>
+
+                <section class="panel example" id="translate-message">
+                    <h2>Translate A Chat Message</h2>
+                    <ol class="step-list">
+                        <li>Add a Google or local provider from Translators.</li>
+                        <li>Create a command trigger such as <code>!translate</code>.</li>
+                        <li>Add a Translator action.</li>
+                        <li>Set the input text to <code>{{text}}</code>, choose Default, Auto Google, Auto NyankoBot, or a specific language mode, then store the result in an argument such as <code>translatedText</code>.</li>
+                        <li>Add a Send Message action or Text source that uses <code>{{translatedText}}</code>.</li>
+                    </ol>
+                </section>
+
+                <section class="panel example" id="manual-source">
+                    <h2>Trigger A Source From An Action</h2>
+                    <ol class="step-list">
+                        <li>Create or select an overlay and box.</li>
+                        <li>Add an action named Trigger Box Source.</li>
+                        <li>Select the overlay, choose a box or Stream Preview, then pick an existing source variation or configure a manual source with the same controls as Add Source.</li>
+                        <li>Choose timing such as Max Length, a fixed duration, or Toggle.</li>
+                        <li>Save the action so the command can fire that source without adding a normal box trigger binding.</li>
                     </ol>
                 </section>
 
@@ -133,14 +158,16 @@
                     <div class="token-table" role="table" aria-label="Common trigger tokens">
                         <div role="row"><strong role="cell">Token</strong><strong role="cell">Use</strong></div>
                         <div role="row"><code role="cell">{{user.display}}</code><span role="cell">Viewer display name.</span></div>
-                        <div role="row"><code role="cell">{{message.text}}</code><span role="cell">Chat message text, or the message text attached to a command trigger.</span></div>
-                        <div role="row"><code role="cell">{{text}}</code><span role="cell">Short alias for message text.</span></div>
+                        <div role="row"><code role="cell">{{rawText}}</code><span role="cell">Original text exactly as the trigger supplied it.</span></div>
+                        <div role="row"><code role="cell">{{text}}</code><span role="cell">Normalized text. For Command triggers this is the command argument text with the command prefix removed.</span></div>
+                        <div role="row"><code role="cell">{{sanitizedText}}</code><span role="cell">Text with links, emoji, and other noisy parts removed when NyankoBot can sanitize it.</span></div>
+                        <div role="row"><code role="cell">{{message.text}}</code><span role="cell">Message text path for payloads that expose a message object. Prefer the short <code>{{text}}</code> alias when available.</span></div>
                         <div role="row"><code role="cell">{{command.name}}</code><span role="cell">Command name selected by Streamer.bot.</span></div>
                         <div role="row"><code role="cell">{{command.fullCommand}}</code><span role="cell">Full command text, when Streamer.bot provides it.</span></div>
                         <div role="row"><code role="cell">{{command.counter}}</code><span role="cell">Total command-use counter.</span></div>
                         <div role="row"><code role="cell">{{command.userCounter}}</code><span role="cell">Command-use counter for the current viewer.</span></div>
                         <div role="row"><code role="cell">{{channel.platform}}</code><span role="cell">Twitch, Kick, YouTube, or the platform supplied by the trigger.</span></div>
-                        <div role="row"><code role="cell">{{custom["key"]}}</code><span role="cell">A custom trigger value. Replace <code>key</code> with the custom variable name.</span></div>
+                        <div role="row"><code role="cell">{{argumentName}}</code><span role="cell">A value created by Set Argument, Translator, random-list, connector request, or another action result.</span></div>
                     </div>
                     <p>Autocomplete is the safest way to insert tokens because NyankoBot stores the real token key while displaying a readable label chip.</p>
                 </section>
@@ -150,3 +177,7 @@
     <script src="../docs-nav.js"></script>
 </body>
 </html>
+
+
+
+

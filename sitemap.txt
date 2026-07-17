@@ -12,6 +12,7 @@ https://arnietw.github.io/NyankoBot/docs/channel-rewards.html
 https://arnietw.github.io/NyankoBot/docs/chat.html
 https://arnietw.github.io/NyankoBot/docs/streamerbot.html
 https://arnietw.github.io/NyankoBot/docs/tts.html
+https://arnietw.github.io/NyankoBot/docs/translators.html
 https://arnietw.github.io/NyankoBot/docs/manage-sources.html
 https://arnietw.github.io/NyankoBot/docs/settings.html
 https://arnietw.github.io/NyankoBot/docs/troubleshooting.html
