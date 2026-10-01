@@ -9,7 +9,8 @@
       "cosyVoice300MSft": true,
       "cosyVoice300MInstruct": true,
       "cosyVoice2": true,
-      "cosyVoice3": true
+      "cosyVoice3": true,
+      "kokoro82M": true
     },
     "boxes": {
       "sourcedBox": true,
