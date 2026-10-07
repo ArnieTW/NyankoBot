@@ -119,9 +119,9 @@
                     <ul>
                         <li>Use connector events to decide when a trigger fires. Twitch and Kick chat events are normalized before matching, so synthetic Command and First Words triggers behave like chat-based triggers.</li>
                         <li>Use cooldowns and permissions for user-triggered chat flows. Broadcaster runs bypass cooldowns.</li>
-                        <li>Use Send Message for chat output. It supports bot/broadcaster account choices and can send back to the triggering platform before trying selected fallback platforms.</li>
+                        <li>Use <code>Send Chat Message</code> for chat output. It supports bot/broadcaster account choices and can send back to the triggering platform before trying selected fallback platforms.</li>
                         <li>Use connector actions, such as Twitch, Kick, OBS, or Streamer.bot actions, when the connector can perform platform work. Connection selectors are filtered to compatible enabled connector types.</li>
-                        <li>Use Translator to translate a token such as <code>{{text}}</code>, then store the result as a session argument or persistent variable.</li>
+                        <li>Use <code>Translate Text</code> to translate a token such as <code>{{text}}</code>, then store the result as an argument or persistent value.</li>
                         <li>Use Trigger Binding to fire an overlay-level or box-level binding from an action.</li>
                         <li>Use Trigger Box Source to manually fire a source variation on a selected overlay/box while respecting source timing and tiering rules.</li>
                     </ul>
@@ -133,5 +133,4 @@
     <script src="../docs-nav.js"></script>
 </body>
 </html>
-
 

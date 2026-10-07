@@ -24,7 +24,7 @@
                 <a class="tree-item root" href="actions-reference.html">Action Reference</a><a class="tree-item root" href="troubleshooting.html">Troubleshooting</a>
             </nav></aside>
             <article class="doc-content">
-                <section><p class="kicker">Triggers</p><h1>Platform Events</h1><p class="lead">NyankoBot can start a command trigger or overlay binding from connected platform events. The available picker items depend on enabled connectors, their login permissions, and subscribed events.</p></section>
+                <section><p class="kicker">Triggers</p><h1>Platform Events</h1><p class="lead">NyankoBot can start a command trigger or overlay binding from connected platform events. The picker lists implemented events from enabled connectors. Receiving an event also depends on the connection, login permissions, and subscriptions.</p></section>
                 <section class="panel" id="choose"><h2>Choose the right event</h2>
                     <ol><li>Connect the platform under <a href="connectors.html">Connectors</a> and enable the event subscriptions required by that connector.</li><li>Open <a href="command-triggers.html">Command Triggers</a>, add a trigger, and add the desired event under its <code>Triggers</code> section. Search by name or category.</li><li>Set any source-specific filters or hit rules. Add permissions and cooldowns for user-driven commands, then add actions if the event should do more than activate an overlay.</li><li>Save the Command Trigger. To show content, open an overlay <a href="component-add-trigger.html">Binding Editor</a> and attach the saved trigger in its <code>Command Trigger</code> picker tab.</li><li>Cause a real event and review trigger <code>History</code> if it does not run.</li></ol>
                     <p>Use a NyankoBot <a href="channel-rewards.html">Channel Reward</a> binding for a shared reward definition. Use a generic Twitch Channel Points event for a platform reward lifecycle event or a reward that NyankoBot does not manage.</p>
@@ -34,35 +34,32 @@
                         <div role="row"><strong role="cell">Family</strong><strong role="cell">Examples in the picker</strong></div>
                         <div role="row"><code role="cell">Chat and people</code><span role="cell">Messages, commands, first words, follows, subscriptions, gift subscriptions, raids, whispers, announcements, moderation, and user presence.</span></div>
                         <div role="row"><code role="cell">Channel Points</code><span role="cell">Custom reward redemption and status updates, automatic redemptions, reward created/updated/removed, and custom Power-up redemption.</span></div>
-                        <div role="row"><code role="cell">Bits and engagement</code><span role="cell">Cheers, Bits use or Power-ups, polls, predictions, goals, Hype Trains, and shoutouts.</span></div>
+                        <div role="row"><code role="cell">Bits and engagement</code><span role="cell">Cheers, Bits use or Power-ups, goals, Hype Trains, and shoutouts.</span></div>
                         <div role="row"><code role="cell">Broadcast</code><span role="cell">Stream online, offline, and metadata updates; ad break begin; and ad notification.</span></div>
                         <div role="row"><code role="cell">Guest Star</code><span role="cell">Session begin/end, guest updates, and settings updates.</span></div>
                     </div>
                     <p><code>Ad Notification</code> fires before the next scheduled ad using the lead time configured on that trigger source; the initial lead time is 10 minutes. It depends on Twitch schedule data being available to the connector.</p>
                     <h3>Which Twitch event should I choose?</h3>
                     <p>For a new follow or cheer, choose <code>Follow</code> or <code>Cheer</code>. For subscription messages, choose the matching new, renewed, gifted, or ended event. For Channel Points, choose redemption added versus redemption updated according to whether you need the initial request or its later status. For stream start and stop, use <code>StreamOnline</code> and <code>StreamOffline</code>; <code>StreamUpdate</code> is for metadata changes.</p>
-                    <p>For ads, <code>AdBreakBegin</code> reacts when a break starts. <code>AdNotification</code> reacts before a scheduled break; set its minutes-before-ad value on the trigger source. Goals and Hype Trains have begin, progress, and end variants. Shoutouts have sent and received variants. Guest Star exposes session, guest, and settings updates.</p>
+                    <p>For ads, <code>AdBreakBegin</code> reacts when a break starts. <code>AdNotification</code> reacts before a scheduled break; set its minutes-before-ad value on the trigger source. Goals and Hype Trains have begin, progress, and end variants. Shoutouts have sent and received variants. Guest Star exposes session, guest, and settings updates. Poll and prediction event definitions are currently marked unimplemented, although poll and prediction connector actions are available.</p>
                 </section>
                 <section class="panel" id="other"><h2>Kick, OBS, Streamer.bot, and NyankoBot</h2>
-                    <ul><li><strong>Kick:</strong> chat and supported webhook events, including rewards and stream events when the connector supplies them.</li><li><strong>OBS:</strong> events from the connected OBS WebSocket session.</li><li><strong>Streamer.bot:</strong> subscribed raw events, commands, and action triggers. See <a href="streamerbot.html">Streamer.bot Connector</a>.</li><li><strong>NyankoBot:</strong> synthetic commands, first words, timers, manual triggers, and Stream Deck calls.</li></ul>
-                    <p>Kick's catalog includes chat messages and commands, first words, follows, new and renewed subscriptions, subscription gifts, reward redemption updates, stream online/offline/metadata updates, moderation bans, KICKs gifts, message deletion, pinned messages, gift leaderboard updates, stream host changes, and followers-only status updates. Webhook events require the connector's webhook subscription and account permissions; live chat events require the chat connection.</p>
+                    <ul><li><strong>Kick:</strong> chat messages, commands, first words, and stream online/offline/metadata events.</li><li><strong>OBS:</strong> events from the connected OBS WebSocket session.</li><li><strong>Streamer.bot:</strong> subscribed raw events, commands, and action triggers. See <a href="streamerbot.html">Streamer.bot Connector</a>.</li><li><strong>NyankoBot:</strong> synthetic commands, first words, timers, manual triggers, and Stream Deck calls.</li></ul>
+                    <p>Kick currently exposes chat messages, commands, first words, and stream online/offline/metadata updates in the trigger picker. Other webhook and chat event definitions exist in source but are marked unimplemented and do not appear as selectable trigger sources. Chat needs the chat connection; stream status events need the connector's stream monitor.</p>
                     <p>If an expected event is missing, check connector health and subscriptions first. A selected event cannot fire until its source connector is enabled and receiving it.</p>
                 </section>
                 <section class="panel" id="event-catalog"><h2>Event catalog</h2>
-                    <p>These are the current Twitch and Kick event definitions. Search by the label or key in the Command Trigger source picker. Availability depends on the connector and its enabled subscriptions.</p>
-                    <details><summary>Twitch (74 events)</summary>
+                    <p>These are the implemented Twitch and Kick event definitions exposed to the Command Trigger source picker. The picker prefixes each label with the connected account's name. The connector must be enabled and receiving the event for a selected trigger to fire. Catalog placeholders marked unimplemented are omitted.</p>
+                    <details><summary>Twitch (65 available events)</summary>
                     <div class="token-table" role="table" aria-label="Twitch event catalog">
                         <div role="row"><strong role="cell">Event key</strong><strong role="cell">Picker label</strong></div>
                         <div role="row"><code role="cell">ChatMessage</code><span role="cell">Twitch chat message</span></div>
                         <div role="row"><code role="cell">Command</code><span role="cell">Twitch command</span></div>
                         <div role="row"><code role="cell">FirstWords</code><span role="cell">Twitch first words</span></div>
-                        <div role="row"><code role="cell">ChatCommandReceived</code><span role="cell">Twitch chat command</span></div>
                         <div role="row"><code role="cell">WhisperReceived</code><span role="cell">Twitch whisper</span></div>
-                        <div role="row"><code role="cell">WhisperCommandReceived</code><span role="cell">Twitch whisper command</span></div>
                         <div role="row"><code role="cell">Announcement</code><span role="cell">Twitch announcement</span></div>
                         <div role="row"><code role="cell">MessageSent</code><span role="cell">Twitch message sent</span></div>
                         <div role="row"><code role="cell">channel.chat.message_delete</code><span role="cell">Twitch message deleted</span></div>
-                        <div role="row"><code role="cell">channel.chat.clear</code><span role="cell">Twitch chat cleared</span></div>
                         <div role="row"><code role="cell">channel.shared_chat.begin</code><span role="cell">Twitch shared chat began</span></div>
                         <div role="row"><code role="cell">channel.shared_chat.update</code><span role="cell">Twitch shared chat updated</span></div>
                         <div role="row"><code role="cell">channel.shared_chat.end</code><span role="cell">Twitch shared chat ended</span></div>
@@ -105,12 +102,6 @@
                         <div role="row"><code role="cell">StreamOnline</code><span role="cell">Twitch stream online</span></div>
                         <div role="row"><code role="cell">StreamOffline</code><span role="cell">Twitch stream offline</span></div>
                         <div role="row"><code role="cell">StreamUpdate</code><span role="cell">Twitch stream update</span></div>
-                        <div role="row"><code role="cell">PollCreated</code><span role="cell">Twitch poll created</span></div>
-                        <div role="row"><code role="cell">PollUpdated</code><span role="cell">Twitch poll updated</span></div>
-                        <div role="row"><code role="cell">PollCompleted</code><span role="cell">Twitch poll completed</span></div>
-                        <div role="row"><code role="cell">PredictionCreated</code><span role="cell">Twitch prediction created</span></div>
-                        <div role="row"><code role="cell">PredictionUpdated</code><span role="cell">Twitch prediction updated</span></div>
-                        <div role="row"><code role="cell">PredictionCompleted</code><span role="cell">Twitch prediction completed</span></div>
                         <div role="row"><code role="cell">AdBreakBegin</code><span role="cell">Twitch ad break begin</span></div>
                         <div role="row"><code role="cell">AdNotification</code><span role="cell">Twitch ad notification</span></div>
                         <div role="row"><code role="cell">Cheer</code><span role="cell">Twitch cheer</span></div>
@@ -128,29 +119,15 @@
                         <div role="row"><code role="cell">GuestStarGuestUpdate</code><span role="cell">Twitch Guest Star guest updated</span></div>
                         <div role="row"><code role="cell">GuestStarSettingsUpdate</code><span role="cell">Twitch Guest Star settings updated</span></div>
                     </div></details>
-                    <details><summary>Kick (20 events)</summary>
+                    <details><summary>Kick (6 available events)</summary>
                     <div class="token-table" role="table" aria-label="Kick event catalog">
                         <div role="row"><strong role="cell">Event key</strong><strong role="cell">Picker label</strong></div>
                         <div role="row"><code role="cell">ChatMessage</code><span role="cell">Kick chat message</span></div>
                         <div role="row"><code role="cell">Command</code><span role="cell">Kick command</span></div>
                         <div role="row"><code role="cell">FirstWords</code><span role="cell">Kick first words</span></div>
-                        <div role="row"><code role="cell">chat.message.sent</code><span role="cell">Kick chat message sent</span></div>
-                        <div role="row"><code role="cell">channel.followed</code><span role="cell">Kick channel followed</span></div>
-                        <div role="row"><code role="cell">channel.subscription.new</code><span role="cell">Kick subscription new</span></div>
-                        <div role="row"><code role="cell">channel.subscription.renewal</code><span role="cell">Kick subscription renewal</span></div>
-                        <div role="row"><code role="cell">channel.subscription.gifts</code><span role="cell">Kick subscription gifts</span></div>
-                        <div role="row"><code role="cell">channel.reward.redemption.updated</code><span role="cell">Kick reward redemption updated</span></div>
                         <div role="row"><code role="cell">StreamOnline</code><span role="cell">Kick stream online</span></div>
                         <div role="row"><code role="cell">StreamOffline</code><span role="cell">Kick stream offline</span></div>
                         <div role="row"><code role="cell">StreamUpdate</code><span role="cell">Kick stream updated</span></div>
-                        <div role="row"><code role="cell">moderation.banned</code><span role="cell">Kick user banned</span></div>
-                        <div role="row"><code role="cell">kicks.gifted</code><span role="cell">Kick KICKs gifted</span></div>
-                        <div role="row"><code role="cell">MessageDeleted</code><span role="cell">Kick message deleted</span></div>
-                        <div role="row"><code role="cell">PinnedMessageCreated</code><span role="cell">Kick pinned message created</span></div>
-                        <div role="row"><code role="cell">PinnedMessageDeleted</code><span role="cell">Kick pinned message deleted</span></div>
-                        <div role="row"><code role="cell">GiftsLeaderboardUpdated</code><span role="cell">Kick gifts leaderboard updated</span></div>
-                        <div role="row"><code role="cell">StreamHostChanged</code><span role="cell">Kick stream host changed</span></div>
-                        <div role="row"><code role="cell">FollowersStatusUpdated</code><span role="cell">Kick followers status updated</span></div>
                     </div></details>
                 </section>
             </article>
