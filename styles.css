@@ -329,6 +329,18 @@ li {
     gap: 20px;
 }
 
+.doc-content h1 {
+    font-size: clamp(38px, 5vw, 58px);
+}
+
+.doc-content h2 {
+    font-size: clamp(24px, 3vw, 32px);
+}
+
+.doc-content a:not(.card):hover {
+    color: #fda4af;
+}
+
 .doc-content section {
     display: grid;
     gap: 10px;
@@ -520,24 +532,32 @@ li {
 }
 
 .token-table {
-    display: grid;
-    grid-template-columns: minmax(180px, .36fr) minmax(0, 1fr);
-    gap: 1px;
     overflow: hidden;
     border: 1px solid var(--line);
     border-radius: 10px;
-    background: var(--line);
 }
 
 .token-table > div {
-    min-width: 0;
-    padding: 14px 16px;
+    display: grid;
+    grid-template-columns: minmax(175px, .38fr) minmax(0, 1fr);
     background: #0f172a;
+    border-top: 1px solid var(--line);
 }
 
-.token-table > div:nth-child(-n + 2) {
+.token-table > div:first-child {
+    border-top: 0;
     background: var(--panel-soft);
     color: var(--text);
+}
+
+.token-table [role="cell"] {
+    min-width: 0;
+    padding: 12px 16px;
+    overflow-wrap: anywhere;
+}
+
+.token-table [role="cell"] + [role="cell"] {
+    border-left: 1px solid var(--line);
 }
 
 .token-table code {
@@ -571,10 +591,54 @@ li {
     .request-table [role="cell"]:last-child { padding-bottom: 12px; }
 }
 
-.token-table > div:nth-child(4n + 3),
-.token-table > div:nth-child(4n + 4) {
+.token-table > div:nth-child(even) {
     background: #111827;
 }
+
+.guide-search {
+    display: grid;
+    gap: 6px;
+}
+
+.guide-search label {
+    font-weight: 700;
+}
+
+.guide-search input {
+    width: 100%;
+    min-height: 46px;
+    padding: 10px 14px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: #111827;
+    color: var(--text);
+    font: inherit;
+}
+
+.guide-search input::placeholder { color: var(--muted); }
+.guide-search p { margin: 0; color: var(--muted); font-size: 14px; }
+
+.guide-grid > a.card {
+    display: grid;
+    align-content: start;
+    gap: 8px;
+    color: var(--text);
+    text-decoration: none;
+    transition: border-color .18s ease, transform .18s ease, background-color .18s ease;
+}
+
+.guide-grid > a.card p { margin: 0; }
+.guide-grid > a.card:hover { border-color: var(--accent-strong); background: var(--panel-soft); transform: translateY(-2px); }
+.guide-grid > a.card:focus-visible,
+.nav-links a:focus-visible,
+.tree-item:focus-visible,
+.button:focus-visible,
+.guide-search input:focus-visible {
+    outline: 2px solid var(--accent-cool);
+    outline-offset: 3px;
+}
+
+.guide-grid > a.card[hidden] { display: none; }
 
 .footer {
     padding: 36px 0;
@@ -614,7 +678,21 @@ code {
         position: static;
     }
 
-    .token-table {
-        grid-template-columns: 1fr;
+    .tree-nav {
+        max-height: 240px;
+        overflow-y: auto;
+        border-radius: 8px;
     }
+
+    .token-table > div { grid-template-columns: 1fr; }
+    .token-table > div:first-child { display: none; }
+    .token-table [role="cell"] { padding: 7px 12px; }
+    .token-table [role="cell"]:first-child { padding-top: 12px; }
+    .token-table [role="cell"]:last-child { padding-bottom: 12px; }
+    .token-table [role="cell"] + [role="cell"] { border-left: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .guide-grid > a.card { transition: none; }
+    .guide-grid > a.card:hover { transform: none; }
 }

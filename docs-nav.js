@@ -1,4 +1,30 @@
 ﻿(function () {
+    const guideSearch = document.getElementById("guide-search");
+    if (guideSearch) {
+        const guideCards = Array.from(document.querySelectorAll("#guide-map > a.card"));
+        const searchStatus = document.getElementById("guide-search-status");
+
+        function filterGuides() {
+            const query = guideSearch.value.trim().toLocaleLowerCase();
+            let visibleCount = 0;
+
+            for (const card of guideCards) {
+                const matches = card.textContent.toLocaleLowerCase().includes(query);
+                card.hidden = !matches;
+                if (matches) visibleCount += 1;
+            }
+
+            searchStatus.textContent = query
+                ? visibleCount === 0
+                    ? "No guides match that search. Try another topic."
+                    : `${visibleCount} ${visibleCount === 1 ? "guide" : "guides"} found.`
+                : "Browse all guides or search by topic.";
+        }
+
+        guideSearch.addEventListener("input", filterGuides);
+        filterGuides();
+    }
+
     const activeOffset = 96;
     const sectionLinks = Array.from(document.querySelectorAll(".tree-nav a[href^='#']"))
         .map((link) => {

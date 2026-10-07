@@ -95,7 +95,13 @@
                     <p class="lead">This documentation covers installation and the main setup workflows: overlays, connectors, stream status, chat, rewards, command triggers, reusable sources, TTS, and settings.</p>
                 </section>
 
-                <section class="grid" id="guide-map">
+                <div class="guide-search" role="search">
+                    <label for="guide-search">Find a guide</label>
+                    <input id="guide-search" type="search" placeholder="Try chat, OBS, actions, TTS…" autocomplete="off" aria-controls="guide-map" />
+                    <p id="guide-search-status" aria-live="polite">Browse all guides or search by topic.</p>
+                </div>
+
+                <section class="grid guide-grid" id="guide-map" aria-label="Documentation guides">
                     <a class="card" href="download-install.html">
                         <h3>Download & Install</h3>
                         <p>Install NyankoBot and find the local setup page.</p>
