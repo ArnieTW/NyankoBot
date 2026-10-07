@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>NyankoBot Connector Action Catalog</title>
     <link rel="icon" type="image/png" href="../assets/ArnieTW_Mischevous.png" />
-    <meta name="description" content="Supported Twitch and Kick connector actions in NyankoBot, with effects and required account scopes." />
+    <meta name="description" content="Supported Twitch, Kick, and OBS connector actions in NyankoBot, with effects and required account scopes." />
     <link rel="canonical" href="https://arnietw.github.io/NyankoBot/docs/connector-actions.html" />
     <meta property="og:title" content="NyankoBot Connector Action Catalog" />
-    <meta property="og:description" content="Supported Twitch and Kick connector actions, effects, and scopes." />
+    <meta property="og:description" content="Supported Twitch, Kick, and OBS connector actions, effects, and scopes." />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://arnietw.github.io/NyankoBot/docs/connector-actions.html" />
     <meta property="og:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
@@ -20,13 +20,13 @@
         <main class="docs-layout">
             <aside class="tree-nav" aria-label="Documentation navigation"><nav class="tree-control" aria-label="Documentation tree">
                 <a class="tree-item root" href="index.html">Overview</a><a class="tree-item root" href="command-triggers.html">Command Triggers</a>
-                <div class="tree-group"><div class="tree-heading">Reference</div><a class="tree-item" href="actions-reference.html">Action Reference</a><a class="tree-item active" href="connector-actions.html" aria-current="page">Connector Actions</a><a class="tree-item nested" href="#using-requests">Using requests</a><a class="tree-item nested" href="#twitch">Twitch requests</a><a class="tree-item nested" href="#kick">Kick requests</a><a class="tree-item nested" href="#other-connectors">OBS and Streamer.bot</a></div>
+                <div class="tree-group"><div class="tree-heading">Reference</div><a class="tree-item" href="actions-reference.html">Action Reference</a><a class="tree-item active" href="connector-actions.html" aria-current="page">Connector Actions</a><a class="tree-item nested" href="#using-requests">Using requests</a><a class="tree-item nested" href="#twitch">Twitch requests</a><a class="tree-item nested" href="#kick">Kick requests</a><a class="tree-item nested" href="#obs">OBS requests</a><a class="tree-item nested" href="#other-connectors">Streamer.bot</a></div>
                 <a class="tree-item root" href="connectors.html">Connectors</a><a class="tree-item root" href="troubleshooting.html">Troubleshooting</a>
             </nav></aside>
             <article class="doc-content">
-                <section><p class="kicker">Command Triggers</p><h1>Connector Action Catalog</h1><p class="lead">These requests are available as named actions in the command trigger action picker when a compatible connector is configured. Each entry below is marked implemented in the NyankoBot connector catalog.</p></section>
+                <section><p class="kicker">Command Triggers</p><h1>Connector Action Catalog</h1><p class="lead">These requests are available as named actions in the command trigger action picker when a compatible connector is configured. Twitch and Kick entries are marked implemented in their catalogs; OBS entries are exposed by the built-in OBS functionality catalog.</p></section>
                 <section class="panel" id="using-requests"><h2>Using connector requests</h2>
-                    <ol><li>Connect the platform account under <a href="connectors.html">Connectors</a> and grant the listed scopes.</li><li>Open a <a href="command-triggers.html">Command Trigger</a>, choose <code>Add Action</code>, and select the named request.</li><li>Select a compatible connector instance and fill the required fields shown for that request. Fields vary by request and can use trigger tokens where the editor offers them.</li><li>Set <code>Store result as argument</code> if later actions need the response. Use <code>Save as persistent</code> and <code>Session only</code> when the result must outlive the trigger run.</li><li>Save and run the trigger. Inspect History and connector logs if a request fails; a platform can reject a request when the account lacks the needed role, permission, or resource.</li></ol>
+                    <ol><li>Connect the platform under <a href="connectors.html">Connectors</a>. For Twitch and Kick, grant the listed account scopes.</li><li>Open a <a href="command-triggers.html">Command Trigger</a>, choose <code>Add Action</code>, and select the named request.</li><li>Select a compatible connector instance and fill the required fields shown for that request. Fields vary by request and can use trigger tokens where the editor offers them.</li><li>Set <code>Store result as argument</code> if later actions need the response. Use <code>Save as persistent</code> and <code>Session only</code> when the result must outlive the trigger run.</li><li>Save and run the trigger. Inspect History and connector logs if a request fails; a platform can reject a request when the account lacks the needed role, permission, or resource.</li></ol>
                     <p>The picker may show different entries depending on the connected instance. Catalog entries that are placeholders or marked unimplemented in source are omitted here. The internal <code>Connector Request</code> runner is described in the <a href="actions-reference.html#connector-actions">Action Reference</a>.</p>
                 </section>
                 <section class="panel" id="twitch"><h2>Twitch requests (70)</h2>
@@ -206,8 +206,92 @@
                         <div role="row"><code role="cell">Get User Info for Target</code><span role="cell">Looks up information about the selected user.</span><span role="cell">No additional scope listed</span></div>
                     </div>
                 </section>
-                <section class="panel" id="other-connectors"><h2>OBS and Streamer.bot</h2>
-                    <p>OBS actions are built from the connected OBS functionality catalog. Choose an OBS request in the picker to see its supported fields and target instance. Available functions depend on the connected OBS version and plugins. Streamer.bot currently contributes <code>Send Chat Message</code>; select the Streamer.bot instance and enter the message. See <a href="streamerbot.html">Streamer.bot Connector</a> for connection setup.</p>
+                <section class="panel" id="obs"><h2>OBS requests (29)</h2>
+                    <p>Connect OBS WebSocket first. Choose a named OBS request in the picker, then supply the scene, source, filter, input, or action fields shown there. Raw OBS requests expose <code>Request type</code> and optional <code>Request data</code>; use the request name and data expected by your OBS WebSocket version.</p>
+                    <h3>Create Record Chapter</h3>
+                    <div class="request-table obs-table" role="table" aria-label="OBS Create Record Chapter requests">
+                        <div role="row"><strong role="cell">Request</strong><strong role="cell">Effect</strong></div>
+                        <div role="row"><code role="cell">Create Record Chapter</code><span role="cell">Adds a chapter marker to the current recording.</span></div>
+                    </div>
+                    <h3>Filters</h3>
+                    <div class="request-table obs-table" role="table" aria-label="OBS Filters requests">
+                        <div role="row"><strong role="cell">Request</strong><strong role="cell">Effect</strong></div>
+                        <div role="row"><code role="cell">Set State of a Random Filter</code><span role="cell">Changes the enabled state of a randomly selected source filter.</span></div>
+                    </div>
+                    <h3>Get Current Scene</h3>
+                    <div class="request-table obs-table" role="table" aria-label="OBS Get Current Scene requests">
+                        <div role="row"><strong role="cell">Request</strong><strong role="cell">Effect</strong></div>
+                        <div role="row"><code role="cell">Get Current Scene</code><span role="cell">Returns the current program scene and scene list.</span></div>
+                    </div>
+                    <h3>Get Status</h3>
+                    <div class="request-table obs-table" role="table" aria-label="OBS Get Status requests">
+                        <div role="row"><strong role="cell">Request</strong><strong role="cell">Effect</strong></div>
+                        <div role="row"><code role="cell">Get Status</code><span role="cell">Reads OBS performance and status statistics.</span></div>
+                    </div>
+                    <h3>Groups</h3>
+                    <div class="request-table obs-table" role="table" aria-label="OBS Groups requests">
+                        <div role="row"><strong role="cell">Request</strong><strong role="cell">Effect</strong></div>
+                        <div role="row"><code role="cell">Set Random Group Source Visible</code><span role="cell">Changes visibility for a randomly selected source in a group.</span></div>
+                    </div>
+                    <h3>Recording</h3>
+                    <div class="request-table obs-table" role="table" aria-label="OBS Recording requests">
+                        <div role="row"><strong role="cell">Request</strong><strong role="cell">Effect</strong></div>
+                        <div role="row"><code role="cell">Recording</code><span role="cell">Starts, stops, pauses, resumes, or toggles recording.</span></div>
+                    </div>
+                    <h3>Replay</h3>
+                    <div class="request-table obs-table" role="table" aria-label="OBS Replay requests">
+                        <div role="row"><strong role="cell">Request</strong><strong role="cell">Effect</strong></div>
+                        <div role="row"><code role="cell">Set Replay Buffer State</code><span role="cell">Starts, stops, toggles, or saves the replay buffer.</span></div>
+                    </div>
+                    <h3>Scenes</h3>
+                    <div class="request-table obs-table" role="table" aria-label="OBS Scenes requests">
+                        <div role="row"><strong role="cell">Request</strong><strong role="cell">Effect</strong></div>
+                        <div role="row"><code role="cell">Get Scene Item Properties</code><span role="cell">Reads scene-item transform properties.</span></div>
+                        <div role="row"><code role="cell">Hide Scene&#x27;s Sources</code><span role="cell">Hides sources in the selected scene.</span></div>
+                        <div role="row"><code role="cell">Set Random Scene Source Visible</code><span role="cell">Changes visibility for a randomly selected scene source.</span></div>
+                        <div role="row"><code role="cell">Set Scene Filter State</code><span role="cell">Enables or disables a scene filter.</span></div>
+                    </div>
+                    <h3>Set Active Scene</h3>
+                    <div class="request-table obs-table" role="table" aria-label="OBS Set Active Scene requests">
+                        <div role="row"><strong role="cell">Request</strong><strong role="cell">Effect</strong></div>
+                        <div role="row"><code role="cell">Set Active Scene</code><span role="cell">Switches the current program scene.</span></div>
+                    </div>
+                    <h3>Sources</h3>
+                    <div class="request-table obs-table" role="table" aria-label="OBS Sources requests">
+                        <div role="row"><strong role="cell">Request</strong><strong role="cell">Effect</strong></div>
+                        <div role="row"><code role="cell">Flip Source</code><span role="cell">Flips a selected source.</span></div>
+                        <div role="row"><code role="cell">Hide Group&#x27;s Sources</code><span role="cell">Hides sources in the selected group.</span></div>
+                        <div role="row"><code role="cell">Hide Source&#x27;s Filters</code><span role="cell">Disables filters on a selected source.</span></div>
+                        <div role="row"><code role="cell">Rotate Source</code><span role="cell">Rotates a selected source.</span></div>
+                        <div role="row"><code role="cell">Set Browser Source URL</code><span role="cell">Changes the URL of an OBS browser source.</span></div>
+                        <div role="row"><code role="cell">Set Color Source Color</code><span role="cell">Changes an OBS color source color.</span></div>
+                        <div role="row"><code role="cell">Set GDI Text</code><span role="cell">Changes text in an OBS GDI text source.</span></div>
+                        <div role="row"><code role="cell">Set Image Source File</code><span role="cell">Changes the file shown by an image source.</span></div>
+                        <div role="row"><code role="cell">Set Media Source File</code><span role="cell">Changes the file played by a media source.</span></div>
+                        <div role="row"><code role="cell">Set Media State</code><span role="cell">Controls playback of a media source.</span></div>
+                        <div role="row"><code role="cell">Set Source Audio Track State</code><span role="cell">Changes the audio-track assignment for a source.</span></div>
+                        <div role="row"><code role="cell">Set Source Filter State</code><span role="cell">Enables or disables a source filter.</span></div>
+                        <div role="row"><code role="cell">Set Source Mute State</code><span role="cell">Mutes or unmutes a source.</span></div>
+                        <div role="row"><code role="cell">Set Source Visibility State</code><span role="cell">Shows or hides a source in a scene by item ID or source name.</span></div>
+                    </div>
+                    <h3>Streaming</h3>
+                    <div class="request-table obs-table" role="table" aria-label="OBS Streaming requests">
+                        <div role="row"><strong role="cell">Request</strong><strong role="cell">Effect</strong></div>
+                        <div role="row"><code role="cell">Streaming</code><span role="cell">Starts, stops, or toggles OBS streaming.</span></div>
+                    </div>
+                    <h3>Take Screenshot</h3>
+                    <div class="request-table obs-table" role="table" aria-label="OBS Take Screenshot requests">
+                        <div role="row"><strong role="cell">Request</strong><strong role="cell">Effect</strong></div>
+                        <div role="row"><code role="cell">Take Screenshot</code><span role="cell">Takes a screenshot of an OBS source.</span></div>
+                    </div>
+                    <h3>NyankoBot OBS Utilities</h3>
+                    <div class="request-table obs-table" role="table" aria-label="OBS NyankoBot OBS Utilities requests">
+                        <div role="row"><strong role="cell">Request</strong><strong role="cell">Effect</strong></div>
+                        <div role="row"><code role="cell">Reset NyankoBot Pages</code><span role="cell">Refreshes OBS browser sources pointing to NyankoBot pages.</span></div>
+                    </div>
+                </section>
+                <section class="panel" id="other-connectors"><h2>Streamer.bot</h2>
+                    <p>Streamer.bot currently contributes <code>Send Chat Message</code>; select the Streamer.bot instance and enter the message. See <a href="streamerbot.html">Streamer.bot Connector</a> for connection setup.</p>
                 </section>
             </article>
         </main>

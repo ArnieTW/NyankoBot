@@ -559,10 +559,12 @@ li {
 }
 
 .request-table > div:first-child { border-top: 0; background: var(--panel-soft); }
+.request-table.obs-table > div { grid-template-columns: minmax(220px, .8fr) minmax(0, 1.5fr); }
 .request-table [role="cell"] { min-width: 0; padding: 12px 14px; overflow-wrap: anywhere; }
 
 @media (max-width: 760px) {
     .request-table > div { grid-template-columns: 1fr; }
+    .request-table.obs-table > div { grid-template-columns: 1fr; }
     .request-table > div:first-child { display: none; }
     .request-table [role="cell"] { padding: 6px 12px; }
     .request-table [role="cell"]:first-child { padding-top: 12px; }
