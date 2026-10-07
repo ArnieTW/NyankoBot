@@ -60,7 +60,7 @@
                         <div class="tree-heading">Components</div>
                         <a class="tree-item" href="component-overlay.html">Overlay</a>
                         <a class="tree-item" href="component-box.html">Box</a>
-                        <a class="tree-item" href="component-add-source-dialog.html">Add Source Dialog</a>
+                        <a class="tree-item" href="component-add-source-dialog.html">Source Controls</a>
                         <a class="tree-item" href="component-add-trigger.html">Binding Editor</a>
                         <a class="tree-item" href="component-if-else-control.html">IF/Else Control</a>
                         <a class="tree-item" href="component-argument-control.html">Argument Control</a>
@@ -73,6 +73,8 @@
                         <a class="tree-item" href="#translate-message">Translate message</a>
                         <a class="tree-item" href="#manual-source">Manual source action</a>
                         <a class="tree-item" href="#random-source">Random source</a>
+                        <a class="tree-item" href="#klipy-command">KLIPY command</a>
+                        <a class="tree-item" href="#ad-alert">Ad notification</a>
                         <a class="tree-item" href="#trigger-tokens">Trigger tokens</a>
                     </div>
                     <div class="tree-group">
@@ -98,9 +100,9 @@
                     <ol class="step-list">
                         <li>Open Overlay Setup and create an overlay.</li>
                         <li>Add a box and position it where chat text should appear.</li>
-                        <li>Add a Text source.</li>
-                        <li>Set the text to <code>{{user.display}}: {{text}}</code>.</li>
-                        <li>Add a chat-message trigger and leave Ignore commands enabled if commands should not appear.</li>
+                        <li>Select the box, choose <code>Add Binding</code>, and add a Text item under <code>Items</code>.</li>
+                        <li>Set its text to <code>{{user.display}}: {{text}}</code>.</li>
+                        <li>Create a chat-message Command Trigger, then add that saved trigger under the binding's <code>Triggers</code>. Configure its source to ignore command-like or internally sent messages if those should not appear.</li>
                         <li>Save the overlay and open it in OBS as a browser source.</li>
                     </ol>
                 </section>
@@ -110,9 +112,9 @@
                     <ol class="step-list">
                         <li>Create or select an overlay.</li>
                         <li>Add a box sized for the media clip.</li>
-                        <li>Add a Media source using a file or URL.</li>
-                        <li>Use Timer mode so the clip hides after playback.</li>
-                        <li>Add a command trigger such as <code>!hype</code>.</li>
+                        <li>Create a binding and add a Media item from a file, URL, or <a href="klipy.html">KLIPY</a> result.</li>
+                        <li>Set the item's timing and use the trigger playback mode <code>Max Length</code> or a custom duration.</li>
+                        <li>Create a Command Trigger for <code>!hype</code>, then select that saved trigger under the binding's <code>Triggers</code>.</li>
                         <li>Save and test the command from chat.</li>
                     </ol>
                 </section>
@@ -121,10 +123,10 @@
                     <h2>Read A Message With TTS</h2>
                     <ol class="step-list">
                         <li>Enable a TTS model from TTS Setup.</li>
-                        <li>In Overlay Setup, add a TTS source.</li>
+                        <li>In Overlay Setup, create a binding on a box and add a TTS item.</li>
                         <li>Select the first available voice or a cloned voice.</li>
                         <li>Set Message to <code>{{text}}</code>. For command triggers, <code>{{text}}</code> is the command argument text after the command prefix is removed.</li>
-                        <li>Bind the box to a command trigger such as <code>!tts</code>.</li>
+                        <li>Create a Command Trigger for <code>!tts</code> and attach it to the binding.</li>
                     </ol>
                 </section>
 
@@ -133,9 +135,9 @@
                     <ol class="step-list">
                         <li>Add a Google or local provider from Translators.</li>
                         <li>Create a command trigger such as <code>!translate</code>.</li>
-                        <li>Add a Translator action.</li>
-                        <li>Set the input text to <code>{{text}}</code>, choose Default, Auto Google, Auto NyankoBot, or a specific language mode, then store the result in an argument such as <code>translatedText</code>.</li>
-                        <li>Add a Send Message action or Text source that uses <code>{{translatedText}}</code>.</li>
+                        <li>Add <code>Translate Text</code>, select the saved provider and target language, and set input text to <code>{{text}}</code>.</li>
+                        <li>Choose Default, Auto Provider, Auto NyankoBot, or Specific source-language mode. Leave the result prefix as <code>translation</code> or give it another name.</li>
+                        <li>After translation, add <code>Send Chat Message</code> with <code>{{translation.text}}</code>. Review <code>{{translation.skipped}}</code> and <code>{{translation.skipReason}}</code> in History if the output is empty.</li>
                     </ol>
                 </section>
 
@@ -144,7 +146,7 @@
                     <ol class="step-list">
                         <li>Create or select an overlay and box.</li>
                         <li>Add an action named Trigger Box Source.</li>
-                        <li>Select the overlay, choose a box or Stream Preview, then pick an existing source variation or configure a manual source with the same controls as Add Source.</li>
+                        <li>Select the overlay, choose a box or Stream Preview, then pick an existing source variation or configure a manual item with the <a href="component-add-source-dialog.html">source controls</a>.</li>
                         <li>Choose timing such as Max Length, a fixed duration, or Toggle.</li>
                         <li>Save the action so the command can fire that source without adding a normal box trigger binding.</li>
                     </ol>
@@ -153,11 +155,23 @@
                 <section class="panel example" id="random-source">
                     <h2>Pick A Random Source</h2>
                     <ol class="step-list">
-                        <li>Add multiple sources to a box.</li>
-                        <li>Set the box source trigger mode to <code>Random</code>.</li>
-                        <li>Bind a trigger to the box.</li>
-                        <li>Each trigger will choose one source, avoiding the previous choice when possible.</li>
+                        <li>Create one binding and add at least two items under <code>Items</code>.</li>
+                        <li>Open <code>Sequencing</code> and set the Default row to <code>Random</code>.</li>
+                        <li>Add a saved Command Trigger or Channel Reward to the binding, save, and test it.</li>
+                        <li>If one trigger needs a different pattern, add a trigger-specific sequence row and assign that trigger to it.</li>
                     </ol>
+                </section>
+
+                <section class="panel example" id="klipy-command">
+                    <h2>Show a KLIPY GIF from a command</h2>
+                    <ol class="step-list"><li>Make a box and create a binding.</li><li>Under <code>Items</code>, choose <code>Add Item → Defined Sources → KLIPY</code>. Search GIFs, choose a content rating, select a result, and review the preview.</li><li>Create a Command Trigger such as <code>!gif</code> and attach it under <code>Triggers</code>.</li><li>Save the overlay and test the command. The media loads from its remote URL when needed.</li></ol>
+                    <p>See <a href="klipy.html">KLIPY Media</a> for page controls, configuration status, and remote media behavior.</p>
+                </section>
+
+                <section class="panel example" id="ad-alert">
+                    <h2>Show an alert before a Twitch ad</h2>
+                    <ol class="step-list"><li>Connect Twitch and enable the required event and schedule access.</li><li>Create a Command Trigger with the Twitch <code>AdNotification</code> source. Set its minutes-before-ad value; the initial value is 10.</li><li>Create a text or media binding item for the alert and attach the saved Command Trigger.</li><li>Save and test against a scheduled ad. Use trigger History to check when the notification fired.</li></ol>
+                    <p>Use <code>AdBreakBegin</code> instead if the alert should start when the ad break begins.</p>
                 </section>
 
                 <section class="panel example" id="trigger-tokens">
@@ -192,7 +206,6 @@
     <script src="../docs-nav.js"></script>
 </body>
 </html>
-
 
 
 

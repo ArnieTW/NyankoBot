@@ -68,7 +68,7 @@
                         <div class="tree-heading">Components</div>
                         <a class="tree-item" href="component-overlay.html">Overlay</a>
                         <a class="tree-item" href="component-box.html">Box</a>
-                        <a class="tree-item" href="component-add-source-dialog.html">Add Source Dialog</a>
+                        <a class="tree-item" href="component-add-source-dialog.html">Source Controls</a>
                         <a class="tree-item" href="component-add-trigger.html">Binding Editor</a>
                         <a class="tree-item" href="component-if-else-control.html">IF/Else Control</a>
                         <a class="tree-item" href="component-argument-control.html">Argument Control</a>
@@ -133,7 +133,7 @@
                         <div role="row"><strong role="cell">Area</strong><strong role="cell">Usage</strong></div>
                         <div role="row"><code role="cell">Stream preview</code><span role="cell">The setup background image. It helps you position boxes against a scene mockup; it is not rendered to viewers.</span></div>
                         <div role="row"><code role="cell">Box on stage</code><span role="cell">Drag to move it, resize to fit the visual effect, then select it to edit box options. A box can hold one source or several possible sources.</span></div>
-                        <div role="row"><code role="cell">Box inspector</code><span role="cell">Edits general settings, layout, appearance, trigger bindings, and source list for the selected box.</span></div>
+                        <div role="row"><code role="cell">Box inspector</code><span role="cell">Edits general settings, layout, appearance, and the Bindings list for the selected box.</span></div>
                         <div role="row"><code role="cell">Stream Preview Inspector</code><span role="cell">Click empty space on the preview to edit overlay-level preview settings instead of a box.</span></div>
                     </div>
                 </section>
@@ -149,7 +149,7 @@
                         <div role="row"><code role="cell">URL Source</code><span role="cell">Embed a webpage or browser-rendered URL in the box.</span></div>
                         <div role="row"><code role="cell">TTS Source</code><span role="cell">Generate speech from text using an enabled TTS model and selected voice.</span></div>
                     </div>
-                    <p>Add content as an item in the <a href="component-add-trigger.html">Binding editor</a>; the item source controls cover text, media, URLs, TTS, and reusable sources. The <a href="component-add-source-dialog.html">source control reference</a> explains those fields. Media can also come from the KLIPY library when it is configured.</p>
+                    <p>Add content as an item in the <a href="component-add-trigger.html">Binding editor</a>; the item source controls cover text, media, URLs, TTS, and reusable sources. The <a href="component-add-source-dialog.html">source control reference</a> explains those fields. Media can also come from the <a href="klipy.html">KLIPY library</a> when it is configured.</p>
                 </section>
 
                 <section class="panel" id="triggers">
@@ -172,6 +172,7 @@
                         <li><code>Sequence</code> moves through the source list and wraps around at the end.</li>
                         <li><code>Random</code> picks one source while avoiding the same source twice in a row when possible.</li>
                         <li><code>Custom</code> creates IF/ELSE-style rules against trigger values and maps each match to a source.</li>
+                        <li><code>All (as ready)</code> or <code>All (together)</code> runs multiple items when the box supports those modes.</li>
                     </ul>
                     <p>This is the right setup for rotating memes, short video stingers, sound cues, and different responses from the same command.</p>
                 </section>
@@ -194,8 +195,8 @@
                     <ul>
                         <li>If <code>Copy OBS URL</code> is disabled, save the overlay first.</li>
                         <li>If nothing appears in OBS, confirm the browser source uses the overlay URL and covers the whole scene.</li>
-                        <li>If a trigger does nothing, confirm Streamer.bot is connected and the needed event group is subscribed.</li>
-                        <li>If the wrong source appears, check the box source trigger mode and any custom rules.</li>
+                        <li>If a trigger does nothing, confirm its source connector is connected and receiving the needed event.</li>
+                        <li>If the wrong item appears, check the binding's default and trigger-specific sequence rows and any custom rules.</li>
                         <li>If media does not render, test the source in the source dialog preview and confirm the file or URL is reachable.</li>
                         <li>If layout feels off in OBS, match the OBS browser-source size to the stream canvas size.</li>
                     </ul>
@@ -206,7 +207,5 @@
     <script src="../docs-nav.js"></script>
 </body>
 </html>
-
-
 
 

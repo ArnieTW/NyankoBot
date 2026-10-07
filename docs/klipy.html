@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NyankoBot KLIPY Media Guide</title>
+    <link rel="icon" type="image/png" href="../assets/ArnieTW_Mischevous.png" />
+    <meta name="description" content="Browse and use KLIPY GIFs, stickers, clips, and memes in NyankoBot overlay bindings." />
+    <link rel="canonical" href="https://arnietw.github.io/NyankoBot/docs/klipy.html" />
+    <meta property="og:title" content="NyankoBot KLIPY Media Guide" />
+    <meta property="og:description" content="Search, filter, preview, and add KLIPY media to overlay bindings." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://arnietw.github.io/NyankoBot/docs/klipy.html" />
+    <meta property="og:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
+    <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+    <div class="page">
+        <nav class="nav" aria-label="Main navigation"><a class="brand" href="../index.html"><img class="brand-logo" src="../assets/ArnieTW_Mischevous.png" alt="" /><span>NyankoBot</span></a><div class="nav-links"><a href="index.html">Documentation</a><a href="../roadmap.html">Roadmap</a><a href="https://github.com/ArnieTW/NyankoBot/issues">Issues</a><a href="../releases/">Downloads</a></div></nav>
+        <main class="docs-layout">
+            <aside class="tree-nav" aria-label="Documentation navigation"><nav class="tree-control" aria-label="Documentation tree">
+                <a class="tree-item root" href="index.html">Overview</a><a class="tree-item root" href="overlay-setup.html">Overlay Setup</a><a class="tree-item root" href="component-add-trigger.html">Binding Editor</a>
+                <div class="tree-group"><div class="tree-heading">Media</div><a class="tree-item active" href="klipy.html" aria-current="page">KLIPY</a><a class="tree-item nested active" href="#start">Add media</a><a class="tree-item nested" href="#browse">Browse and filter</a><a class="tree-item nested" href="#availability">Availability</a></div>
+                <a class="tree-item root" href="component-add-source-dialog.html">Source Controls</a><a class="tree-item root" href="manage-sources.html">Storage</a><a class="tree-item root" href="troubleshooting.html">Troubleshooting</a>
+            </nav></aside>
+            <article class="doc-content">
+                <section><p class="kicker">Overlay media</p><h1>KLIPY Media</h1><p class="lead">KLIPY supplies remote GIFs, stickers, clips, and memes inside the source browser. You can attach a result to a binding item without first uploading a local file.</p></section>
+                <section class="panel" id="start"><h2>Add KLIPY media to a binding</h2>
+                    <ol><li>Open <a href="overlay-setup.html">Overlay Setup</a>, select a box, and open or create a <a href="component-add-trigger.html">binding</a>.</li><li>Under <code>Items</code>, choose <code>Add Item</code>. In its source editor, choose the <code>Defined Sources</code> browser and expand <code>KLIPY</code>.</li><li>Choose a media type, search or browse trending results, then select a result card. Review the selected preview and source settings before returning to Binding settings.</li><li>Add a trigger, save the overlay, and test it in the overlay viewer or OBS.</li></ol>
+                    <p>The selected item keeps KLIPY provider details and a direct remote media URL. It does not become a local uploaded source. Remote URL media is loaded for the current session as needed.</p>
+                </section>
+                <section class="panel" id="browse"><h2>Browse and filter</h2>
+                    <div class="token-table" role="table" aria-label="KLIPY browser controls">
+                        <div role="row"><strong role="cell">Control</strong><strong role="cell">What it does</strong></div>
+                        <div role="row"><code role="cell">GIFs / Stickers / Clips / Memes</code><span role="cell">Switch the KLIPY library. With an empty search, the browser shows trending results for that type.</span></div>
+                        <div role="row"><code role="cell">Search KLIPY</code><span role="cell">Search the current media type; results update after a short typing pause.</span></div>
+                        <div role="row"><code role="cell">PG / PG-13 / Mature / Off</code><span role="cell">Set the content filter for browsing. PG-13 is the initial selection unless the browser has a saved choice or the installation supplies another default.</span></div>
+                        <div role="row"><code role="cell">Results per page</code><span role="cell">Choose 8, 16, 24, 32, or 48 result cards. The browser remembers this choice.</span></div>
+                        <div role="row"><code role="cell">Page controls</code><span role="cell">Move forward or back, or enter a page number. Changing search, type, filter, or page size returns to page 1.</span></div>
+                    </div>
+                    <p>Provider attribution and any advertisement cards are part of the KLIPY result display. Advertisement cards are identified as such and are separate from media choices.</p>
+                </section>
+                <section class="panel" id="availability"><h2>If the library is unavailable</h2>
+                    <p><code>Configure and enable KLIPY to browse its library</code> means the running installation is disabled or has no usable API key. KLIPY is an optional integration in the application configuration; the source browser itself has no key entry form. The status can also show <code>Unavailable</code> if a request fails. Check the app configuration and connection, then reopen the source browser.</p>
+                    <p>The installation's <code>appsettings.json</code> contains a <code>Klipy</code> section. If you provide your own KLIPY API key there, set <code>Enabled</code> to <code>true</code>, add <code>ApiKey</code> to that section, and restart NyankoBot. The app also accepts a provisioned key from its configured worker. Keep the key private; the browser only needs the integration status and media results.</p>
+                    <p>Saved local sources and uploads remain available without KLIPY. If a selected KLIPY item later fails to render, check its remote URL and the overlay viewer's connection; it is not stored as a permanent local media cache.</p>
+                </section>
+            </article>
+        </main>
+    </div>
+    <script src="../docs-nav.js"></script>
+</body>
+</html>

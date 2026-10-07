@@ -60,7 +60,7 @@
                         <div class="tree-heading">Components</div>
                         <a class="tree-item" href="component-overlay.html">Overlay</a>
                         <a class="tree-item" href="component-box.html">Box</a>
-                        <a class="tree-item" href="component-add-source-dialog.html">Add Source Dialog</a>
+                        <a class="tree-item" href="component-add-source-dialog.html">Source Controls</a>
                         <a class="tree-item" href="component-add-trigger.html">Binding Editor</a>
                         <a class="tree-item" href="component-if-else-control.html">IF/Else Control</a>
                         <a class="tree-item" href="component-argument-control.html">Argument Control</a>
@@ -96,27 +96,32 @@
                 <section class="panel" id="providers">
                     <h2>Providers</h2>
                     <img class="screenshot" src="../assets/screenshots/translators.png" alt="NyankoBot Translators setup page" />
-                    <p>Add one or more translation backends, then use the Translator action inside Command Triggers. NyankoBot currently separates Google Translate API key setup, Google Cloud Translation service-account setup, and local translator endpoints.</p>
+                    <p>Select <code>+ Add Translator</code>, choose a backend, fill its settings, and save. Each provider card has a <code>Test</code> button: enter sample text, source mode, source and target languages, then select <code>Translate</code> before using the provider in a trigger. You can enable more than one provider.</p>
                     <div class="token-table" role="table" aria-label="Translator provider controls">
                         <div role="row"><strong role="cell">Provider</strong><strong role="cell">Use it for</strong></div>
                         <div role="row"><code role="cell">Google Translate API Key</code><span role="cell">Simple Google v2 translation using an API key.</span></div>
                         <div role="row"><code role="cell">Google Cloud Translation</code><span role="cell">Google v3 translation using service-account JSON and project information.</span></div>
                         <div role="row"><code role="cell">Local Translator</code><span role="cell">A local or self-hosted translation service that exposes compatible translate/language endpoints.</span></div>
                     </div>
+                    <p>For a local provider, enter its base URL plus translate and languages paths and indicate whether it supports automatic detection. Google v2 stores an API key locally; Google v3 uses service-account JSON and project/location settings. The provider must be enabled and reachable when a trigger runs.</p>
                 </section>
 
                 <section class="panel" id="actions">
                     <h2>Trigger Actions</h2>
-                    <p><code>Translate Text</code> can read text from a trigger token, choose a source-language mode, translate to a target language, and store the result as a trigger argument or persistent variable. <code>Detect Language</code> is a separate action that can first identify the source language from a selected set of candidate languages.</p>
+                    <p>In <a href="command-triggers.html">Command Triggers</a>, add <code>Detect Language</code> when you need the language on its own. Its Text field accepts a token such as <code>{{text}}</code>. Select candidate languages with the searchable multi-select, choose the minimum relative distance for a reliable result, and keep <code>Clean chat text</code> on when emotes or chat markup could distort detection. The default result prefix is <code>language</code>.</p>
+                    <p>Add <code>Translate Text</code> to the same trigger, choose a saved Translator, enter the text and target language, then select a source-language mode. A target language is required. Language selectors show names but save normalized language codes; supported choices depend on the provider. Put this action before any chat or overlay action that reads its result.</p>
                     <div class="token-table" role="table" aria-label="Translator action behavior">
                         <div role="row"><strong role="cell">Option</strong><strong role="cell">What it controls</strong></div>
                         <div role="row"><code role="cell">Default</code><span role="cell">Uses the provider's configured source language.</span></div>
-                        <div role="row"><code role="cell">Auto Google</code><span role="cell">Lets Google detect the source language when the selected Google provider supports it.</span></div>
+                        <div role="row"><code role="cell">Auto Provider</code><span role="cell">Lets a provider with automatic detection identify the source language. The Translator test dialog calls this Auto Google for Google providers.</span></div>
                         <div role="row"><code role="cell">Auto NyankoBot</code><span role="cell">Uses NyankoBot's local language detector before translating.</span></div>
-                        <div role="row"><code role="cell">Specific</code><span role="cell">Requires a selected source language and can skip or fail when the detected language is not compatible.</span></div>
-                        <div role="row"><code role="cell">Store result</code><span role="cell">Writes translated text and metadata into the configured argument name, optionally as a persistent value.</span></div>
+                        <div role="row"><code role="cell">Specific</code><span role="cell">Uses the selected source language and checks reliable detection against it.</span></div>
+                        <div role="row"><code role="cell">Language mismatch</code><span role="cell">Continue, Skip, or Fail action when detection disagrees with a specific language or a pair is unsupported. Skip records a reason and returns no translated text.</span></div>
+                        <div role="row"><code role="cell">Store result as argument</code><span role="cell">Sets the output prefix, initially <code>translation</code>. Turn on Save as persistent when the result must survive this trigger run; Session only limits the saved value to the current session.</span></div>
                     </div>
-                    <p>Use searchable language selectors to choose languages by name. If the incoming language is ambiguous, narrow the detector's candidate languages before translating. Place detection or translation before actions that read their output arguments; later actions can insert those outputs through <code>{{</code> autocomplete.</p>
+                    <h3>Use the outputs</h3>
+                    <p>Detect Language provides <code>{{language.name}}</code>, <code>{{language.isoCode}}</code>, <code>{{language.confidence}}</code>, and <code>{{language.reliable}}</code> by default. Translate Text provides <code>{{translation.text}}</code>, source and target languages, detected language, provider details, and <code>{{translation.skipped}}</code>/<code>{{translation.skipReason}}</code>. Rename either result prefix if you run the action twice. Later actions can insert these values with <code>{{</code> autocomplete.</p>
+                    <p>Example: detect <code>{{text}}</code>, translate it to Japanese, then add <code>Send Chat Message</code> with <code>{{translation.text}}</code>. If the output is empty, check the provider test, language pair, and skip reason in trigger History.</p>
                 </section>
             </article>
         </main>

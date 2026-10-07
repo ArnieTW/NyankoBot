@@ -5,19 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>NyankoBot Chat - Twitch and Kick Chat Monitor</title>
     <link rel="icon" type="image/png" href="../assets/ArnieTW_Mischevous.png" />
-    <meta name="description" content="Use the NyankoBot Chat page to monitor and send messages through enabled chat connectors, with avatars, connector tabs, first-words highlighting, and external access links." />
+    <meta name="description" content="Use NyankoBot Chat to monitor and send messages, reply, mention viewers, and follow channel events across connected platforms." />
     <meta name="keywords" content="NyankoBot chat, Twitch chat, Kick chat, stream chat monitor, OBS overlay" />
     <meta name="author" content="ArnieTW" />
     <link rel="canonical" href="https://arnietw.github.io/NyankoBot/docs/chat.html" />
     <meta property="og:site_name" content="NyankoBot" />
     <meta property="og:title" content="NyankoBot Chat - Twitch and Kick Chat Monitor" />
-    <meta property="og:description" content="Use the NyankoBot Chat page to monitor and send messages through enabled chat connectors, with avatars, connector tabs, first-words highlighting, and external access links." />
+    <meta property="og:description" content="Monitor messages, replies, mentions, rewards, and channel events across connected platforms." />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://arnietw.github.io/NyankoBot/docs/chat.html" />
     <meta property="og:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="NyankoBot Chat - Twitch and Kick Chat Monitor" />
-    <meta name="twitter:description" content="Use the NyankoBot Chat page to monitor and send messages through enabled chat connectors, with avatars, connector tabs, first-words highlighting, and external access links." />
+    <meta name="twitter:description" content="Monitor messages, replies, mentions, rewards, and channel events across connected platforms." />
     <meta name="twitter:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
     <link rel="sitemap" type="application/xml" href="../sitemap.xml" />
     <link rel="stylesheet" href="../styles.css" />
@@ -48,6 +48,8 @@
                         <a class="tree-item" href="channel-rewards.html">Channel Rewards</a>
                         <a class="tree-item active" href="chat.html">Chat</a>
                         <a class="tree-item nested active" href="#chat-feed">Chat feed</a>
+                        <a class="tree-item nested" href="#chat-events">Channel events</a>
+                        <a class="tree-item nested" href="#chat-compose">Send and reply</a>
                         <a class="tree-item nested" href="#platform-tabs">Platform tabs</a>
                         <a class="tree-item" href="overlay-setup.html">Overlay Setup</a>
                         <a class="tree-item" href="manage-sources.html">Storage</a>
@@ -57,7 +59,7 @@
                         <div class="tree-heading">Components</div>
                         <a class="tree-item" href="component-overlay.html">Overlay</a>
                         <a class="tree-item" href="component-box.html">Box</a>
-                        <a class="tree-item" href="component-add-source-dialog.html">Add Source Dialog</a>
+                        <a class="tree-item" href="component-add-source-dialog.html">Source Controls</a>
                         <a class="tree-item" href="component-add-trigger.html">Binding Editor</a>
                         <a class="tree-item" href="component-if-else-control.html">IF/Else Control</a>
                         <a class="tree-item" href="component-argument-control.html">Argument Control</a>
@@ -93,7 +95,7 @@
                 <section class="panel" id="chat-feed">
                     <h2>Chat Feed</h2>
                     <img class="screenshot" src="../assets/screenshots/chat.png" alt="NyankoBot Chat setup page" />
-                    <p>The Chat page is useful for confirming that Twitch, Kick, or Streamer.bot chat events are arriving before you bind those messages to command triggers or overlay boxes. Messages use the user avatar as the primary image, with small connector/platform icons layered onto it.</p>
+                    <p>Use Chat to confirm that Twitch, Kick, or Streamer.bot events are arriving before connecting them to command triggers or overlay boxes. The unified feed shows timestamps, connector and platform cues, user badges, colored names when supplied, and rendered emotes. Unknown badges fall back to a readable initial when no badge image is available.</p>
                     <div class="token-table" role="table" aria-label="Chat feed controls">
                         <div role="row"><strong role="cell">UI area</strong><strong role="cell">What it means</strong></div>
                         <div role="row"><code role="cell">All</code><span role="cell">Shows messages from connectors that are visible in All. Hidden connectors are excluded from the All count and All send target list.</span></div>
@@ -106,9 +108,21 @@
                     </div>
                 </section>
 
+                <section class="panel" id="chat-events">
+                    <h2>Messages and channel events</h2>
+                    <p>Chat shows regular messages alongside supported channel events. First messages are marked <code>First words</code>; messages generated by NyankoBot can show an <code>Internal</code> label. Reward redemptions can show the reward title, cost, status, and viewer input. Follow, subscription, gift, Bits, and Power-up lines appear when the connector supplies those events. Kick events use the same feed style when data is available.</p>
+                    <p>A reply includes the original author and a short excerpt above the message. Shared chat origin and connector icons help identify where a message came from. The feed follows new messages when you are near the bottom; scroll up to read older items without being pulled back down.</p>
+                </section>
+
+                <section class="panel" id="chat-compose">
+                    <h2>Send, reply, and mention</h2>
+                    <ol><li>Choose <code>All</code> to send to visible chat connectors, or select one connector tab to target only that connection.</li><li>Type a message. Enter <code>@</code> plus a viewer name to open mention suggestions for the current tab. Use the arrow keys and Enter or Tab to insert a suggestion, or click it.</li><li>Leave <code>Send as bot if available</code> on to use the bot account when supported. The broadcaster account is used when a bot account is unavailable.</li><li>Select <code>Send</code>. The status reports how many targets succeeded or failed.</li></ol>
+                    <p>To reply, use a message's reply button. Chat switches to that message's connector and shows a reply preview with the original text. Send your response, or cancel the reply from the preview. Message deletion is available from a message row when the connector and account support it; inspect the status if deletion fails.</p>
+                </section>
+
                 <section class="panel" id="platform-tabs">
                     <h2>Platform Tabs</h2>
-                    <p>Chat is driven by enabled and connected connectors. If no messages appear, check the matching <a href="connectors.html">Connector</a> first, then confirm that the account is connected and the connector is not hidden from All.</p>
+                    <p>Chat is driven by enabled and connected connectors. If no messages appear, check the matching <a href="connectors.html">Connector</a> first, then confirm that the account is connected and the connector is visible in All. Selecting its own tab still shows it when hidden from All. A reply and its send target always stay on the message's connector.</p>
                     <ul>
                         <li>Use Chat to verify incoming messages.</li>
                         <li>Use <a href="command-triggers.html">Command Triggers</a> to decide what NyankoBot does when chat commands or connector events arrive.</li>
@@ -121,6 +135,5 @@
     <script src="../docs-nav.js"></script>
 </body>
 </html>
-
 
 

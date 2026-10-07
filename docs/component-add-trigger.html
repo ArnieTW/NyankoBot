@@ -60,7 +60,7 @@
                         <div class="tree-heading">Components</div>
                         <a class="tree-item" href="component-overlay.html">Overlay</a>
                         <a class="tree-item" href="component-box.html">Box</a>
-                        <a class="tree-item" href="component-add-source-dialog.html">Add Source Dialog</a>
+                        <a class="tree-item" href="component-add-source-dialog.html">Source Controls</a>
                         <a class="tree-item active" href="component-add-trigger.html">Binding Editor</a>
                         <a class="tree-item" href="component-if-else-control.html">IF/Else Control</a>
                         <a class="tree-item nested" href="#add-trigger-open">Open it</a>
@@ -95,7 +95,7 @@
                 <section id="add-trigger-component">
                     <p class="kicker">Overlay editor</p>
                     <h1>Bindings and Triggers</h1>
-                    <p class="lead">A binding connects one or more triggers to the items an overlay box displays. The current Binding editor groups its controls under Triggers, Sequencing, Subscriptions, and Items.</p>
+                    <p class="lead">A binding is the unit that connects activation, playback, and content. Each box can hold bindings; each binding can have multiple triggers and items. The editor groups these under Triggers, Sequencing, Subscriptions, and Items.</p>
                 </section>
                 <section class="panel" id="add-trigger-open">
                     <h2>Open the Binding editor</h2>
@@ -104,46 +104,47 @@
                         <li>Open its binding from the box inspector, or add a binding if the box does not have one.</li>
                         <li>Rename the binding at the top if needed and choose its binding type. The collapsible sections below control activation and output.</li>
                     </ol>
-                    <p>You can edit an item, layered source, track, or track source in the sliding editor and return to Binding settings without opening a second dialog.</p>
+                    <p>The box inspector lists saved bindings. Open a card with <code>Edit</code> to see its summary, or remove the binding there. The editor title has an <code>Edit</code> control for renaming and a binding type selector. Item, layered source, track, track source, and trigger editing slide into this same editor; use <code>Binding settings</code> to return.</p>
                 </section>
                 <section class="panel" id="add-trigger-search">
                     <h2>Triggers</h2>
-                    <p>Expand <code>Triggers</code> and select <code>Add Trigger</code>. The picker separates Command Triggers from Channel Rewards and shows connector events available to the current setup. Search names and categories; spaces, punctuation, underscores, and letter case are normalized in search.</p>
-                    <p>You can assign multiple triggers to one binding. Review each selected trigger and its options before saving. <a href="platform-events.html">Platform Events</a> explains the main event families.</p>
+                    <p>Expand <code>Triggers</code> and select <code>Add Trigger</code>. The picker has separate <code>Command Trigger</code> and <code>Channel Rewards</code> tabs. Search the saved trigger or reward by name, key, description, or category. Search ignores differences in spaces, punctuation, underscores, and letter case.</p>
+                    <p>Create a connector event under <a href="command-triggers.html">Command Triggers</a> first, then select that saved trigger here. One binding can hold several triggers. Each trigger row has <code>Edit</code>, remove, and playback controls.</p>
                 </section>
                 <section class="panel" id="add-trigger-types">
                     <h2>Choose a trigger source</h2>
                     <div class="token-table" role="table" aria-label="Binding trigger sources">
                         <div role="row"><strong role="cell">Source</strong><strong role="cell">Use it for</strong></div>
-                        <div role="row"><code role="cell">Command Trigger</code><span role="cell">A NyankoBot command or other saved trigger that can also run actions and cooldowns.</span></div>
+                        <div role="row"><code role="cell">Command Trigger</code><span role="cell">A saved NyankoBot trigger. Its source can be a chat command, connector event, timer, or other supported event, with its own actions, permissions, and cooldown.</span></div>
                         <div role="row"><code role="cell">Channel Reward</code><span role="cell">A NyankoBot-managed reward shared across supported connectors.</span></div>
-                        <div role="row"><code role="cell">Connector event</code><span role="cell">Twitch, Kick, OBS, Streamer.bot, timer, Stream Deck, or another available event.</span></div>
+                        <div role="row"><code role="cell">Connector event</code><span role="cell">Configure it as a Command Trigger source, save the trigger, then attach it to this binding.</span></div>
                     </div>
-                    <p>Generic chat bindings can ignore command-like messages or messages sent internally by NyankoBot. Raw event bindings can use hit rules to require matching event data.</p>
+                    <p>Set playback per trigger: <code>Max Length</code> follows the content duration, <code>Toggle</code> changes visibility on each activation, and <code>Custom</code> uses a duration you enter. The initial position control can show a binding when the overlay first connects. For chat and raw event filtering, edit the source on the saved Command Trigger.</p>
                 </section>
                 <section class="panel" id="add-trigger-options">
                     <h2>Subscriptions</h2>
-                    <p>The <code>Subscriptions</code> section lists subscriptions associated with the binding. Expand it to inspect or add one when the chosen trigger requires connector event subscription behavior. If an event never reaches NyankoBot, also check the connector's own event subscription settings under <a href="connectors.html">Connectors</a>.</p>
+                    <p><code>Subscriptions</code> watches a persistent variable key. Select <code>Add Subscription</code> and enter the key used by the binding. The row can be edited or removed later. Subscriptions use the default sequence when the binding runs; they are separate from connector event subscriptions configured under <a href="connectors.html">Connectors</a>.</p>
                 </section>
                 <section class="panel" id="add-trigger-sequencing">
                     <h2>Sequencing</h2>
-                    <p>Use <code>Sequencing</code> when a binding has multiple items. Add a default sequence for normal behavior, then add trigger-specific rows where a selected trigger needs a different order. Rows can be reordered, and a custom sequence can choose items using trigger data.</p>
+                    <p>Sequencing becomes available after the binding has at least two items. Configure <code>Default</code> for normal behavior and subscriptions. Select <code>Add Sequence</code> to add a trigger-specific row, then choose which of this binding's triggers use it. Drag rows or use their move buttons to change their priority. If no assigned row selects an item, the default is the fallback.</p>
                     <div class="token-table" role="table" aria-label="Sequence choices">
                         <div role="row"><strong role="cell">Choice</strong><strong role="cell">Effect</strong></div>
                         <div role="row"><code role="cell">Sequence</code><span role="cell">Advance through items in a chosen order.</span></div>
                         <div role="row"><code role="cell">Random</code><span role="cell">Choose from available items.</span></div>
-                        <div role="row"><code role="cell">All</code><span role="cell">Run all available items where the binding type supports it.</span></div>
+                        <div role="row"><code role="cell">All (as ready)</code><span role="cell">Start available items independently, where the box allows All modes.</span></div>
+                        <div role="row"><code role="cell">All (together)</code><span role="cell">Start available items together, where the box allows All modes.</span></div>
                         <div role="row"><code role="cell">Custom</code><span role="cell">Use IF/Else rules and token values to choose items.</span></div>
                     </div>
                 </section>
                 <section class="panel" id="add-trigger-custom">
                     <h2>Items and custom cases</h2>
-                    <p>Expand <code>Items</code> and select <code>Add Item</code> to choose what the binding displays or plays. Media appears in a visual gallery; highlighting video or audio lets you preview it with sound. Open an item to edit its source or layered tracks in the sliding editor.</p>
-                    <p>For a custom sequence, use <a href="component-if-else-control.html">IF/Else</a> to compare incoming event data and choose an item. Type <code>{{</code> in supported fields to insert a <a href="component-argument-control.html">trigger token</a>. Set an Else result for events that match no rule.</p>
+                    <p>Expand <code>Items</code> and select <code>Add Item</code>. Choose a saved source, search <a href="klipy.html">KLIPY</a>, or create text, media, URL, or TTS content using the <a href="component-add-source-dialog.html">source controls</a>. Saved items appear as gallery cards with type labels, previews, <code>Edit</code>, and remove. Highlighted video and audio previews can play with sound.</p>
+                    <p>For a custom sequence, use <a href="component-if-else-control.html">IF/Else</a> rules to choose an item from incoming event data. Type <code>{{</code> in supported fields to insert a <a href="component-argument-control.html">trigger token</a>. Configure an Else item on the default row; an unmatched trigger-specific row continues to the next assigned row and then Default.</p>
                 </section>
                 <section class="panel" id="add-trigger-save">
                     <h2>Save and test</h2>
-                    <ol><li>Check that the binding has at least one intended trigger and item.</li><li>Save the binding and run a real or manual trigger.</li><li>If nothing appears, inspect <a href="command-triggers.html">History</a>, connector health, the binding's trigger options, and item timing.</li></ol>
+                    <ol><li>Add at least one item and a trigger or persistent variable subscription.</li><li>Use <code>Binding settings</code> to return from an item or trigger editor, then close the binding editor. The overlay editor tracks the changed layout; save the overlay before leaving.</li><li>Run a real event or a manual trigger. If nothing appears, inspect the saved trigger's <a href="command-triggers.html">History</a>, connector health, playback mode, sequence assignment, and item timing.</li></ol>
                     <p>The screenshot examples on other pages may show an earlier layout. Use the current Triggers, Sequencing, Subscriptions, and Items sections for the same underlying concepts.</p>
                 </section>
             </article>

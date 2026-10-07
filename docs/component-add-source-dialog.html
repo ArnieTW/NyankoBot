@@ -3,22 +3,22 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>NyankoBot Add Source Dialog Reference</title>
+    <title>NyankoBot Source Controls Reference</title>
     <link rel="icon" type="image/png" href="../assets/ArnieTW_Mischevous.png" />
 <!-- SEO -->
-    <meta name="description" content="Reference for the NyankoBot Add Source dialog, including text, media, URL, TTS, defined sources, trigger options, typography, animation, media, chroma, and preview controls." />
+    <meta name="description" content="Reference for NyankoBot binding item source controls, including text, media, URL, TTS, defined sources, trigger options, typography, animation, media, chroma, and preview controls." />
     <meta name="keywords" content="NyankoBot, OBS overlay, Streamer.bot, streaming overlay, browser source, Twitch bot, stream effects, TTS, CosyVoice, media commands" />
     <meta name="author" content="ArnieTW" />
     <link rel="canonical" href="https://arnietw.github.io/NyankoBot/docs/component-add-source-dialog.html" />
     <meta property="og:site_name" content="NyankoBot" />
-    <meta property="og:title" content="NyankoBot Add Source Dialog Reference" />
-    <meta property="og:description" content="Reference for the NyankoBot Add Source dialog, including text, media, URL, TTS, defined sources, trigger options, typography, animation, media, chroma, and preview controls." />
+    <meta property="og:title" content="NyankoBot Source Controls Reference" />
+    <meta property="og:description" content="Reference for NyankoBot binding item source controls, including text, media, URL, TTS, defined sources, trigger options, typography, animation, media, chroma, and preview controls." />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://arnietw.github.io/NyankoBot/docs/component-add-source-dialog.html" />
     <meta property="og:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="NyankoBot Add Source Dialog Reference" />
-    <meta name="twitter:description" content="Reference for the NyankoBot Add Source dialog, including text, media, URL, TTS, defined sources, trigger options, typography, animation, media, chroma, and preview controls." />
+    <meta name="twitter:title" content="NyankoBot Source Controls Reference" />
+    <meta name="twitter:description" content="Reference for NyankoBot binding item source controls, including text, media, URL, TTS, defined sources, trigger options, typography, animation, media, chroma, and preview controls." />
     <meta name="twitter:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
     <link rel="sitemap" type="application/xml" href="../sitemap.xml" />
 <!-- /SEO -->
@@ -60,7 +60,7 @@
                         <div class="tree-heading">Components</div>
                         <a class="tree-item" href="component-overlay.html">Overlay</a>
                         <a class="tree-item" href="component-box.html">Box</a>
-                        <a class="tree-item active" href="component-add-source-dialog.html">Add Source Dialog</a>
+                        <a class="tree-item active" href="component-add-source-dialog.html">Source Controls</a>
                         <a class="tree-item" href="component-add-trigger.html">Binding Editor</a>
                         <a class="tree-item" href="component-if-else-control.html">IF/Else Control</a>
                         <a class="tree-item" href="component-argument-control.html">Argument Control</a>
@@ -103,7 +103,7 @@
             <article class="doc-content">
                 <section id="source-dialog-component">
                     <p class="kicker">Inside Component</p>
-                    <h1>Add Source Dialog</h1>
+                    <h1>Source Controls</h1>
                     <p class="lead">Source controls create or edit the text, media, page, or voice content that a binding item shows or plays. The same controls may appear inside the Binding editor or in a source dialog.</p>
                 </section>
 
@@ -121,7 +121,7 @@
                 <section class="panel" id="source-dialog-defined-tab">
                     <h2>Defined Sources Tab</h2>
                     <img class="screenshot" src="../assets/screenshots/add-source-dialog.png" alt="Add Source dialog showing defined source cards" />
-                    <p>Use this browser when the source already exists in your library or when you want to choose KLIPY media. Local source cards and KLIPY results are separate groups.</p>
+                    <p>Use this browser when the source already exists in your library or when you want to choose <a href="klipy.html">KLIPY media</a>. Local source cards and KLIPY results are separate groups.</p>
                     <div class="token-table">
                         <div><strong>UI option</strong></div>
                         <div><strong>What it means</strong></div>
@@ -137,6 +137,7 @@
                         <li>Select a result, review its preview, and add it to the binding or box. KLIPY branding and any advertisements are part of the provider result display.</li>
                     </ol>
                     <p>If the group says <code>Configure KLIPY to browse its library</code>, the running NyankoBot installation has no usable KLIPY configuration. Local uploads and saved sources still work. KLIPY selections are remote media, not local uploaded files.</p>
+                    <p>The <a href="klipy.html">KLIPY guide</a> covers filtering, page controls, provider attribution, and connection troubleshooting.</p>
                 </section>
 
                 <section class="panel" id="source-dialog-text-tab">
