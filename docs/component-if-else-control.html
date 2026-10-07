@@ -106,49 +106,35 @@
                 <section class="panel" id="if-else-row">
                     <h2>Rule Row</h2>
                     <p>Each row reads as a sentence: IF this trigger value matches this comparison, THEN use this result.</p>
-                    <div class="token-table">
-                        <div><strong>UI option</strong></div>
-                        <div><strong>What it does</strong></div>
-                        <div><code>IF</code></div>
-                        <div>The value to check. This is usually an <a href="component-argument-control.html#argument-control-open">Argument Control</a> token such as <code>{{text}}</code>, <code>{{user.name}}</code>, or <code>{{command.arguments[0]}}</code>.</div>
-                        <div><code>Operator</code></div>
-                        <div>The comparison to run against the IF value.</div>
-                        <div><code>Compare to</code></div>
-                        <div>The value matched by the operator. Text comparisons can use plain text or another Argument Control token.</div>
-                        <div><code>THEN</code></div>
-                        <div>The result used when the rule matches. In custom sequencing, this is the source or source slot to show.</div>
-                        <div><code>X</code></div>
-                        <div>Deletes that rule row.</div>
+                    <div class="token-table" role="table">
+                        <div role="row"><div role="cell"><strong>UI option</strong></div><div role="cell"><strong>What it does</strong></div></div>
+                        <div role="row"><div role="cell"><code>IF</code></div><div role="cell">The value to check. This is usually an <a href="component-argument-control.html#argument-control-open">Argument Control</a> token such as <code>{{text}}</code>, <code>{{user.name}}</code>, or <code>{{command.arguments[0]}}</code>.</div></div>
+                        <div role="row"><div role="cell"><code>Operator</code></div><div role="cell">The comparison to run against the IF value.</div></div>
+                        <div role="row"><div role="cell"><code>Compare to</code></div><div role="cell">The value matched by the operator. Text comparisons can use plain text or another Argument Control token.</div></div>
+                        <div role="row"><div role="cell"><code>THEN</code></div><div role="cell">The result used when the rule matches. In custom sequencing, this is the source or source slot to show.</div></div>
+                        <div role="row"><div role="cell"><code>X</code></div><div role="cell">Deletes that rule row.</div></div>
                     </div>
                 </section>
 
                 <section class="panel" id="if-else-operators">
                     <h2>Operators</h2>
                     <p>The available operators change based on the type of the token on the left side.</p>
-                    <div class="token-table">
-                        <div><strong>Value type</strong></div>
-                        <div><strong>Available operators</strong></div>
-                        <div><code>String</code></div>
-                        <div><code>Exists</code>, <code>Equals</code>, <code>Does not equal</code>, <code>Contains</code>, <code>Does not contain</code>, <code>Starts with</code>, and <code>Ends with</code>.</div>
-                        <div><code>Number</code></div>
-                        <div><code>Exists</code>, <code>Equals</code>, <code>Does not equal</code>, <code>Greater than</code>, and <code>Less than</code>.</div>
-                        <div><code>Boolean</code></div>
-                        <div><code>Exists</code>, <code>Equals</code>, and <code>Does not equal</code>. The comparison value becomes a true/false selector.</div>
-                        <div><code>Exists</code></div>
-                        <div>Hides the Compare to field because the rule only checks whether the value is present.</div>
+                    <div class="token-table" role="table">
+                        <div role="row"><div role="cell"><strong>Value type</strong></div><div role="cell"><strong>Available operators</strong></div></div>
+                        <div role="row"><div role="cell"><code>String</code></div><div role="cell"><code>Exists</code>, <code>Equals</code>, <code>Does not equal</code>, <code>Contains</code>, <code>Does not contain</code>, <code>Starts with</code>, and <code>Ends with</code>.</div></div>
+                        <div role="row"><div role="cell"><code>Number</code></div><div role="cell"><code>Exists</code>, <code>Equals</code>, <code>Does not equal</code>, <code>Greater than</code>, and <code>Less than</code>.</div></div>
+                        <div role="row"><div role="cell"><code>Boolean</code></div><div role="cell"><code>Exists</code>, <code>Equals</code>, and <code>Does not equal</code>. The comparison value becomes a true/false selector.</div></div>
+                        <div role="row"><div role="cell"><code>Exists</code></div><div role="cell">Hides the Compare to field because the rule only checks whether the value is present.</div></div>
                     </div>
                 </section>
 
                 <section class="panel" id="if-else-result">
                     <h2>THEN Result</h2>
                     <p>The result column changes depending on where the IF/Else control is used.</p>
-                    <div class="token-table">
-                        <div><strong>Context</strong></div>
-                        <div><strong>Result choices</strong></div>
-                        <div><code>Add Trigger Custom sequencing</code></div>
-                        <div>Choose one or more sources for a normal box. For grouped boxes, map each child box to a source slot.</div>
-                        <div><code>Raw hit rules</code></div>
-                        <div>Choose <code>Trigger</code> when the raw event should run the box, or <code>False</code> when the matching event should be ignored.</div>
+                    <div class="token-table" role="table">
+                        <div role="row"><div role="cell"><strong>Context</strong></div><div role="cell"><strong>Result choices</strong></div></div>
+                        <div role="row"><div role="cell"><code>Add Trigger Custom sequencing</code></div><div role="cell">Choose one or more sources for a normal box. For grouped boxes, map each child box to a source slot.</div></div>
+                        <div role="row"><div role="cell"><code>Raw hit rules</code></div><div role="cell">Choose <code>Trigger</code> when the raw event should run the box, or <code>False</code> when the matching event should be ignored.</div></div>
                     </div>
                 </section>
 
@@ -156,15 +142,11 @@
                     <h2>Reorder And Nest</h2>
                     <img class="screenshot" src="../assets/screenshots/add-trigger-custom-sequencing.png" alt="IF/Else control showing the four-dot drag handle at the start of the rule row" />
                     <p>The four-dot control at the start of each row is the drag handle. Drag it up or down to reorder rules. Drag it onto the middle of another rule to nest it under that rule.</p>
-                    <div class="token-table">
-                        <div><strong>Drag target</strong></div>
-                        <div><strong>What happens</strong></div>
-                        <div>Top of another row</div>
-                        <div>Moves the dragged rule before that row.</div>
-                        <div>Bottom of another row</div>
-                        <div>Moves the dragged rule after that row.</div>
-                        <div>Middle of another row</div>
-                        <div>Nests the dragged rule as a child of that row. Use this when a rule should only be checked after its parent condition matches.</div>
+                    <div class="token-table" role="table">
+                        <div role="row"><div role="cell"><strong>Drag target</strong></div><div role="cell"><strong>What happens</strong></div></div>
+                        <div role="row"><div role="cell">Top of another row</div><div role="cell">Moves the dragged rule before that row.</div></div>
+                        <div role="row"><div role="cell">Bottom of another row</div><div role="cell">Moves the dragged rule after that row.</div></div>
+                        <div role="row"><div role="cell">Middle of another row</div><div role="cell">Nests the dragged rule as a child of that row. Use this when a rule should only be checked after its parent condition matches.</div></div>
                     </div>
                     <p>Order matters. NyankoBot evaluates the rule structure from top to bottom, so place the most specific cases above broader fallback-style cases.</p>
                 </section>

@@ -115,93 +115,63 @@
                 <section class="panel" id="argument-control-add-trigger">
                     <h2>Add Trigger Control</h2>
                     <p><code>Triggers</code> is the search control used in Add Trigger. It is populated from the Streamer.bot trigger catalog, then displays each available trigger as a selectable row.</p>
-                    <div class="token-table">
-                        <div><strong>Populated item</strong></div>
-                        <div><strong>What appears in the list</strong></div>
-                        <div><code>Raw Trigger</code></div>
-                        <div>Subscribed raw Streamer.bot events. Rows show the event label or key, category <code>Raw Trigger</code>, and the description <code>Subscribed raw Streamer.bot event.</code></div>
-                        <div><code>Command Trigger</code></div>
-                        <div>Streamer.bot commands. Rows show the command name, category <code>Command Trigger</code>, and description parts from command aliases, trigger modes, and disabled state.</div>
-                        <div><code>Action Trigger</code></div>
-                        <div>Streamer.bot actions. Rows show the action name, category <code>Action Trigger</code>, and description parts from action group, trigger events, and disabled state.</div>
-                        <div>Search behavior</div>
-                        <div>Search matches trigger name, key, description, and category. Triggers already bound to the current box are hidden from the list.</div>
+                    <div class="token-table" role="table">
+                        <div role="row"><div role="cell"><strong>Populated item</strong></div><div role="cell"><strong>What appears in the list</strong></div></div>
+                        <div role="row"><div role="cell"><code>Raw Trigger</code></div><div role="cell">Subscribed raw Streamer.bot events. Rows show the event label or key, category <code>Raw Trigger</code>, and the description <code>Subscribed raw Streamer.bot event.</code></div></div>
+                        <div role="row"><div role="cell"><code>Command Trigger</code></div><div role="cell">Streamer.bot commands. Rows show the command name, category <code>Command Trigger</code>, and description parts from command aliases, trigger modes, and disabled state.</div></div>
+                        <div role="row"><div role="cell"><code>Action Trigger</code></div><div role="cell">Streamer.bot actions. Rows show the action name, category <code>Action Trigger</code>, and description parts from action group, trigger events, and disabled state.</div></div>
+                        <div role="row"><div role="cell">Search behavior</div><div role="cell">Search matches trigger name, key, description, and category. Triggers already bound to the current box are hidden from the list.</div></div>
                     </div>
                 </section>
 
                 <section class="panel" id="argument-control-triggers">
                     <h2>Trigger Tokens</h2>
                     <p>The <code>{{</code> Auto-Complete list is populated by <code>/api/triggers/mapping</code>. It is one flat list sorted by token key, filtered by what the user types after <code>{{</code>, then by the search field.</p>
-                    <div class="token-table">
-                        <div><strong>Category</strong></div>
-                        <div><strong>Tokens populated in the UI</strong></div>
-                        <div><code>User</code></div>
-                        <div><code>{{user.id}}</code>, <code>{{user.name}}</code>, <code>{{user.display}}</code>, <code>{{user.login}}</code>, <code>{{user.role}}</code>, <code>{{user.roleName}}</code>, <code>{{user.avatar}}</code>, <code>{{user.color}}</code>, <code>{{user.badges}}</code>, <code>{{user.subscribed}}</code>, <code>{{user.subscriptionTier}}</code>, <code>{{user.monthsSubscribed}}</code>, <code>{{user.verified}}</code>, plus aliases <code>{{user.username}}</code>, <code>{{user.isSubscribed}}</code>, <code>{{user.isVerified}}</code>, <code>{{user.profilePicture}}</code>, <code>{{user.displayName}}</code>, and <code>{{userName}}</code>.</div>
-                        <div><code>Message</code></div>
-                        <div><code>{{message.id}}</code>, <code>{{message.text}}</code>, <code>{{message.emotes}}</code>, <code>{{message.parts}}</code>, <code>{{message.meta}}</code>, plus aliases <code>{{rawText}}</code>, <code>{{text}}</code>, and <code>{{sanitizedText}}</code>.</div>
-                        <div><code>Channel</code></div>
-                        <div><code>{{channel.id}}</code>, <code>{{channel.name}}</code>, <code>{{channel.channelName}}</code>, <code>{{channel.platform}}</code>, <code>{{channel.isLive}}</code>, <code>{{channel.title}}</code>, <code>{{channel.category}}</code>, and <code>{{channel.categoryId}}</code>. These use the incoming trigger's channel values.</div>
-                        <div><code>Twitch / Kick</code></div>
-                        <div><code>{{twitch.channel.title}}</code>, <code>{{twitch.channel.category}}</code>, <code>{{twitch.channel.categoryId}}</code>, and the matching <code>{{kick.channel.*}}</code> keys use the saved or refreshed connector snapshot. See <a href="examples.html#trigger-tokens">Trigger tokens</a> for broadcaster category tokens and refresh behavior.</div>
-                        <div><code>Trigger</code></div>
-                        <div><code>{{trigger.id}}</code>, <code>{{trigger.type}}</code>, <code>{{trigger.eventType}}</code>, <code>{{trigger.source}}</code>, <code>{{trigger.timestamp}}</code>, <code>{{trigger.name}}</code>, <code>{{trigger.isFirstWords}}</code>, plus alias <code>{{isFirstWords}}</code>.</div>
-                        <div><code>Context</code></div>
-                        <div><code>{{context.sessionId}}</code>, <code>{{context.requestId}}</code>, <code>{{context.correlationId}}</code>, and <code>{{context.tags}}</code>.</div>
-                        <div><code>Platform</code></div>
-                        <div><code>{{platforms.streamerbot}}</code>, <code>{{platforms.twitch}}</code>, <code>{{platforms.kick}}</code>, <code>{{platforms.youtube}}</code>, <code>{{platforms.custom}}</code>.</div>
+                    <div class="token-table" role="table">
+                        <div role="row"><div role="cell"><strong>Category</strong></div><div role="cell"><strong>Tokens populated in the UI</strong></div></div>
+                        <div role="row"><div role="cell"><code>User</code></div><div role="cell"><code>{{user.id}}</code>, <code>{{user.name}}</code>, <code>{{user.display}}</code>, <code>{{user.login}}</code>, <code>{{user.role}}</code>, <code>{{user.roleName}}</code>, <code>{{user.avatar}}</code>, <code>{{user.color}}</code>, <code>{{user.badges}}</code>, <code>{{user.subscribed}}</code>, <code>{{user.subscriptionTier}}</code>, <code>{{user.monthsSubscribed}}</code>, <code>{{user.verified}}</code>, plus aliases <code>{{user.username}}</code>, <code>{{user.isSubscribed}}</code>, <code>{{user.isVerified}}</code>, <code>{{user.profilePicture}}</code>, <code>{{user.displayName}}</code>, and <code>{{userName}}</code>.</div></div>
+                        <div role="row"><div role="cell"><code>Message</code></div><div role="cell"><code>{{message.id}}</code>, <code>{{message.text}}</code>, <code>{{message.emotes}}</code>, <code>{{message.parts}}</code>, <code>{{message.meta}}</code>, plus aliases <code>{{rawText}}</code>, <code>{{text}}</code>, and <code>{{sanitizedText}}</code>.</div></div>
+                        <div role="row"><div role="cell"><code>Channel</code></div><div role="cell"><code>{{channel.id}}</code>, <code>{{channel.name}}</code>, <code>{{channel.channelName}}</code>, <code>{{channel.platform}}</code>, <code>{{channel.isLive}}</code>, <code>{{channel.title}}</code>, <code>{{channel.category}}</code>, and <code>{{channel.categoryId}}</code>. These use the incoming trigger's channel values.</div></div>
+                        <div role="row"><div role="cell"><code>Twitch / Kick</code></div><div role="cell"><code>{{twitch.channel.title}}</code>, <code>{{twitch.channel.category}}</code>, <code>{{twitch.channel.categoryId}}</code>, and the matching <code>{{kick.channel.*}}</code> keys use the saved or refreshed connector snapshot. See <a href="examples.html#trigger-tokens">Trigger tokens</a> for broadcaster category tokens and refresh behavior.</div></div>
+                        <div role="row"><div role="cell"><code>Trigger</code></div><div role="cell"><code>{{trigger.id}}</code>, <code>{{trigger.type}}</code>, <code>{{trigger.eventType}}</code>, <code>{{trigger.source}}</code>, <code>{{trigger.timestamp}}</code>, <code>{{trigger.name}}</code>, <code>{{trigger.isFirstWords}}</code>, plus alias <code>{{isFirstWords}}</code>.</div></div>
+                        <div role="row"><div role="cell"><code>Context</code></div><div role="cell"><code>{{context.sessionId}}</code>, <code>{{context.requestId}}</code>, <code>{{context.correlationId}}</code>, and <code>{{context.tags}}</code>.</div></div>
+                        <div role="row"><div role="cell"><code>Platform</code></div><div role="cell"><code>{{platforms.streamerbot}}</code>, <code>{{platforms.twitch}}</code>, <code>{{platforms.kick}}</code>, <code>{{platforms.youtube}}</code>, <code>{{platforms.custom}}</code>.</div></div>
                     </div>
                 </section>
 
                 <section class="panel" id="argument-control-arguments">
                     <h2>Argument Values</h2>
                     <p>These are the currently populated mappings that behave like command or payload arguments inside the same <code>{{</code> Auto-Complete list.</p>
-                    <div class="token-table">
-                        <div><strong>Argument source</strong></div>
-                        <div><strong>Tokens populated in the UI</strong></div>
-                        <div><code>Command arguments</code></div>
-                        <div><code>{{command.name}}</code>, <code>{{command.prefix}}</code>, <code>{{command.fullCommand}}</code>, <code>{{command.arguments}}</code>, <code>{{command.arguments[0]}}</code>, <code>{{command.argumentCount}}</code>, <code>{{command.argsText}}</code>, <code>{{command.counter}}</code>, <code>{{command.userCounter}}</code>, plus alias <code>{{firstArg}}</code>.</div>
-                        <div><code>Message text</code></div>
-                        <div><code>{{rawText}}</code>, <code>{{text}}</code>, and <code>{{sanitizedText}}</code>. Prefer <code>{{text}}</code> for chat-driven text, TTS content, captions, and callouts.</div>
-                        <div><code>Custom payload</code></div>
-                        <div><code>{{custom}}</code> and <code>{{custom["key"]}}</code>. Replace <code>key</code> with the custom variable name supplied by the trigger payload.</div>
-                        <div>Autocomplete display</div>
-                        <div>Each suggestion shows its label, then metadata made from category, type, optional hint, raw token when filtering by a typed prefix, and local usage count.</div>
+                    <div class="token-table" role="table">
+                        <div role="row"><div role="cell"><strong>Argument source</strong></div><div role="cell"><strong>Tokens populated in the UI</strong></div></div>
+                        <div role="row"><div role="cell"><code>Command arguments</code></div><div role="cell"><code>{{command.name}}</code>, <code>{{command.prefix}}</code>, <code>{{command.fullCommand}}</code>, <code>{{command.arguments}}</code>, <code>{{command.arguments[0]}}</code>, <code>{{command.argumentCount}}</code>, <code>{{command.argsText}}</code>, <code>{{command.counter}}</code>, <code>{{command.userCounter}}</code>, plus alias <code>{{firstArg}}</code>.</div></div>
+                        <div role="row"><div role="cell"><code>Message text</code></div><div role="cell"><code>{{rawText}}</code>, <code>{{text}}</code>, and <code>{{sanitizedText}}</code>. Prefer <code>{{text}}</code> for chat-driven text, TTS content, captions, and callouts.</div></div>
+                        <div role="row"><div role="cell"><code>Custom payload</code></div><div role="cell"><code>{{custom}}</code> and <code>{{custom["key"]}}</code>. Replace <code>key</code> with the custom variable name supplied by the trigger payload.</div></div>
+                        <div role="row"><div role="cell">Autocomplete display</div><div role="cell">Each suggestion shows its label, then metadata made from category, type, optional hint, raw token when filtering by a typed prefix, and local usage count.</div></div>
                     </div>
                 </section>
 
                 <section class="panel" id="argument-control-selection">
                     <h2>Selection Behavior</h2>
-                    <div class="token-table">
-                        <div><strong>Action</strong></div>
-                        <div><strong>What it does</strong></div>
-                        <div><code>Type {{</code></div>
-                        <div>Opens the autocomplete menu.</div>
-                        <div><code>Keep typing</code></div>
-                        <div>Filters the suggestions by token key, label, or category.</div>
-                        <div><code>Arrow keys</code></div>
-                        <div>Move through visible suggestions.</div>
-                        <div><code>Enter</code> or <code>Tab</code></div>
-                        <div>Insert the selected token.</div>
-                        <div>Completed chip</div>
-                        <div>Displays the inserted token as a readable label while keeping the underlying template value intact.</div>
-                        <div><code>Escape</code></div>
-                        <div>Closes the menu without inserting a token.</div>
+                    <div class="token-table" role="table">
+                        <div role="row"><div role="cell"><strong>Action</strong></div><div role="cell"><strong>What it does</strong></div></div>
+                        <div role="row"><div role="cell"><code>Type {{</code></div><div role="cell">Opens the autocomplete menu.</div></div>
+                        <div role="row"><div role="cell"><code>Keep typing</code></div><div role="cell">Filters the suggestions by token key, label, or category.</div></div>
+                        <div role="row"><div role="cell"><code>Arrow keys</code></div><div role="cell">Move through visible suggestions.</div></div>
+                        <div role="row"><div role="cell"><code>Enter</code> or <code>Tab</code></div><div role="cell">Insert the selected token.</div></div>
+                        <div role="row"><div role="cell">Completed chip</div><div role="cell">Displays the inserted token as a readable label while keeping the underlying template value intact.</div></div>
+                        <div role="row"><div role="cell"><code>Escape</code></div><div role="cell">Closes the menu without inserting a token.</div></div>
                     </div>
                 </section>
 
                 <section class="panel" id="argument-control-examples">
                     <h2>Examples</h2>
-                    <div class="token-table">
-                        <div><strong>Use case</strong></div>
-                        <div><strong>Template</strong></div>
-                        <div>Chat callout</div>
-                        <div><code>{{user.display}}: {{text}}</code></div>
-                        <div>TTS command</div>
-                        <div><code>{{command.argsText}}</code></div>
-                        <div>Custom payload value</div>
-                        <div><code>{{custom["favoriteColor"]}}</code></div>
-                        <div>Command debug text</div>
-                        <div><code>{{user.display}} used {{command.name}} with {{command.argumentCount}} arguments</code></div>
+                    <div class="token-table" role="table">
+                        <div role="row"><div role="cell"><strong>Use case</strong></div><div role="cell"><strong>Template</strong></div></div>
+                        <div role="row"><div role="cell">Chat callout</div><div role="cell"><code>{{user.display}}: {{text}}</code></div></div>
+                        <div role="row"><div role="cell">TTS command</div><div role="cell"><code>{{command.argsText}}</code></div></div>
+                        <div role="row"><div role="cell">Custom payload value</div><div role="cell"><code>{{custom["favoriteColor"]}}</code></div></div>
+                        <div role="row"><div role="cell">Command debug text</div><div role="cell"><code>{{user.display}} used {{command.name}} with {{command.argumentCount}} arguments</code></div></div>
                     </div>
                 </section>
             </article>

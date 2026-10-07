@@ -122,13 +122,10 @@
                     <h2>Defined Sources Tab</h2>
                     <img class="screenshot" src="../assets/screenshots/add-source-dialog.png" alt="Add Source dialog showing defined source cards" />
                     <p>Use this browser when the source already exists in your library or when you want to choose <a href="klipy.html">KLIPY media</a>. Local source cards and KLIPY results are separate groups.</p>
-                    <div class="token-table">
-                        <div><strong>UI option</strong></div>
-                        <div><strong>What it means</strong></div>
-                        <div><code>Defined Sources</code></div>
-                        <div>Searches reusable sources by name, type, or media file.</div>
-                        <div><code>Source cards</code></div>
-                        <div>Each card is a reusable source that can be attached to the selected box. Click the card you want, then save it into the box.</div>
+                    <div class="token-table" role="table">
+                        <div role="row"><div role="cell"><strong>UI option</strong></div><div role="cell"><strong>What it means</strong></div></div>
+                        <div role="row"><div role="cell"><code>Defined Sources</code></div><div role="cell">Searches reusable sources by name, type, or media file.</div></div>
+                        <div role="row"><div role="cell"><code>Source cards</code></div><div role="cell">Each card is a reusable source that can be attached to the selected box. Click the card you want, then save it into the box.</div></div>
                     </div>
                     <h3>Browse KLIPY</h3>
                     <ol>
@@ -144,21 +141,14 @@
                     <h2>Text Source Tab</h2>
                     <img class="screenshot" src="../assets/screenshots/add-source-dialog-text.png" alt="Add Source dialog showing the Text Source tab" />
                     <p>Use this tab for captions, labels, chat callouts, or any overlay text.</p>
-                    <div class="token-table">
-                        <div><strong>UI option</strong></div>
-                        <div><strong>What it means</strong></div>
-                        <div><code>Source Name</code></div>
-                        <div>The label shown in the box source list. If left blank, NyankoBot infers a name from the text.</div>
-                        <div><code>Text</code></div>
-                        <div>The text rendered inside the box. <a href="component-argument-control.html#argument-control-open">Argument Control</a> can be used when the displayed text should include chat, event, or trigger data.</div>
-                        <div><code>Argument Control</code></div>
-                        <div><a href="component-argument-control.html#argument-control-open">Move to definition</a></div>
-                        <div><code>Trigger Option</code></div>
-                        <div><a href="#source-dialog-trigger-option">Move to definition</a></div>
-                        <div><code>Typography</code></div>
-                        <div><a href="#source-dialog-typography-option">Move to definition</a></div>
-                        <div><code>Animation</code></div>
-                        <div><a href="#source-dialog-animation-option">Move to definition</a></div>
+                    <div class="token-table" role="table">
+                        <div role="row"><div role="cell"><strong>UI option</strong></div><div role="cell"><strong>What it means</strong></div></div>
+                        <div role="row"><div role="cell"><code>Source Name</code></div><div role="cell">The label shown in the box source list. If left blank, NyankoBot infers a name from the text.</div></div>
+                        <div role="row"><div role="cell"><code>Text</code></div><div role="cell">The text rendered inside the box. <a href="component-argument-control.html#argument-control-open">Argument Control</a> can be used when the displayed text should include chat, event, or trigger data.</div></div>
+                        <div role="row"><div role="cell"><code>Argument Control</code></div><div role="cell"><a href="component-argument-control.html#argument-control-open">Move to definition</a></div></div>
+                        <div role="row"><div role="cell"><code>Trigger Option</code></div><div role="cell"><a href="#source-dialog-trigger-option">Move to definition</a></div></div>
+                        <div role="row"><div role="cell"><code>Typography</code></div><div role="cell"><a href="#source-dialog-typography-option">Move to definition</a></div></div>
+                        <div role="row"><div role="cell"><code>Animation</code></div><div role="cell"><a href="#source-dialog-animation-option">Move to definition</a></div></div>
                     </div>
                 </section>
 
@@ -167,33 +157,20 @@
                     <img class="screenshot" src="../assets/screenshots/add-source-dialog-media.png" alt="Add Source dialog showing the Media Source tab" />
                     <p>Use this tab for images, videos, and audio cues. Media can come from a normal URL, a local upload, or a trigger argument such as <code>{{message.imageUrl}}</code> when the trigger event provides the media URL dynamically.</p>
                     <img class="screenshot" src="../assets/screenshots/add-source-dialog-media-url.png" alt="Add Source dialog showing a media URL with preview and media options" />
-                    <div class="token-table">
-                        <div><strong>UI option</strong></div>
-                        <div><strong>What it means</strong></div>
-                        <div><code>Source Name</code></div>
-                        <div>The label shown in the box source list. If left blank, NyankoBot infers a name from the file, URL, or trigger-mapped value.</div>
-                        <div><code>Media URL, trigger argument, or upload</code></div>
-                        <div>Accepts an HTTP media URL, one <a href="component-argument-control.html#argument-control-arguments">Argument Control</a> mapping, or a local upload selected with the folder button.</div>
-                        <div><code>Trigger argument mapping</code></div>
-                        <div>Type <code>{{</code> to insert a trigger token through the <a href="component-argument-control.html#argument-control-open">Argument Control</a>. A trigger-mapped media source must be one token by itself, for example <code>{{message.imageUrl}}</code>, so NyankoBot can treat the trigger value as the media URL.</div>
-                        <div><code>Media type</code></div>
-                        <div>Forces the source to <code>Image</code>, <code>Video</code>, or <code>Audio</code> when NyankoBot cannot infer the type reliably from the file, URL, or trigger argument.</div>
-                        <div><code>Folder button</code></div>
-                        <div>Opens the local file picker for uploading media.</div>
-                        <div><code>Clear button</code></div>
-                        <div>Removes the selected uploaded file when one is attached.</div>
-                        <div><code>Trigger Option</code></div>
-                        <div><a href="#source-dialog-trigger-option">Move to definition</a></div>
-                        <div><code>Animation</code></div>
-                        <div><a href="#source-dialog-animation-option">Move to definition</a></div>
-                        <div><code>Media</code></div>
-                        <div><a href="#source-dialog-media-option">Move to definition</a></div>
-                        <div><code>Chroma</code></div>
-                        <div><a href="#source-dialog-chroma-option">Move to definition</a></div>
-                        <div><code>Transform</code></div>
-                        <div><a href="#source-dialog-transform-option">Move to definition</a></div>
-                        <div><code>Preview</code></div>
-                        <div><a href="#source-dialog-preview-option">Move to definition</a></div>
+                    <div class="token-table" role="table">
+                        <div role="row"><div role="cell"><strong>UI option</strong></div><div role="cell"><strong>What it means</strong></div></div>
+                        <div role="row"><div role="cell"><code>Source Name</code></div><div role="cell">The label shown in the box source list. If left blank, NyankoBot infers a name from the file, URL, or trigger-mapped value.</div></div>
+                        <div role="row"><div role="cell"><code>Media URL, trigger argument, or upload</code></div><div role="cell">Accepts an HTTP media URL, one <a href="component-argument-control.html#argument-control-arguments">Argument Control</a> mapping, or a local upload selected with the folder button.</div></div>
+                        <div role="row"><div role="cell"><code>Trigger argument mapping</code></div><div role="cell">Type <code>{{</code> to insert a trigger token through the <a href="component-argument-control.html#argument-control-open">Argument Control</a>. A trigger-mapped media source must be one token by itself, for example <code>{{message.imageUrl}}</code>, so NyankoBot can treat the trigger value as the media URL.</div></div>
+                        <div role="row"><div role="cell"><code>Media type</code></div><div role="cell">Forces the source to <code>Image</code>, <code>Video</code>, or <code>Audio</code> when NyankoBot cannot infer the type reliably from the file, URL, or trigger argument.</div></div>
+                        <div role="row"><div role="cell"><code>Folder button</code></div><div role="cell">Opens the local file picker for uploading media.</div></div>
+                        <div role="row"><div role="cell"><code>Clear button</code></div><div role="cell">Removes the selected uploaded file when one is attached.</div></div>
+                        <div role="row"><div role="cell"><code>Trigger Option</code></div><div role="cell"><a href="#source-dialog-trigger-option">Move to definition</a></div></div>
+                        <div role="row"><div role="cell"><code>Animation</code></div><div role="cell"><a href="#source-dialog-animation-option">Move to definition</a></div></div>
+                        <div role="row"><div role="cell"><code>Media</code></div><div role="cell"><a href="#source-dialog-media-option">Move to definition</a></div></div>
+                        <div role="row"><div role="cell"><code>Chroma</code></div><div role="cell"><a href="#source-dialog-chroma-option">Move to definition</a></div></div>
+                        <div role="row"><div role="cell"><code>Transform</code></div><div role="cell"><a href="#source-dialog-transform-option">Move to definition</a></div></div>
+                        <div role="row"><div role="cell"><code>Preview</code></div><div role="cell"><a href="#source-dialog-preview-option">Move to definition</a></div></div>
                     </div>
                 </section>
 
@@ -201,15 +178,11 @@
                     <h2>URL Source Tab</h2>
                     <img class="screenshot" src="../assets/screenshots/add-source-dialog-url.png" alt="Add Source dialog showing the URL Source tab" />
                     <p>Use this tab for browser-rendered widgets or pages that should appear inside a box.</p>
-                    <div class="token-table">
-                        <div><strong>UI option</strong></div>
-                        <div><strong>What it means</strong></div>
-                        <div><code>Source Name</code></div>
-                        <div>The label shown in the box source list. If left blank, NyankoBot infers a name from the URL.</div>
-                        <div><code>URL</code></div>
-                        <div>The external page to render inside the box.</div>
-                        <div><code>Trigger Option</code></div>
-                        <div><a href="#source-dialog-trigger-option">Move to definition</a></div>
+                    <div class="token-table" role="table">
+                        <div role="row"><div role="cell"><strong>UI option</strong></div><div role="cell"><strong>What it means</strong></div></div>
+                        <div role="row"><div role="cell"><code>Source Name</code></div><div role="cell">The label shown in the box source list. If left blank, NyankoBot infers a name from the URL.</div></div>
+                        <div role="row"><div role="cell"><code>URL</code></div><div role="cell">The external page to render inside the box.</div></div>
+                        <div role="row"><div role="cell"><code>Trigger Option</code></div><div role="cell"><a href="#source-dialog-trigger-option">Move to definition</a></div></div>
                     </div>
                 </section>
 
@@ -217,25 +190,16 @@
                     <h2>TTS Source Tab</h2>
                     <img class="screenshot" src="../assets/screenshots/add-source-dialog-tts.png" alt="Add Source dialog showing the TTS Source tab" />
                     <p>Use this tab for generated voice audio. It depends on enabled TTS models and, when required by the selected model, a saved cloned voice.</p>
-                    <div class="token-table">
-                        <div><strong>UI option</strong></div>
-                        <div><strong>What it means</strong></div>
-                        <div><code>Source Name</code></div>
-                        <div>The label shown in the box source list. If left blank, NyankoBot infers a name from the TTS message.</div>
-                        <div><code>Model</code></div>
-                        <div>The TTS model that should generate the voice line.</div>
-                        <div><code>Voice</code></div>
-                        <div>The saved voice used by the selected model. Some models require a cloned voice before the source can be saved.</div>
-                        <div><code>Instruction</code></div>
-                        <div>Optional speaking guidance for models that support instructions.</div>
-                        <div><code>Message</code></div>
-                        <div>The text the TTS source should speak. <a href="component-argument-control.html#argument-control-open">Argument Control</a> can be used for chat-driven TTS.</div>
-                        <div><code>Argument Control</code></div>
-                        <div><a href="component-argument-control.html#argument-control-open">Move to definition</a></div>
-                        <div><code>Speed</code></div>
-                        <div>Controls generated speech speed.</div>
-                        <div><code>Volume</code></div>
-                        <div>Controls playback volume for the generated voice line.</div>
+                    <div class="token-table" role="table">
+                        <div role="row"><div role="cell"><strong>UI option</strong></div><div role="cell"><strong>What it means</strong></div></div>
+                        <div role="row"><div role="cell"><code>Source Name</code></div><div role="cell">The label shown in the box source list. If left blank, NyankoBot infers a name from the TTS message.</div></div>
+                        <div role="row"><div role="cell"><code>Model</code></div><div role="cell">The TTS model that should generate the voice line.</div></div>
+                        <div role="row"><div role="cell"><code>Voice</code></div><div role="cell">The saved voice used by the selected model. Some models require a cloned voice before the source can be saved.</div></div>
+                        <div role="row"><div role="cell"><code>Instruction</code></div><div role="cell">Optional speaking guidance for models that support instructions.</div></div>
+                        <div role="row"><div role="cell"><code>Message</code></div><div role="cell">The text the TTS source should speak. <a href="component-argument-control.html#argument-control-open">Argument Control</a> can be used for chat-driven TTS.</div></div>
+                        <div role="row"><div role="cell"><code>Argument Control</code></div><div role="cell"><a href="component-argument-control.html#argument-control-open">Move to definition</a></div></div>
+                        <div role="row"><div role="cell"><code>Speed</code></div><div role="cell">Controls generated speech speed.</div></div>
+                        <div role="row"><div role="cell"><code>Volume</code></div><div role="cell">Controls playback volume for the generated voice line.</div></div>
                     </div>
                 </section>
 
@@ -248,17 +212,12 @@
                     <h2>Trigger Option</h2>
                     <img class="screenshot" src="../assets/screenshots/common-trigger-option.png" alt="Add Source dialog showing Trigger Option settings" />
                     <p>Used by Text, Media, and URL sources. Trigger Option controls how long the source stays active after it appears.</p>
-                    <div class="token-table">
-                        <div><strong>UI option</strong></div>
-                        <div><strong>Choices</strong></div>
-                        <div><code>Trigger Option</code></div>
-                        <div>Open this group when the source needs custom timing instead of the box default.</div>
-                        <div><code>Toggle</code></div>
-                        <div>When checked, the source stays visible or active until the trigger toggles it again. Use this for persistent labels, widgets, or effects that should be manually turned off.</div>
-                        <div><code>Timer (ms)</code></div>
-                        <div>How long the source remains active before hiding. The value is milliseconds, so <code>5000</code> means five seconds.</div>
-                        <div><code>Auto duration</code></div>
-                        <div>For media sources, NyankoBot can use detected audio or video duration when the file exposes it.</div>
+                    <div class="token-table" role="table">
+                        <div role="row"><div role="cell"><strong>UI option</strong></div><div role="cell"><strong>Choices</strong></div></div>
+                        <div role="row"><div role="cell"><code>Trigger Option</code></div><div role="cell">Open this group when the source needs custom timing instead of the box default.</div></div>
+                        <div role="row"><div role="cell"><code>Toggle</code></div><div role="cell">When checked, the source stays visible or active until the trigger toggles it again. Use this for persistent labels, widgets, or effects that should be manually turned off.</div></div>
+                        <div role="row"><div role="cell"><code>Timer (ms)</code></div><div role="cell">How long the source remains active before hiding. The value is milliseconds, so <code>5000</code> means five seconds.</div></div>
+                        <div role="row"><div role="cell"><code>Auto duration</code></div><div role="cell">For media sources, NyankoBot can use detected audio or video duration when the file exposes it.</div></div>
                     </div>
                 </section>
 
@@ -266,19 +225,13 @@
                     <h2>Typography</h2>
                     <img class="screenshot" src="../assets/screenshots/common-typography.png" alt="Add Source dialog showing Typography settings" />
                     <p>Used by Text sources. Typography controls how text sources are rendered inside the box.</p>
-                    <div class="token-table">
-                        <div><strong>UI option</strong></div>
-                        <div><strong>Choices</strong></div>
-                        <div><code>Typography</code></div>
-                        <div>Open this group to override text styling for this source.</div>
-                        <div><code>Font family</code></div>
-                        <div>The CSS font family used for the text, such as <code>Arial</code>.</div>
-                        <div><code>Font size</code></div>
-                        <div>The text size in pixels.</div>
-                        <div><code>Bold</code></div>
-                        <div>Choose <code>Yes</code> for bold text or <code>No</code> for normal weight.</div>
-                        <div><code>Italic</code></div>
-                        <div>Choose <code>Yes</code> for italic text or <code>No</code> for upright text.</div>
+                    <div class="token-table" role="table">
+                        <div role="row"><div role="cell"><strong>UI option</strong></div><div role="cell"><strong>Choices</strong></div></div>
+                        <div role="row"><div role="cell"><code>Typography</code></div><div role="cell">Open this group to override text styling for this source.</div></div>
+                        <div role="row"><div role="cell"><code>Font family</code></div><div role="cell">The CSS font family used for the text, such as <code>Arial</code>.</div></div>
+                        <div role="row"><div role="cell"><code>Font size</code></div><div role="cell">The text size in pixels.</div></div>
+                        <div role="row"><div role="cell"><code>Bold</code></div><div role="cell">Choose <code>Yes</code> for bold text or <code>No</code> for normal weight.</div></div>
+                        <div role="row"><div role="cell"><code>Italic</code></div><div role="cell">Choose <code>Yes</code> for italic text or <code>No</code> for upright text.</div></div>
                     </div>
                 </section>
 
@@ -286,19 +239,13 @@
                     <h2>Animation</h2>
                     <img class="screenshot" src="../assets/screenshots/common-animation.png" alt="Add Source dialog showing Animation settings" />
                     <p>Used by Text, Image, and Video sources. Animation controls how a visual source enters and exits the overlay.</p>
-                    <div class="token-table">
-                        <div><strong>UI option</strong></div>
-                        <div><strong>Choices</strong></div>
-                        <div><code>Animation</code></div>
-                        <div>Open this group to set animation type and speed.</div>
-                        <div><code>Animation IN</code></div>
-                        <div>The entry animation. Choices include <code>Fade</code>, <code>Slide top</code>, <code>Slide left</code>, <code>Zoom</code>, and <code>Bounce</code>.</div>
-                        <div><code>Animation IN speed (ms)</code></div>
-                        <div>How long the entry animation takes in milliseconds.</div>
-                        <div><code>Animation OUT</code></div>
-                        <div>The exit animation. Choices match Animation IN.</div>
-                        <div><code>Animation OUT speed (ms)</code></div>
-                        <div>How long the exit animation takes in milliseconds.</div>
+                    <div class="token-table" role="table">
+                        <div role="row"><div role="cell"><strong>UI option</strong></div><div role="cell"><strong>Choices</strong></div></div>
+                        <div role="row"><div role="cell"><code>Animation</code></div><div role="cell">Open this group to set animation type and speed.</div></div>
+                        <div role="row"><div role="cell"><code>Animation IN</code></div><div role="cell">The entry animation. Choices include <code>Fade</code>, <code>Slide top</code>, <code>Slide left</code>, <code>Zoom</code>, and <code>Bounce</code>.</div></div>
+                        <div role="row"><div role="cell"><code>Animation IN speed (ms)</code></div><div role="cell">How long the entry animation takes in milliseconds.</div></div>
+                        <div role="row"><div role="cell"><code>Animation OUT</code></div><div role="cell">The exit animation. Choices match Animation IN.</div></div>
+                        <div role="row"><div role="cell"><code>Animation OUT speed (ms)</code></div><div role="cell">How long the exit animation takes in milliseconds.</div></div>
                     </div>
                 </section>
 
@@ -306,15 +253,11 @@
                     <h2>Media</h2>
                     <img class="screenshot" src="../assets/screenshots/common-media.png" alt="Add Source dialog showing Media settings" />
                     <p>Used by Video and Audio sources. Media settings control playback behavior.</p>
-                    <div class="token-table">
-                        <div><strong>UI option</strong></div>
-                        <div><strong>Choices</strong></div>
-                        <div><code>Media (Video)</code> / <code>Media (Audio)</code></div>
-                        <div>The group label changes based on the selected media type.</div>
-                        <div><code>Volume</code></div>
-                        <div>Playback volume from silent to full volume.</div>
-                        <div><code>Loop media</code></div>
-                        <div>When enabled, the media repeats until the source hides or is toggled off.</div>
+                    <div class="token-table" role="table">
+                        <div role="row"><div role="cell"><strong>UI option</strong></div><div role="cell"><strong>Choices</strong></div></div>
+                        <div role="row"><div role="cell"><code>Media (Video)</code> / <code>Media (Audio)</code></div><div role="cell">The group label changes based on the selected media type.</div></div>
+                        <div role="row"><div role="cell"><code>Volume</code></div><div role="cell">Playback volume from silent to full volume.</div></div>
+                        <div role="row"><div role="cell"><code>Loop media</code></div><div role="cell">When enabled, the media repeats until the source hides or is toggled off.</div></div>
                     </div>
                 </section>
 
@@ -322,34 +265,24 @@
                     <h2>Chroma</h2>
                     <img class="screenshot" src="../assets/screenshots/common-chroma.png" alt="Add Source dialog showing Chroma settings" />
                     <p>Used by Image and Video sources. Chroma removes a keyed color, usually a green background, from the source.</p>
-                    <div class="token-table">
-                        <div><strong>UI option</strong></div>
-                        <div><strong>Choices</strong></div>
-                        <div><code>Enable Chroma</code></div>
-                        <div>Turns chroma keying on for the source.</div>
-                        <div><code>Key color</code></div>
-                        <div>The color to remove. Green is common for meme and green-screen video assets.</div>
-                        <div><code>Color Picker (in "Key color")</code></div>
-                        <div>Click the Key color swatch, then sample the background directly from the preview pane when the color picker or eyedropper is open. This is the easiest way to match the real chroma color instead of guessing.</div>
-                        <div><code>Similarity</code></div>
-                        <div>How broadly NyankoBot matches colors near the key color. Higher values remove more related shades.</div>
-                        <div><code>Smoothness</code></div>
-                        <div>Softens the keyed edge. Increase it when the cutout edge looks harsh.</div>
+                    <div class="token-table" role="table">
+                        <div role="row"><div role="cell"><strong>UI option</strong></div><div role="cell"><strong>Choices</strong></div></div>
+                        <div role="row"><div role="cell"><code>Enable Chroma</code></div><div role="cell">Turns chroma keying on for the source.</div></div>
+                        <div role="row"><div role="cell"><code>Key color</code></div><div role="cell">The color to remove. Green is common for meme and green-screen video assets.</div></div>
+                        <div role="row"><div role="cell"><code>Color Picker (in "Key color")</code></div><div role="cell">Click the Key color swatch, then sample the background directly from the preview pane when the color picker or eyedropper is open. This is the easiest way to match the real chroma color instead of guessing.</div></div>
+                        <div role="row"><div role="cell"><code>Similarity</code></div><div role="cell">How broadly NyankoBot matches colors near the key color. Higher values remove more related shades.</div></div>
+                        <div role="row"><div role="cell"><code>Smoothness</code></div><div role="cell">Softens the keyed edge. Increase it when the cutout edge looks harsh.</div></div>
                     </div>
                 </section>
 
                 <section class="panel" id="source-dialog-transform-option">
                     <h2>Transform</h2>
                     <p>Used by visual sources. Transform settings rotate or flip the rendered media itself while leaving the preview controls alone.</p>
-                    <div class="token-table">
-                        <div><strong>UI option</strong></div>
-                        <div><strong>Choices</strong></div>
-                        <div><code>Rotate</code></div>
-                        <div>Rotates the visual source by the entered number of degrees. Use <code>0</code> for no rotation.</div>
-                        <div><code>Flip horizontally</code></div>
-                        <div>Mirrors the visual source left-to-right.</div>
-                        <div><code>Flip vertically</code></div>
-                        <div>Mirrors the visual source top-to-bottom.</div>
+                    <div class="token-table" role="table">
+                        <div role="row"><div role="cell"><strong>UI option</strong></div><div role="cell"><strong>Choices</strong></div></div>
+                        <div role="row"><div role="cell"><code>Rotate</code></div><div role="cell">Rotates the visual source by the entered number of degrees. Use <code>0</code> for no rotation.</div></div>
+                        <div role="row"><div role="cell"><code>Flip horizontally</code></div><div role="cell">Mirrors the visual source left-to-right.</div></div>
+                        <div role="row"><div role="cell"><code>Flip vertically</code></div><div role="cell">Mirrors the visual source top-to-bottom.</div></div>
                     </div>
                     <p>Changing transform options updates the preview immediately, so source orientation can be checked before saving.</p>
                 </section>
@@ -358,27 +291,20 @@
                     <h2>Preview</h2>
                     <img class="screenshot" src="../assets/screenshots/common-preview.png" alt="Add Source dialog showing the preview pane" />
                     <p>Used by previewable sources. Preview shows what the source will look or sound like before saving.</p>
-                    <div class="token-table">
-                        <div><strong>UI option</strong></div>
-                        <div><strong>Choices</strong></div>
-                        <div><code>Preview</code></div>
-                        <div>The preview pane appears beside the editor when a source can be rendered before saving.</div>
-                        <div><code>Resize preview</code></div>
-                        <div>Drag the separator to give the preview or editor more room.</div>
-                        <div><code>Playback controls</code></div>
-                        <div>Media previews may show play or pause controls while the source is loaded.</div>
+                    <div class="token-table" role="table">
+                        <div role="row"><div role="cell"><strong>UI option</strong></div><div role="cell"><strong>Choices</strong></div></div>
+                        <div role="row"><div role="cell"><code>Preview</code></div><div role="cell">The preview pane appears beside the editor when a source can be rendered before saving.</div></div>
+                        <div role="row"><div role="cell"><code>Resize preview</code></div><div role="cell">Drag the separator to give the preview or editor more room.</div></div>
+                        <div role="row"><div role="cell"><code>Playback controls</code></div><div role="cell">Media previews may show play or pause controls while the source is loaded.</div></div>
                     </div>
                 </section>
 
                 <section class="panel" id="source-dialog-actions">
                     <h2>Actions</h2>
-                    <div class="token-table">
-                        <div><strong>UI option</strong></div>
-                        <div><strong>What it means</strong></div>
-                        <div><code>Cancel</code></div>
-                        <div>Closes the dialog without saving changes.</div>
-                        <div><code>Save source</code></div>
-                        <div>Validates the selected tab, saves the source into the box, and returns to the overlay editor.</div>
+                    <div class="token-table" role="table">
+                        <div role="row"><div role="cell"><strong>UI option</strong></div><div role="cell"><strong>What it means</strong></div></div>
+                        <div role="row"><div role="cell"><code>Cancel</code></div><div role="cell">Closes the dialog without saving changes.</div></div>
+                        <div role="row"><div role="cell"><code>Save source</code></div><div role="cell">Validates the selected tab, saves the source into the box, and returns to the overlay editor.</div></div>
                     </div>
                 </section>
             </article>

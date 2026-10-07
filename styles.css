@@ -213,9 +213,74 @@ li {
 .tree-nav {
     position: sticky;
     top: 16px;
-    display: grid;
-    gap: 12px;
     align-self: start;
+    max-height: calc(100vh - 32px);
+    overflow-y: auto;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: rgba(24, 29, 39, .94);
+    scrollbar-width: thin;
+}
+
+.docs-sidebar {
+    display: grid;
+    gap: 16px;
+    padding: 14px;
+}
+
+.docs-sidebar-group {
+    display: grid;
+    gap: 2px;
+}
+
+.docs-sidebar-title {
+    padding: 4px 10px 6px;
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+.docs-sidebar-link,
+.docs-sidebar-anchor {
+    display: block;
+    padding: 7px 10px;
+    border-radius: 6px;
+    color: var(--muted);
+    line-height: 1.35;
+    text-decoration: none;
+}
+
+.docs-sidebar-link:hover,
+.docs-sidebar-anchor:hover,
+.docs-sidebar-anchor.active {
+    background: var(--panel-soft);
+    color: var(--text);
+}
+
+.docs-sidebar-link.current {
+    padding-left: 7px;
+    border-left: 3px solid var(--accent-strong);
+    background: var(--panel-soft);
+    color: var(--text);
+    font-weight: 750;
+}
+
+.docs-sidebar-children {
+    display: grid;
+    gap: 1px;
+    margin: 4px 0 4px 13px;
+    padding-left: 11px;
+    border-left: 1px solid var(--line);
+}
+
+.docs-sidebar-anchor {
+    font-size: 13px;
+}
+
+.docs-sidebar-anchor.active {
+    color: var(--accent-cool);
 }
 
 .tree-control {
@@ -576,9 +641,11 @@ li {
     display: grid;
     grid-template-columns: minmax(170px, .9fr) minmax(250px, 1.5fr) minmax(170px, 1fr);
     border-top: 1px solid var(--line);
+    background: #0f172a;
 }
 
 .request-table > div:first-child { border-top: 0; background: var(--panel-soft); }
+.request-table > div:nth-child(even) { background: #111827; }
 .request-table.obs-table > div { grid-template-columns: minmax(220px, .8fr) minmax(0, 1.5fr); }
 .request-table [role="cell"] { min-width: 0; padding: 12px 14px; overflow-wrap: anywhere; }
 
@@ -631,6 +698,8 @@ li {
 .guide-grid > a.card:hover { border-color: var(--accent-strong); background: var(--panel-soft); transform: translateY(-2px); }
 .guide-grid > a.card:focus-visible,
 .nav-links a:focus-visible,
+.docs-sidebar-link:focus-visible,
+.docs-sidebar-anchor:focus-visible,
 .tree-item:focus-visible,
 .button:focus-visible,
 .guide-search input:focus-visible {

@@ -102,15 +102,11 @@
                     <h2>Access Inspector</h2>
                     <img class="screenshot" src="../assets/screenshots/box-access-inspector.png" alt="Overlay setup with a selected box and the Box inspector open" />
                     <p>You can access the Box inspector in two ways: click <code>Add box</code> to create and select a new box, or select an already populated box on the stream preview stage. Once selected, the right inspector switches from Stream Preview settings to Box settings.</p>
-                    <div class="token-table">
-                        <div><strong>Action</strong></div>
-                        <div><strong>What happens</strong></div>
-                        <div><code>Add box</code></div>
-                        <div>Creates a new <code>SourcedBox</code> at the default position, selects it, and opens the inspector for immediate editing.</div>
-                        <div>Select existing box</div>
-                        <div>Loads that box into the inspector. This works for empty boxes and populated boxes that already have sources or triggers.</div>
-                        <div>Stage drag/resize</div>
-                        <div>Move or resize the selected box directly on the stage. The Layout fields update to match.</div>
+                    <div class="token-table" role="table">
+                        <div role="row"><div role="cell"><strong>Action</strong></div><div role="cell"><strong>What happens</strong></div></div>
+                        <div role="row"><div role="cell"><code>Add box</code></div><div role="cell">Creates a new <code>SourcedBox</code> at the default position, selects it, and opens the inspector for immediate editing.</div></div>
+                        <div role="row"><div role="cell">Select existing box</div><div role="cell">Loads that box into the inspector. This works for empty boxes and populated boxes that already have sources or triggers.</div></div>
+                        <div role="row"><div role="cell">Stage drag/resize</div><div role="cell">Move or resize the selected box directly on the stage. The Layout fields update to match.</div></div>
                     </div>
                 </section>
 
@@ -118,15 +114,11 @@
                     <h2>General</h2>
                     <img class="screenshot" src="../assets/screenshots/box-inspector-general.png" alt="Box inspector General section" />
                     <p>General identifies the selected box and controls its type.</p>
-                    <div class="token-table">
-                        <div><strong>UI option</strong></div>
-                        <div><strong>What it means</strong></div>
-                        <div><code>Name</code></div>
-                        <div>A friendly label for the box. Use names like <code>Chat callout</code>, <code>Meme video</code>, or <code>TTS bubble</code> so the trigger/source lists stay readable.</div>
-                        <div><code>Selected box id</code></div>
-                        <div>The internal id for the selected box. It is read-only and useful when debugging saved overlay JSON or logs.</div>
-                        <div><code>Type</code></div>
-                        <div>Chooses the box behavior: <code>SourcedBox</code>, <code>WheelPicker</code>, or <code>Group</code>.</div>
+                    <div class="token-table" role="table">
+                        <div role="row"><div role="cell"><strong>UI option</strong></div><div role="cell"><strong>What it means</strong></div></div>
+                        <div role="row"><div role="cell"><code>Name</code></div><div role="cell">A friendly label for the box. Use names like <code>Chat callout</code>, <code>Meme video</code>, or <code>TTS bubble</code> so the trigger/source lists stay readable.</div></div>
+                        <div role="row"><div role="cell"><code>Selected box id</code></div><div role="cell">The internal id for the selected box. It is read-only and useful when debugging saved overlay JSON or logs.</div></div>
+                        <div role="row"><div role="cell"><code>Type</code></div><div role="cell">Chooses the box behavior: <code>SourcedBox</code>, <code>WheelPicker</code>, or <code>Group</code>.</div></div>
                     </div>
                 </section>
 
@@ -134,19 +126,13 @@
                     <h2>Layout</h2>
                     <img class="screenshot" src="../assets/screenshots/box-inspector-layout.png" alt="Box inspector Layout section" />
                     <p>Layout places the box on the overlay stage. Values are stored relative to the overlay canvas, so the OBS browser source can scale with the scene.</p>
-                    <div class="token-table">
-                        <div><strong>UI option</strong></div>
-                        <div><strong>What it means</strong></div>
-                        <div><code>Z-index</code></div>
-                        <div>Layer order. Higher values appear above lower values when boxes overlap.</div>
-                        <div><code>Left</code></div>
-                        <div>Horizontal position from the left edge of the overlay.</div>
-                        <div><code>Top</code></div>
-                        <div>Vertical position from the top edge of the overlay.</div>
-                        <div><code>Width</code></div>
-                        <div>Box width. The minimum is <code>24</code>.</div>
-                        <div><code>Height</code></div>
-                        <div>Box height. The minimum is <code>24</code>.</div>
+                    <div class="token-table" role="table">
+                        <div role="row"><div role="cell"><strong>UI option</strong></div><div role="cell"><strong>What it means</strong></div></div>
+                        <div role="row"><div role="cell"><code>Z-index</code></div><div role="cell">Layer order. Higher values appear above lower values when boxes overlap.</div></div>
+                        <div role="row"><div role="cell"><code>Left</code></div><div role="cell">Horizontal position from the left edge of the overlay.</div></div>
+                        <div role="row"><div role="cell"><code>Top</code></div><div role="cell">Vertical position from the top edge of the overlay.</div></div>
+                        <div role="row"><div role="cell"><code>Width</code></div><div role="cell">Box width. The minimum is <code>24</code>.</div></div>
+                        <div role="row"><div role="cell"><code>Height</code></div><div role="cell">Box height. The minimum is <code>24</code>.</div></div>
                     </div>
                 </section>
 
@@ -154,25 +140,16 @@
                     <h2>Appearance</h2>
                     <img class="screenshot" src="../assets/screenshots/box-inspector-appearance.png" alt="Box inspector Appearance section" />
                     <p>Appearance controls the box frame and the default text presentation used by the stage preview.</p>
-                    <div class="token-table">
-                        <div><strong>UI option</strong></div>
-                        <div><strong>What it means</strong></div>
-                        <div><code>Background</code></div>
-                        <div>The box background color.</div>
-                        <div><code>Background opacity</code></div>
-                        <div>Transparency of the background from <code>0</code> to <code>1</code>.</div>
-                        <div><code>Text color</code></div>
-                        <div>Default text color for the box preview.</div>
-                        <div><code>Text opacity</code></div>
-                        <div>Transparency of the preview text from <code>0</code> to <code>1</code>.</div>
-                        <div><code>Border color</code></div>
-                        <div>The outline color around the box.</div>
-                        <div><code>Border width</code></div>
-                        <div>Outline thickness from <code>0</code> to <code>20</code>.</div>
-                        <div><code>Border radius</code></div>
-                        <div>Corner rounding from <code>0</code> to <code>100</code>.</div>
-                        <div><code>Padding</code></div>
-                        <div>Inner spacing from the box edge to its content, from <code>0</code> to <code>100</code>.</div>
+                    <div class="token-table" role="table">
+                        <div role="row"><div role="cell"><strong>UI option</strong></div><div role="cell"><strong>What it means</strong></div></div>
+                        <div role="row"><div role="cell"><code>Background</code></div><div role="cell">The box background color.</div></div>
+                        <div role="row"><div role="cell"><code>Background opacity</code></div><div role="cell">Transparency of the background from <code>0</code> to <code>1</code>.</div></div>
+                        <div role="row"><div role="cell"><code>Text color</code></div><div role="cell">Default text color for the box preview.</div></div>
+                        <div role="row"><div role="cell"><code>Text opacity</code></div><div role="cell">Transparency of the preview text from <code>0</code> to <code>1</code>.</div></div>
+                        <div role="row"><div role="cell"><code>Border color</code></div><div role="cell">The outline color around the box.</div></div>
+                        <div role="row"><div role="cell"><code>Border width</code></div><div role="cell">Outline thickness from <code>0</code> to <code>20</code>.</div></div>
+                        <div role="row"><div role="cell"><code>Border radius</code></div><div role="cell">Corner rounding from <code>0</code> to <code>100</code>.</div></div>
+                        <div role="row"><div role="cell"><code>Padding</code></div><div role="cell">Inner spacing from the box edge to its content, from <code>0</code> to <code>100</code>.</div></div>
                     </div>
                 </section>
 
@@ -180,13 +157,10 @@
                     <h2>Trigger</h2>
                     <img class="screenshot" src="../assets/screenshots/box-inspector-trigger.png" alt="Box inspector Trigger section" />
                     <p>The box binding determines when the box runs and which items it shows. Open the <a href="component-add-trigger.html">Binding editor</a> to manage its Triggers, Sequencing, Subscriptions, and Items. The separate Trigger section may appear for older box data; use Bindings for the current workflow.</p>
-                    <div class="token-table">
-                        <div><strong>UI option</strong></div>
-                        <div><strong>What it means</strong></div>
-                        <div><code>Triggers</code></div>
-                        <div>The saved trigger bindings for this box. Each row can be renamed, edited, or deleted.</div>
-                        <div><code>Add Trigger</code></div>
-                        <div>Opens trigger selection for older box data. For a new binding, use <code>Add Binding</code>, then the editor's <code>Triggers</code> section.</div>
+                    <div class="token-table" role="table">
+                        <div role="row"><div role="cell"><strong>UI option</strong></div><div role="cell"><strong>What it means</strong></div></div>
+                        <div role="row"><div role="cell"><code>Triggers</code></div><div role="cell">The saved trigger bindings for this box. Each row can be renamed, edited, or deleted.</div></div>
+                        <div role="row"><div role="cell"><code>Add Trigger</code></div><div role="cell">Opens trigger selection for older box data. For a new binding, use <code>Add Binding</code>, then the editor's <code>Triggers</code> section.</div></div>
                     </div>
                 </section>
 
@@ -194,28 +168,21 @@
                     <h2>Bindings and sources</h2>
                     <img class="screenshot" src="../assets/screenshots/box-inspector-sources.png" alt="Box inspector Sources section" />
                     <p>The <code>Bindings</code> section appears for <code>SourcedBox</code> boxes. Each binding combines triggers, timing, and the items that show or play. Sources are configured inside those items.</p>
-                    <div class="token-table">
-                        <div><strong>UI option</strong></div>
-                        <div><strong>What it means</strong></div>
-                        <div><code>Bindings</code></div>
-                        <div>The saved bindings attached to the box. Open a binding to edit its triggers, sequence, subscriptions, and items.</div>
-                        <div><code>Add Binding</code></div>
-                        <div>Creates a binding. In its <code>Items</code> section, add an item and configure a text, media, URL, TTS, or reusable source using the <a href="component-add-source-dialog.html">source controls</a>.</div>
+                    <div class="token-table" role="table">
+                        <div role="row"><div role="cell"><strong>UI option</strong></div><div role="cell"><strong>What it means</strong></div></div>
+                        <div role="row"><div role="cell"><code>Bindings</code></div><div role="cell">The saved bindings attached to the box. Open a binding to edit its triggers, sequence, subscriptions, and items.</div></div>
+                        <div role="row"><div role="cell"><code>Add Binding</code></div><div role="cell">Creates a binding. In its <code>Items</code> section, add an item and configure a text, media, URL, TTS, or reusable source using the <a href="component-add-source-dialog.html">source controls</a>.</div></div>
                     </div>
                 </section>
 
                 <section class="panel" id="box-types">
                     <h2>Box Types</h2>
                     <img class="screenshot" src="../assets/screenshots/box-inspector-types.png" alt="Box inspector Type selector" />
-                    <div class="token-table">
-                        <div><strong>Type</strong></div>
-                        <div><strong>Inspector behavior</strong></div>
-                        <div><code>SourcedBox</code></div>
-                        <div>The normal box type for memes, videos, images, text, TTS, browser widgets, and audio cues. Shows the Bindings section.</div>
-                        <div><code>WheelPicker</code></div>
-                        <div>Shows Wheel Picker settings: title, pick list, spin duration, optional chat response, and trigger-token support for <code>{{wheel.result}}</code>.</div>
-                        <div><code>Group</code></div>
-                        <div>Groups child boxes together. Group boxes manage child boxes rather than owning normal sources, triggers, or subscriptions directly.</div>
+                    <div class="token-table" role="table">
+                        <div role="row"><div role="cell"><strong>Type</strong></div><div role="cell"><strong>Inspector behavior</strong></div></div>
+                        <div role="row"><div role="cell"><code>SourcedBox</code></div><div role="cell">The normal box type for memes, videos, images, text, TTS, browser widgets, and audio cues. Shows the Bindings section.</div></div>
+                        <div role="row"><div role="cell"><code>WheelPicker</code></div><div role="cell">Shows Wheel Picker settings: title, pick list, spin duration, optional chat response, and trigger-token support for <code>{{wheel.result}}</code>.</div></div>
+                        <div role="row"><div role="cell"><code>Group</code></div><div role="cell">Groups child boxes together. Group boxes manage child boxes rather than owning normal sources, triggers, or subscriptions directly.</div></div>
                     </div>
                 </section>
             </article>

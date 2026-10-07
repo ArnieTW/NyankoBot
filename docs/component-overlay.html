@@ -107,17 +107,12 @@
                 <section class="panel" id="overlay-selector">
                     <h2>Saved Overlay Selector</h2>
                     <img class="screenshot" src="../assets/screenshots/overlay-setup.png" alt="Overlay setup page" />
-                    <div class="token-table">
-                        <div><strong>UI option</strong></div>
-                        <div><strong>What it means</strong></div>
-                        <div><code>Select saved overlay...</code></div>
-                        <div>Loads an existing overlay into the editor. The selected overlay controls the stage, boxes, sources, triggers, and OBS URL shown by the rest of the page.</div>
-                        <div><code>New overlay</code></div>
-                        <div>Creates a blank overlay definition. Use this when you need a new stream layout or want to keep a setup separate from an existing overlay.</div>
-                        <div><code>Open Overlay</code></div>
-                        <div>Opens the overlay viewer page. This is useful for checking what OBS will render, testing the default overlay, or manually copying the viewer URL.</div>
-                        <div><code>Refresh</code></div>
-                        <div>Reloads the saved overlay list when it is available. Use it if another page or browser tab changed the overlay list.</div>
+                    <div class="token-table" role="table">
+                        <div role="row"><div role="cell"><strong>UI option</strong></div><div role="cell"><strong>What it means</strong></div></div>
+                        <div role="row"><div role="cell"><code>Select saved overlay...</code></div><div role="cell">Loads an existing overlay into the editor. The selected overlay controls the stage, boxes, sources, triggers, and OBS URL shown by the rest of the page.</div></div>
+                        <div role="row"><div role="cell"><code>New overlay</code></div><div role="cell">Creates a blank overlay definition. Use this when you need a new stream layout or want to keep a setup separate from an existing overlay.</div></div>
+                        <div role="row"><div role="cell"><code>Open Overlay</code></div><div role="cell">Opens the overlay viewer page. This is useful for checking what OBS will render, testing the default overlay, or manually copying the viewer URL.</div></div>
+                        <div role="row"><div role="cell"><code>Refresh</code></div><div role="cell">Reloads the saved overlay list when it is available. Use it if another page or browser tab changed the overlay list.</div></div>
                     </div>
                 </section>
 
@@ -128,21 +123,14 @@
 
                 <section class="panel" id="overlay-toolbar">
                     <h2>Editor Toolbar</h2>
-                    <div class="token-table">
-                        <div><strong>UI option</strong></div>
-                        <div><strong>What it means</strong></div>
-                        <div><code>Overlay name</code></div>
-                        <div>The saved name for this overlay. Name it after the OBS scene or layout, such as <code>Main Stream</code>, <code>Chatting</code>, or <code>BRB</code>.</div>
-                        <div><code>Add box</code></div>
-                        <div>Adds a box to the overlay. A box is where a source appears or plays when a trigger fires.</div>
-                        <div><code>Save</code></div>
-                        <div>Writes the current overlay definition to disk. Save after renaming, moving boxes, editing sources, or changing triggers.</div>
-                        <div><code>Copy OBS URL</code></div>
-                        <div>Copies the browser-source URL for this overlay. Add that URL to OBS as a browser source that covers the full scene.</div>
-                        <div><code>Set Default</code></div>
-                        <div>Makes this the default overlay used by the overlay viewer when no specific overlay is selected.</div>
-                        <div><code>Delete overlay</code></div>
-                        <div>Removes the saved overlay definition after confirmation. This deletes the layout and its box configuration, so use it only when the overlay is no longer needed.</div>
+                    <div class="token-table" role="table">
+                        <div role="row"><div role="cell"><strong>UI option</strong></div><div role="cell"><strong>What it means</strong></div></div>
+                        <div role="row"><div role="cell"><code>Overlay name</code></div><div role="cell">The saved name for this overlay. Name it after the OBS scene or layout, such as <code>Main Stream</code>, <code>Chatting</code>, or <code>BRB</code>.</div></div>
+                        <div role="row"><div role="cell"><code>Add box</code></div><div role="cell">Adds a box to the overlay. A box is where a source appears or plays when a trigger fires.</div></div>
+                        <div role="row"><div role="cell"><code>Save</code></div><div role="cell">Writes the current overlay definition to disk. Save after renaming, moving boxes, editing sources, or changing triggers.</div></div>
+                        <div role="row"><div role="cell"><code>Copy OBS URL</code></div><div role="cell">Copies the browser-source URL for this overlay. Add that URL to OBS as a browser source that covers the full scene.</div></div>
+                        <div role="row"><div role="cell"><code>Set Default</code></div><div role="cell">Makes this the default overlay used by the overlay viewer when no specific overlay is selected.</div></div>
+                        <div role="row"><div role="cell"><code>Delete overlay</code></div><div role="cell">Removes the saved overlay definition after confirmation. This deletes the layout and its box configuration, so use it only when the overlay is no longer needed.</div></div>
                     </div>
                 </section>
 
@@ -161,17 +149,12 @@
                     <h2>Overlay Inspector</h2>
                     <img class="screenshot" src="../assets/screenshots/overlay-inspector.png" alt="Overlay setup with the Stream Preview Inspector open" />
                     <p>Click the empty Stream Preview area on the stage to open the <code>Stream Preview Inspector</code>. This selects the overlay preview itself instead of a box. If you click a box, NyankoBot opens the box inspector instead.</p>
-                    <div class="token-table">
-                        <div><strong>UI option</strong></div>
-                        <div><strong>What it means</strong></div>
-                        <div><code>Stream preview image URL</code></div>
-                        <div>Sets the background image shown on the setup stage. Use this for an OBS screenshot or scene mockup so boxes can be positioned against the real stream layout.</div>
-                        <div><code>Show Hint</code></div>
-                        <div>Shows or hides the helper text on the stage preview. Turn it off once the preview image makes the layout obvious.</div>
-                        <div><code>Upload image</code></div>
-                        <div>Uploads a local image and uses it as the stream preview background.</div>
-                        <div><code>Default</code></div>
-                        <div>Resets the stream preview image back to the built-in default preview.</div>
+                    <div class="token-table" role="table">
+                        <div role="row"><div role="cell"><strong>UI option</strong></div><div role="cell"><strong>What it means</strong></div></div>
+                        <div role="row"><div role="cell"><code>Stream preview image URL</code></div><div role="cell">Sets the background image shown on the setup stage. Use this for an OBS screenshot or scene mockup so boxes can be positioned against the real stream layout.</div></div>
+                        <div role="row"><div role="cell"><code>Show Hint</code></div><div role="cell">Shows or hides the helper text on the stage preview. Turn it off once the preview image makes the layout obvious.</div></div>
+                        <div role="row"><div role="cell"><code>Upload image</code></div><div role="cell">Uploads a local image and uses it as the stream preview background.</div></div>
+                        <div role="row"><div role="cell"><code>Default</code></div><div role="cell">Resets the stream preview image back to the built-in default preview.</div></div>
                     </div>
                 </section>
 
