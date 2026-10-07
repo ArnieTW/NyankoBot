@@ -46,6 +46,7 @@
                         <div class="tree-heading">Setup Pages</div>
                         <a class="tree-item" href="overlay-setup.html">Overlay setup</a>
                         <a class="tree-item" href="connectors.html">Connectors</a>
+                        <a class="tree-item" href="stream-status.html">Stream Status</a>
                         <a class="tree-item" href="command-triggers.html">Command Triggers</a>
                         <a class="tree-item" href="channel-rewards.html">Channel Rewards</a>
                         <a class="tree-item" href="chat.html">Chat</a>
@@ -60,7 +61,7 @@
                         <a class="tree-item" href="component-overlay.html">Overlay</a>
                         <a class="tree-item" href="component-box.html">Box</a>
                         <a class="tree-item" href="component-add-source-dialog.html">Add Source Dialog</a>
-                        <a class="tree-item" href="component-add-trigger.html">Add Trigger</a>
+                        <a class="tree-item" href="component-add-trigger.html">Binding Editor</a>
                         <a class="tree-item" href="component-if-else-control.html">IF/Else Control</a>
                         <a class="tree-item" href="component-argument-control.html">Argument Control</a>
                     </div>
@@ -76,6 +77,8 @@
                     <a class="tree-item nested active" href="#common-checks">Common checks</a>
                     <a class="tree-item nested" href="#settings-logs">Settings and logs</a>
                     <a class="tree-item nested" href="#sources">Sources</a>
+                    <a class="tree-item nested" href="#events">Events and bindings</a>
+                    <a class="tree-item nested" href="#variables-help">Variables and groups</a>
                 </nav>
             </aside>
 
@@ -90,9 +93,9 @@
                     <h2>Common Checks</h2>
                     <img class="screenshot" src="../assets/screenshots/settings.png" alt="Settings and log viewer page" />
                     <ul>
-                        <li>Confirm NyankoBot is running in the tray.</li>
-                        <li>Confirm the setup page opens from the tray menu.</li>
-                        <li>Check that Streamer.bot is connected before testing triggers.</li>
+                        <li>Confirm NyankoBot is running. On Windows, check the tray; on Linux, check the launcher output.</li>
+                        <li>Open the local setup page from the Windows tray or the Linux setup URL.</li>
+                        <li>Check the connector used by the trigger before testing it.</li>
                         <li>Use the Open Overlay page to confirm the overlay viewer loads.</li>
                         <li>Open Settings to inspect logs for errors.</li>
                     </ul>
@@ -112,15 +115,25 @@
 
                 <section class="panel" id="sources">
                     <h2>Sources</h2>
-                    <p>If a source is missing, open <a href="manage-sources.html">Storage</a> and confirm that it exists, is cached when needed, and is still referenced by the expected boxes.</p>
+                    <p>If a source is missing, open <a href="manage-sources.html">Storage</a> and confirm that its definition or upload exists and that the expected binding item uses it. Remote URL media loads when needed during the current session.</p>
                     <img class="screenshot" src="../assets/screenshots/manage-sources.png" alt="Storage page" />
                     <div class="token-table" role="table" aria-label="Storage troubleshooting controls">
                         <div role="row"><strong role="cell">Check</strong><strong role="cell">Why it matters</strong></div>
                         <div role="row"><code role="cell">Source exists</code><span role="cell">If a reusable source was deleted or renamed, boxes that reference it may not render the expected content.</span></div>
-                        <div role="row"><code role="cell">Cached media</code><span role="cell">Downloaded or uploaded media must still be available to the app when an overlay tries to play it.</span></div>
+                        <div role="row"><code role="cell">Media loading</code><span role="cell">Check that uploaded files are available. Remote URL media loads for the current session and may need to load again after a restart.</span></div>
                         <div role="row"><code role="cell">Box references</code><span role="cell">A source can exist but still not appear if the active overlay box points to a different source.</span></div>
                         <div role="row"><code role="cell">Preview behavior</code><span role="cell">If the source previews correctly but does not appear in OBS, refresh the OBS browser source and confirm the copied overlay URL is the current one.</span></div>
                     </div>
+                </section>
+                <section class="panel" id="events">
+                    <h2>Events and bindings</h2>
+                    <p>When an event reaches the connector but the overlay does not react, check the event subscription in <a href="connectors.html">Connectors</a>, the trigger type in <a href="platform-events.html">Platform Events</a>, and the box's <a href="component-add-trigger.html">Binding editor</a>. The binding needs a matching trigger and at least one item. Review sequencing and source timing if the trigger fires but nothing appears.</p>
+                    <p>For commands, also check channel and user restrictions, cooldowns, and the <a href="user-groups.html">Ignore group</a>. Use trigger History to see whether an action ran or failed. For rewards, confirm the mapped connector reward is available and its redemption state is handled as intended.</p>
+                </section>
+                <section class="panel" id="variables-help">
+                    <h2>Variables and groups</h2>
+                    <p>If a token is empty, confirm the trigger supplies that value and that the name and scope match the <a href="variables.html">variable definition</a>. In Storage → Variables, inspect the default and current value and the actions that assign it. Argument variables only have values during a trigger run.</p>
+                    <p>If someone cannot run commands, search for the user in <a href="user-groups.html">User Groups</a> and check the Ignore group. Also inspect the command's separate role and cooldown rules.</p>
                 </section>
             </article>
         </main>

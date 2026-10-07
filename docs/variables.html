@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NyankoBot Variables - Definitions, Values, and Trigger Actions</title>
+    <link rel="icon" type="image/png" href="../assets/ArnieTW_Mischevous.png" />
+    <meta name="description" content="Define NyankoBot arguments and persistent variables, edit current values, and inspect which triggers assign or use them." />
+    <link rel="canonical" href="https://arnietw.github.io/NyankoBot/docs/variables.html" />
+    <meta property="og:title" content="NyankoBot Variables - Definitions, Values, and Trigger Actions" />
+    <meta property="og:description" content="Define arguments and persistent variables, edit values, and inspect trigger usage." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://arnietw.github.io/NyankoBot/docs/variables.html" />
+    <meta property="og:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
+    <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+    <div class="page">
+        <nav class="nav" aria-label="Main navigation"><a class="brand" href="../index.html"><img class="brand-logo" src="../assets/ArnieTW_Mischevous.png" alt="" /><span>NyankoBot</span></a><div class="nav-links"><a href="index.html">Documentation</a><a href="../roadmap.html">Roadmap</a><a href="https://github.com/ArnieTW/NyankoBot/issues">Issues</a><a href="../releases/">Downloads</a></div></nav>
+        <main class="docs-layout">
+            <aside class="tree-nav" aria-label="Documentation navigation"><nav class="tree-control" aria-label="Documentation tree">
+                <a class="tree-item root" href="index.html">Overview</a><a class="tree-item root" href="quick-setup.html">Quick Setup</a>
+                <div class="tree-group"><div class="tree-heading">Setup Pages</div><a class="tree-item" href="command-triggers.html">Command Triggers</a><a class="tree-item" href="settings.html">Settings</a><a class="tree-item" href="manage-sources.html">Storage</a><a class="tree-item active" href="variables.html" aria-current="page">Variables</a><a class="tree-item nested active" href="#define">Define</a><a class="tree-item nested" href="#values">Inspect values</a><a class="tree-item nested" href="#actions">Use in actions</a></div>
+                <a class="tree-item root" href="actions-reference.html">Action Reference</a><a class="tree-item root" href="troubleshooting.html">Troubleshooting</a>
+            </nav></aside>
+            <article class="doc-content">
+                <section><p class="kicker">Settings and Storage</p><h1>Variables</h1><p class="lead">A variable definition describes a value's name, scope, type, shape, and default. Storage shows where that value is used and, for persistent variables, its current runtime value.</p></section>
+                <section class="panel" id="define"><h2>Define a variable</h2>
+                    <ol><li>Open <code>Settings → Variables</code> and select <code>Add variable</code>.</li><li>Enter a name and choose <code>Argument</code> for a value used during a trigger run or <code>Persistent</code> for a value kept across runs.</li><li>Choose a type: String, Number, Boolean, Date, JSON, or Object / Class. Choose Single, List, or Dictionary for its shape.</li><li>Set a default. Lists and dictionaries use JSON defaults; Object / Class exposes named properties and property defaults. Persistent definitions can enable <code>Clear runtime value when NyankoBot starts</code>.</li><li>Select <code>Save variable</code>. You can filter and reopen saved definitions to edit them.</li></ol>
+                    <p>Deleting a definition leaves trigger actions that reference it unable to change that variable. Review its usage first in Storage.</p>
+                </section>
+                <section class="panel" id="values"><h2>Inspect and edit values</h2>
+                    <ol><li>Open <code>Storage → Variables</code>.</li><li>Filter by name or choose All, Persistent only, Season only, or Arguments only.</li><li>Select a variable. <code>Assigned and used by</code> lists saved triggers that write or reference it.</li><li>Review the default and, for a persistent variable, the current stored value. Edit them and select <code>Save values</code>.</li></ol>
+                    <p>When no persistent value has been stored, runtime reads fall back to the default. An argument has no current value outside the trigger run that creates it. Structured values must match their JSON list, object, or dictionary shape.</p>
+                </section>
+                <section class="panel" id="actions"><h2>Use variables in trigger actions</h2>
+                    <p>In <a href="command-triggers.html">Command Triggers</a>, add <code>Set Argument</code> or <code>Set Persistent Variable</code> to change a defined value. Those actions expose variable operations appropriate to the definition's type and shape. Later actions can use values produced by earlier actions through token autocomplete.</p>
+                    <p><code>Select String</code>, <code>Detect Language</code>, <code>Translate Text</code>, HTTP requests, and connector requests can also produce arguments. See the <a href="actions-reference.html">Action Reference</a> for the action catalog and result handling.</p>
+                </section>
+            </article>
+        </main>
+    </div>
+    <script src="../docs-nav.js"></script>
+</body>
+</html>

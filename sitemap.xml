@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://arnietw.github.io/NyankoBot/</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -26,127 +26,157 @@
   </url>
   <url>
     <loc>https://arnietw.github.io/NyankoBot/docs/index.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://arnietw.github.io/NyankoBot/docs/download-install.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://arnietw.github.io/NyankoBot/docs/quick-setup.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://arnietw.github.io/NyankoBot/docs/overlay-setup.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://arnietw.github.io/NyankoBot/docs/connectors.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://arnietw.github.io/NyankoBot/docs/stream-status.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://arnietw.github.io/NyankoBot/docs/platform-events.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://arnietw.github.io/NyankoBot/docs/actions-reference.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://arnietw.github.io/NyankoBot/docs/variables.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://arnietw.github.io/NyankoBot/docs/user-groups.html</loc>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://arnietw.github.io/NyankoBot/docs/command-triggers.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://arnietw.github.io/NyankoBot/docs/channel-rewards.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://arnietw.github.io/NyankoBot/docs/chat.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://arnietw.github.io/NyankoBot/docs/streamerbot.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://arnietw.github.io/NyankoBot/docs/tts.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://arnietw.github.io/NyankoBot/docs/translators.html</loc>
-    <lastmod>2026-07-17</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://arnietw.github.io/NyankoBot/docs/manage-sources.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://arnietw.github.io/NyankoBot/docs/settings.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://arnietw.github.io/NyankoBot/docs/troubleshooting.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://arnietw.github.io/NyankoBot/docs/examples.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://arnietw.github.io/NyankoBot/docs/component-overlay.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://arnietw.github.io/NyankoBot/docs/component-box.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://arnietw.github.io/NyankoBot/docs/component-add-source-dialog.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://arnietw.github.io/NyankoBot/docs/component-add-trigger.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://arnietw.github.io/NyankoBot/docs/component-if-else-control.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://arnietw.github.io/NyankoBot/docs/component-argument-control.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

@@ -46,6 +46,7 @@
                         <div class="tree-heading">Setup Pages</div>
                         <a class="tree-item" href="overlay-setup.html">Overlay setup</a>
                         <a class="tree-item" href="connectors.html">Connectors</a>
+                        <a class="tree-item" href="stream-status.html">Stream Status</a>
                         <a class="tree-item" href="command-triggers.html">Command Triggers</a>
                         <a class="tree-item" href="channel-rewards.html">Channel Rewards</a>
                         <a class="tree-item" href="chat.html">Chat</a>
@@ -67,7 +68,7 @@
                         <a class="tree-item nested" href="#box-sources">Sources</a>
                         <a class="tree-item nested" href="#box-types">Box types</a>
                         <a class="tree-item" href="component-add-source-dialog.html">Add Source Dialog</a>
-                        <a class="tree-item" href="component-add-trigger.html">Add Trigger</a>
+                        <a class="tree-item" href="component-add-trigger.html">Binding Editor</a>
                         <a class="tree-item" href="component-if-else-control.html">IF/Else Control</a>
                         <a class="tree-item" href="component-argument-control.html">Argument Control</a>
                     </div>
@@ -78,6 +79,13 @@
                         <a class="tree-item" href="examples.html#tts-message">TTS message</a>
                         <a class="tree-item" href="examples.html#random-source">Random source</a>
                         <a class="tree-item" href="examples.html#trigger-tokens">Trigger tokens</a>
+                    </div>
+                    <div class="tree-group">
+                        <div class="tree-heading">More Guides</div>
+                        <a class="tree-item" href="platform-events.html">Platform Events</a>
+                        <a class="tree-item" href="actions-reference.html">Action Reference</a>
+                        <a class="tree-item" href="variables.html">Variables</a>
+                        <a class="tree-item" href="user-groups.html">User Groups</a>
                     </div>
                     <a class="tree-item root" href="troubleshooting.html">Troubleshooting</a>
                 </nav>
@@ -171,28 +179,28 @@
                 <section class="panel" id="box-triggers">
                     <h2>Trigger</h2>
                     <img class="screenshot" src="../assets/screenshots/box-inspector-trigger.png" alt="Box inspector Trigger section" />
-                    <p>The Trigger section decides when the box runs. It lists saved trigger bindings and opens the Add Trigger dialog for new ones.</p>
+                    <p>The box binding determines when the box runs and which items it shows. Open the <a href="component-add-trigger.html">Binding editor</a> to manage its Triggers, Sequencing, Subscriptions, and Items. The separate Trigger section may appear for older box data; use Bindings for the current workflow.</p>
                     <div class="token-table">
                         <div><strong>UI option</strong></div>
                         <div><strong>What it means</strong></div>
                         <div><code>Triggers</code></div>
                         <div>The saved trigger bindings for this box. Each row can be renamed, edited, or deleted.</div>
                         <div><code>Add Trigger</code></div>
-                        <div>Opens the <a href="component-add-trigger.html">Add Trigger</a> control to bind chat, command, reward, Stream Deck, Streamer.bot, OBS, Twitch, Kick, or NyankoBot trigger sources.</div>
+                        <div>Opens trigger selection for older box data. For a new binding, use <code>Add Binding</code>, then the editor's <code>Triggers</code> section.</div>
                     </div>
                 </section>
 
                 <section class="panel" id="box-sources">
-                    <h2>Sources</h2>
+                    <h2>Bindings and sources</h2>
                     <img class="screenshot" src="../assets/screenshots/box-inspector-sources.png" alt="Box inspector Sources section" />
-                    <p>Sources are the actual content the box can show or play. This section appears for <code>SourcedBox</code> boxes.</p>
+                    <p>The <code>Bindings</code> section appears for <code>SourcedBox</code> boxes. Each binding combines triggers, timing, and the items that show or play. Sources are configured inside those items.</p>
                     <div class="token-table">
                         <div><strong>UI option</strong></div>
                         <div><strong>What it means</strong></div>
-                        <div><code>Sources</code></div>
-                        <div>The source list attached to the selected box. A box can have one source or several sources that triggers sequence through.</div>
-                        <div><code>Add source</code></div>
-                        <div>Opens the <a href="component-add-source-dialog.html">Add Source Dialog</a> to add text, media, URL, TTS, or reusable defined sources.</div>
+                        <div><code>Bindings</code></div>
+                        <div>The saved bindings attached to the box. Open a binding to edit its triggers, sequence, subscriptions, and items.</div>
+                        <div><code>Add Binding</code></div>
+                        <div>Creates a binding. In its <code>Items</code> section, add an item and configure a text, media, URL, TTS, or reusable source using the <a href="component-add-source-dialog.html">source controls</a>.</div>
                     </div>
                 </section>
 
@@ -203,7 +211,7 @@
                         <div><strong>Type</strong></div>
                         <div><strong>Inspector behavior</strong></div>
                         <div><code>SourcedBox</code></div>
-                        <div>The normal box type for memes, videos, images, text, TTS, browser widgets, and audio cues. Shows Sources and Trigger sections.</div>
+                        <div>The normal box type for memes, videos, images, text, TTS, browser widgets, and audio cues. Shows the Bindings section.</div>
                         <div><code>WheelPicker</code></div>
                         <div>Shows Wheel Picker settings: title, pick list, spin duration, optional chat response, and trigger-token support for <code>{{wheel.result}}</code>.</div>
                         <div><code>Group</code></div>

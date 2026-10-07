@@ -3,22 +3,22 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>NyankoBot Add Trigger Reference</title>
+    <title>NyankoBot Binding Editor and Add Trigger Guide</title>
     <link rel="icon" type="image/png" href="../assets/ArnieTW_Mischevous.png" />
 <!-- SEO -->
-    <meta name="description" content="Reference for binding NyankoBot, Twitch, Kick, Streamer.bot, OBS, and channel reward triggers to overlay boxes with trigger search, options, sequencing, and custom IF/Else cases." />
+    <meta name="description" content="Use the NyankoBot Binding editor to assign triggers, sequences, subscriptions, and media items to overlay boxes." />
     <meta name="keywords" content="NyankoBot, OBS overlay, Streamer.bot, streaming overlay, browser source, Twitch bot, stream effects, TTS, CosyVoice, media commands" />
     <meta name="author" content="ArnieTW" />
     <link rel="canonical" href="https://arnietw.github.io/NyankoBot/docs/component-add-trigger.html" />
     <meta property="og:site_name" content="NyankoBot" />
-    <meta property="og:title" content="NyankoBot Add Trigger Reference" />
-    <meta property="og:description" content="Reference for binding NyankoBot, Twitch, Kick, Streamer.bot, OBS, and channel reward triggers to overlay boxes with trigger search, options, sequencing, and custom IF/Else cases." />
+    <meta property="og:title" content="NyankoBot Binding Editor and Add Trigger Guide" />
+    <meta property="og:description" content="Assign triggers, sequences, subscriptions, and media items to overlay boxes." />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://arnietw.github.io/NyankoBot/docs/component-add-trigger.html" />
     <meta property="og:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="NyankoBot Add Trigger Reference" />
-    <meta name="twitter:description" content="Reference for binding NyankoBot, Twitch, Kick, Streamer.bot, OBS, and channel reward triggers to overlay boxes with trigger search, options, sequencing, and custom IF/Else cases." />
+    <meta name="twitter:title" content="NyankoBot Binding Editor and Add Trigger Guide" />
+    <meta name="twitter:description" content="Assign triggers, sequences, subscriptions, and media items to overlay boxes." />
     <meta name="twitter:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
     <link rel="sitemap" type="application/xml" href="../sitemap.xml" />
 <!-- /SEO -->
@@ -46,6 +46,7 @@
                         <div class="tree-heading">Setup Pages</div>
                         <a class="tree-item" href="overlay-setup.html">Overlay setup</a>
                         <a class="tree-item" href="connectors.html">Connectors</a>
+                        <a class="tree-item" href="stream-status.html">Stream Status</a>
                         <a class="tree-item" href="command-triggers.html">Command Triggers</a>
                         <a class="tree-item" href="channel-rewards.html">Channel Rewards</a>
                         <a class="tree-item" href="chat.html">Chat</a>
@@ -60,15 +61,15 @@
                         <a class="tree-item" href="component-overlay.html">Overlay</a>
                         <a class="tree-item" href="component-box.html">Box</a>
                         <a class="tree-item" href="component-add-source-dialog.html">Add Source Dialog</a>
-                        <a class="tree-item active" href="component-add-trigger.html">Add Trigger</a>
+                        <a class="tree-item active" href="component-add-trigger.html">Binding Editor</a>
                         <a class="tree-item" href="component-if-else-control.html">IF/Else Control</a>
                         <a class="tree-item nested" href="#add-trigger-open">Open it</a>
                         <a class="tree-item nested" href="#add-trigger-search">Trigger search</a>
                         <a class="tree-item nested" href="#add-trigger-types">Trigger types</a>
-                        <a class="tree-item nested" href="#add-trigger-options">Options</a>
+                        <a class="tree-item nested" href="#add-trigger-options">Subscriptions</a>
                         <a class="tree-item nested" href="#add-trigger-sequencing">Sequencing</a>
-                        <a class="tree-item nested" href="#add-trigger-custom">Custom cases</a>
-                        <a class="tree-item nested" href="#add-trigger-save">Saved result</a>
+                        <a class="tree-item nested" href="#add-trigger-custom">Items and custom cases</a>
+                        <a class="tree-item nested" href="#add-trigger-save">Save and test</a>
                         <a class="tree-item" href="component-argument-control.html">Argument Control</a>
                     </div>
                     <div class="tree-group">
@@ -79,148 +80,71 @@
                         <a class="tree-item" href="examples.html#random-source">Random source</a>
                         <a class="tree-item" href="examples.html#trigger-tokens">Trigger tokens</a>
                     </div>
+                    <div class="tree-group">
+                        <div class="tree-heading">More Guides</div>
+                        <a class="tree-item" href="platform-events.html">Platform Events</a>
+                        <a class="tree-item" href="actions-reference.html">Action Reference</a>
+                        <a class="tree-item" href="variables.html">Variables</a>
+                        <a class="tree-item" href="user-groups.html">User Groups</a>
+                    </div>
                     <a class="tree-item root" href="troubleshooting.html">Troubleshooting</a>
                 </nav>
             </aside>
 
             <article class="doc-content">
                 <section id="add-trigger-component">
-                    <p class="kicker">Inside Component</p>
-                    <h1>Add Trigger</h1>
-                    <p class="lead">The Add Trigger dialog binds connector events, commands, channel rewards, timers, Stream Deck calls, or NyankoBot synthetic triggers to the selected overlay box. When the trigger fires, NyankoBot decides which source or sources in that box should run.</p>
+                    <p class="kicker">Overlay editor</p>
+                    <h1>Bindings and Triggers</h1>
+                    <p class="lead">A binding connects one or more triggers to the items an overlay box displays. The current Binding editor groups its controls under Triggers, Sequencing, Subscriptions, and Items.</p>
                 </section>
-
                 <section class="panel" id="add-trigger-open">
-                    <h2>Open It</h2>
-                    <img class="screenshot" src="../assets/screenshots/add-trigger-entry.png" alt="Box inspector Trigger section with an existing trigger row and Add Trigger button" />
-                    <p>Select a box on the overlay stage, open the box inspector, then use the Triggers section. <code>Add Trigger</code> opens a new trigger binding. Existing trigger rows can be renamed, edited, or deleted from the same list.</p>
-                    <div class="token-table">
-                        <div><strong>UI option</strong></div>
-                        <div><strong>What it does</strong></div>
-                        <div><code>Trigger name</code></div>
-                        <div>The editable label shown in the box trigger list. If left alone, NyankoBot uses the selected trigger name.</div>
-                        <div><code>Trigger binding</code></div>
-                        <div>Shows the selected binding as <code>Command</code>, <code>Action</code>, or <code>Event</code>, plus the command mode, action event, or raw event key.</div>
-                        <div><code>Edit</code></div>
-                        <div>Reopens the Add Trigger dialog for that saved binding.</div>
-                        <div><code>Delete</code></div>
-                        <div>Removes the trigger binding from the selected box.</div>
-                    </div>
+                    <h2>Open the Binding editor</h2>
+                    <ol>
+                        <li>Open <a href="overlay-setup.html">Overlay Setup</a>, choose an overlay, and select the box you want to edit.</li>
+                        <li>Open its binding from the box inspector, or add a binding if the box does not have one.</li>
+                        <li>Rename the binding at the top if needed and choose its binding type. The collapsible sections below control activation and output.</li>
+                    </ol>
+                    <p>You can edit an item, layered source, track, or track source in the sliding editor and return to Binding settings without opening a second dialog.</p>
                 </section>
-
                 <section class="panel" id="add-trigger-search">
-                    <h2>Trigger Search</h2>
-                    <img class="screenshot" src="../assets/screenshots/add-trigger-dialog.png" alt="Add Trigger dialog before a trigger is selected" />
-                    <img class="screenshot" src="../assets/screenshots/add-trigger-search.png" alt="Add Trigger dialog with the trigger search results open" />
-                    <p>The dialog loads available trigger sources from enabled connectors and NyankoBot itself, then displays them under the <code>Search Triggers</code> input. Sources are grouped by connector and category, and groups are collapsed until opened. It also loads <a href="component-argument-control.html">Argument Control</a> mappings so hit rules and custom cases can use <code>{{</code> tokens.</p>
-                    <div class="token-table">
-                        <div><strong>UI option</strong></div>
-                        <div><strong>What it does</strong></div>
-                        <div><code>Search Triggers</code></div>
-                        <div>Filters by trigger name, key, description, or category.</div>
-                        <div><code>Trigger row title</code></div>
-                        <div>The visible trigger name. For commands this is the command name or alias; for actions this is the action name; for raw events this is the event label or key.</div>
-                        <div><code>Category</code></div>
-                        <div>Shows the connector family and low-level group, such as Twitch Chat, Channel Reward, OBS, Streamer.bot Actions, or NyankoBot internal triggers.</div>
-                        <div><code>Description</code></div>
-                        <div>Shows aliases and modes for commands, group and trigger events for actions, or <code>Subscribed raw Streamer.bot event.</code> for raw triggers.</div>
-                        <div>Duplicate filtering</div>
-                        <div>Triggers already bound to the current box are hidden. When nothing is left, the list says all available triggers are already added.</div>
-                    </div>
+                    <h2>Triggers</h2>
+                    <p>Expand <code>Triggers</code> and select <code>Add Trigger</code>. The picker separates Command Triggers from Channel Rewards and shows connector events available to the current setup. Search names and categories; spaces, punctuation, underscores, and letter case are normalized in search.</p>
+                    <p>You can assign multiple triggers to one binding. Review each selected trigger and its options before saving. <a href="platform-events.html">Platform Events</a> explains the main event families.</p>
                 </section>
-
                 <section class="panel" id="add-trigger-types">
-                    <h2>Trigger Types</h2>
-                    <img class="screenshot" src="../assets/screenshots/add-trigger-search.png" alt="Add Trigger search results showing command, raw, and action trigger rows" />
-                    <p>The same Add Trigger control handles normalized trigger sources from every connector. Bindings store the connector, event type, optional event id, and optional event name so matching does not depend on connector-specific payload shapes.</p>
-                    <div class="token-table">
-                        <div><strong>Type</strong></div>
-                        <div><strong>Stored target</strong></div>
-                        <div><code>Chat Message</code></div>
-                        <div>Runs from normal platform chat. Ignore Commands can be used so command messages do not also trigger generic chat bindings.</div>
-                        <div><code>Command</code></div>
-                        <div>Synthetic chat-based trigger for direct Twitch/Kick command handling. Command bindings include an unremovable raw-text starts-with rule and expose command arguments through <code>{{text}}</code>.</div>
-                        <div><code>First Words</code></div>
-                        <div>Synthetic chat-based trigger that runs when the chat payload marks a viewer's first message for the current cached session.</div>
-                        <div><code>Channel Reward</code></div>
-                        <div>Binds to NyankoBot's internal reward definition, so the same reward can be enabled on more than one platform without adding separate platform rules.</div>
-                        <div><code>Connector Event</code></div>
-                        <div>Runs from platform, Streamer.bot, OBS, Stream Deck, timer, or raw connector events after NyankoBot normalizes the incoming event identity.</div>
+                    <h2>Choose a trigger source</h2>
+                    <div class="token-table" role="table" aria-label="Binding trigger sources">
+                        <div role="row"><strong role="cell">Source</strong><strong role="cell">Use it for</strong></div>
+                        <div role="row"><code role="cell">Command Trigger</code><span role="cell">A NyankoBot command or other saved trigger that can also run actions and cooldowns.</span></div>
+                        <div role="row"><code role="cell">Channel Reward</code><span role="cell">A NyankoBot-managed reward shared across supported connectors.</span></div>
+                        <div role="row"><code role="cell">Connector event</code><span role="cell">Twitch, Kick, OBS, Streamer.bot, timer, Stream Deck, or another available event.</span></div>
                     </div>
+                    <p>Generic chat bindings can ignore command-like messages or messages sent internally by NyankoBot. Raw event bindings can use hit rules to require matching event data.</p>
                 </section>
-
                 <section class="panel" id="add-trigger-options">
-                    <h2>Options</h2>
-                    <img class="screenshot" src="../assets/screenshots/add-trigger-raw-hit.png" alt="Add Trigger dialog showing Ignore commands and raw hit rules" />
-                    <div class="token-table">
-                        <div><strong>UI option</strong></div>
-                        <div><strong>When it appears</strong></div>
-                        <div><code>Ignore commands</code></div>
-                        <div>Appears for chat-message style triggers that contain user text. It is hidden for Command triggers because the command rule is the trigger itself.</div>
-                        <div><code>Ignore internal</code></div>
-                        <div>Stops the binding from firing when the incoming chat payload was sent by NyankoBot itself.</div>
-                        <div><code>Hit rules</code></div>
-                        <div>Appears for raw triggers. Use the <a href="component-if-else-control.html">IF/Else Control</a> when a raw event should only run when specific trigger data matches.</div>
-                        <div><code>Add hit rule</code></div>
-                        <div>Adds an IF condition for raw triggers. The IF/Else result is either <code>Trigger</code> or <code>False</code>.</div>
-                    </div>
+                    <h2>Subscriptions</h2>
+                    <p>The <code>Subscriptions</code> section lists subscriptions associated with the binding. Expand it to inspect or add one when the chosen trigger requires connector event subscription behavior. If an event never reaches NyankoBot, also check the connector's own event subscription settings under <a href="connectors.html">Connectors</a>.</p>
                 </section>
-
                 <section class="panel" id="add-trigger-sequencing">
                     <h2>Sequencing</h2>
-                    <img class="screenshot" src="../assets/screenshots/add-trigger-custom-sequencing.png" alt="Add Trigger dialog showing Custom sequencing controls" />
-                    <p>Sequencing appears when the selected box has more than one possible source. For group boxes, sequencing targets source slots across the grouped child boxes.</p>
-                    <div class="token-table">
-                        <div><strong>Mode</strong></div>
-                        <div><strong>What it means</strong></div>
-                        <div><code>Sequence</code></div>
-                        <div>Runs through sources in order as the trigger fires over time.</div>
-                        <div><code>Random</code></div>
-                        <div>Picks from the available sources randomly.</div>
-                        <div><code>All</code></div>
-                        <div>Runs all available sources. This option is hidden for group boxes.</div>
-                        <div><code>Custom</code></div>
-                        <div>Shows the <a href="component-if-else-control.html">IF/Else Control</a> so trigger data can choose specific sources.</div>
-                        <div><code>Else source</code></div>
-                        <div>The fallback source or slot used when custom cases do not match.</div>
+                    <p>Use <code>Sequencing</code> when a binding has multiple items. Add a default sequence for normal behavior, then add trigger-specific rows where a selected trigger needs a different order. Rows can be reordered, and a custom sequence can choose items using trigger data.</p>
+                    <div class="token-table" role="table" aria-label="Sequence choices">
+                        <div role="row"><strong role="cell">Choice</strong><strong role="cell">Effect</strong></div>
+                        <div role="row"><code role="cell">Sequence</code><span role="cell">Advance through items in a chosen order.</span></div>
+                        <div role="row"><code role="cell">Random</code><span role="cell">Choose from available items.</span></div>
+                        <div role="row"><code role="cell">All</code><span role="cell">Run all available items where the binding type supports it.</span></div>
+                        <div role="row"><code role="cell">Custom</code><span role="cell">Use IF/Else rules and token values to choose items.</span></div>
                     </div>
                 </section>
-
                 <section class="panel" id="add-trigger-custom">
-                    <h2>Custom Cases</h2>
-                    <img class="screenshot" src="../assets/screenshots/add-trigger-custom-sequencing.png" alt="Custom Add Trigger case using an argument token and source result" />
-                    <p>Custom cases use the <a href="component-if-else-control.html">IF/Else Control</a> to compare trigger data and choose the source result. The left side supports <a href="component-argument-control.html#argument-control-open">Argument Control</a>, so users can type <code>{{</code> and pick a mapped trigger value.</p>
-                    <div class="token-table">
-                        <div><strong>UI option</strong></div>
-                        <div><strong>What it does</strong></div>
-                        <div><code>IF/Else Control</code></div>
-                        <div><a href="component-if-else-control.html">Move to definition</a></div>
-                        <div><code>Four-dot drag handle</code></div>
-                        <div><a href="component-if-else-control.html#if-else-order">Reorder and nesting details</a></div>
-                        <div><code>Else source</code></div>
-                        <div><a href="component-if-else-control.html#if-else-else">Fallback behavior</a></div>
-                    </div>
+                    <h2>Items and custom cases</h2>
+                    <p>Expand <code>Items</code> and select <code>Add Item</code> to choose what the binding displays or plays. Media appears in a visual gallery; highlighting video or audio lets you preview it with sound. Open an item to edit its source or layered tracks in the sliding editor.</p>
+                    <p>For a custom sequence, use <a href="component-if-else-control.html">IF/Else</a> to compare incoming event data and choose an item. Type <code>{{</code> in supported fields to insert a <a href="component-argument-control.html">trigger token</a>. Set an Else result for events that match no rule.</p>
                 </section>
-
                 <section class="panel" id="add-trigger-save">
-                    <h2>Saved Result</h2>
-                    <img class="screenshot" src="../assets/screenshots/add-trigger-entry.png" alt="Saved Add Trigger row in the box inspector" />
-                    <p>After saving, the Trigger section shows the binding as an editable row on the selected box. This is the place to rename the binding, confirm what trigger is attached, reopen the dialog, or remove the binding.</p>
-                    <div class="token-table">
-                        <div><strong>UI option</strong></div>
-                        <div><strong>What it means</strong></div>
-                        <div><code>Name</code></div>
-                        <div>The friendly label for this trigger binding. Editing it changes the label shown in the box trigger list, not the underlying Streamer.bot trigger.</div>
-                        <div><code>Trigger</code></div>
-                        <div>The saved binding summary. It shows whether the box is bound to a command, action, or raw event.</div>
-                        <div><code>Edit</code></div>
-                        <div>Reopens the Add Trigger dialog for this saved binding so the trigger, options, sequencing, or IF/Else rules can be changed.</div>
-                        <div><code>X</code></div>
-                        <div>Deletes the trigger binding from the selected box.</div>
-                        <div><code>Add Trigger</code></div>
-                        <div>Starts another binding for the same box.</div>
-                    </div>
-                    <p>The full saved data still includes the Streamer.bot source, selected trigger id/key/name, optional command-ignore behavior, sequencing mode, IF/Else cases, and the selected raw, command, or action target data.</p>
+                    <h2>Save and test</h2>
+                    <ol><li>Check that the binding has at least one intended trigger and item.</li><li>Save the binding and run a real or manual trigger.</li><li>If nothing appears, inspect <a href="command-triggers.html">History</a>, connector health, the binding's trigger options, and item timing.</li></ol>
+                    <p>The screenshot examples on other pages may show an earlier layout. Use the current Triggers, Sequencing, Subscriptions, and Items sections for the same underlying concepts.</p>
                 </section>
             </article>
         </main>

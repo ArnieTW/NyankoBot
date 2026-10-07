@@ -46,6 +46,7 @@
                         <div class="tree-heading">Setup Pages</div>
                         <a class="tree-item" href="overlay-setup.html">Overlay setup</a>
                         <a class="tree-item" href="connectors.html">Connectors</a>
+                        <a class="tree-item" href="stream-status.html">Stream Status</a>
                         <a class="tree-item" href="command-triggers.html">Command Triggers</a>
                         <a class="tree-item" href="channel-rewards.html">Channel Rewards</a>
                         <a class="tree-item" href="chat.html">Chat</a>
@@ -60,7 +61,7 @@
                         <a class="tree-item" href="component-overlay.html">Overlay</a>
                         <a class="tree-item" href="component-box.html">Box</a>
                         <a class="tree-item" href="component-add-source-dialog.html">Add Source Dialog</a>
-                        <a class="tree-item" href="component-add-trigger.html">Add Trigger</a>
+                        <a class="tree-item" href="component-add-trigger.html">Binding Editor</a>
                         <a class="tree-item" href="component-if-else-control.html">IF/Else Control</a>
                         <a class="tree-item active" href="component-argument-control.html">Argument Control</a>
                         <a class="tree-item nested" href="#argument-control-open">Auto-Complete</a>
@@ -78,6 +79,13 @@
                         <a class="tree-item" href="examples.html#tts-message">TTS message</a>
                         <a class="tree-item" href="examples.html#random-source">Random source</a>
                         <a class="tree-item" href="examples.html#trigger-tokens">Trigger tokens</a>
+                    </div>
+                    <div class="tree-group">
+                        <div class="tree-heading">More Guides</div>
+                        <a class="tree-item" href="platform-events.html">Platform Events</a>
+                        <a class="tree-item" href="actions-reference.html">Action Reference</a>
+                        <a class="tree-item" href="variables.html">Variables</a>
+                        <a class="tree-item" href="user-groups.html">User Groups</a>
                     </div>
                     <a class="tree-item root" href="troubleshooting.html">Troubleshooting</a>
                 </nav>
@@ -132,7 +140,9 @@
                         <div><code>Message</code></div>
                         <div><code>{{message.id}}</code>, <code>{{message.text}}</code>, <code>{{message.emotes}}</code>, <code>{{message.parts}}</code>, <code>{{message.meta}}</code>, plus aliases <code>{{rawText}}</code>, <code>{{text}}</code>, and <code>{{sanitizedText}}</code>.</div>
                         <div><code>Channel</code></div>
-                        <div><code>{{channel.id}}</code>, <code>{{channel.name}}</code>, <code>{{channel.channelName}}</code>, <code>{{channel.platform}}</code>, <code>{{channel.isLive}}</code>.</div>
+                        <div><code>{{channel.id}}</code>, <code>{{channel.name}}</code>, <code>{{channel.channelName}}</code>, <code>{{channel.platform}}</code>, <code>{{channel.isLive}}</code>, <code>{{channel.title}}</code>, <code>{{channel.category}}</code>, and <code>{{channel.categoryId}}</code>. These use the incoming trigger's channel values.</div>
+                        <div><code>Twitch / Kick</code></div>
+                        <div><code>{{twitch.channel.title}}</code>, <code>{{twitch.channel.category}}</code>, <code>{{twitch.channel.categoryId}}</code>, and the matching <code>{{kick.channel.*}}</code> keys use the saved or refreshed connector snapshot. See <a href="examples.html#trigger-tokens">Trigger tokens</a> for broadcaster category tokens and refresh behavior.</div>
                         <div><code>Trigger</code></div>
                         <div><code>{{trigger.id}}</code>, <code>{{trigger.type}}</code>, <code>{{trigger.eventType}}</code>, <code>{{trigger.source}}</code>, <code>{{trigger.timestamp}}</code>, <code>{{trigger.name}}</code>, <code>{{trigger.isFirstWords}}</code>, plus alias <code>{{isFirstWords}}</code>.</div>
                         <div><code>Context</code></div>

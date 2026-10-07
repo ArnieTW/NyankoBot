@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NyankoBot Platform Events and Trigger Selection</title>
+    <link rel="icon" type="image/png" href="../assets/ArnieTW_Mischevous.png" />
+    <meta name="description" content="Choose Twitch, Kick, OBS, Streamer.bot, and NyankoBot events for command triggers and overlay bindings." />
+    <link rel="canonical" href="https://arnietw.github.io/NyankoBot/docs/platform-events.html" />
+    <meta property="og:title" content="NyankoBot Platform Events and Trigger Selection" />
+    <meta property="og:description" content="Find supported event families and choose the right trigger source." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://arnietw.github.io/NyankoBot/docs/platform-events.html" />
+    <meta property="og:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
+    <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+    <div class="page">
+        <nav class="nav" aria-label="Main navigation"><a class="brand" href="../index.html"><img class="brand-logo" src="../assets/ArnieTW_Mischevous.png" alt="" /><span>NyankoBot</span></a><div class="nav-links"><a href="index.html">Documentation</a><a href="../roadmap.html">Roadmap</a><a href="https://github.com/ArnieTW/NyankoBot/issues">Issues</a><a href="../releases/">Downloads</a></div></nav>
+        <main class="docs-layout">
+            <aside class="tree-nav" aria-label="Documentation navigation"><nav class="tree-control" aria-label="Documentation tree">
+                <a class="tree-item root" href="index.html">Overview</a><a class="tree-item root" href="connectors.html">Connectors</a><a class="tree-item root" href="command-triggers.html">Command Triggers</a>
+                <div class="tree-group"><div class="tree-heading">Reference</div><a class="tree-item active" href="platform-events.html" aria-current="page">Platform Events</a><a class="tree-item nested active" href="#choose">Choose an event</a><a class="tree-item nested" href="#twitch">Twitch families</a><a class="tree-item nested" href="#other">Other sources</a></div>
+                <a class="tree-item root" href="actions-reference.html">Action Reference</a><a class="tree-item root" href="troubleshooting.html">Troubleshooting</a>
+            </nav></aside>
+            <article class="doc-content">
+                <section><p class="kicker">Triggers</p><h1>Platform Events</h1><p class="lead">NyankoBot can start a command trigger or overlay binding from connected platform events. The available picker items depend on enabled connectors, their login permissions, and subscribed events.</p></section>
+                <section class="panel" id="choose"><h2>Choose the right event</h2>
+                    <ol><li>Connect the platform under <a href="connectors.html">Connectors</a>.</li><li>In <a href="command-triggers.html">Command Triggers</a> or an overlay's <a href="component-add-trigger.html">Binding Editor</a> control, search by event name or category and select the event.</li><li>Use hit rules or permission and cooldown settings when the event should run only for certain users or payloads.</li><li>Save, cause a real event, and review trigger <code>History</code> if it does not run.</li></ol>
+                    <p>Use a NyankoBot <a href="channel-rewards.html">Channel Reward</a> binding for a shared reward definition. Use a generic Twitch Channel Points event for a platform reward lifecycle event or a reward that NyankoBot does not manage.</p>
+                </section>
+                <section class="panel" id="twitch"><h2>Twitch event families</h2>
+                    <div class="token-table" role="table" aria-label="Twitch event families">
+                        <div role="row"><strong role="cell">Family</strong><strong role="cell">Examples in the picker</strong></div>
+                        <div role="row"><code role="cell">Chat and people</code><span role="cell">Messages, commands, first words, follows, subscriptions, gift subscriptions, raids, whispers, announcements, moderation, and user presence.</span></div>
+                        <div role="row"><code role="cell">Channel Points</code><span role="cell">Custom reward redemption and status updates, automatic redemptions, reward created/updated/removed, and custom Power-up redemption.</span></div>
+                        <div role="row"><code role="cell">Bits and engagement</code><span role="cell">Cheers, Bits use or Power-ups, polls, predictions, goals, Hype Trains, and shoutouts.</span></div>
+                        <div role="row"><code role="cell">Broadcast</code><span role="cell">Stream online, offline, and metadata updates; ad break begin; and ad notification.</span></div>
+                        <div role="row"><code role="cell">Guest Star</code><span role="cell">Session begin/end, guest updates, and settings updates.</span></div>
+                    </div>
+                    <p><code>Ad Notification</code> fires before the next scheduled ad using the lead time configured on that trigger source; the initial lead time is 10 minutes. It depends on Twitch schedule data being available to the connector.</p>
+                </section>
+                <section class="panel" id="other"><h2>Kick, OBS, Streamer.bot, and NyankoBot</h2>
+                    <ul><li><strong>Kick:</strong> chat and supported webhook events, including rewards and stream events when the connector supplies them.</li><li><strong>OBS:</strong> events from the connected OBS WebSocket session.</li><li><strong>Streamer.bot:</strong> subscribed raw events, commands, and action triggers. See <a href="streamerbot.html">Streamer.bot Connector</a>.</li><li><strong>NyankoBot:</strong> synthetic commands, first words, timers, manual triggers, and Stream Deck calls.</li></ul>
+                    <p>If an expected event is missing, check connector health and subscriptions first. A selected event cannot fire until its source connector is enabled and receiving it.</p>
+                </section>
+            </article>
+        </main>
+    </div>
+    <script src="../docs-nav.js"></script>
+</body>
+</html>

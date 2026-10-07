@@ -46,6 +46,7 @@
                         <div class="tree-heading">Setup Pages</div>
                         <a class="tree-item" href="overlay-setup.html">Overlay setup</a>
                         <a class="tree-item" href="connectors.html">Connectors</a>
+                        <a class="tree-item" href="stream-status.html">Stream Status</a>
                         <a class="tree-item" href="command-triggers.html">Command Triggers</a>
                         <a class="tree-item" href="channel-rewards.html">Channel Rewards</a>
                         <a class="tree-item" href="chat.html">Chat</a>
@@ -60,7 +61,7 @@
                         <a class="tree-item" href="component-overlay.html">Overlay</a>
                         <a class="tree-item" href="component-box.html">Box</a>
                         <a class="tree-item active" href="component-add-source-dialog.html">Add Source Dialog</a>
-                        <a class="tree-item" href="component-add-trigger.html">Add Trigger</a>
+                        <a class="tree-item" href="component-add-trigger.html">Binding Editor</a>
                         <a class="tree-item" href="component-if-else-control.html">IF/Else Control</a>
                         <a class="tree-item" href="component-argument-control.html">Argument Control</a>
                         <a class="tree-item nested" href="#source-dialog-entry">Entry point</a>
@@ -88,6 +89,13 @@
                         <a class="tree-item" href="examples.html#random-source">Random source</a>
                         <a class="tree-item" href="examples.html#trigger-tokens">Trigger tokens</a>
                     </div>
+                    <div class="tree-group">
+                        <div class="tree-heading">More Guides</div>
+                        <a class="tree-item" href="platform-events.html">Platform Events</a>
+                        <a class="tree-item" href="actions-reference.html">Action Reference</a>
+                        <a class="tree-item" href="variables.html">Variables</a>
+                        <a class="tree-item" href="user-groups.html">User Groups</a>
+                    </div>
                     <a class="tree-item root" href="troubleshooting.html">Troubleshooting</a>
                 </nav>
             </aside>
@@ -96,13 +104,13 @@
                 <section id="source-dialog-component">
                     <p class="kicker">Inside Component</p>
                     <h1>Add Source Dialog</h1>
-                    <p class="lead">The Add Source dialog creates or edits one source inside a selected box. A source is the actual thing the box will show or play when the box is triggered.</p>
+                    <p class="lead">Source controls create or edit the text, media, page, or voice content that a binding item shows or plays. The same controls may appear inside the Binding editor or in a source dialog.</p>
                 </section>
 
                 <section class="panel" id="source-dialog-entry">
                     <h2>How To Open It</h2>
-                    <p>Select a box on the overlay stage, then open the box inspector and click <code>Add source</code> in the Sources section. Existing sources can also be edited from that same list.</p>
-                    <p>The dialog saves the source into the selected box. It does not create a new box, move the box, or change the overlay URL.</p>
+                    <p>Select a box on the overlay stage. In its <code>Bindings</code> section, choose <code>Add Binding</code> or open an existing binding. Expand <code>Items</code>, add or open an item, then edit its source in the sliding editor. Existing source controls may also open in a separate dialog.</p>
+                    <p>The source is saved with the selected binding item. To change when it runs, return to the binding's <code>Triggers</code> and <code>Sequencing</code> sections.</p>
                 </section>
 
                 <section class="panel" id="source-dialog-tabs">
@@ -113,7 +121,7 @@
                 <section class="panel" id="source-dialog-defined-tab">
                     <h2>Defined Sources Tab</h2>
                     <img class="screenshot" src="../assets/screenshots/add-source-dialog.png" alt="Add Source dialog showing defined source cards" />
-                    <p>Use this tab when the source already exists in the reusable source library.</p>
+                    <p>Use this browser when the source already exists in your library or when you want to choose KLIPY media. Local source cards and KLIPY results are separate groups.</p>
                     <div class="token-table">
                         <div><strong>UI option</strong></div>
                         <div><strong>What it means</strong></div>
@@ -122,6 +130,13 @@
                         <div><code>Source cards</code></div>
                         <div>Each card is a reusable source that can be attached to the selected box. Click the card you want, then save it into the box.</div>
                     </div>
+                    <h3>Browse KLIPY</h3>
+                    <ol>
+                        <li>Open the KLIPY group in the source browser. Choose GIFs, Stickers, Clips, or Memes.</li>
+                        <li>Select a content rating: PG, PG-13, Mature, or Off. Search or browse the available results and use the page controls to see more.</li>
+                        <li>Select a result, review its preview, and add it to the binding or box. KLIPY branding and any advertisements are part of the provider result display.</li>
+                    </ol>
+                    <p>If the group says <code>Configure KLIPY to browse its library</code>, the running NyankoBot installation has no usable KLIPY configuration. Local uploads and saved sources still work. KLIPY selections are remote media, not local uploaded files.</p>
                 </section>
 
                 <section class="panel" id="source-dialog-text-tab">

@@ -3,22 +3,22 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>NyankoBot Settings - Endpoint, Trigger Processing, Updates, and Logs</title>
+    <title>NyankoBot Settings - App, Groups, Categories, Variables, and Logs</title>
     <link rel="icon" type="image/png" href="../assets/ArnieTW_Mischevous.png" />
 <!-- SEO -->
-    <meta name="description" content="Configure NyankoBot host and port, trigger processing limits, external access, CUDA runtime update behavior, logging level, and daily logs." />
+    <meta name="description" content="Configure NyankoBot app behavior, user groups, category bindings, variables, updates, and logs." />
     <meta name="keywords" content="NyankoBot, OBS overlay, Streamer.bot, streaming overlay, browser source, Twitch bot, stream effects, TTS, CosyVoice, media commands" />
     <meta name="author" content="ArnieTW" />
     <link rel="canonical" href="https://arnietw.github.io/NyankoBot/docs/settings.html" />
     <meta property="og:site_name" content="NyankoBot" />
-    <meta property="og:title" content="NyankoBot Settings - Endpoint, Trigger Processing, Updates, and Logs" />
-    <meta property="og:description" content="Configure NyankoBot host and port, trigger processing limits, external access, CUDA runtime update behavior, logging level, and daily logs." />
+    <meta property="og:title" content="NyankoBot Settings - App, Groups, Categories, Variables, and Logs" />
+    <meta property="og:description" content="Configure NyankoBot app behavior, user groups, category bindings, variables, updates, and logs." />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://arnietw.github.io/NyankoBot/docs/settings.html" />
     <meta property="og:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="NyankoBot Settings - Endpoint, Trigger Processing, Updates, and Logs" />
-    <meta name="twitter:description" content="Configure NyankoBot host and port, trigger processing limits, external access, CUDA runtime update behavior, logging level, and daily logs." />
+    <meta name="twitter:title" content="NyankoBot Settings - App, Groups, Categories, Variables, and Logs" />
+    <meta name="twitter:description" content="Configure NyankoBot app behavior, user groups, category bindings, variables, updates, and logs." />
     <meta name="twitter:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
     <link rel="sitemap" type="application/xml" href="../sitemap.xml" />
 <!-- /SEO -->
@@ -46,6 +46,7 @@
                         <div class="tree-heading">Setup Pages</div>
                         <a class="tree-item" href="overlay-setup.html">Overlay setup</a>
                         <a class="tree-item" href="connectors.html">Connectors</a>
+                        <a class="tree-item" href="stream-status.html">Stream Status</a>
                         <a class="tree-item" href="command-triggers.html">Command Triggers</a>
                         <a class="tree-item" href="channel-rewards.html">Channel Rewards</a>
                         <a class="tree-item" href="chat.html">Chat</a>
@@ -58,6 +59,9 @@
                         <a class="tree-item nested" href="#trigger-processing">Trigger Processing</a>
                         <a class="tree-item nested" href="#external-access">External Access</a>
                         <a class="tree-item nested" href="#updates">Updates</a>
+                        <a class="tree-item nested" href="#groups">User Groups</a>
+                        <a class="tree-item nested" href="#category-bindings">Category Bindings</a>
+                        <a class="tree-item nested" href="#variables">Variables</a>
                         <a class="tree-item nested" href="#logs">Logs</a>
                     </div>
                     <div class="tree-group">
@@ -65,7 +69,7 @@
                         <a class="tree-item" href="component-overlay.html">Overlay</a>
                         <a class="tree-item" href="component-box.html">Box</a>
                         <a class="tree-item" href="component-add-source-dialog.html">Add Source Dialog</a>
-                        <a class="tree-item" href="component-add-trigger.html">Add Trigger</a>
+                        <a class="tree-item" href="component-add-trigger.html">Binding Editor</a>
                         <a class="tree-item" href="component-if-else-control.html">IF/Else Control</a>
                         <a class="tree-item" href="component-argument-control.html">Argument Control</a>
                     </div>
@@ -77,6 +81,13 @@
                         <a class="tree-item" href="examples.html#random-source">Random source</a>
                         <a class="tree-item" href="examples.html#trigger-tokens">Trigger tokens</a>
                     </div>
+                    <div class="tree-group">
+                        <div class="tree-heading">More Guides</div>
+                        <a class="tree-item" href="platform-events.html">Platform Events</a>
+                        <a class="tree-item" href="actions-reference.html">Action Reference</a>
+                        <a class="tree-item" href="variables.html">Variables</a>
+                        <a class="tree-item" href="user-groups.html">User Groups</a>
+                    </div>
                     <a class="tree-item root" href="troubleshooting.html">Troubleshooting</a>
                 </nav>
             </aside>
@@ -85,7 +96,7 @@
                 <section>
                     <p class="kicker">App</p>
                     <h1>Settings</h1>
-                    <p class="lead">Settings controls the local endpoint, trigger queue behavior, external access, update flow, CUDA runtime install behavior, and daily log files.</p>
+                    <p class="lead">Settings controls the local endpoint, trigger processing, external access, updates, user groups, category bindings, variable definitions, and daily log files.</p>
                 </section>
 
                 <section class="panel" id="app-settings">
@@ -135,6 +146,29 @@
                         <div role="row"><code role="cell">Auto-download CUDA runtime</code><span role="cell">Lets NyankoBot download the CUDA runtime pack when GPU support is needed.</span></div>
                         <div role="row"><code role="cell">Auto-restart after CUDA install</code><span role="cell">Allows NyankoBot to restart after CUDA runtime installation so the native files can load cleanly.</span></div>
                         <div role="row"><code role="cell">Update details</code><span role="cell">Shows release information returned by the update check.</span></div>
+                    </div>
+                </section>
+
+                <section class="panel" id="groups">
+                    <h2>User Groups</h2>
+                    <p>Open the <code>Groups</code> tab to create a named group with an optional description, then find users and add them to the selected group. The built-in Ignore group blocks its members from command triggers. See the <a href="user-groups.html">User Groups guide</a> for member search, notes, and troubleshooting.</p>
+                </section>
+
+                <section class="panel" id="category-bindings">
+                    <h2>Category Bindings</h2>
+                    <p>Open the <code>Category Bindings</code> tab to map a global category name to the corresponding category for each connected Twitch or Kick stream. Select <code>Add binding</code>, enter a name, search and select a category for at least one connector, then save. The binding appears in the <a href="stream-status.html#category-bindings">Stream Status</a> global category search.</p>
+                    <p>Select a saved binding to edit its connector categories or delete it. A typed search term is not a selection; choose a category result in the menu.</p>
+                </section>
+
+                <section class="panel" id="variables">
+                    <h2>Variable Definitions</h2>
+                    <p>Open the <code>Variables</code> tab to define values independently from the triggers that read or change them. Select <code>Add variable</code>, then choose its name, scope, type, shape, and default value before saving. The <a href="variables.html">Variables guide</a> covers defaults, current values, usage, and trigger actions.</p>
+                    <div class="token-table" role="table" aria-label="Variable definition choices">
+                        <div role="row"><strong role="cell">Choice</strong><strong role="cell">Meaning</strong></div>
+                        <div role="row"><code role="cell">Scope</code><span role="cell">Argument is used within a trigger run; Persistent keeps a value beyond the run.</span></div>
+                        <div role="row"><code role="cell">Type</code><span role="cell">String, Number, Boolean, Date, JSON, or Object / Class.</span></div>
+                        <div role="row"><code role="cell">Shape</code><span role="cell">A single value, list, or dictionary.</span></div>
+                        <div role="row"><code role="cell">Clear runtime value when NyankoBot starts</code><span role="cell">Available for applicable saved values when you want a fresh runtime value after restart.</span></div>
                     </div>
                 </section>
 

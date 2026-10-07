@@ -46,6 +46,7 @@
                         <div class="tree-heading">Setup Pages</div>
                         <a class="tree-item" href="overlay-setup.html">Overlay setup</a>
                         <a class="tree-item" href="connectors.html">Connectors</a>
+                        <a class="tree-item" href="stream-status.html">Stream Status</a>
                         <a class="tree-item" href="command-triggers.html">Command Triggers</a>
                         <a class="tree-item" href="channel-rewards.html">Channel Rewards</a>
                         <a class="tree-item" href="chat.html">Chat</a>
@@ -60,7 +61,7 @@
                         <a class="tree-item" href="component-overlay.html">Overlay</a>
                         <a class="tree-item" href="component-box.html">Box</a>
                         <a class="tree-item" href="component-add-source-dialog.html">Add Source Dialog</a>
-                        <a class="tree-item" href="component-add-trigger.html">Add Trigger</a>
+                        <a class="tree-item" href="component-add-trigger.html">Binding Editor</a>
                         <a class="tree-item" href="component-if-else-control.html">IF/Else Control</a>
                         <a class="tree-item" href="component-argument-control.html">Argument Control</a>
                     </div>
@@ -73,6 +74,13 @@
                         <a class="tree-item" href="#manual-source">Manual source action</a>
                         <a class="tree-item" href="#random-source">Random source</a>
                         <a class="tree-item" href="#trigger-tokens">Trigger tokens</a>
+                    </div>
+                    <div class="tree-group">
+                        <div class="tree-heading">More Guides</div>
+                        <a class="tree-item" href="platform-events.html">Platform Events</a>
+                        <a class="tree-item" href="actions-reference.html">Action Reference</a>
+                        <a class="tree-item" href="variables.html">Variables</a>
+                        <a class="tree-item" href="user-groups.html">User Groups</a>
                     </div>
                     <a class="tree-item root" href="troubleshooting.html">Troubleshooting</a>
                 </nav>
@@ -162,13 +170,20 @@
                         <div role="row"><code role="cell">{{text}}</code><span role="cell">Normalized text. For Command triggers this is the command argument text with the command prefix removed.</span></div>
                         <div role="row"><code role="cell">{{sanitizedText}}</code><span role="cell">Text with links, emoji, and other noisy parts removed when NyankoBot can sanitize it.</span></div>
                         <div role="row"><code role="cell">{{message.text}}</code><span role="cell">Message text path for payloads that expose a message object. Prefer the short <code>{{text}}</code> alias when available.</span></div>
+                        <div role="row"><span role="cell"><code>{{ref_users[0].display}}</code>, <code>{{ref_users[0].kind}}</code></span><span role="cell">First referenced user in a reply or mention. A reply user is at index 0; otherwise mentions start at index 0. Other fields include id, login, name, messageId, and token.</span></div>
                         <div role="row"><code role="cell">{{command.name}}</code><span role="cell">Command name selected by Streamer.bot.</span></div>
                         <div role="row"><code role="cell">{{command.fullCommand}}</code><span role="cell">Full command text, when Streamer.bot provides it.</span></div>
                         <div role="row"><code role="cell">{{command.counter}}</code><span role="cell">Total command-use counter.</span></div>
                         <div role="row"><code role="cell">{{command.userCounter}}</code><span role="cell">Command-use counter for the current viewer.</span></div>
                         <div role="row"><code role="cell">{{channel.platform}}</code><span role="cell">Twitch, Kick, YouTube, or the platform supplied by the trigger.</span></div>
+                        <div role="row"><span role="cell"><code>{{channel.title}}</code>, <code>{{channel.category}}</code>, <code>{{channel.categoryId}}</code></span><span role="cell">Channel values supplied by the incoming trigger, when available.</span></div>
+                        <div role="row"><span role="cell"><code>{{broadcaster.channelCategory}}</code>, <code>{{broadcaster.channelCategoryId}}</code></span><span role="cell">Broadcaster category values supplied by the incoming trigger, when available.</span></div>
+                        <div role="row"><span role="cell"><code>{{twitch.channel.title}}</code>, <code>{{twitch.channel.category}}</code>, <code>{{twitch.channel.categoryId}}</code></span><span role="cell">Current saved or refreshed Twitch connector channel values.</span></div>
+                        <div role="row"><span role="cell"><code>{{kick.channel.title}}</code>, <code>{{kick.channel.category}}</code>, <code>{{kick.channel.categoryId}}</code></span><span role="cell">Current saved or refreshed Kick connector channel values.</span></div>
+                        <div role="row"><span role="cell"><code>{{twitch.broadcaster.channelCategory}}</code>, <code>{{twitch.broadcaster.channelCategoryId}}</code>, <code>{{kick.broadcaster.channelCategory}}</code>, <code>{{kick.broadcaster.channelCategoryId}}</code></span><span role="cell">Connector-scoped broadcaster category values.</span></div>
                         <div role="row"><code role="cell">{{argumentName}}</code><span role="cell">A value created by Set Argument, Translator, random-list, connector request, or another action result.</span></div>
                     </div>
+                    <p><code>{{channel.*}}</code> and <code>{{broadcaster.*}}</code> are local to the event that fired the trigger. Use <code>{{twitch.*}}</code> or <code>{{kick.*}}</code> when a workflow needs a specific connected platform's current snapshot, even if another platform fired the trigger. Direct connector snapshots refresh when Twitch or Kick starts, when viewers are requested, and after connector request actions run. If a connector is disconnected or has not refreshed yet, its scoped values may be empty or older than the live stream.</p>
                     <p>Autocomplete is the safest way to insert tokens because NyankoBot stores the real token key while displaying a readable label chip.</p>
                 </section>
             </article>

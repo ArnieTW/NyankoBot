@@ -46,6 +46,7 @@
                         <div class="tree-heading">Setup Pages</div>
                         <a class="tree-item" href="overlay-setup.html">Overlay setup</a>
                         <a class="tree-item" href="connectors.html">Connectors</a>
+                        <a class="tree-item" href="stream-status.html">Stream Status</a>
                         <a class="tree-item" href="command-triggers.html">Command Triggers</a>
                         <a class="tree-item" href="channel-rewards.html">Channel Rewards</a>
                         <a class="tree-item" href="chat.html">Chat</a>
@@ -64,7 +65,7 @@
                         <a class="tree-item" href="component-overlay.html">Overlay</a>
                         <a class="tree-item" href="component-box.html">Box</a>
                         <a class="tree-item" href="component-add-source-dialog.html">Add Source Dialog</a>
-                        <a class="tree-item" href="component-add-trigger.html">Add Trigger</a>
+                        <a class="tree-item" href="component-add-trigger.html">Binding Editor</a>
                         <a class="tree-item" href="component-if-else-control.html">IF/Else Control</a>
                         <a class="tree-item" href="component-argument-control.html">Argument Control</a>
                     </div>
@@ -76,6 +77,13 @@
                         <a class="tree-item" href="examples.html#random-source">Random source</a>
                         <a class="tree-item" href="examples.html#trigger-tokens">Trigger tokens</a>
                     </div>
+                    <div class="tree-group">
+                        <div class="tree-heading">More Guides</div>
+                        <a class="tree-item" href="platform-events.html">Platform Events</a>
+                        <a class="tree-item" href="actions-reference.html">Action Reference</a>
+                        <a class="tree-item" href="variables.html">Variables</a>
+                        <a class="tree-item" href="user-groups.html">User Groups</a>
+                    </div>
                     <a class="tree-item root" href="troubleshooting.html">Troubleshooting</a>
                 </nav>
             </aside>
@@ -84,7 +92,8 @@
                 <section>
                     <p class="kicker">Sources</p>
                     <h1>Storage</h1>
-                    <p class="lead">Storage is the audit page for reusable source definitions, their saved variations, media previews, source usage, and cached files.</p>
+                    <p class="lead">Storage has two tabs: Sources for reusable media definitions and Variables for defaults, current values, and trigger usage.</p>
+                    <p><a href="#variables">Jump to the Variables tab</a> or read the full <a href="variables.html">Variables guide</a>.</p>
                 </section>
 
                 <section class="panel" id="defined-sources">
@@ -120,7 +129,7 @@
                     <div class="token-table" role="table" aria-label="Source preview controls">
                         <div role="row"><strong role="cell">Control</strong><strong role="cell">What it does</strong></div>
                         <div role="row"><code role="cell">Preview</code><span role="cell">Opens a floating preview for the selected source.</span></div>
-                        <div role="row"><code role="cell">Regular / Cached</code><span role="cell">Switches between the original source URL and the cached file when both are available.</span></div>
+                        <div role="row"><code role="cell">Regular / Cached</code><span role="cell">Available for sources that have both an original and a cached asset. Remote URL media now loads lazily for the session instead of being kept in a persistent disk cache.</span></div>
                         <div role="row"><code role="cell">Settings</code><span role="cell">Shows source metadata and render settings beside the preview.</span></div>
                         <div role="row"><code role="cell">Preview body</code><span role="cell">Displays the source as NyankoBot can render it: image, video, audio, URL, or other previewable media.</span></div>
                     </div>
@@ -130,9 +139,14 @@
                     <h2>Cleanup</h2>
                     <div class="token-table" role="table" aria-label="Source cleanup actions">
                         <div role="row"><strong role="cell">Action</strong><strong role="cell">Effect</strong></div>
-                        <div role="row"><code role="cell">Delete Cache</code><span role="cell">Removes the cached copy for a remote media source. The source definition remains, but NyankoBot may need to fetch the media again later.</span></div>
+                        <div role="row"><code role="cell">Delete Cache</code><span role="cell">Removes a cached asset when that source type has one. Remote URL media is session-only and may need to load again when used.</span></div>
                         <div role="row"><code role="cell">Delete Source</code><span role="cell">Deletes the reusable source definition after confirmation. Check source usage first.</span></div>
                     </div>
+                </section>
+                <section class="panel" id="variables">
+                    <h2>Variables tab</h2>
+                    <p>Open <code>Variables</code> in Storage to inspect definitions made in <a href="variables.html">Settings → Variables</a>. Search by name or use <code>All</code>, <code>Persistent only</code>, <code>Season only</code>, or <code>Arguments only</code>.</p>
+                    <p>Select a variable to see the triggers and actions that assign or reference it. The inspector shows its default and, for persistent variables, its current stored value. Edit either value and select <code>Save values</code>; argument variables have no current value outside a trigger run. Lists and objects use JSON editors, while dictionaries expose editable key and value rows.</p>
                 </section>
             </article>
         </main>

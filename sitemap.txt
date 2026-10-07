@@ -7,6 +7,11 @@ https://arnietw.github.io/NyankoBot/docs/download-install.html
 https://arnietw.github.io/NyankoBot/docs/quick-setup.html
 https://arnietw.github.io/NyankoBot/docs/overlay-setup.html
 https://arnietw.github.io/NyankoBot/docs/connectors.html
+https://arnietw.github.io/NyankoBot/docs/stream-status.html
+https://arnietw.github.io/NyankoBot/docs/platform-events.html
+https://arnietw.github.io/NyankoBot/docs/actions-reference.html
+https://arnietw.github.io/NyankoBot/docs/variables.html
+https://arnietw.github.io/NyankoBot/docs/user-groups.html
 https://arnietw.github.io/NyankoBot/docs/command-triggers.html
 https://arnietw.github.io/NyankoBot/docs/channel-rewards.html
 https://arnietw.github.io/NyankoBot/docs/chat.html

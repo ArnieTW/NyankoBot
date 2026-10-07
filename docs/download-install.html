@@ -49,6 +49,7 @@
                         <div class="tree-heading">Setup Pages</div>
                         <a class="tree-item" href="overlay-setup.html">Overlay setup</a>
                         <a class="tree-item" href="connectors.html">Connectors</a>
+                        <a class="tree-item" href="stream-status.html">Stream Status</a>
                         <a class="tree-item" href="command-triggers.html">Command Triggers</a>
                         <a class="tree-item" href="channel-rewards.html">Channel Rewards</a>
                         <a class="tree-item" href="chat.html">Chat</a>
@@ -63,7 +64,7 @@
                         <a class="tree-item" href="component-overlay.html">Overlay</a>
                         <a class="tree-item" href="component-box.html">Box</a>
                         <a class="tree-item" href="component-add-source-dialog.html">Add Source Dialog</a>
-                        <a class="tree-item" href="component-add-trigger.html">Add Trigger</a>
+                        <a class="tree-item" href="component-add-trigger.html">Binding Editor</a>
                         <a class="tree-item" href="component-if-else-control.html">IF/Else Control</a>
                         <a class="tree-item" href="component-argument-control.html">Argument Control</a>
                     </div>
@@ -75,6 +76,13 @@
                         <a class="tree-item" href="examples.html#random-source">Random source</a>
                         <a class="tree-item" href="examples.html#trigger-tokens">Trigger tokens</a>
                     </div>
+                    <div class="tree-group">
+                        <div class="tree-heading">More Guides</div>
+                        <a class="tree-item" href="platform-events.html">Platform Events</a>
+                        <a class="tree-item" href="actions-reference.html">Action Reference</a>
+                        <a class="tree-item" href="variables.html">Variables</a>
+                        <a class="tree-item" href="user-groups.html">User Groups</a>
+                    </div>
                     <a class="tree-item root" href="troubleshooting.html">Troubleshooting</a>
                 </nav>
             </aside>
@@ -83,23 +91,24 @@
                 <section>
                     <p class="kicker">Setup</p>
                     <h1>Download & Install</h1>
-                    <p class="lead">Use the latest release package from GitHub Releases.</p>
+                    <p class="lead">Choose the Windows, Linux GUI, or Linux headless package from the latest GitHub Release, then open NyankoBot's local setup page.</p>
                 </section>
 
                 <section class="panel" id="install-steps">
                     <h2>Install Steps</h2>
                     <ol class="step-list">
-                        <li>Download the latest release from <a href="../releases/">Downloads</a>.</li>
+                        <li>Download the package for your operating system from <a href="../releases/">Downloads</a>.</li>
                         <li>Extract the package into a folder you control.</li>
-                        <li>Run <code>NyankoBot.exe</code>.</li>
-                        <li>Use the tray icon to open Setup Home.</li>
+                        <li>On Windows run <code>NyankoBot.exe</code>. On Linux run <code>NyankoBot-gui.sh</code> or <code>NyankoBot-headless.sh</code> from the matching package.</li>
+                        <li>On Windows use the tray icon to open Setup Home. On Linux, open the local setup URL shown by the running app.</li>
                     </ol>
                     <div class="token-table" role="table" aria-label="Install step meanings">
                         <div role="row"><strong role="cell">Step</strong><strong role="cell">What to check</strong></div>
                         <div role="row"><code role="cell">GitHub Releases</code><span role="cell">Use the newest GitHub release package. The public site intentionally points users to GitHub releases instead of hosting separate release builds.</span></div>
                         <div role="row"><code role="cell">Extract package</code><span role="cell">Use a normal folder you control, not a temporary zip preview. This lets NyankoBot create local settings, model cache, overlay data, and logs beside its runtime data path.</span></div>
-                        <div role="row"><code role="cell">NyankoBot.exe</code><span role="cell">Starts the desktop/tray process and local setup server. If Windows blocks first launch, allow the app only when the package came from the expected release.</span></div>
-                        <div role="row"><code role="cell">Tray icon</code><span role="cell">Opens the local Setup Home after launch. If the browser does not open automatically, use the tray menu to open setup manually.</span></div>
+                        <div role="row"><code role="cell">Windows app</code><span role="cell"><code>NyankoBot.exe</code> starts the tray process and local setup server. If Windows blocks first launch, allow the app only when the package came from the expected release.</span></div>
+                        <div role="row"><code role="cell">Linux scripts</code><span role="cell">Use the GUI launcher for a desktop session or the headless launcher for a server session. The Linux packages are still testing builds.</span></div>
+                        <div role="row"><code role="cell">Setup Home</code><span role="cell">Use the Windows tray menu or the local address printed by a Linux launch. The setup and overlay URLs use the configured host and port.</span></div>
                     </div>
                 </section>
 
@@ -111,7 +120,7 @@
 
                 <section class="panel" id="setup-home">
                     <h2>Setup Home</h2>
-                    <p>After launch, open Setup Home from the tray. This page is the public entry point for every setup area.</p>
+                    <p>After launch, open Setup Home from the Windows tray or your Linux browser. This page is the entry point for the main setup areas; Chat and Stream Status also open from the header.</p>
                     <img class="screenshot" src="../assets/screenshots/setup-home.png" alt="NyankoBot setup home screen" />
                     <div class="token-table" role="table" aria-label="Setup Home controls">
                         <div role="row"><strong role="cell">Entry</strong><strong role="cell">Use it for</strong></div>
@@ -121,7 +130,8 @@
                         <div role="row"><code role="cell">Channel Rewards</code><span role="cell">Create shared rewards and map them to Twitch or Kick connector instances. See <a href="channel-rewards.html">Channel Rewards</a>.</span></div>
                         <div role="row"><code role="cell">Chat</code><span role="cell">Watch connector chat events while testing commands and overlay reactions. See <a href="chat.html">Chat</a>.</span></div>
                         <div role="row"><code role="cell">Streamer.bot Connector</code><span role="cell">Connect NyankoBot to Streamer.bot, subscribe to event groups, and inspect bound triggers.</span></div>
-                        <div role="row"><code role="cell">TTS Setup</code><span role="cell">Add Google TTS or CosyVoice providers, enable healthy models, test voices, and configure TTS sources.</span></div>
+                        <div role="row"><code role="cell">TTS Setup</code><span role="cell">Add Google TTS or local CosyVoice and Kokoro models, test voices, and configure TTS sources.</span></div>
+                        <div role="row"><code role="cell">Stream Status</code><span role="cell">Update connected Twitch and Kick stream titles, categories, and supported tags. See <a href="stream-status.html">Stream Status</a>.</span></div>
                         <div role="row"><code role="cell">Translators</code><span role="cell">Configure Google or local translation providers for trigger actions. See <a href="translators.html">Translators</a>.</span></div>
                         <div role="row"><code role="cell">Storage</code><span role="cell">Review reusable source assets and cached source data when media or source references need checking. See <a href="manage-sources.html">Storage</a>.</span></div>
                         <div role="row"><code role="cell">Settings</code><span role="cell">Inspect app settings, update checks, and logs. See <a href="settings.html">Settings</a>.</span></div>

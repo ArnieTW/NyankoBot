@@ -1,6 +1,6 @@
 ﻿# NyankoBot Public Site
 
-Public GitHub Pages site for **NyankoBot**, a Windows streaming overlay companion for OBS, Streamer.bot, reusable media sources, TTS providers, and translator providers.
+Public GitHub Pages site for **NyankoBot**, a Windows and Linux streaming overlay companion for OBS, Streamer.bot, reusable media sources, TTS providers, and translator providers.
 
 NyankoBot helps streamers create one full-scene OBS browser-source overlay, place multiple trigger-driven boxes inside it, bind those boxes to Streamer.bot, Twitch, Kick, OBS, Stream Deck, and NyankoBot actions, then show text, media, URL, TTS, or translated output on stream.
 

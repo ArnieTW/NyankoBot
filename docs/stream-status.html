@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NyankoBot Stream Status - Update Twitch and Kick Streams</title>
+    <link rel="icon" type="image/png" href="../assets/ArnieTW_Mischevous.png" />
+    <meta name="description" content="Update connected Twitch and Kick stream titles, categories, and supported tags from NyankoBot, and map categories across platforms." />
+    <link rel="canonical" href="https://arnietw.github.io/NyankoBot/docs/stream-status.html" />
+    <meta property="og:site_name" content="NyankoBot" />
+    <meta property="og:title" content="NyankoBot Stream Status - Update Twitch and Kick Streams" />
+    <meta property="og:description" content="Update connected Twitch and Kick stream titles, categories, and supported tags from NyankoBot." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://arnietw.github.io/NyankoBot/docs/stream-status.html" />
+    <meta property="og:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="sitemap" type="application/xml" href="../sitemap.xml" />
+    <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+    <div class="page">
+        <nav class="nav" aria-label="Main navigation">
+            <a class="brand" href="../index.html"><img class="brand-logo" src="../assets/ArnieTW_Mischevous.png" alt="" /><span>NyankoBot</span></a>
+            <div class="nav-links">
+                <a href="index.html">Documentation</a>
+                <a href="../roadmap.html">Roadmap</a>
+                <a href="https://github.com/ArnieTW/NyankoBot/issues">Issues</a>
+                <a href="../releases/">Downloads</a>
+            </div>
+        </nav>
+        <main class="docs-layout">
+            <aside class="tree-nav" aria-label="Documentation navigation">
+                <nav class="tree-control" aria-label="Documentation tree">
+                    <a class="tree-item root" href="index.html">Overview</a>
+                    <a class="tree-item root" href="download-install.html">Download &amp; Install</a>
+                    <a class="tree-item root" href="quick-setup.html">Quick Setup</a>
+                    <div class="tree-group">
+                        <div class="tree-heading">Setup Pages</div>
+                        <a class="tree-item" href="overlay-setup.html">Overlay Setup</a>
+                        <a class="tree-item" href="connectors.html">Connectors</a>
+                        <a class="tree-item active" href="stream-status.html" aria-current="page">Stream Status</a>
+                        <a class="tree-item nested active" href="#edit-status">Edit stream status</a>
+                        <a class="tree-item nested" href="#category-bindings">Category bindings</a>
+                        <a class="tree-item nested" href="#troubleshooting">If an update fails</a>
+                        <a class="tree-item" href="command-triggers.html">Command Triggers</a>
+                        <a class="tree-item" href="channel-rewards.html">Channel Rewards</a>
+                        <a class="tree-item" href="chat.html">Chat</a>
+                        <a class="tree-item" href="streamerbot.html">Streamer.bot Connector</a>
+                        <a class="tree-item" href="tts.html">TTS Setup</a>
+                        <a class="tree-item" href="translators.html">Translators</a>
+                        <a class="tree-item" href="manage-sources.html">Storage</a>
+                        <a class="tree-item" href="settings.html">Settings</a>
+                    </div>
+                    <div class="tree-group">
+                        <div class="tree-heading">Components</div>
+                        <a class="tree-item" href="component-overlay.html">Overlay</a>
+                        <a class="tree-item" href="component-box.html">Box</a>
+                        <a class="tree-item" href="component-add-source-dialog.html">Add Source Dialog</a>
+                        <a class="tree-item" href="component-add-trigger.html">Binding Editor</a>
+                        <a class="tree-item" href="component-if-else-control.html">IF/Else Control</a>
+                        <a class="tree-item" href="component-argument-control.html">Argument Control</a>
+                    </div>
+                    <div class="tree-group">
+                        <div class="tree-heading">Examples</div>
+                        <a class="tree-item" href="examples.html#trigger-tokens">Trigger tokens</a>
+                    </div>
+                    <div class="tree-group">
+                        <div class="tree-heading">More Guides</div>
+                        <a class="tree-item" href="platform-events.html">Platform Events</a>
+                        <a class="tree-item" href="actions-reference.html">Action Reference</a>
+                        <a class="tree-item" href="variables.html">Variables</a>
+                        <a class="tree-item" href="user-groups.html">User Groups</a>
+                    </div>
+                    <a class="tree-item root" href="troubleshooting.html">Troubleshooting</a>
+                </nav>
+            </aside>
+            <article class="doc-content">
+                <section>
+                    <p class="kicker">Setup Page</p>
+                    <h1>Stream Status</h1>
+                    <p class="lead">Use Stream Status to change the title and category on connected Twitch and Kick streams, with tags where a connector supports them. Open it from the <code>Stream Status</code> control in the Setup Home header.</p>
+                </section>
+                <section class="panel" id="edit-status">
+                    <h2>Edit stream status</h2>
+                    <ol>
+                        <li>Enable and connect a <a href="connectors.html">Twitch or Kick connector</a>. Connected streams appear under <code>Streams</code>, with a Live, Offline, or Unknown indicator.</li>
+                        <li>Enter a <code>Global</code> stream title to fill the title for every listed stream, or edit each stream title separately.</li>
+                        <li>Search the <code>Global</code> stream category and select a result. The chooser shows categories available from your connectors and any saved category bindings. Review the category shown on each stream afterward.</li>
+                        <li>Add or remove stream tags on connectors that show a <code>Stream tags</code> row. The tag row is absent when the connector does not support it.</li>
+                        <li>Select <code>Update streams</code>. Every stream needs a nonempty title. Read the result message; individual streams can fail even when others update.</li>
+                    </ol>
+                    <p>Edits stay in the page until you update streams. The unsaved-edits indicator means the displayed values are still a draft. Use <code>Cancel Editing</code> to restore the latest loaded values.</p>
+                </section>
+                <section class="panel" id="category-bindings">
+                    <h2>Map categories across platforms</h2>
+                    <p>A category name or ID can differ between Twitch and Kick. Open <a href="settings.html#category-bindings">Settings → Category Bindings</a> to save one named binding with the matching category for each connector.</p>
+                    <ol>
+                        <li>Select <code>Add binding</code> and give it a name you will recognize in the global category search.</li>
+                        <li>Search and select the category for each applicable connector. At least one connector category is required.</li>
+                        <li>Select <code>Save binding</code>. Back in Stream Status, choose that binding from the global category results and verify each stream's resolved category before updating.</li>
+                    </ol>
+                    <p>Choosing an ordinary category result only fills streams for which that result has a connector mapping. A saved binding is useful when the two platforms use different names for the same game or topic.</p>
+                </section>
+                <section class="panel" id="troubleshooting">
+                    <h2>If an update fails</h2>
+                    <ul>
+                        <li>If no streams appear, check that a Twitch or Kick connector is enabled and connected on <a href="connectors.html">Connectors</a>.</li>
+                        <li>If category search has no result, try the platform's category name and check Category Bindings. Select a result from the menu; typing alone does not choose a category.</li>
+                        <li>If only some streams update, read the per-stream error shown after <code>Update streams</code> and check that connector's login and permissions.</li>
+                    </ul>
+                    <p>Trigger actions can use the current saved or refreshed channel title and category through <a href="examples.html#trigger-tokens">connector-scoped tokens</a>.</p>
+                </section>
+            </article>
+        </main>
+    </div>
+    <script src="../docs-nav.js"></script>
+</body>
+</html>

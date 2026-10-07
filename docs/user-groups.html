@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NyankoBot User Groups and Command Permissions</title>
+    <link rel="icon" type="image/png" href="../assets/ArnieTW_Mischevous.png" />
+    <meta name="description" content="Create NyankoBot user groups, find users across connectors, and use the Ignore group to block command triggers." />
+    <link rel="canonical" href="https://arnietw.github.io/NyankoBot/docs/user-groups.html" />
+    <meta property="og:title" content="NyankoBot User Groups and Command Permissions" />
+    <meta property="og:description" content="Organize users across connectors and manage the Ignore group." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://arnietw.github.io/NyankoBot/docs/user-groups.html" />
+    <meta property="og:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
+    <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+    <div class="page">
+        <nav class="nav" aria-label="Main navigation"><a class="brand" href="../index.html"><img class="brand-logo" src="../assets/ArnieTW_Mischevous.png" alt="" /><span>NyankoBot</span></a><div class="nav-links"><a href="index.html">Documentation</a><a href="../roadmap.html">Roadmap</a><a href="https://github.com/ArnieTW/NyankoBot/issues">Issues</a><a href="../releases/">Downloads</a></div></nav>
+        <main class="docs-layout">
+            <aside class="tree-nav" aria-label="Documentation navigation"><nav class="tree-control" aria-label="Documentation tree">
+                <a class="tree-item root" href="index.html">Overview</a>
+                <a class="tree-item root" href="quick-setup.html">Quick Setup</a>
+                <div class="tree-group"><div class="tree-heading">Setup Pages</div>
+                    <a class="tree-item" href="connectors.html">Connectors</a>
+                    <a class="tree-item" href="command-triggers.html">Command Triggers</a>
+                    <a class="tree-item" href="settings.html">Settings</a>
+                    <a class="tree-item active" href="user-groups.html" aria-current="page">User Groups</a>
+                    <a class="tree-item nested active" href="#create">Create a group</a>
+                    <a class="tree-item nested" href="#members">Manage members</a>
+                    <a class="tree-item nested" href="#permissions">Use in triggers</a>
+                </div>
+                <a class="tree-item root" href="variables.html">Variables</a>
+                <a class="tree-item root" href="troubleshooting.html">Troubleshooting</a>
+            </nav></aside>
+            <article class="doc-content">
+                <section><p class="kicker">Settings</p><h1>User Groups</h1><p class="lead">Use <code>Settings → Groups</code> to organize viewers across connected platforms. The built-in Ignore group blocks its members from command triggers.</p></section>
+                <section class="panel" id="create"><h2>Create a group</h2>
+                    <ol><li>Open <code>Settings</code>, then the <code>Groups</code> tab.</li><li>Select <code>New group</code>. Enter a name and optional description, then select <code>Save group</code>.</li><li>Select the saved group in <code>Group List</code> to see its members. Use <code>Refresh</code> if connector user data has changed.</li></ol>
+                    <p>NyankoBot also has a default <code>Ignore</code> group. Users in Ignore are blocked from all command triggers, so check membership there when a viewer's commands never run.</p>
+                </section>
+                <section class="panel" id="members"><h2>Find and manage members</h2>
+                    <ol><li>Select the target group first.</li><li>Under <code>Find User</code>, enter a username or login and select <code>Search</code>. Results come from available connector user data.</li><li>Choose the correct platform user from the results and add them to the group.</li><li>Use the selected group's member list to inspect users, maintain notes, or remove a member when their access changes.</li></ol>
+                    <p>When a search has no result, check that the platform connector is connected and has seen or cached the user. The same display name may belong to different platform accounts; check the connector identity before adding someone.</p>
+                </section>
+                <section class="panel" id="permissions"><h2>Use Ignore with command triggers</h2>
+                    <p>The Ignore group is a global block for <a href="command-triggers.html">Command Triggers</a>. Remove a user from Ignore before testing their command. Use the trigger editor's separate platform role restriction and cooldown controls for roles such as moderator, VIP, follower, or subscriber.</p>
+                    <p>After changing a trigger, test with a member account and review <code>History</code> if it does not fire.</p>
+                </section>
+            </article>
+        </main>
+    </div>
+    <script src="../docs-nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NyankoBot Command Trigger Action Reference</title>
+    <link rel="icon" type="image/png" href="../assets/ArnieTW_Mischevous.png" />
+    <meta name="description" content="Reference for NyankoBot command trigger actions, including chat, variables, language, overlays, web requests, conditions, and connector requests." />
+    <link rel="canonical" href="https://arnietw.github.io/NyankoBot/docs/actions-reference.html" />
+    <meta property="og:title" content="NyankoBot Command Trigger Action Reference" />
+    <meta property="og:description" content="Choose and configure NyankoBot command trigger actions." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://arnietw.github.io/NyankoBot/docs/actions-reference.html" />
+    <meta property="og:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
+    <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+    <div class="page">
+        <nav class="nav" aria-label="Main navigation"><a class="brand" href="../index.html"><img class="brand-logo" src="../assets/ArnieTW_Mischevous.png" alt="" /><span>NyankoBot</span></a><div class="nav-links"><a href="index.html">Documentation</a><a href="../roadmap.html">Roadmap</a><a href="https://github.com/ArnieTW/NyankoBot/issues">Issues</a><a href="../releases/">Downloads</a></div></nav>
+        <main class="docs-layout">
+            <aside class="tree-nav" aria-label="Documentation navigation"><nav class="tree-control" aria-label="Documentation tree">
+                <a class="tree-item root" href="index.html">Overview</a><a class="tree-item root" href="command-triggers.html">Command Triggers</a>
+                <div class="tree-group"><div class="tree-heading">Reference</div><a class="tree-item active" href="actions-reference.html" aria-current="page">Action Reference</a><a class="tree-item nested active" href="#catalog">Action catalog</a><a class="tree-item nested" href="#workflow">Build a flow</a><a class="tree-item nested" href="#results">Results and tokens</a><a class="tree-item" href="variables.html">Variables</a><a class="tree-item" href="examples.html#trigger-tokens">Trigger tokens</a></div>
+                <a class="tree-item root" href="troubleshooting.html">Troubleshooting</a>
+            </nav></aside>
+            <article class="doc-content">
+                <section><p class="kicker">Command Triggers</p><h1>Action Reference</h1><p class="lead">Actions run when a command trigger passes its event, permission, and cooldown checks. Open a trigger, select <code>Add Action</code>, choose the action, fill its fields, then save the trigger.</p></section>
+                <section class="panel" id="catalog"><h2>Action catalog</h2>
+                    <div class="token-table" role="table" aria-label="Command trigger actions">
+                        <div role="row"><strong role="cell">Action</strong><strong role="cell">Use it for</strong></div>
+                        <div role="row"><code role="cell">Send Chat Message</code><span role="cell">Reply on selected chat platforms, with bot and broadcaster sending options.</span></div>
+                        <div role="row"><code role="cell">Set Argument</code><span role="cell">Change a defined argument during the current trigger run.</span></div>
+                        <div role="row"><code role="cell">Set Persistent Variable</code><span role="cell">Change a defined value that persists beyond the trigger run.</span></div>
+                        <div role="row"><code role="cell">Select String</code><span role="cell">Select from a list of strings and store the choice as an argument.</span></div>
+                        <div role="row"><code role="cell">Detect Language</code><span role="cell">Detect text language using candidate languages and a confidence threshold.</span></div>
+                        <div role="row"><code role="cell">Translate Text</code><span role="cell">Translate text through a configured provider and store the result.</span></div>
+                        <div role="row"><code role="cell">Wait</code><span role="cell">Pause before the next action.</span></div>
+                        <div role="row"><code role="cell">IF Statement</code><span role="cell">Run Then or Else actions according to a condition.</span></div>
+                        <div role="row"><code role="cell">Trigger Binding</code><span role="cell">Fire an overlay binding from this action flow.</span></div>
+                        <div role="row"><code role="cell">Trigger Box Source</code><span role="cell">Fire a specific source on a selected overlay and box.</span></div>
+                        <div role="row"><code role="cell">HTTP Request</code><span role="cell">Call a web endpoint with supported authentication, body, and result settings.</span></div>
+                        <div role="row"><code role="cell">Discord Webhook</code><span role="cell">Post a message or embed through a Discord webhook.</span></div>
+                        <div role="row"><code role="cell">Connector Request</code><span role="cell">Call a request supported by a selected Twitch, Kick, OBS, or Streamer.bot connector.</span></div>
+                    </div>
+                    <p>The Add Action picker also shows connector-specific requests supplied by currently available connectors. Their fields and connection choices depend on the selected request.</p>
+                    <h3>Connector request categories</h3>
+                    <p>Twitch requests include channel metadata, ads, chat and moderation, rewards, clips, followers, polls, predictions, raids, and other supported API groups. Kick, OBS, and Streamer.bot contribute their own request types when those connectors are configured. Choose the request from the picker so NyankoBot shows its actual fields and compatible connector instances.</p>
+                    <p>Some requests need platform login scopes or a broadcaster account with the required permission. If a request is unavailable or fails, check the connector status and request details rather than sending a raw payload to a different action.</p>
+                </section>
+                <section class="panel" id="workflow"><h2>Build a flow</h2>
+                    <ol><li>Create or open a <a href="command-triggers.html">Command Trigger</a> and add the event that should start it.</li><li>Add actions in the order they should run. Use <code>IF Statement</code> for branches and <code>Wait</code> for a timed pause.</li><li>For a variable action, create its definition first under <a href="variables.html">Settings → Variables</a>.</li><li>For translation, configure a provider under <a href="translators.html">Translators</a>. For a connector request, connect the required platform under <a href="connectors.html">Connectors</a>.</li><li>Save and test the trigger, then inspect <code>History</code> for matched events, inputs, and action results.</li></ol>
+                </section>
+                <section class="panel" id="results"><h2>Results and tokens</h2>
+                    <p>Fields with token autocomplete can read the incoming event, for example <code>{{user.display}}</code> or <code>{{text}}</code>. An action can also use arguments and results produced by actions before it. Put a producer action before the action that reads its output.</p>
+                    <p>Use <a href="examples.html#trigger-tokens">Trigger tokens</a> for common event and connector-scoped mappings. The action editor's fields are generated from each action's schema, so select an action to see its exact required inputs and available result storage options.</p>
+                </section>
+            </article>
+        </main>
+    </div>
+    <script src="../docs-nav.js"></script>
+</body>
+</html>

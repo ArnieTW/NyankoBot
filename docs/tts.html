@@ -6,19 +6,19 @@
     <title>NyankoBot TTS Setup - Local Models and Voice Cloning</title>
     <link rel="icon" type="image/png" href="../assets/ArnieTW_Mischevous.png" />
 <!-- SEO -->
-    <meta name="description" content="Configure NyankoBot TTS providers, including CosyVoice local models and Google TTS, then test voices and create TTS overlay sources." />
-    <meta name="keywords" content="NyankoBot, OBS overlay, Streamer.bot, streaming overlay, browser source, Twitch bot, stream effects, TTS, CosyVoice, media commands" />
+    <meta name="description" content="Configure NyankoBot TTS with local CosyVoice and Kokoro models or Google TTS, then test voices and create overlay voice sources." />
+    <meta name="keywords" content="NyankoBot, OBS overlay, Streamer.bot, streaming overlay, browser source, Twitch bot, stream effects, TTS, CosyVoice, Kokoro, media commands" />
     <meta name="author" content="ArnieTW" />
     <link rel="canonical" href="https://arnietw.github.io/NyankoBot/docs/tts.html" />
     <meta property="og:site_name" content="NyankoBot" />
     <meta property="og:title" content="NyankoBot TTS Setup - Local Models and Voice Cloning" />
-    <meta property="og:description" content="Configure NyankoBot TTS providers, including CosyVoice local models and Google TTS, then test voices and create TTS overlay sources." />
+    <meta property="og:description" content="Configure NyankoBot TTS with local CosyVoice and Kokoro models or Google TTS, then test voices and create overlay voice sources." />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://arnietw.github.io/NyankoBot/docs/tts.html" />
     <meta property="og:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="NyankoBot TTS Setup - Local Models and Voice Cloning" />
-    <meta name="twitter:description" content="Configure NyankoBot TTS providers, including CosyVoice local models and Google TTS, then test voices and create TTS overlay sources." />
+    <meta name="twitter:description" content="Configure NyankoBot TTS with local CosyVoice and Kokoro models or Google TTS, then test voices and create overlay voice sources." />
     <meta name="twitter:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
     <link rel="sitemap" type="application/xml" href="../sitemap.xml" />
 <!-- /SEO -->
@@ -46,6 +46,7 @@
                         <div class="tree-heading">Setup Pages</div>
                         <a class="tree-item" href="overlay-setup.html">Overlay setup</a>
                         <a class="tree-item" href="connectors.html">Connectors</a>
+                        <a class="tree-item" href="stream-status.html">Stream Status</a>
                         <a class="tree-item" href="command-triggers.html">Command Triggers</a>
                         <a class="tree-item" href="channel-rewards.html">Channel Rewards</a>
                         <a class="tree-item" href="chat.html">Chat</a>
@@ -67,7 +68,7 @@
                         <a class="tree-item" href="component-overlay.html">Overlay</a>
                         <a class="tree-item" href="component-box.html">Box</a>
                         <a class="tree-item" href="component-add-source-dialog.html">Add Source Dialog</a>
-                        <a class="tree-item" href="component-add-trigger.html">Add Trigger</a>
+                        <a class="tree-item" href="component-add-trigger.html">Binding Editor</a>
                         <a class="tree-item" href="component-if-else-control.html">IF/Else Control</a>
                         <a class="tree-item" href="component-argument-control.html">Argument Control</a>
                     </div>
@@ -79,6 +80,13 @@
                         <a class="tree-item" href="examples.html#random-source">Random source</a>
                         <a class="tree-item" href="examples.html#trigger-tokens">Trigger tokens</a>
                     </div>
+                    <div class="tree-group">
+                        <div class="tree-heading">More Guides</div>
+                        <a class="tree-item" href="platform-events.html">Platform Events</a>
+                        <a class="tree-item" href="actions-reference.html">Action Reference</a>
+                        <a class="tree-item" href="variables.html">Variables</a>
+                        <a class="tree-item" href="user-groups.html">User Groups</a>
+                    </div>
                     <a class="tree-item root" href="troubleshooting.html">Troubleshooting</a>
                 </nav>
             </aside>
@@ -87,29 +95,29 @@
                 <section>
                     <p class="kicker">Voice</p>
                     <h1>TTS Setup</h1>
-                    <p class="lead">NyankoBot can use CosyVoice local models and Google TTS providers for generated voice sources, test audio, and saved cloned voices.</p>
+                    <p class="lead">NyankoBot can use local CosyVoice and Kokoro models or Google TTS for generated voice sources and test audio. Models with cloning support can also save reusable voices.</p>
                 </section>
 
                 <section class="panel" id="model-setup">
                     <h2>Model Setup</h2>
                     <img class="screenshot" src="../assets/screenshots/tts-setup.png" alt="TTS Setup setup page" />
-                    <p>The TTS Setup page lists configured TTS providers and enabled models. CosyVoice cards expose local model runtime controls, while Google TTS uses an uploaded service-account JSON file and pulls language/voice choices from Google.</p>
+                    <p>The TTS Setup page lists configured TTS providers and enabled models. Local CosyVoice and Kokoro cards expose runtime controls, while Google TTS uses an uploaded service-account JSON file and pulls language/voice choices from Google.</p>
                     <ol class="step-list">
                         <li>Open TTS Setup from Setup Home.</li>
-                        <li>Use <code>Add TTS</code> to add CosyVoice or Google TTS providers.</li>
+                        <li>Use <code>Add TTS</code> to add an available local CosyVoice or Kokoro model, or Google TTS.</li>
                         <li>Choose a Default Model from models that are added, enabled, and healthy.</li>
                         <li>For Google TTS, upload a service-account JSON file and use Test to confirm generation.</li>
-                        <li>For CosyVoice, pick runtime settings, enable the model, then use Test or Clone/Test.</li>
+                        <li>For a local model, pick runtime settings, enable it, then use Test or Clone/Test when supported.</li>
                     </ol>
                 </section>
 
                 <section class="panel" id="model-controls">
                     <h2>Model Controls</h2>
-                    <p>Use model controls to decide which provider or local voice model is available to overlay TTS sources. Keep the running CosyVoice model list small; each enabled local model consumes memory.</p>
+                    <p>Use model controls to decide which provider or local voice model is available to overlay TTS sources. Keep the running local model list small; each enabled model consumes memory.</p>
                     <div class="token-table" role="table" aria-label="TTS model controls">
                         <div role="row"><strong role="cell">Control</strong><strong role="cell">What it does</strong></div>
                         <div role="row"><code role="cell">Default Model</code><span role="cell">Chooses the model/provider used when a TTS source does not explicitly override it.</span></div>
-                        <div role="row"><code role="cell">Add TTS</code><span role="cell">Adds a provider such as Google TTS or a CosyVoice model card.</span></div>
+                        <div role="row"><code role="cell">Add TTS</code><span role="cell">Adds Google TTS or an available local CosyVoice or Kokoro model card.</span></div>
                         <div role="row"><code role="cell">Choose JSON</code><span role="cell">Stores the Google service-account JSON file name and encrypted credential content without showing the JSON body.</span></div>
                         <div role="row"><code role="cell">Enable</code><span role="cell">Starts the selected model with the current runtime settings. If the model is missing, NyankoBot must download it before it can run.</span></div>
                         <div role="row"><code role="cell">Disable</code><span role="cell">Stops the model and frees the runtime resources it was using.</span></div>
@@ -153,6 +161,7 @@
                     <h2>Settings</h2>
                     <img class="screenshot" src="../assets/screenshots/tts-cpu-settings.png" alt="TTS model runtime settings" />
                     <p>Runtime settings control where the model runs and how much performance risk NyankoBot should take. Change these before enabling a model, then save settings when the page shows unsaved changes.</p>
+                    <p>Kokoro cards show <code>Precision</code> choices <code>FP32</code>, <code>FP16</code>, and <code>INT8</code>. CosyVoice cards instead show an optimization profile and an <code>fp16</code> toggle. Choose the options on the card for the model you added.</p>
                     <div class="token-table" role="table" aria-label="TTS settings">
                         <div role="row"><strong role="cell">Setting</strong><strong role="cell">Meaning</strong></div>
                         <div role="row"><code role="cell">Default Model</code><span role="cell">The model selected automatically for new or unspecified TTS sources.</span></div>
@@ -173,7 +182,7 @@
                 <section class="panel example" id="example">
                     <h2>Example: TTS Source From Chat</h2>
                     <img class="screenshot" src="../assets/screenshots/add-source-dialog-tts.png" alt="Add Source dialog showing the TTS Source tab" />
-                    <p>A TTS source is created from the <a href="component-add-source-dialog.html">Add Source Dialog</a> and usually paired with an <a href="component-add-trigger.html">Add Trigger</a> command binding.</p>
+                    <p>Create a TTS item in the <a href="component-add-trigger.html">Binding Editor</a> and configure its voice and message with the <a href="component-add-source-dialog.html">source controls</a>. Add a command or other trigger to the binding.</p>
                     <ol class="step-list">
                         <li>Enable a TTS model and verify that it is running.</li>
                         <li>Open Voice Tools and generate a short test sentence.</li>
