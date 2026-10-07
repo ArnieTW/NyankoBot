@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NyankoBot Connector Action Catalog</title>
+    <link rel="icon" type="image/png" href="../assets/ArnieTW_Mischevous.png" />
+    <meta name="description" content="Supported Twitch and Kick connector actions in NyankoBot, with effects and required account scopes." />
+    <link rel="canonical" href="https://arnietw.github.io/NyankoBot/docs/connector-actions.html" />
+    <meta property="og:title" content="NyankoBot Connector Action Catalog" />
+    <meta property="og:description" content="Supported Twitch and Kick connector actions, effects, and scopes." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://arnietw.github.io/NyankoBot/docs/connector-actions.html" />
+    <meta property="og:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
+    <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+    <div class="page">
+        <nav class="nav" aria-label="Main navigation"><a class="brand" href="../index.html"><img class="brand-logo" src="../assets/ArnieTW_Mischevous.png" alt="" /><span>NyankoBot</span></a><div class="nav-links"><a href="index.html">Documentation</a><a href="../roadmap.html">Roadmap</a><a href="https://github.com/ArnieTW/NyankoBot/issues">Issues</a><a href="../releases/">Downloads</a></div></nav>
+        <main class="docs-layout">
+            <aside class="tree-nav" aria-label="Documentation navigation"><nav class="tree-control" aria-label="Documentation tree">
+                <a class="tree-item root" href="index.html">Overview</a><a class="tree-item root" href="command-triggers.html">Command Triggers</a>
+                <div class="tree-group"><div class="tree-heading">Reference</div><a class="tree-item" href="actions-reference.html">Action Reference</a><a class="tree-item active" href="connector-actions.html" aria-current="page">Connector Actions</a><a class="tree-item nested" href="#using-requests">Using requests</a><a class="tree-item nested" href="#twitch">Twitch requests</a><a class="tree-item nested" href="#kick">Kick requests</a><a class="tree-item nested" href="#other-connectors">OBS and Streamer.bot</a></div>
+                <a class="tree-item root" href="connectors.html">Connectors</a><a class="tree-item root" href="troubleshooting.html">Troubleshooting</a>
+            </nav></aside>
+            <article class="doc-content">
+                <section><p class="kicker">Command Triggers</p><h1>Connector Action Catalog</h1><p class="lead">These requests are available as named actions in the command trigger action picker when a compatible connector is configured. Each entry below is marked implemented in the NyankoBot connector catalog.</p></section>
+                <section class="panel" id="using-requests"><h2>Using connector requests</h2>
+                    <ol><li>Connect the platform account under <a href="connectors.html">Connectors</a> and grant the listed scopes.</li><li>Open a <a href="command-triggers.html">Command Trigger</a>, choose <code>Add Action</code>, and select the named request.</li><li>Select a compatible connector instance and fill the required fields shown for that request. Fields vary by request and can use trigger tokens where the editor offers them.</li><li>Set <code>Store result as argument</code> if later actions need the response. Use <code>Save as persistent</code> and <code>Session only</code> when the result must outlive the trigger run.</li><li>Save and run the trigger. Inspect History and connector logs if a request fails; a platform can reject a request when the account lacks the needed role, permission, or resource.</li></ol>
+                    <p>The picker may show different entries depending on the connected instance. Catalog entries that are placeholders or marked unimplemented in source are omitted here. The internal <code>Connector Request</code> runner is described in the <a href="actions-reference.html#connector-actions">Action Reference</a>.</p>
+                </section>
+                <section class="panel" id="twitch"><h2>Twitch requests (70)</h2>
+                    <p>Select a connected Twitch account, then choose the request in <code>Add Action</code>. These entries are marked implemented in the Twitch connector catalog. Scope names below are the permissions requested by the catalog; the account must also have the role needed for the operation.</p>
+                    <h3 id="twitch-ads">Ads</h3>
+                    <div class="request-table" role="table" aria-label="Twitch Ads requests">
+                        <div role="row"><strong role="cell">Request</strong><strong role="cell">Effect</strong><strong role="cell">Required scope</strong></div>
+                        <div role="row"><code role="cell">Get Ad Schedule</code><span role="cell">Reads the channel&#x27;s upcoming ad schedule.</span><span role="cell"><code>channel:read:ads</code></span></div>
+                        <div role="row"><code role="cell">Run Commercial</code><span role="cell">Starts an ad break for the configured length.</span><span role="cell"><code>channel:edit:commercial</code></span></div>
+                        <div role="row"><code role="cell">Snooze Ad</code><span role="cell">Delays the next scheduled ad break when a snooze is available.</span><span role="cell"><code>channel:manage:ads</code></span></div>
+                    </div>
+                    <h3 id="twitch-channel">Channel</h3>
+                    <div class="request-table" role="table" aria-label="Twitch Channel requests">
+                        <div role="row"><strong role="cell">Request</strong><strong role="cell">Effect</strong><strong role="cell">Required scope</strong></div>
+                        <div role="row"><code role="cell">Create Clip</code><span role="cell">Creates a clip from the live stream.</span><span role="cell"><code>clips:edit</code></span></div>
+                        <div role="row"><code role="cell">Create Stream Marker</code><span role="cell">Adds a marker to the current stream.</span><span role="cell"><code>channel:manage:broadcast</code></span></div>
+                        <div role="row"><code role="cell">Set Channel Branded Content</code><span role="cell">Changes the channel&#x27;s branded content.</span><span role="cell"><code>channel:manage:broadcast</code></span></div>
+                        <div role="row"><code role="cell">Set Channel Game</code><span role="cell">Changes the channel&#x27;s game.</span><span role="cell"><code>channel:manage:broadcast</code></span></div>
+                        <div role="row"><code role="cell">Set Channel Title</code><span role="cell">Changes the channel&#x27;s title.</span><span role="cell"><code>channel:manage:broadcast</code></span></div>
+                    </div>
+                    <h3 id="twitch-charity">Charity</h3>
+                    <div class="request-table" role="table" aria-label="Twitch Charity requests">
+                        <div role="row"><strong role="cell">Request</strong><strong role="cell">Effect</strong><strong role="cell">Required scope</strong></div>
+                        <div role="row"><code role="cell">Get Latest Charity Campaign</code><span role="cell">Reads the latest charity campaign.</span><span role="cell"><code>channel:read:charity</code></span></div>
+                    </div>
+                    <h3 id="twitch-chat">Chat</h3>
+                    <div class="request-table" role="table" aria-label="Twitch Chat requests">
+                        <div role="row"><strong role="cell">Request</strong><strong role="cell">Effect</strong><strong role="cell">Required scope</strong></div>
+                        <div role="row"><code role="cell">Clear Chat Messages</code><span role="cell">Clears channel chat messages.</span><span role="cell"><code>moderator:manage:chat_messages</code></span></div>
+                        <div role="row"><code role="cell">Delete Chat Message</code><span role="cell">Deletes a selected chat message.</span><span role="cell"><code>moderator:manage:chat_messages</code></span></div>
+                        <div role="row"><code role="cell">Send Announcement to Channel</code><span role="cell">Posts an announcement in channel chat.</span><span role="cell"><code>moderator:manage:announcements</code></span></div>
+                        <div role="row"><code role="cell">Send Message to Channel</code><span role="cell">Posts a message in channel chat.</span><span role="cell"><code>chat:read</code>, <code>user:read:chat</code>, <code>user:write:chat</code></span></div>
+                    </div>
+                    <h3 id="twitch-clips">Clips</h3>
+                    <div class="request-table" role="table" aria-label="Twitch Clips requests">
+                        <div role="row"><strong role="cell">Request</strong><strong role="cell">Effect</strong><strong role="cell">Required scope</strong></div>
+                        <div role="row"><code role="cell">Get Clip Download Urls</code><span role="cell">Returns download URLs for a clip.</span><span role="cell">No additional scope listed</span></div>
+                    </div>
+                    <h3 id="twitch-followers">Followers</h3>
+                    <div class="request-table" role="table" aria-label="Twitch Followers requests">
+                        <div role="row"><strong role="cell">Request</strong><strong role="cell">Effect</strong><strong role="cell">Required scope</strong></div>
+                        <div role="row"><code role="cell">Get Follow Age Info for Target</code><span role="cell">Looks up how long the selected user has followed.</span><span role="cell"><code>moderator:read:followers</code></span></div>
+                        <div role="row"><code role="cell">Get Follower Count</code><span role="cell">Returns the channel follower count.</span><span role="cell"><code>moderator:read:followers</code></span></div>
+                        <div role="row"><code role="cell">Get Latest Follower</code><span role="cell">Returns the most recent follower.</span><span role="cell"><code>moderator:read:followers</code></span></div>
+                    </div>
+                    <h3 id="twitch-moderation">Moderation</h3>
+                    <div class="request-table" role="table" aria-label="Twitch Moderation requests">
+                        <div role="row"><strong role="cell">Request</strong><strong role="cell">Effect</strong><strong role="cell">Required scope</strong></div>
+                        <div role="row"><code role="cell">Add Moderator</code><span role="cell">Grants moderator status to the selected user.</span><span role="cell"><code>channel:manage:moderators</code></span></div>
+                        <div role="row"><code role="cell">Add VIP</code><span role="cell">Grants VIP status to the selected user.</span><span role="cell"><code>channel:manage:vips</code></span></div>
+                        <div role="row"><code role="cell">Ban User</code><span role="cell">Bans the selected user from chat.</span><span role="cell"><code>moderator:manage:banned_users</code></span></div>
+                        <div role="row"><code role="cell">Chat Modes - Emote Only</code><span role="cell">Enables or disables emote-only chat.</span><span role="cell"><code>moderator:manage:chat_settings</code></span></div>
+                        <div role="row"><code role="cell">Chat Modes - Follow Mode</code><span role="cell">Changes followers-only chat settings.</span><span role="cell"><code>moderator:manage:chat_settings</code></span></div>
+                        <div role="row"><code role="cell">Chat Modes - Slow Mode</code><span role="cell">Changes the interval between chat messages.</span><span role="cell"><code>moderator:manage:chat_settings</code></span></div>
+                        <div role="row"><code role="cell">Chat Modes - Subscriber Only</code><span role="cell">Enables or disables subscribers-only chat.</span><span role="cell"><code>moderator:manage:chat_settings</code></span></div>
+                        <div role="row"><code role="cell">Remove Moderator</code><span role="cell">Removes moderator status from the selected user.</span><span role="cell"><code>channel:manage:moderators</code></span></div>
+                        <div role="row"><code role="cell">Remove VIP</code><span role="cell">Removes VIP status from the selected user.</span><span role="cell"><code>channel:manage:vips</code></span></div>
+                        <div role="row"><code role="cell">Send Shoutout</code><span role="cell">Sends a shoutout for the selected channel.</span><span role="cell"><code>moderator:manage:shoutouts</code></span></div>
+                        <div role="row"><code role="cell">Shield - Get Shield Mode Status</code><span role="cell">Reads the current shield mode status.</span><span role="cell"><code>moderator:read:shield_mode</code></span></div>
+                        <div role="row"><code role="cell">Shield - Update Shield Mode Status</code><span role="cell">Enables or disables shield mode.</span><span role="cell"><code>moderator:manage:shield_mode</code></span></div>
+                        <div role="row"><code role="cell">Timeout User</code><span role="cell">Temporarily bans the selected user from chat.</span><span role="cell"><code>moderator:manage:banned_users</code></span></div>
+                        <div role="row"><code role="cell">Unban User</code><span role="cell">Removes the selected user's chat ban.</span><span role="cell"><code>moderator:manage:banned_users</code></span></div>
+                        <div role="row"><code role="cell">UnTimeout User</code><span role="cell">Ends the selected user's chat timeout.</span><span role="cell"><code>moderator:manage:banned_users</code></span></div>
+                        <div role="row"><code role="cell">Warn User</code><span role="cell">Sends the selected user a moderation warning.</span><span role="cell"><code>moderator:manage:warnings</code></span></div>
+                    </div>
+                    <h3 id="twitch-polls">Polls</h3>
+                    <div class="request-table" role="table" aria-label="Twitch Polls requests">
+                        <div role="row"><strong role="cell">Request</strong><strong role="cell">Effect</strong><strong role="cell">Required scope</strong></div>
+                        <div role="row"><code role="cell">Archive Active Poll</code><span role="cell">Ends the active poll and archives it.</span><span role="cell"><code>channel:manage:polls</code></span></div>
+                        <div role="row"><code role="cell">Create Poll</code><span role="cell">Creates a channel poll with the configured choices.</span><span role="cell"><code>channel:manage:polls</code></span></div>
+                        <div role="row"><code role="cell">Get Active Poll</code><span role="cell">Reads the active poll.</span><span role="cell"><code>channel:read:polls</code></span></div>
+                        <div role="row"><code role="cell">Terminate Active Poll</code><span role="cell">Ends the active poll without archiving it.</span><span role="cell"><code>channel:manage:polls</code></span></div>
+                    </div>
+                    <h3 id="twitch-predictions">Predictions</h3>
+                    <div class="request-table" role="table" aria-label="Twitch Predictions requests">
+                        <div role="row"><strong role="cell">Request</strong><strong role="cell">Effect</strong><strong role="cell">Required scope</strong></div>
+                        <div role="row"><code role="cell">Cancel Active Prediction</code><span role="cell">Cancels the active prediction.</span><span role="cell"><code>channel:manage:predictions</code></span></div>
+                        <div role="row"><code role="cell">Create Prediction</code><span role="cell">Creates a channel prediction with the configured outcomes.</span><span role="cell"><code>channel:manage:predictions</code></span></div>
+                        <div role="row"><code role="cell">Get Active Prediction</code><span role="cell">Reads the active prediction.</span><span role="cell"><code>channel:read:predictions</code></span></div>
+                        <div role="row"><code role="cell">Lock Active Prediction</code><span role="cell">Locks the active prediction against new predictions.</span><span role="cell"><code>channel:manage:predictions</code></span></div>
+                        <div role="row"><code role="cell">Resolve Last Prediction</code><span role="cell">Resolves the most recent prediction.</span><span role="cell"><code>channel:manage:predictions</code></span></div>
+                        <div role="row"><code role="cell">Resolve Last Prediction By Title</code><span role="cell">Finds and resolves a prediction by title.</span><span role="cell"><code>channel:manage:predictions</code></span></div>
+                    </div>
+                    <h3 id="twitch-raid">Raid</h3>
+                    <div class="request-table" role="table" aria-label="Twitch Raid requests">
+                        <div role="row"><strong role="cell">Request</strong><strong role="cell">Effect</strong><strong role="cell">Required scope</strong></div>
+                        <div role="row"><code role="cell">Cancel Raid</code><span role="cell">Cancels an outgoing raid.</span><span role="cell"><code>channel:manage:raids</code></span></div>
+                        <div role="row"><code role="cell">Start Raid</code><span role="cell">Starts an outgoing raid to the selected channel.</span><span role="cell"><code>channel:manage:raids</code></span></div>
+                    </div>
+                    <h3 id="twitch-rewards">Rewards</h3>
+                    <div class="request-table" role="table" aria-label="Twitch Rewards requests">
+                        <div role="row"><strong role="cell">Request</strong><strong role="cell">Effect</strong><strong role="cell">Required scope</strong></div>
+                        <div role="row"><code role="cell">Get Reward Info</code><span role="cell">Reads configured channel reward information.</span><span role="cell"><code>channel:manage:redemptions</code></span></div>
+                        <div role="row"><code role="cell">Create Reward</code><span role="cell">Creates a channel reward.</span><span role="cell"><code>channel:manage:redemptions</code></span></div>
+                        <div role="row"><code role="cell">Delete Reward</code><span role="cell">Deletes a selected channel reward.</span><span role="cell"><code>channel:manage:redemptions</code></span></div>
+                        <div role="row"><code role="cell">Set Background Color</code><span role="cell">Changes the selected reward&#x27;s background color.</span><span role="cell"><code>channel:manage:redemptions</code></span></div>
+                        <div role="row"><code role="cell">Set Cost</code><span role="cell">Changes the selected reward&#x27;s cost.</span><span role="cell"><code>channel:manage:redemptions</code></span></div>
+                        <div role="row"><code role="cell">Set Enabled State</code><span role="cell">Changes the selected reward&#x27;s enabled state.</span><span role="cell"><code>channel:manage:redemptions</code></span></div>
+                        <div role="row"><code role="cell">Set Global Cooldown</code><span role="cell">Changes the selected reward&#x27;s global cooldown.</span><span role="cell"><code>channel:manage:redemptions</code></span></div>
+                        <div role="row"><code role="cell">Set Group Enabled State</code><span role="cell">Changes the selected reward&#x27;s group enabled state.</span><span role="cell"><code>channel:manage:redemptions</code></span></div>
+                        <div role="row"><code role="cell">Set Group Paused State</code><span role="cell">Changes the selected reward&#x27;s group paused state.</span><span role="cell"><code>channel:manage:redemptions</code></span></div>
+                        <div role="row"><code role="cell">Set Max Per Stream</code><span role="cell">Changes the selected reward&#x27;s max per stream.</span><span role="cell"><code>channel:manage:redemptions</code></span></div>
+                        <div role="row"><code role="cell">Set Max per User per Stream</code><span role="cell">Changes the selected reward&#x27;s max per user per stream.</span><span role="cell"><code>channel:manage:redemptions</code></span></div>
+                        <div role="row"><code role="cell">Set Paused State</code><span role="cell">Changes the selected reward&#x27;s paused state.</span><span role="cell"><code>channel:manage:redemptions</code></span></div>
+                        <div role="row"><code role="cell">Set Prompt</code><span role="cell">Changes the selected reward&#x27;s prompt.</span><span role="cell"><code>channel:manage:redemptions</code></span></div>
+                        <div role="row"><code role="cell">Set Title</code><span role="cell">Changes the selected reward&#x27;s title.</span><span role="cell"><code>channel:manage:redemptions</code></span></div>
+                        <div role="row"><code role="cell">Update</code><span role="cell">Updates multiple settings on a selected channel reward.</span><span role="cell"><code>channel:manage:redemptions</code></span></div>
+                        <div role="row"><code role="cell">Update Redemption Status</code><span role="cell">Changes a selected redemption&#x27;s status.</span><span role="cell"><code>channel:manage:redemptions</code></span></div>
+                    </div>
+                    <h3 id="twitch-subscribers">Subscribers</h3>
+                    <div class="request-table" role="table" aria-label="Twitch Subscribers requests">
+                        <div role="row"><strong role="cell">Request</strong><strong role="cell">Effect</strong><strong role="cell">Required scope</strong></div>
+                        <div role="row"><code role="cell">Get Latest Subscriber</code><span role="cell">Returns the most recent subscriber.</span><span role="cell"><code>channel:read:subscriptions</code></span></div>
+                        <div role="row"><code role="cell">Get Subscriber Count</code><span role="cell">Returns the channel subscriber count.</span><span role="cell"><code>channel:read:subscriptions</code></span></div>
+                    </div>
+                    <h3 id="twitch-tags">Tags</h3>
+                    <div class="request-table" role="table" aria-label="Twitch Tags requests">
+                        <div role="row"><strong role="cell">Request</strong><strong role="cell">Effect</strong><strong role="cell">Required scope</strong></div>
+                        <div role="row"><code role="cell">Add Channel Tag</code><span role="cell">Adds a tag to the channel.</span><span role="cell"><code>channel:manage:broadcast</code></span></div>
+                        <div role="row"><code role="cell">Clear Channel Tags</code><span role="cell">Removes all channel tags.</span><span role="cell"><code>channel:manage:broadcast</code></span></div>
+                        <div role="row"><code role="cell">Remove Channel Tag</code><span role="cell">Removes a tag from the channel.</span><span role="cell"><code>channel:manage:broadcast</code></span></div>
+                        <div role="row"><code role="cell">Set Channel Tags</code><span role="cell">Changes the channel&#x27;s tags.</span><span role="cell"><code>channel:manage:broadcast</code></span></div>
+                    </div>
+                    <h3 id="twitch-user">User</h3>
+                    <div class="request-table" role="table" aria-label="Twitch User requests">
+                        <div role="row"><strong role="cell">Request</strong><strong role="cell">Effect</strong><strong role="cell">Required scope</strong></div>
+                        <div role="row"><code role="cell">Add Broadcaster Information</code><span role="cell">Loads broadcaster information into the request result.</span><span role="cell"><code>user:read:chat</code></span></div>
+                        <div role="row"><code role="cell">Get Team Info for Target</code><span role="cell">Looks up Twitch team information for the selected user.</span><span role="cell">No additional scope listed</span></div>
+                        <div role="row"><code role="cell">Get User Info for Target</code><span role="cell">Looks up information about the selected user.</span><span role="cell">No additional scope listed</span></div>
+                    </div>
+                </section>
+                <section class="panel" id="kick"><h2>Kick requests (25)</h2>
+                    <p>Select a connected Kick account, then choose the request in <code>Add Action</code>. These entries are marked implemented in the Kick connector catalog. Scope names below are the permissions requested by the catalog; the account must also have the role needed for the operation.</p>
+                    <h3 id="kick-channel">Channel</h3>
+                    <div class="request-table" role="table" aria-label="Kick Channel requests">
+                        <div role="row"><strong role="cell">Request</strong><strong role="cell">Effect</strong><strong role="cell">Required scope</strong></div>
+                        <div role="row"><code role="cell">Set Channel Category</code><span role="cell">Changes the channel&#x27;s category.</span><span role="cell"><code>channel:write</code></span></div>
+                        <div role="row"><code role="cell">Set Channel Title</code><span role="cell">Changes the channel&#x27;s title.</span><span role="cell"><code>channel:write</code></span></div>
+                    </div>
+                    <h3 id="kick-chat">Chat</h3>
+                    <div class="request-table" role="table" aria-label="Kick Chat requests">
+                        <div role="row"><strong role="cell">Request</strong><strong role="cell">Effect</strong><strong role="cell">Required scope</strong></div>
+                        <div role="row"><code role="cell">Reply To Message</code><span role="cell">Replies to a selected chat message.</span><span role="cell"><code>chat:write</code></span></div>
+                        <div role="row"><code role="cell">Send Message to Channel</code><span role="cell">Posts a message in channel chat.</span><span role="cell"><code>chat:write</code></span></div>
+                        <div role="row"><code role="cell">Delete Chat Message</code><span role="cell">Deletes a selected chat message.</span><span role="cell"><code>moderation:chat_message:manage</code></span></div>
+                    </div>
+                    <h3 id="kick-moderation">Moderation</h3>
+                    <div class="request-table" role="table" aria-label="Kick Moderation requests">
+                        <div role="row"><strong role="cell">Request</strong><strong role="cell">Effect</strong><strong role="cell">Required scope</strong></div>
+                        <div role="row"><code role="cell">Ban User</code><span role="cell">Bans the selected user from chat.</span><span role="cell"><code>moderation:ban</code></span></div>
+                        <div role="row"><code role="cell">Timeout User</code><span role="cell">Temporarily bans the selected user from chat.</span><span role="cell"><code>moderation:ban</code></span></div>
+                        <div role="row"><code role="cell">Unban User</code><span role="cell">Removes the selected user's chat ban.</span><span role="cell"><code>moderation:ban</code></span></div>
+                        <div role="row"><code role="cell">UnTimeout User</code><span role="cell">Ends the selected user's chat timeout.</span><span role="cell"><code>moderation:ban</code></span></div>
+                    </div>
+                    <h3 id="kick-rewards">Rewards</h3>
+                    <div class="request-table" role="table" aria-label="Kick Rewards requests">
+                        <div role="row"><strong role="cell">Request</strong><strong role="cell">Effect</strong><strong role="cell">Required scope</strong></div>
+                        <div role="row"><code role="cell">Get Reward Info</code><span role="cell">Reads configured channel reward information.</span><span role="cell"><code>channel:rewards:read</code></span></div>
+                        <div role="row"><code role="cell">Create Reward</code><span role="cell">Creates a channel reward.</span><span role="cell"><code>channel:rewards:write</code></span></div>
+                        <div role="row"><code role="cell">Delete Reward</code><span role="cell">Deletes a selected channel reward.</span><span role="cell"><code>channel:rewards:write</code></span></div>
+                        <div role="row"><code role="cell">Set Background Color</code><span role="cell">Changes the selected reward&#x27;s background color.</span><span role="cell"><code>channel:rewards:write</code></span></div>
+                        <div role="row"><code role="cell">Set Cost</code><span role="cell">Changes the selected reward&#x27;s cost.</span><span role="cell"><code>channel:rewards:write</code></span></div>
+                        <div role="row"><code role="cell">Set Description</code><span role="cell">Changes the selected reward&#x27;s description.</span><span role="cell"><code>channel:rewards:write</code></span></div>
+                        <div role="row"><code role="cell">Set Enabled State</code><span role="cell">Changes the selected reward&#x27;s enabled state.</span><span role="cell"><code>channel:rewards:write</code></span></div>
+                        <div role="row"><code role="cell">Set Group Enabled State</code><span role="cell">Changes the selected reward&#x27;s group enabled state.</span><span role="cell"><code>channel:rewards:write</code></span></div>
+                        <div role="row"><code role="cell">Set Group Paused State</code><span role="cell">Changes the selected reward&#x27;s group paused state.</span><span role="cell"><code>channel:rewards:write</code></span></div>
+                        <div role="row"><code role="cell">Set Paused State</code><span role="cell">Changes the selected reward&#x27;s paused state.</span><span role="cell"><code>channel:rewards:write</code></span></div>
+                        <div role="row"><code role="cell">Set Title</code><span role="cell">Changes the selected reward&#x27;s title.</span><span role="cell"><code>channel:rewards:write</code></span></div>
+                        <div role="row"><code role="cell">Update</code><span role="cell">Updates multiple settings on a selected channel reward.</span><span role="cell"><code>channel:rewards:write</code></span></div>
+                        <div role="row"><code role="cell">Accept Reward Redemption</code><span role="cell">Accepts a selected reward redemption.</span><span role="cell"><code>channel:rewards:write</code></span></div>
+                        <div role="row"><code role="cell">Reject Reward Redemption</code><span role="cell">Rejects a selected reward redemption.</span><span role="cell"><code>channel:rewards:write</code></span></div>
+                    </div>
+                    <h3 id="kick-user">User</h3>
+                    <div class="request-table" role="table" aria-label="Kick User requests">
+                        <div role="row"><strong role="cell">Request</strong><strong role="cell">Effect</strong><strong role="cell">Required scope</strong></div>
+                        <div role="row"><code role="cell">Add Broadcaster Information</code><span role="cell">Loads broadcaster information into the request result.</span><span role="cell">No additional scope listed</span></div>
+                        <div role="row"><code role="cell">Get User Info for Target</code><span role="cell">Looks up information about the selected user.</span><span role="cell">No additional scope listed</span></div>
+                    </div>
+                </section>
+                <section class="panel" id="other-connectors"><h2>OBS and Streamer.bot</h2>
+                    <p>OBS actions are built from the connected OBS functionality catalog. Choose an OBS request in the picker to see its supported fields and target instance. Available functions depend on the connected OBS version and plugins. Streamer.bot currently contributes <code>Send Chat Message</code>; select the Streamer.bot instance and enter the message. See <a href="streamerbot.html">Streamer.bot Connector</a> for connection setup.</p>
+                </section>
+            </article>
+        </main>
+    </div>
+    <script src="../docs-nav.js"></script>
+</body>
+</html>

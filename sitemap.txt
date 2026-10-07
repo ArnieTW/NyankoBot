@@ -10,6 +10,7 @@ https://arnietw.github.io/NyankoBot/docs/connectors.html
 https://arnietw.github.io/NyankoBot/docs/stream-status.html
 https://arnietw.github.io/NyankoBot/docs/platform-events.html
 https://arnietw.github.io/NyankoBot/docs/actions-reference.html
+https://arnietw.github.io/NyankoBot/docs/connector-actions.html
 https://arnietw.github.io/NyankoBot/docs/variables.html
 https://arnietw.github.io/NyankoBot/docs/klipy.html
 https://arnietw.github.io/NyankoBot/docs/user-groups.html

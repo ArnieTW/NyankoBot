@@ -73,6 +73,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://arnietw.github.io/NyankoBot/docs/connector-actions.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://arnietw.github.io/NyankoBot/docs/variables.html</loc>
     <lastmod>2026-10-07</lastmod>
     <changefreq>weekly</changefreq>

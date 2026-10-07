@@ -546,6 +546,29 @@ li {
     white-space: normal;
 }
 
+.request-table {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.request-table > div {
+    display: grid;
+    grid-template-columns: minmax(170px, .9fr) minmax(250px, 1.5fr) minmax(170px, 1fr);
+    border-top: 1px solid var(--line);
+}
+
+.request-table > div:first-child { border-top: 0; background: var(--panel-soft); }
+.request-table [role="cell"] { min-width: 0; padding: 12px 14px; overflow-wrap: anywhere; }
+
+@media (max-width: 760px) {
+    .request-table > div { grid-template-columns: 1fr; }
+    .request-table > div:first-child { display: none; }
+    .request-table [role="cell"] { padding: 6px 12px; }
+    .request-table [role="cell"]:first-child { padding-top: 12px; }
+    .request-table [role="cell"]:last-child { padding-bottom: 12px; }
+}
+
 .token-table > div:nth-child(4n + 3),
 .token-table > div:nth-child(4n + 4) {
     background: #111827;
