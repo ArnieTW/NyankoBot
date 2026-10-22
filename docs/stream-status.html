@@ -41,6 +41,7 @@
                         <a class="tree-item active" href="stream-status.html" aria-current="page">Stream Status</a>
                         <a class="tree-item nested active" href="#edit-status">Edit stream status</a>
                         <a class="tree-item nested" href="#category-bindings">Category bindings</a>
+                        <a class="tree-item nested" href="#external-ui">Use outside NyankoBot</a>
                         <a class="tree-item nested" href="#troubleshooting">If an update fails</a>
                         <a class="tree-item" href="command-triggers.html">Command Triggers</a>
                         <a class="tree-item" href="channel-rewards.html">Channel Rewards</a>
@@ -93,13 +94,19 @@
                 </section>
                 <section class="panel" id="category-bindings">
                     <h2>Map categories across platforms</h2>
-                    <p>A category name or ID can differ between Twitch and Kick. Open <a href="settings.html#category-bindings">Settings → Category Bindings</a> to save one named binding with the matching category for each connector.</p>
+                    <p>A Category Binding is one reusable label for categories that differ by platform or connector. For example, you can name a binding after a game and select its Twitch category and its Kick category separately. The mapping is saved for each connector; creating it does not change any live stream.</p>
                     <ol>
-                        <li>Select <code>Add binding</code> and give it a name you will recognize in the global category search.</li>
-                        <li>Search and select the category for each applicable connector. At least one connector category is required.</li>
-                        <li>Select <code>Save binding</code>. Back in Stream Status, choose that binding from the global category results and verify each stream's resolved category before updating.</li>
+                        <li>Open <a href="settings.html#category-bindings">Settings → Category Bindings</a>, select <code>Add binding</code>, and give it a name you will recognize in Stream Status.</li>
+                        <li>Search and select the matching category in each connector row. Selecting a result matters: typed text alone does not save a category. At least one connector category is required.</li>
+                        <li>Select <code>Save binding</code>. Back in Stream Status, search for that name in <code>Global → Stream category</code> and select the result marked <code>Binding</code>. Its connector icons show which streams have mappings.</li>
+                        <li>Review each stream's category, especially any connector omitted from the binding, then select <code>Update streams</code> to apply the change.</li>
                     </ol>
-                    <p>Choosing an ordinary category result only fills streams for which that result has a connector mapping. A saved binding is useful when the two platforms use different names for the same game or topic.</p>
+                    <p>The selection fills only streams with a mapping in that result; it does not invent a category for other connectors. You can edit or delete the saved binding in Settings. An ordinary category search result can also fill multiple streams when NyankoBot finds matching connector categories, but a binding lets you choose the exact pair yourself.</p>
+                </section>
+                <section class="panel" id="external-ui">
+                    <h2>Use Stream Status in OBS or another browser</h2>
+                    <p>To open Stream Status as a password-protected gateway view, first enable <a href="settings.html#external-access">External Access</a> in Settings. On Setup Home, look beside <code>Stream Status</code> for the small <strong>copy icon with two overlapping rectangles</strong>. Select it to copy the gateway URL, then paste that URL into an OBS Custom Browser Dock or another application's web panel. Sign in with the gateway password.</p>
+                    <p>For a second computer or phone, use the NyankoBot computer's reachable LAN address instead of <code>localhost</code>. The External Access guide explains the Host setting, OBS steps, and network precautions.</p>
                 </section>
                 <section class="panel" id="troubleshooting">
                     <h2>If an update fails</h2>

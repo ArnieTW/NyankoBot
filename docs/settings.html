@@ -126,13 +126,24 @@
 
                 <section class="panel" id="external-access">
                     <h2>External Access</h2>
-                    <p>External Access is for reaching the local NyankoBot setup or overlay endpoints from outside the default local browser flow. Keep it disabled unless you are deliberately exposing NyankoBot to another device or network path.</p>
+                    <p>External Access enables password-protected gateway views for <code>Chat</code>, <code>Viewers</code>, <code>Connectors</code>, and <code>Stream Status</code>. Use these views in another browser, an OBS dock, or another application with a web panel. It does not make the full Setup UI or overlay viewer password protected.</p>
                     <div class="token-table" role="table" aria-label="External access controls">
                         <div role="row"><strong role="cell">Control</strong><strong role="cell">What it means</strong></div>
-                        <div role="row"><code role="cell">Enable external access</code><span role="cell">Allows the external-access path to be used. Treat this as an advanced/networking option.</span></div>
-                        <div role="row"><code role="cell">Password</code><span role="cell">Sets or changes the password used for external access. Leave blank when you want to keep the existing configured password.</span></div>
+                        <div role="row"><code role="cell">Enable external gateway</code><span role="cell">Turns on the gateway login and its four views. A password must be configured before the gateway can be enabled.</span></div>
+                        <div role="row"><code role="cell">Password</code><span role="cell">Sets or changes the gateway password. Leave it blank to keep an existing configured password.</span></div>
                         <div role="row"><code role="cell">Password status</code><span role="cell">Shows whether NyankoBot currently has an external-access password configured.</span></div>
                     </div>
+                    <ol>
+                        <li>On Setup Home, select the <strong>Settings gear icon</strong> in the top-right header. On the <code>General</code> tab, find <code>External Access</code>, enter a password, turn on <code>Enable external gateway</code>, and select <code>Save settings</code>.</li>
+                        <li>Return to the Setup Home header. Beside <code>Connectors</code>, <code>Viewers</code>, <code>Chat</code>, and <code>Stream Status</code>, look for the small <strong>copy icon showing two overlapping rectangles</strong>. Select the icon beside the view you want. It copies that view's gateway URL; the main labeled button opens its normal Setup Home panel.</li>
+                        <li>Open the copied URL in a browser or web panel and enter the gateway password. For a default same-computer installation, the Stream Status URL is <code>http://localhost:5055/gateway/stream-status</code>. The other paths are <code>/gateway/chat</code>, <code>/gateway/viewers</code>, and <code>/gateway/connectors</code>.</li>
+                    </ol>
+                    <h3>Use a gateway view in OBS</h3>
+                    <p>To keep the controls in OBS without putting them on your stream, open <code>View → Docks → Custom Browser Docks</code>, add a dock name such as <code>NyankoBot Stream Status</code>, and paste the copied gateway URL. Open the dock and sign in with the gateway password. OBS documents <a href="https://obsproject.com/blog/obs-studio-27-released">Custom Browser Docks</a> under its Docks menu.</p>
+                    <p>If you deliberately want a gateway page visible in a scene, add an OBS <a href="https://obsproject.com/kb/browser-source">Browser Source</a>, set its URL to the gateway view, and size it for the scene. Use the source's <code>Interact</code> command to sign in. A Browser Source is part of the scene output, so use a Custom Browser Dock for private controls. For normal on-stream overlays, use the <a href="overlay-setup.html#obs-viewer">overlay viewer URL</a> instead.</p>
+                    <h3>Open it from another device</h3>
+                    <p><code>localhost</code> only works on the computer running NyankoBot. For a device on the same trusted network, set <code>App Endpoint → Host</code> to that computer's LAN address or <code>0.0.0.0</code>, save, and restart NyankoBot. Allow the configured App Port through the computer's firewall for that trusted network. On the other device, use the NyankoBot computer's LAN address in the copied URL, for example <code>http://192.168.1.20:5055/gateway/stream-status</code>; never use <code>0.0.0.0</code> as the address to open.</p>
+                    <p>The gateway password protects the <code>/gateway</code> views, but changing Host also makes the rest of NyankoBot's local server reachable on that network. Do not forward the app port directly to the public internet. For access away from home, use a separately secured private network or proxy and open the gateway URL through it.</p>
                 </section>
 
                 <section class="panel" id="updates">
