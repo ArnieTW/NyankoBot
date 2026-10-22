@@ -68,6 +68,7 @@
                         <a class="tree-item nested" href="#source-dialog-tabs">Source tabs</a>
                         <a class="tree-item nested" href="#source-dialog-defined-tab">Defined Sources</a>
                         <a class="tree-item nested" href="#source-dialog-text-tab">Text Source</a>
+                        <a class="tree-item nested" href="#source-dialog-html-tab">HTML Source</a>
                         <a class="tree-item nested" href="#source-dialog-media-tab">Media Source</a>
                         <a class="tree-item nested" href="#source-dialog-url-tab">URL Source</a>
                         <a class="tree-item nested" href="#source-dialog-tts-tab">TTS Source</a>
@@ -149,6 +150,19 @@
                         <div role="row"><div role="cell"><code>Typography</code></div><div role="cell"><a href="#source-dialog-typography-option">Move to definition</a></div></div>
                         <div role="row"><div role="cell"><code>Animation</code></div><div role="cell"><a href="#source-dialog-animation-option">Move to definition</a></div></div>
                     </div>
+                </section>
+
+                <section class="panel" id="source-dialog-html-tab">
+                    <h2>HTML Source Tab</h2>
+                    <p>Use an HTML Source to draw custom markup inside an overlay box, with its own CSS for layout and appearance. Choose <code>HTML Source</code> when you want to write the content yourself; use <a href="#source-dialog-url-tab">URL Source</a> when you want to display an existing webpage.</p>
+                    <div class="token-table" role="table">
+                        <div role="row"><div role="cell"><strong>UI option</strong></div><div role="cell"><strong>What it means</strong></div></div>
+                        <div role="row"><div role="cell"><code>Source Name</code></div><div role="cell">A required name for finding this source in the binding and source library.</div></div>
+                        <div role="row"><div role="cell"><code>HTML</code></div><div role="cell">The markup shown inside the box. This field must contain content. Trigger tokens such as <code>{{message.text}}</code> are replaced when the binding runs.</div></div>
+                        <div role="row"><div role="cell"><code>CSS</code></div><div role="cell">Optional styles for that markup. CSS is applied inside the HTML Source frame, so it does not change the rest of the overlay. Trigger tokens can be used here too.</div></div>
+                    </div>
+                    <p>For example, enter <code>&lt;div class="message"&gt;{{message.text}}&lt;/div&gt;</code> in HTML and <code>.message { color: white; font-size: 2rem; }</code> in CSS. Attach a trigger that provides <code>message.text</code>, save the binding and overlay, then test it in the overlay viewer.</p>
+                    <p>The source renders in a transparent, sandboxed frame that fills its item area. Scripts in the HTML do not run; use CSS for visual effects and NyankoBot triggers for dynamic content.</p>
                 </section>
 
                 <section class="panel" id="source-dialog-media-tab">
