@@ -131,11 +131,11 @@
 
                 <section class="panel example" id="text-source-box">
                     <h2>3. Add A Text Box</h2>
-                    <img class="screenshot" src="../assets/screenshots/add-source-dialog-text.png" alt="Add Source dialog showing the Text Source tab" />
+                    <img class="screenshot" src="../assets/screenshots/source-text-2026.jpg" alt="Current Text Source editor reached through a binding item" />
                     <p>Add a text box first to prove that trigger tokens can render live data inside the overlay. Use the box's <a href="component-add-trigger.html">Binding editor</a> to attach an item and a trigger.</p>
                     <ol class="step-list">
                         <li>Click <code>Add box</code> and position the box where the text should appear on stream.</li>
-                        <li>Open the binding, add a text item, and enter its content.</li>
+                        <li>In the box inspector, select <code>Add binding</code>, then <code>Add Item</code> and <code>Text Source</code>. Enter its content and save the source.</li>
                         <li>Use text such as <code>{{text}}</code> when the box should show trigger-provided message text.</li>
                         <li>In the binding's Triggers section, add a chat-message or command trigger.</li>
                         <li>Save the overlay and fire the trigger from chat or Streamer.bot.</li>
@@ -144,12 +144,12 @@
 
                 <section class="panel example" id="media-source-box">
                     <h2>4. Add A Media Source Box</h2>
-                    <img class="screenshot" src="../assets/screenshots/add-source-dialog-media.png" alt="Add Source dialog showing the Media Source tab" />
+                    <img class="screenshot" src="../assets/screenshots/source-media-2026.jpg" alt="Current Media Source editor reached through a binding item" />
                     <p>Add a second box for a meme, image, GIF, video, or sound cue. Add a media item in its binding from an upload, saved source, URL, or configured KLIPY library.</p>
                     <ol class="step-list">
                         <li>Click <code>Add box</code> again and position it where the media should appear on stream.</li>
-                        <li>Add a media item to its binding.</li>
-                        <li>Choose an uploaded file, a managed source, or a reachable media URL.</li>
+                        <li>In the box inspector, select <code>Add binding</code>, then <code>Add Item</code>.</li>
+                        <li>Choose <code>Existing sources</code> for saved or KLIPY media, or <code>Media Source</code> for an upload or reachable media URL.</li>
                         <li>Set the media behavior, such as whether it should play once, loop, or hide after playback.</li>
                         <li>In the binding's Triggers section, add a command trigger such as <code>!meme</code> or <code>!hype</code>.</li>
                         <li>Save the overlay and run the command from chat or Streamer.bot.</li>

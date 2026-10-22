@@ -64,8 +64,7 @@
                         <a class="tree-item nested" href="#box-general">General</a>
                         <a class="tree-item nested" href="#box-layout">Layout</a>
                         <a class="tree-item nested" href="#box-appearance">Appearance</a>
-                        <a class="tree-item nested" href="#box-triggers">Trigger</a>
-                        <a class="tree-item nested" href="#box-sources">Sources</a>
+                        <a class="tree-item nested" href="#box-sources">Bindings and sources</a>
                         <a class="tree-item nested" href="#box-types">Box types</a>
                         <a class="tree-item" href="component-add-source-dialog.html">Source Controls</a>
                         <a class="tree-item" href="component-add-trigger.html">Binding Editor</a>
@@ -95,12 +94,12 @@
                 <section id="box-component">
                     <p class="kicker">Inside Component</p>
                     <h1>Box</h1>
-                    <p class="lead">A box is a positioned region inside an overlay. The box inspector controls where it sits, how it looks, what type of box it is, which sources it can show, and which triggers run it.</p>
+                    <p class="lead">A box is a positioned region inside an overlay. The box inspector controls its layout, appearance, type, and bindings. Each binding connects triggers to source items.</p>
                 </section>
 
                 <section class="panel" id="box-access">
                     <h2>Access Inspector</h2>
-                    <img class="screenshot" src="../assets/screenshots/box-access-inspector.png" alt="Overlay setup with a selected box and the Box inspector open" />
+                    <img class="screenshot" src="../assets/screenshots/box-bindings-inspector-2026.jpg" alt="Current box inspector with the Bindings section visible" />
                     <p>You can access the Box inspector in two ways: click <code>Add box</code> to create and select a new box, or select an already populated box on the stream preview stage. Once selected, the right inspector switches from Stream Preview settings to Box settings.</p>
                     <div class="token-table" role="table">
                         <div role="row"><div role="cell"><strong>Action</strong></div><div role="cell"><strong>What happens</strong></div></div>
@@ -112,11 +111,10 @@
 
                 <section class="panel" id="box-general">
                     <h2>General</h2>
-                    <img class="screenshot" src="../assets/screenshots/box-inspector-general.png" alt="Box inspector General section" />
                     <p>General identifies the selected box and controls its type.</p>
                     <div class="token-table" role="table">
                         <div role="row"><div role="cell"><strong>UI option</strong></div><div role="cell"><strong>What it means</strong></div></div>
-                        <div role="row"><div role="cell"><code>Name</code></div><div role="cell">A friendly label for the box. Use names like <code>Chat callout</code>, <code>Meme video</code>, or <code>TTS bubble</code> so the trigger/source lists stay readable.</div></div>
+                        <div role="row"><div role="cell"><code>Name</code></div><div role="cell">A friendly label for the box. Use names like <code>Chat callout</code>, <code>Meme video</code>, or <code>TTS bubble</code> so the stage and inspector stay readable.</div></div>
                         <div role="row"><div role="cell"><code>Selected box id</code></div><div role="cell">The internal id for the selected box. It is read-only and useful when debugging saved overlay JSON or logs.</div></div>
                         <div role="row"><div role="cell"><code>Type</code></div><div role="cell">Chooses the box behavior: <code>SourcedBox</code>, <code>WheelPicker</code>, or <code>Group</code>.</div></div>
                     </div>
@@ -124,7 +122,6 @@
 
                 <section class="panel" id="box-layout">
                     <h2>Layout</h2>
-                    <img class="screenshot" src="../assets/screenshots/box-inspector-layout.png" alt="Box inspector Layout section" />
                     <p>Layout places the box on the overlay stage. Values are stored relative to the overlay canvas, so the OBS browser source can scale with the scene.</p>
                     <div class="token-table" role="table">
                         <div role="row"><div role="cell"><strong>UI option</strong></div><div role="cell"><strong>What it means</strong></div></div>
@@ -138,7 +135,6 @@
 
                 <section class="panel" id="box-appearance">
                     <h2>Appearance</h2>
-                    <img class="screenshot" src="../assets/screenshots/box-inspector-appearance.png" alt="Box inspector Appearance section" />
                     <p>Appearance controls the box frame and the default text presentation used by the stage preview.</p>
                     <div class="token-table" role="table">
                         <div role="row"><div role="cell"><strong>UI option</strong></div><div role="cell"><strong>What it means</strong></div></div>
@@ -150,16 +146,6 @@
                         <div role="row"><div role="cell"><code>Border width</code></div><div role="cell">Outline thickness from <code>0</code> to <code>20</code>.</div></div>
                         <div role="row"><div role="cell"><code>Border radius</code></div><div role="cell">Corner rounding from <code>0</code> to <code>100</code>.</div></div>
                         <div role="row"><div role="cell"><code>Padding</code></div><div role="cell">Inner spacing from the box edge to its content, from <code>0</code> to <code>100</code>.</div></div>
-                    </div>
-                </section>
-
-                <section class="panel" id="box-triggers">
-                    <h2>Trigger</h2>
-                    <p>The box binding determines when the box runs and which items it shows. Open the <a href="component-add-trigger.html">Binding editor</a> to manage its Triggers, Sequencing, Subscriptions, and Items. The separate Trigger section may appear for older box data; use Bindings for the current workflow.</p>
-                    <div class="token-table" role="table">
-                        <div role="row"><div role="cell"><strong>UI option</strong></div><div role="cell"><strong>What it means</strong></div></div>
-                        <div role="row"><div role="cell"><code>Triggers</code></div><div role="cell">The saved trigger bindings for this box. Each row can be renamed, edited, or deleted.</div></div>
-                        <div role="row"><div role="cell"><code>Add Trigger</code></div><div role="cell">Opens trigger selection for older box data. For a new binding, use <code>Add Binding</code>, then the editor's <code>Triggers</code> section.</div></div>
                     </div>
                 </section>
 
@@ -175,7 +161,6 @@
 
                 <section class="panel" id="box-types">
                     <h2>Box Types</h2>
-                    <img class="screenshot" src="../assets/screenshots/box-inspector-types.png" alt="Box inspector Type selector" />
                     <div class="token-table" role="table">
                         <div role="row"><div role="cell"><strong>Type</strong></div><div role="cell"><strong>Inspector behavior</strong></div></div>
                         <div role="row"><div role="cell"><code>SourcedBox</code></div><div role="cell">The normal box type for memes, videos, images, text, TTS, browser widgets, and audio cues. Shows the Bindings section.</div></div>
