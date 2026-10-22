@@ -431,6 +431,18 @@ li {
     align-items: center;
 }
 
+.plugin-download {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 24px;
+    align-items: center;
+}
+
+.plugin-download h2 { margin-top: 8px; }
+.plugin-download p { max-width: 650px; }
+.plugin-actions { display: grid; gap: 10px; min-width: 210px; }
+.plugin-actions .button { width: 100%; }
+
 .download-options {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -728,6 +740,7 @@ code {
     .download-options,
     .release-summary,
     .release-card,
+    .plugin-download,
     .checksum-card,
     .linktree-panel {
         grid-template-columns: 1fr;

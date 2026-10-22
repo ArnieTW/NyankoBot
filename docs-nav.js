@@ -29,7 +29,7 @@
     if (sidebar) {
         const groups = [
             ["Start", [["index.html", "Overview"], ["download-install.html", "Download & Install"], ["quick-setup.html", "Quick Setup"]]],
-            ["Setup", [["overlay-setup.html", "Overlay Setup"], ["connectors.html", "Connectors"], ["stream-status.html", "Stream Status"], ["command-triggers.html", "Command Triggers"], ["channel-rewards.html", "Channel Rewards"], ["chat.html", "Chat"], ["streamerbot.html", "Streamer.bot"], ["tts.html", "TTS Setup"], ["translators.html", "Translators"], ["manage-sources.html", "Storage"], ["settings.html", "Settings"]]],
+            ["Setup", [["overlay-setup.html", "Overlay Setup"], ["connectors.html", "Connectors"], ["stream-status.html", "Stream Status"], ["command-triggers.html", "Command Triggers"], ["channel-rewards.html", "Channel Rewards"], ["chat.html", "Chat"], ["streamerbot.html", "Streamer.bot"], ["stream-deck.html", "Stream Deck Plugin"], ["tts.html", "TTS Setup"], ["translators.html", "Translators"], ["manage-sources.html", "Storage"], ["settings.html", "Settings"]]],
             ["Reference", [["platform-events.html", "Platform Events"], ["actions-reference.html", "Action Reference"], ["connector-actions.html", "Connector Actions"], ["variables.html", "Variables"], ["klipy.html", "KLIPY Media"], ["user-groups.html", "User Groups"]]],
             ["Components", [["component-overlay.html", "Overlay"], ["component-box.html", "Box"], ["component-add-trigger.html", "Binding Editor"], ["component-add-source-dialog.html", "Source Controls"], ["component-if-else-control.html", "IF/Else Control"], ["component-argument-control.html", "Argument Control"]]],
             ["Learn", [["examples.html", "Examples"], ["troubleshooting.html", "Troubleshooting"]]]

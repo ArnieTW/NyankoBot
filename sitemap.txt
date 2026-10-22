@@ -15,6 +15,7 @@ https://arnietw.github.io/NyankoBot/docs/variables.html
 https://arnietw.github.io/NyankoBot/docs/klipy.html
 https://arnietw.github.io/NyankoBot/docs/user-groups.html
 https://arnietw.github.io/NyankoBot/docs/command-triggers.html
+https://arnietw.github.io/NyankoBot/docs/stream-deck.html
 https://arnietw.github.io/NyankoBot/docs/channel-rewards.html
 https://arnietw.github.io/NyankoBot/docs/chat.html
 https://arnietw.github.io/NyankoBot/docs/streamerbot.html

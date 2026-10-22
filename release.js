@@ -2,7 +2,7 @@
     const owner = "ArnieTW";
     const repo = "NyankoBot";
     const allReleasesUrl = `https://github.com/${owner}/${repo}/releases`;
-    const releasesApiUrl = `https://api.github.com/repos/${owner}/${repo}/releases?per_page=20`;
+    const releasesApiUrl = `https://api.github.com/repos/${owner}/${repo}/releases?per_page=100`;
     const fallbackUrl = allReleasesUrl;
 
     const selectors = {
@@ -174,7 +174,62 @@
     }
 
     function selectAppRelease(releases) {
-        return (Array.isArray(releases) ? releases : []).find((release) => !isRuntimeRelease(release));
+        return sortHighestVersion(releases).find((release) => !isRuntimeRelease(release));
+    }
+
+    function parseVersion(release) {
+        const label = String(release?.tag_name || release?.name || "");
+        const match = /(?:^|[^0-9])v?(\d+)\.(\d+)\.(\d+)(?:-([0-9A-Za-z.-]+))?/i.exec(label);
+        return match
+            ? { numbers: match.slice(1, 4).map(Number), prerelease: match[4]?.split(".") || [] }
+            : null;
+    }
+
+    function compareVersions(left, right) {
+        if (!left) return right ? -1 : 0;
+        if (!right) return 1;
+        for (let index = 0; index < 3; index += 1) {
+            if (left.numbers[index] !== right.numbers[index]) {
+                return left.numbers[index] - right.numbers[index];
+            }
+        }
+        if (!left.prerelease.length) return right.prerelease.length ? 1 : 0;
+        if (!right.prerelease.length) return -1;
+        for (let index = 0; index < Math.max(left.prerelease.length, right.prerelease.length); index += 1) {
+            const a = left.prerelease[index];
+            const b = right.prerelease[index];
+            if (a === undefined) return -1;
+            if (b === undefined) return 1;
+            const numericA = /^\d+$/.test(a);
+            const numericB = /^\d+$/.test(b);
+            if (numericA && numericB && Number(a) !== Number(b)) return Number(a) - Number(b);
+            if (numericA !== numericB) return numericA ? -1 : 1;
+            if (a !== b) return a.localeCompare(b);
+        }
+        return 0;
+    }
+
+    function sortHighestVersion(releases) {
+        return [...(Array.isArray(releases) ? releases : [])].sort((a, b) =>
+            compareVersions(parseVersion(b), parseVersion(a))
+            || (Date.parse(b?.published_at || "") || 0) - (Date.parse(a?.published_at || "") || 0));
+    }
+
+    function applyPluginRelease(releases) {
+        const pluginRelease = sortHighestVersion(releases).find((release) =>
+            findAsset(release, /\.streamDeckPlugin$/i));
+        if (!pluginRelease) {
+            return;
+        }
+
+        const asset = findAsset(pluginRelease, /\.streamDeckPlugin$/i);
+        const checksum = findAsset(pluginRelease, /^SHA256SUMS-streamdeck.*\.txt$/i);
+        const size = formatBytes(asset.size);
+        setText("[data-plugin-version]", pluginRelease.tag_name || pluginRelease.name || "Stream Deck plugin");
+        setText("[data-plugin-filename]", `${asset.name}${size ? ` · ${size}` : ""}`);
+        setHref("[data-plugin-download]", asset.browser_download_url);
+        setHref("[data-plugin-checksum]", checksum?.browser_download_url || pluginRelease.html_url || allReleasesUrl);
+        setText("[data-plugin-checksum]", checksum ? "Download plugin checksum" : "View plugin release");
     }
 
     function findChecksumAsset(release) {
@@ -196,7 +251,7 @@
             const buttonText = asset ? "Download" : "Open GitHub";
             const meta = asset
                 ? `${escapeHtml(asset.name)}${size ? ` · ${escapeHtml(size)}` : ""}`
-                : "No matching asset was found on the latest release.";
+                : "No matching asset was found on the highest version release.";
 
             return `
                 <article class="panel download-card${disabledClass}">
@@ -288,12 +343,14 @@
                 throw new Error(`GitHub returned ${response.status}`);
             }
 
-            const release = selectAppRelease(await response.json());
+            const releases = await response.json();
+            const release = selectAppRelease(releases);
             if (!release) {
                 throw new Error("No app release was found.");
             }
 
             applyRelease(release);
+            applyPluginRelease(releases);
         } catch (error) {
             applyFallback();
         }

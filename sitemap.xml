@@ -97,6 +97,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://arnietw.github.io/NyankoBot/docs/stream-deck.html</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://arnietw.github.io/NyankoBot/docs/channel-rewards.html</loc>
     <lastmod>2026-10-07</lastmod>
     <changefreq>weekly</changefreq>

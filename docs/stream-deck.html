@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NyankoBot Stream Deck Plugin Setup</title>
+    <link rel="icon" type="image/png" href="../assets/ArnieTW_Mischevous.png" />
+    <meta name="description" content="Download and set up the unofficial NyankoBot Stream Deck plugin to run saved Command Triggers from a key." />
+    <link rel="canonical" href="https://arnietw.github.io/NyankoBot/docs/stream-deck.html" />
+    <meta property="og:title" content="NyankoBot Stream Deck Plugin Setup" />
+    <meta property="og:description" content="Install the unofficial plugin and configure a Stream Deck key to fire a NyankoBot Command Trigger." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://arnietw.github.io/NyankoBot/docs/stream-deck.html" />
+    <meta property="og:image" content="https://arnietw.github.io/NyankoBot/assets/ArnieTW_Mischevous.png" />
+    <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+    <div class="page">
+        <nav class="nav" aria-label="Main navigation"><a class="brand" href="../index.html"><img class="brand-logo" src="../assets/ArnieTW_Mischevous.png" alt="" /><span>NyankoBot</span></a><div class="nav-links"><a href="index.html">Documentation</a><a href="../roadmap.html">Roadmap</a><a href="https://github.com/ArnieTW/NyankoBot/issues">Issues</a><a href="../releases/">Downloads</a></div></nav>
+        <main class="docs-layout">
+            <aside class="tree-nav" aria-label="Documentation navigation"><nav class="tree-control" aria-label="Documentation tree"><a class="tree-item root" href="index.html">Overview</a><a class="tree-item root" href="download-install.html">Download &amp; Install</a><a class="tree-item root active" href="stream-deck.html" aria-current="page">Stream Deck Plugin</a><a class="tree-item nested" href="#install">Install</a><a class="tree-item nested" href="#configure">Configure a key</a><a class="tree-item nested" href="#payload">Payload JSON</a><a class="tree-item nested" href="#troubleshooting">Troubleshooting</a></nav></aside>
+            <article class="doc-content">
+                <section><p class="kicker">Optional add-on</p><h1>Stream Deck Plugin</h1><p class="lead">The unofficial NyankoBot plugin adds a <code>Command Trigger</code> action to Stream Deck. Pressing its key runs a saved NyankoBot trigger, including its actions and any overlay bindings.</p></section>
+                <section class="panel" id="install"><h2>Download and install</h2>
+                    <p>The plugin is a separate download below the NyankoBot app builds on the <a href="../releases/#stream-deck-plugin">Downloads page</a>. It is distributed directly through GitHub Releases, not through the Elgato Marketplace.</p>
+                    <ol class="step-list"><li>Install and run NyankoBot. Create at least one enabled <a href="command-triggers.html">Command Trigger</a> with the actions or overlay binding you want the key to run.</li><li>Download the <code>.streamDeckPlugin</code> file from the Downloads page. The current package was released with NyankoBot 0.6.10; use the newest version shown there.</li><li>Open the downloaded file to install it in the Stream Deck app. Look for the <code>NyankoBot</code> category and its <code>Command Trigger</code> action.</li></ol>
+                    <p>The plugin manifest requires Stream Deck 7.1 or newer on Windows 10+ or macOS 12+. NyankoBot itself must be running on a computer the Stream Deck app can reach. A Streamer.bot connector is not required for this plugin.</p>
+                </section>
+                <section class="panel" id="configure"><h2>Configure a key</h2>
+                    <ol class="step-list"><li>Drag <code>NyankoBot → Command Trigger</code> onto a Stream Deck key.</li><li>In the property inspector, choose an entry under <code>NyankoBot URLs</code>. <code>Local NyankoBot (http://localhost:5055)</code> works when both apps run on the same computer. For another computer, open that menu, select <code>Create new Connection</code>, enter a name and a NyankoBot URL reachable from the Stream Deck computer, then select <code>Save Connection</code>.</li><li>Use the refresh button beside the URL selector. The <code>Trigger</code> menu loads enabled Command Triggers from that NyankoBot instance.</li><li>Choose a trigger. Select <code>Use Defaults</code> to load its suggested payload, adjust the JSON if needed, then select <code>Save</code>.</li><li>Press the key. A checkmark indicates the request succeeded; an alert indicates it failed. Check the trigger's <code>History</code> in NyankoBot for the run and its actions.</li></ol>
+                    <a href="../assets/screenshots/stream-deck-command-trigger.png"><img class="screenshot" src="../assets/screenshots/stream-deck-command-trigger.png" alt="Illustration of the NyankoBot Command Trigger action, URL selector, trigger menu, and payload JSON in Stream Deck" /></a>
+                </section>
+                <section class="panel" id="payload"><h2>Payload JSON</h2>
+                    <p><code>Payload JSON</code> is an object whose fields become inputs for the trigger. Use <code>{}</code> when no extra values are needed. For example, <code>{"text":"Hello from Stream Deck"}</code> supplies <code>{{text}}</code> to later actions and overlay items. <code>Use Defaults</code> fills an example based on the selected trigger's actions, variables, and overlay sources.</p>
+                    <p>After changing the payload, select <code>Save</code>. The plugin keeps the selected trigger and payload on that key. The connection manager can save multiple NyankoBot URLs so different keys can target different instances.</p>
+                    <a href="../assets/screenshots/stream-deck-connections.png"><img class="screenshot" src="../assets/screenshots/stream-deck-connections.png" alt="Illustration of saved NyankoBot URLs and the Stream Deck connection editor" /></a>
+                </section>
+                <section class="panel" id="troubleshooting"><h2>If a key does not work</h2>
+                    <ul><li><strong>No triggers in the menu:</strong> confirm NyankoBot is running, the selected URL is correct, and the saved Command Trigger is enabled. Then refresh the list.</li><li><strong>Key shows an alert:</strong> confirm the URL is reachable from the Stream Deck computer, the trigger is still enabled, and <code>Payload JSON</code> is a valid object. Check NyankoBot trigger History and logs for the returned error.</li><li><strong>Actions run but nothing appears on stream:</strong> open the correct overlay in OBS and check that the trigger is attached to a binding with a displayable item.</li></ul>
+                    <p>The plugin calls NyankoBot directly. For general app setup, use <a href="download-install.html">Download &amp; Install</a>; for action and binding behavior, use <a href="actions-reference.html">Action Reference</a> and <a href="component-add-trigger.html">Binding Editor</a>.</p>
+                </section>
+            </article>
+        </main>
+    </div>
+    <script src="../docs-nav.js"></script>
+</body>
+</html>
